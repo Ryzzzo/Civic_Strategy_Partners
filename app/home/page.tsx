@@ -13,9 +13,14 @@ export default function HomePage() {
   });
 
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
+  const [mounted, setMounted] = useState(false);
   const heroStatsRef = useRef<HTMLDivElement>(null);
   const servicesRef = useRef<HTMLDivElement>(null);
   const credentialsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -170,7 +175,7 @@ export default function HomePage() {
           }}></div>
         </div>
 
-        {[...Array(80)].map((_, i) => (
+        {mounted && [...Array(80)].map((_, i) => (
           <div
             key={i}
             className="particle"
@@ -423,7 +428,7 @@ export default function HomePage() {
       </section>
 
       <section id="contact" className="relative py-32 bg-gradient-to-b from-[#1e3a8a] to-[#0a1628] overflow-hidden">
-        {[...Array(40)].map((_, i) => (
+        {mounted && [...Array(40)].map((_, i) => (
           <div
             key={i}
             className="particle"
