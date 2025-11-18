@@ -16,6 +16,7 @@ export default function HomePage() {
   const statsRef = useRef<HTMLDivElement>(null);
   const servicesRef = useRef<HTMLDivElement>(null);
   const aboutRef = useRef<HTMLDivElement>(null);
+  const processRef = useRef<HTMLDivElement>(null);
   const testimonialsRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLDivElement>(null);
 
@@ -31,7 +32,7 @@ export default function HomePage() {
       { threshold: 0.1, rootMargin: '50px' }
     );
 
-    const elements = [statsRef.current, servicesRef.current, aboutRef.current, testimonialsRef.current, videoRef.current];
+    const elements = [statsRef.current, servicesRef.current, aboutRef.current, processRef.current, testimonialsRef.current, videoRef.current];
     elements.forEach((el) => el && observer.observe(el));
 
     return () => observer.disconnect();
@@ -43,9 +44,9 @@ export default function HomePage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0D0D0D]">
+    <div className="min-h-screen bg-white">
       <style jsx global>{`
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
         * {
           font-family: 'Inter', sans-serif;
@@ -80,16 +81,16 @@ export default function HomePage() {
         }
 
         .btn-primary {
-          background: #8B0000;
+          background: #991B1B;
           color: #FFFFFF;
           transition: all 250ms ease;
           border: none;
         }
 
         .btn-primary:hover {
-          background: #A31621;
+          background: #B91C1C;
           transform: translateY(-2px);
-          box-shadow: 0 4px 12px rgba(139, 0, 0, 0.4);
+          box-shadow: 0 6px 20px rgba(153, 27, 27, 0.3);
         }
 
         .btn-secondary {
@@ -105,14 +106,24 @@ export default function HomePage() {
         }
 
         .service-card {
-          background: #2D2D2D;
-          border: 1px solid transparent;
+          background: white;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06);
           transition: all 300ms ease;
         }
 
         .service-card:hover {
-          border-color: #C9A227;
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1), 0 4px 10px rgba(0, 0, 0, 0.06);
           transform: translateY(-4px);
+        }
+
+        .process-card {
+          background: white;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+          transition: all 300ms ease;
+        }
+
+        .process-card:hover {
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
 
         .input-field {
@@ -156,7 +167,7 @@ export default function HomePage() {
             </p>
 
             <h1
-              className="text-5xl sm:text-6xl lg:text-7xl font-black text-white mb-8 leading-tight fade-in"
+              className="text-5xl sm:text-6xl font-bold text-white mb-8 leading-tight fade-in"
               style={{ animationDelay: '0.3s' }}
             >
               Expert Guidance for Federal Market Success
@@ -164,7 +175,7 @@ export default function HomePage() {
 
             <p
               className="text-xl text-[#9CA3AF] mb-12 leading-relaxed fade-in"
-              style={{ animationDelay: '0.4s' }}
+              style={{ animationDelay: '0.4s', lineHeight: '1.7' }}
             >
               Strategic consulting to help businesses win and perform on federal contracts. Led by a Marine Corps veteran with proven success in government procurement.
             </p>
@@ -175,13 +186,13 @@ export default function HomePage() {
             >
               <a
                 href="#contact"
-                className="btn-primary inline-flex items-center justify-center font-bold px-10 py-4 rounded-md text-base w-full sm:w-auto"
+                className="btn-primary inline-flex items-center justify-center font-bold px-10 py-4 rounded-lg text-base w-full sm:w-auto"
               >
                 Schedule Consultation
               </a>
               <a
                 href="#services"
-                className="btn-secondary inline-flex items-center justify-center font-bold px-10 py-4 rounded-md text-base w-full sm:w-auto"
+                className="btn-secondary inline-flex items-center justify-center font-bold px-10 py-4 rounded-lg text-base w-full sm:w-auto"
               >
                 View Services
               </a>
@@ -192,7 +203,7 @@ export default function HomePage() {
 
       <section id="stats" ref={statsRef} className="py-16 bg-[#1A1A1A] border-y border-[#2D2D2D]">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
             {[
               { value: '$500M+', label: 'Proposals Supported', delay: 0 },
               { value: '14+', label: 'Years Federal Experience', delay: 0.1 },
@@ -203,7 +214,7 @@ export default function HomePage() {
                 className={`${visibleSections.has('stats') ? 'fade-in-up' : 'opacity-0'}`}
                 style={{ animationDelay: `${stat.delay}s` }}
               >
-                <p className="text-5xl font-black text-[#C9A227] mb-2">
+                <p className="text-5xl font-bold text-[#C9A227] mb-2">
                   {stat.value}
                 </p>
                 <p className="text-sm font-semibold uppercase tracking-wider text-[#9CA3AF]">
@@ -215,22 +226,22 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="services" ref={servicesRef} className="py-24 bg-[#0D0D0D]">
+      <section id="services" ref={servicesRef} className="py-20 bg-[#F9FAFB]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className={`text-4xl sm:text-5xl font-black text-white mb-6 ${
+            <h2 className={`text-4xl sm:text-5xl font-bold text-[#1F2937] mb-6 ${
               visibleSections.has('services') ? 'fade-in-up' : 'opacity-0'
             }`}>
               Strategic Services
             </h2>
-            <p className={`text-lg text-[#9CA3AF] max-w-2xl mx-auto ${
+            <p className={`text-lg text-[#6B7280] max-w-2xl mx-auto ${
               visibleSections.has('services') ? 'fade-in-up' : 'opacity-0'
-            }`} style={{ animationDelay: '0.1s' }}>
+            }`} style={{ animationDelay: '0.1s', lineHeight: '1.7' }}>
               Comprehensive support for every stage of federal contracting
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
                 title: 'Proposal Development',
@@ -255,15 +266,18 @@ export default function HomePage() {
             ].map((service, i) => (
               <div
                 key={i}
-                className={`service-card rounded-lg p-8 ${
+                className={`service-card rounded-xl p-8 ${
                   visibleSections.has('services') ? 'fade-in-up' : 'opacity-0'
                 }`}
                 style={{ animationDelay: `${service.delay}s` }}
               >
-                <h3 className="text-xl font-bold text-white mb-3 leading-tight">
+                <div className="w-12 h-12 mb-6 flex items-center justify-center bg-[#991B1B] rounded-lg">
+                  <div className="w-6 h-6 bg-white rounded"></div>
+                </div>
+                <h3 className="text-xl font-bold text-[#1F2937] mb-3 leading-tight">
                   {service.title}
                 </h3>
-                <p className="text-sm text-[#9CA3AF] leading-relaxed">
+                <p className="text-sm text-[#6B7280] leading-relaxed" style={{ lineHeight: '1.6' }}>
                   {service.description}
                 </p>
               </div>
@@ -272,24 +286,24 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="about" ref={aboutRef} className="py-24 bg-[#1A1A1A]">
+      <section id="about" ref={aboutRef} className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <div className={`border-l-4 border-[#8B0000] pl-6 mb-8 ${
+              <div className={`border-l-4 border-[#991B1B] pl-6 mb-8 ${
                 visibleSections.has('about') ? 'fade-in-up' : 'opacity-0'
               }`}>
                 <p className="text-[#C9A227] text-sm font-bold uppercase tracking-widest mb-4">
                   About Civic Strategy Partners
                 </p>
-                <h2 className="text-4xl font-black text-white mb-6">
+                <h2 className="text-4xl font-bold text-[#1F2937] mb-6">
                   Marine Discipline.<br />Federal Expertise.
                 </h2>
               </div>
 
-              <div className={`space-y-6 text-base text-[#F5F5F5] leading-relaxed ${
+              <div className={`space-y-6 text-base text-[#374151] leading-relaxed ${
                 visibleSections.has('about') ? 'fade-in-up' : 'opacity-0'
-              }`} style={{ animationDelay: '0.2s' }}>
+              }`} style={{ animationDelay: '0.2s', lineHeight: '1.7' }}>
                 <p>
                   Led by a United States Marine Corps veteran, Civic Strategy Partners brings military precision and strategic thinking to federal contracting. We've helped businesses of all sizes navigate the complexities of government procurement—from initial registration to multi-million dollar contract awards.
                 </p>
@@ -303,8 +317,8 @@ export default function HomePage() {
               }`} style={{ animationDelay: '0.3s' }}>
                 {['SDVOSB Certified', 'SAM.gov Registration Expert', 'DCAA Compliant Systems'].map((item, i) => (
                   <div key={i} className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-[#C9A227]"></div>
-                    <span className="text-sm font-semibold text-[#F5F5F5]">{item}</span>
+                    <div className="w-2 h-2 bg-[#C9A227] rounded-full"></div>
+                    <span className="text-sm font-semibold text-[#1F2937]">{item}</span>
                   </div>
                 ))}
               </div>
@@ -313,9 +327,9 @@ export default function HomePage() {
             <div className={`${
               visibleSections.has('about') ? 'fade-in-up' : 'opacity-0'
             }`} style={{ animationDelay: '0.4s' }}>
-              <div className="bg-[#2D2D2D] border border-[#C9A227] rounded-lg aspect-square flex items-center justify-center">
+              <div className="bg-[#F3F4F6] border-2 border-[#C9A227] rounded-xl aspect-square flex items-center justify-center shadow-md">
                 <div className="text-center px-8">
-                  <p className="text-sm text-[#9CA3AF] uppercase tracking-wider">
+                  <p className="text-sm text-[#6B7280] uppercase tracking-wider">
                     Photo Coming Soon
                   </p>
                 </div>
@@ -325,10 +339,68 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="testimonials" ref={testimonialsRef} className="py-24 bg-[#0D0D0D]">
+      <section id="process" ref={processRef} className="py-20 bg-[#F9FAFB]">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className={`text-4xl sm:text-5xl font-bold text-[#1F2937] mb-6 ${
+              visibleSections.has('process') ? 'fade-in-up' : 'opacity-0'
+            }`}>
+              How We Work
+            </h2>
+            <p className={`text-lg text-[#6B7280] max-w-2xl mx-auto ${
+              visibleSections.has('process') ? 'fade-in-up' : 'opacity-0'
+            }`} style={{ animationDelay: '0.1s', lineHeight: '1.7' }}>
+              A proven process to guide you from opportunity to award
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                step: '01',
+                title: 'Capture',
+                description: 'Identify opportunities aligned with your capabilities and build winning relationships',
+                delay: 0
+              },
+              {
+                step: '02',
+                title: 'Proposal',
+                description: 'Develop compelling, compliant proposals that demonstrate clear value to the government',
+                delay: 0.1
+              },
+              {
+                step: '03',
+                title: 'Compliance',
+                description: 'Ensure ongoing FAR compliance and maintain audit-ready systems for contract performance',
+                delay: 0.2
+              }
+            ].map((item, i) => (
+              <div
+                key={i}
+                className={`process-card rounded-xl p-8 ${
+                  visibleSections.has('process') ? 'fade-in-up' : 'opacity-0'
+                }`}
+                style={{ animationDelay: `${item.delay}s` }}
+              >
+                <div className="text-6xl font-bold text-[#C9A227] mb-4 opacity-20">
+                  {item.step}
+                </div>
+                <h3 className="text-2xl font-bold text-[#1F2937] mb-3">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-[#6B7280] leading-relaxed" style={{ lineHeight: '1.6' }}>
+                  {item.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="testimonials" ref={testimonialsRef} className="py-20 bg-[#1A1A1A]">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className={`text-4xl sm:text-5xl font-black text-white mb-6 ${
+            <h2 className={`text-4xl sm:text-5xl font-bold text-white mb-6 ${
               visibleSections.has('testimonials') ? 'fade-in-up' : 'opacity-0'
             }`}>
               Trusted by Federal Contractors
@@ -350,13 +422,14 @@ export default function HomePage() {
             ].map((testimonial, i) => (
               <div
                 key={i}
-                className={`bg-[#1A1A1A] border-l-4 border-[#8B0000] p-8 rounded-lg ${
+                className={`bg-[#0D0D0D] border-l-4 border-[#991B1B] p-8 rounded-lg ${
                   visibleSections.has('testimonials') ? 'fade-in-up' : 'opacity-0'
                 }`}
                 style={{ animationDelay: `${testimonial.delay}s` }}
               >
-                <p className="text-lg text-[#F5F5F5] leading-relaxed mb-6 italic">
-                  "{testimonial.quote}"
+                <div className="text-[#C9A227] text-5xl font-bold mb-4">"</div>
+                <p className="text-lg text-[#F5F5F5] leading-relaxed mb-6" style={{ lineHeight: '1.7' }}>
+                  {testimonial.quote}
                 </p>
                 <p className="text-sm font-bold text-[#C9A227] uppercase tracking-wider">
                   {testimonial.author}
@@ -367,16 +440,16 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="video" ref={videoRef} className="py-24 bg-[#1A1A1A]">
+      <section id="video" ref={videoRef} className="py-20 bg-white">
         <div className="max-w-5xl mx-auto px-6">
-          <div className={`bg-[#0D0D0D] border-2 border-[#2D2D2D] rounded-lg aspect-video flex items-center justify-center ${
+          <div className={`bg-[#F3F4F6] border border-[#E5E7EB] rounded-xl aspect-video flex items-center justify-center shadow-md ${
             visibleSections.has('video') ? 'fade-in-up' : 'opacity-0'
           }`}>
             <div className="text-center px-8">
-              <div className="w-20 h-20 rounded-full bg-[#8B0000] flex items-center justify-center mb-4 mx-auto">
+              <div className="w-20 h-20 rounded-full bg-[#991B1B] flex items-center justify-center mb-4 mx-auto shadow-lg">
                 <div className="w-0 h-0 border-l-[16px] border-l-white border-y-[12px] border-y-transparent ml-1"></div>
               </div>
-              <p className="text-lg font-bold text-white uppercase tracking-wider">
+              <p className="text-lg font-bold text-[#1F2937] uppercase tracking-wider">
                 Video Coming Soon
               </p>
             </div>
@@ -384,18 +457,18 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="contact" className="py-24 bg-[#0D0D0D]">
+      <section id="contact" className="py-20 bg-[#0D0D0D]">
         <div className="max-w-3xl mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-4xl sm:text-5xl font-black text-white mb-6">
+            <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
               Ready to Win Federal Contracts?
             </h2>
-            <p className="text-lg text-[#9CA3AF]">
+            <p className="text-lg text-[#9CA3AF]" style={{ lineHeight: '1.7' }}>
               Schedule a free consultation to discuss your federal contracting goals
             </p>
           </div>
 
-          <div className="bg-[#1A1A1A] border border-[#2D2D2D] rounded-lg p-10">
+          <div className="bg-[#1A1A1A] border border-[#2D2D2D] rounded-xl p-10 shadow-xl">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <input
@@ -404,7 +477,7 @@ export default function HomePage() {
                   value={formData.name}
                   onChange={(e) => setFormData({...formData, name: e.target.value})}
                   placeholder="Full Name"
-                  className="input-field w-full px-4 py-3 rounded-md text-base"
+                  className="input-field w-full px-4 py-3 rounded-lg text-base"
                 />
               </div>
 
@@ -415,7 +488,7 @@ export default function HomePage() {
                   value={formData.email}
                   onChange={(e) => setFormData({...formData, email: e.target.value})}
                   placeholder="Email Address"
-                  className="input-field w-full px-4 py-3 rounded-md text-base"
+                  className="input-field w-full px-4 py-3 rounded-lg text-base"
                 />
                 <input
                   type="tel"
@@ -423,7 +496,7 @@ export default function HomePage() {
                   value={formData.phone}
                   onChange={(e) => setFormData({...formData, phone: e.target.value})}
                   placeholder="Phone Number"
-                  className="input-field w-full px-4 py-3 rounded-md text-base"
+                  className="input-field w-full px-4 py-3 rounded-lg text-base"
                 />
               </div>
 
@@ -434,7 +507,7 @@ export default function HomePage() {
                   value={formData.company}
                   onChange={(e) => setFormData({...formData, company: e.target.value})}
                   placeholder="Company Name"
-                  className="input-field w-full px-4 py-3 rounded-md text-base"
+                  className="input-field w-full px-4 py-3 rounded-lg text-base"
                 />
               </div>
 
@@ -445,13 +518,13 @@ export default function HomePage() {
                   onChange={(e) => setFormData({...formData, message: e.target.value})}
                   rows={5}
                   placeholder="Tell us about your federal contracting needs..."
-                  className="input-field w-full px-4 py-3 rounded-md text-base resize-none"
+                  className="input-field w-full px-4 py-3 rounded-lg text-base resize-none"
                 />
               </div>
 
               <button
                 type="submit"
-                className="btn-primary w-full font-bold px-10 py-4 rounded-md text-base"
+                className="btn-primary w-full font-bold px-10 py-4 rounded-lg text-base"
               >
                 Submit Consultation Request
               </button>
@@ -472,11 +545,12 @@ export default function HomePage() {
 
       <footer className="bg-[#000000] border-t border-[#2D2D2D] py-12">
         <div className="max-w-7xl mx-auto px-6">
+          <div className="border-t border-[#C9A227] mb-6"></div>
           <div className="text-center mb-6">
-            <h3 className="text-2xl font-black text-white mb-2">
+            <h3 className="text-2xl font-bold text-white mb-2">
               CIVIC STRATEGY PARTNERS
             </h3>
-            <p className="text-sm text-[#6B7280] mb-1">
+            <p className="text-sm text-[#9CA3AF] mb-1">
               Expert guidance for federal market success
             </p>
             <p className="text-xs text-[#6B7280]">
