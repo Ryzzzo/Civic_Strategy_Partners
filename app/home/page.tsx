@@ -66,9 +66,7 @@ export default function HomePage() {
 
   return (
     <div className="bg-[#0f172a] text-white">
-      <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-
-      <style dangerouslySetInnerHTML={{__html: "* { margin: 0; padding: 0; box-sizing: border-box; } html { scroll-behavior: smooth; } body { font-family: 'Inter', sans-serif; overflow-x: hidden; } .playfair { font-family: 'Playfair Display', serif; } @keyframes gradient-shift { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } } @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } } .animate-fade-up { animation: fadeInUp 0.8s ease-out forwards; } .glassmorphism { background: rgba(30, 41, 59, 0.4); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(226, 232, 240, 0.1); } .gradient-bg { background: linear-gradient(-45deg, #0f172a, #1e293b, #0f172a, #334155); background-size: 400% 400%; animation: gradient-shift 30s ease infinite; } .gold-gradient-text { background: linear-gradient(135deg, #d4af37 0%, #f4e4a6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }"}} />
+      <style dangerouslySetInnerHTML={{__html: "* { margin: 0; padding: 0; box-sizing: border-box; } html { scroll-behavior: smooth; } body { overflow-x: hidden; } .playfair { font-family: var(--font-playfair); } @keyframes gradient-shift { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } } @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } } .animate-fade-up { animation: fadeInUp 0.8s ease-out forwards; } .glassmorphism { background: rgba(30, 41, 59, 0.4); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(226, 232, 240, 0.1); } .gradient-bg { background: linear-gradient(-45deg, #0f172a, #1e293b, #0f172a, #334155); background-size: 400% 400%; animation: gradient-shift 30s ease infinite; } .gold-gradient-text { background: linear-gradient(135deg, #d4af37 0%, #f4e4a6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }"}} />
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
           ? 'bg-[#0f172a]/95 backdrop-blur-md shadow-lg border-b border-[#334155]/30'
@@ -138,7 +136,7 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNDAgMTAgTSAxMCAwIEwgMTAgNDAgTSAwIDIwIEwgNDAgMjAgTSAyMCAwIEwgMjAgNDAgTSAwIDMwIEwgNDAgMzAgTSAzMCAwIEwgMzAgNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjAyKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-30"></div>
 
         <div className="relative max-w-6xl mx-auto px-6 lg:px-12 text-center z-10">
-          <div className="animate-fade-up" style={{ animationDelay: '0.1s', opacity: 0 }}>
+          <div className="animate-fade-up" style={{ animationDelay: '0.1s' }}>
             <p className="text-[#94a3b8] text-sm uppercase tracking-widest mb-8 font-medium">
               Marine-Owned. Mission-Driven. Federal-Focused.
             </p>
@@ -146,7 +144,7 @@ export default function HomePage() {
 
           <h1
             className="playfair text-6xl sm:text-7xl lg:text-[96px] font-bold leading-[1.1] mb-8 tracking-tight animate-fade-up"
-            style={{ animationDelay: '0.2s', opacity: 0 }}
+            style={{ animationDelay: '0.2s' }}
           >
             Expert Guidance for<br />
             <span className="gold-gradient-text">Federal Market</span> Success
@@ -154,12 +152,12 @@ export default function HomePage() {
 
           <p
             className="text-[#e2e8f0] text-lg sm:text-xl max-w-2xl mx-auto mb-12 leading-relaxed font-light animate-fade-up"
-            style={{ animationDelay: '0.3s', opacity: 0, lineHeight: '1.7' }}
+            style={{ animationDelay: '0.3s', lineHeight: '1.7' }}
           >
             Strategic consulting to help businesses win and perform on federal contracts with military precision and proven methodologies.
           </p>
 
-          <div className="animate-fade-up" style={{ animationDelay: '0.4s', opacity: 0 }}>
+          <div className="animate-fade-up" style={{ animationDelay: '0.4s' }}>
             <a
               href="mailto:kevin@civicstrategypartners.com?subject=Consultation Request"
               className="inline-block bg-[#d4af37] hover:bg-[#c4a027] text-[#0f172a] px-10 py-4 rounded-lg font-bold text-lg transition-all hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#d4af37]/30"
