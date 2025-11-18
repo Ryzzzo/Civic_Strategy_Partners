@@ -153,7 +153,7 @@ export default function Home() {
 
       {/* Hero Section */}
       <section
-        className="flex items-center justify-center px-6"
+        className="flex items-center justify-center px-6 bg-white"
         style={{ minHeight: 'calc(100vh - 72px)', marginTop: '72px' }}
       >
         <div className="text-center" style={{ maxWidth: '800px' }}>
@@ -192,54 +192,73 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services Section */}
-      <section id="services" className="py-24 md:py-32 lg:py-[120px] px-6">
-        <div className="max-w-[1200px] mx-auto">
-          <h2 className="text-[36px] font-semibold text-[#0F172A] mb-16 text-center" style={{ fontWeight: 600 }}>
+      {/* Wave Divider - Top of Services */}
+      <div className="relative">
+        <svg className="w-full h-16 md:h-20" viewBox="0 0 1200 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path d="M0,40 Q300,0 600,40 T1200,40 L1200,80 L0,80 Z" fill="url(#gradient1)" />
+          <defs>
+            <linearGradient id="gradient1" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#1e3a5f" />
+              <stop offset="100%" stopColor="#2d4a6f" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
+      {/* Services Section - Navy Gradient */}
+      <section
+        id="services"
+        className="py-24 md:py-32 lg:py-[120px] px-6 relative"
+        style={{
+          background: 'linear-gradient(to bottom, #1e3a5f 0%, #2d4a6f 100%)'
+        }}
+      >
+        <div className="max-w-[1200px] mx-auto relative z-10">
+          <h2 className="text-[36px] font-semibold text-white mb-16 text-center" style={{ fontWeight: 600 }}>
             Services
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
             <div>
-              <h3 className="text-[24px] font-semibold text-[#0F172A] mb-4" style={{ fontWeight: 600 }}>
+              <h3 className="text-[24px] font-semibold text-white mb-4" style={{ fontWeight: 600 }}>
                 GSA Schedule Consulting
               </h3>
-              <p className="text-[16px] text-[#4B5563] mb-4" style={{ lineHeight: '1.7' }}>
+              <p className="text-white/90 text-[16px] mb-4" style={{ lineHeight: '1.7' }}>
                 Help companies get on GSA MAS and start selling to federal agencies. We guide you through the application process and position you for success.
               </p>
               <a
                 href="mailto:kevin@civicstrategypartners.com?subject=GSA Schedule Consulting Inquiry"
-                className="text-[#1E3A8F] text-[16px] font-medium hover:text-[#1E40AF]"
+                className="text-white/80 text-[16px] font-medium hover:text-white"
               >
                 Learn more →
               </a>
             </div>
 
             <div>
-              <h3 className="text-[24px] font-semibold text-[#0F172A] mb-4" style={{ fontWeight: 600 }}>
+              <h3 className="text-[24px] font-semibold text-white mb-4" style={{ fontWeight: 600 }}>
                 Business Development
               </h3>
-              <p className="text-[16px] text-[#4B5563] mb-4" style={{ lineHeight: '1.7' }}>
+              <p className="text-white/90 text-[16px] mb-4" style={{ lineHeight: '1.7' }}>
                 Strategic BD support to identify and win federal contract opportunities. We help you build a pipeline and develop winning strategies.
               </p>
               <a
                 href="mailto:kevin@civicstrategypartners.com?subject=Business Development Inquiry"
-                className="text-[#1E3A8F] text-[16px] font-medium hover:text-[#1E40AF]"
+                className="text-white/80 text-[16px] font-medium hover:text-white"
               >
                 Learn more →
               </a>
             </div>
 
             <div>
-              <h3 className="text-[24px] font-semibold text-[#0F172A] mb-4" style={{ fontWeight: 600 }}>
+              <h3 className="text-[24px] font-semibold text-white mb-4" style={{ fontWeight: 600 }}>
                 Contract Coaching
               </h3>
-              <p className="text-[16px] text-[#4B5563] mb-4" style={{ lineHeight: '1.7' }}>
+              <p className="text-white/90 text-[16px] mb-4" style={{ lineHeight: '1.7' }}>
                 Advisory services for companies navigating the federal marketplace. Get expert guidance on compliance, strategy, and execution.
               </p>
               <a
                 href="mailto:kevin@civicstrategypartners.com?subject=Contract Coaching Inquiry"
-                className="text-[#1E3A8F] text-[16px] font-medium hover:text-[#1E40AF]"
+                className="text-white/80 text-[16px] font-medium hover:text-white"
               >
                 Learn more →
               </a>
@@ -248,8 +267,21 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About Section */}
-      <section id="about" className="py-24 md:py-32 lg:py-[120px] px-6 bg-[#F9FAFB]">
+      {/* Wave Divider - Bottom of Services */}
+      <div className="relative">
+        <svg className="w-full h-16 md:h-20" viewBox="0 0 1200 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path d="M0,0 L0,40 Q300,80 600,40 T1200,40 L1200,0 Z" fill="url(#gradient2)" />
+          <defs>
+            <linearGradient id="gradient2" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#2d4a6f" />
+              <stop offset="100%" stopColor="#1e3a5f" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
+      {/* About Section - White */}
+      <section id="about" className="py-24 md:py-32 lg:py-[120px] px-6 bg-white">
         <div className="max-w-[1200px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-16 items-center">
             <div className="md:col-span-2">
@@ -288,41 +320,70 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Contact/CTA Section */}
-      <section id="contact" className="py-24 md:py-32 lg:py-[120px] px-6">
+      {/* Wave Divider - Top of Contact */}
+      <div className="relative">
+        <svg className="w-full h-16 md:h-20" viewBox="0 0 1200 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path d="M0,40 Q300,0 600,40 T1200,40 L1200,80 L0,80 Z" fill="url(#gradient3)" />
+          <defs>
+            <linearGradient id="gradient3" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#1e3a5f" />
+              <stop offset="100%" stopColor="#2d4a6f" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
+      {/* Contact/CTA Section - Navy Gradient */}
+      <section
+        id="contact"
+        className="py-24 md:py-32 lg:py-[120px] px-6"
+        style={{
+          background: 'linear-gradient(to bottom, #1e3a5f 0%, #2d4a6f 100%)'
+        }}
+      >
         <div className="max-w-[1200px] mx-auto text-center">
-          <h2 className="text-[36px] md:text-[48px] font-semibold text-[#0F172A] mb-6" style={{ fontWeight: 600 }}>
+          <h2 className="text-[36px] md:text-[48px] font-semibold text-white mb-6" style={{ fontWeight: 600 }}>
             Ready to Enter the Federal Market?
           </h2>
 
-          <p className="text-[20px] text-[#4B5563] mb-12 max-w-[600px] mx-auto">
+          <p className="text-[20px] text-white/90 mb-12 max-w-[600px] mx-auto">
             Schedule a consultation to discuss your government contracting goals.
           </p>
 
           <a
             href="mailto:kevin@civicstrategypartners.com?subject=Consultation Request"
-            className="inline-block bg-[#1E3A8F] text-white px-8 py-4 rounded-lg text-[18px] font-medium hover:bg-[#1E40AF] mb-6"
+            className="inline-block bg-white text-[#1E3A8F] px-8 py-4 rounded-lg text-[18px] font-medium hover:bg-gray-50 mb-6"
           >
             Schedule Consultation
           </a>
 
-          <p className="text-[14px] text-[#6B7280]">
+          <p className="text-[14px] text-white/80">
             or email{' '}
-            <a href="mailto:kevin@civicstrategypartners.com" className="text-[#1E3A8F] hover:text-[#1E40AF]">
+            <a href="mailto:kevin@civicstrategypartners.com" className="text-white hover:text-white/90 underline">
               kevin@civicstrategypartners.com
             </a>
           </p>
         </div>
       </section>
 
+      {/* Wave Divider - Bottom of Contact */}
+      <div className="relative">
+        <svg className="w-full h-16 md:h-20" viewBox="0 0 1200 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path d="M0,0 L0,40 Q300,80 600,40 T1200,40 L1200,0 Z" fill="url(#gradient4)" />
+          <defs>
+            <linearGradient id="gradient4" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#2d4a6f" />
+              <stop offset="100%" stopColor="#1e3a5f" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
       {/* Footer */}
       <footer className="bg-[#F9FAFB] py-12 px-6">
-        <div className="max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="max-w-[1200px] mx-auto text-center">
           <p className="text-[14px] text-[#6B7280]">
             © 2025 Civic Strategy Partners LLC
-          </p>
-          <p className="text-[14px] text-[#6B7280]">
-            Charlotte, NC
           </p>
         </div>
       </footer>
