@@ -56,6 +56,24 @@ export default function Home() {
         button:hover {
           transform: scale(1.02);
         }
+
+        @keyframes gradient-slow {
+          0%, 100% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+        }
+
+        .animate-gradient-slow {
+          background-size: 200% 200%;
+          animation: gradient-slow 15s ease infinite;
+        }
+
+        .bg-noise {
+          background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
       `}</style>
 
       {/* Navigation */}
@@ -192,27 +210,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Wave Divider - Top of Services */}
-      <div className="relative">
-        <svg className="w-full h-16 md:h-20" viewBox="0 0 1200 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-          <path d="M0,40 Q300,0 600,40 T1200,40 L1200,80 L0,80 Z" fill="url(#gradient1)" />
-          <defs>
-            <linearGradient id="gradient1" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#1e3a5f" />
-              <stop offset="100%" stopColor="#2d4a6f" />
-            </linearGradient>
-          </defs>
-        </svg>
-      </div>
-
-      {/* Services Section - Navy Gradient */}
+      {/* Services Section - Animated Gradient */}
       <section
         id="services"
-        className="py-24 md:py-32 lg:py-[120px] px-6 relative"
-        style={{
-          background: 'linear-gradient(to bottom, #1e3a5f 0%, #2d4a6f 100%)'
-        }}
+        className="py-24 md:py-32 lg:py-[120px] px-6 relative overflow-hidden"
       >
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0B1F3F] via-[#1a1a1a] to-[#0B1F3F] animate-gradient-slow"></div>
+        <div className="absolute inset-0 opacity-[0.015] bg-noise"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(127,179,213,0.05),transparent_50%)]"></div>
+
         <div className="max-w-[1200px] mx-auto relative z-10">
           <h2 className="text-[36px] font-semibold text-white mb-16 text-center" style={{ fontWeight: 600 }}>
             Services
@@ -228,7 +234,7 @@ export default function Home() {
               </p>
               <a
                 href="mailto:kevin@civicstrategypartners.com?subject=GSA Schedule Consulting Inquiry"
-                className="text-white/80 text-[16px] font-medium hover:text-white"
+                className="text-[#93C5FD] text-[16px] font-medium hover:text-white transition-colors"
               >
                 Learn more →
               </a>
@@ -243,7 +249,7 @@ export default function Home() {
               </p>
               <a
                 href="mailto:kevin@civicstrategypartners.com?subject=Business Development Inquiry"
-                className="text-white/80 text-[16px] font-medium hover:text-white"
+                className="text-[#93C5FD] text-[16px] font-medium hover:text-white transition-colors"
               >
                 Learn more →
               </a>
@@ -258,7 +264,7 @@ export default function Home() {
               </p>
               <a
                 href="mailto:kevin@civicstrategypartners.com?subject=Contract Coaching Inquiry"
-                className="text-white/80 text-[16px] font-medium hover:text-white"
+                className="text-[#93C5FD] text-[16px] font-medium hover:text-white transition-colors"
               >
                 Learn more →
               </a>
@@ -266,19 +272,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Wave Divider - Bottom of Services */}
-      <div className="relative">
-        <svg className="w-full h-16 md:h-20" viewBox="0 0 1200 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-          <path d="M0,0 L0,40 Q300,80 600,40 T1200,40 L1200,0 Z" fill="url(#gradient2)" />
-          <defs>
-            <linearGradient id="gradient2" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#2d4a6f" />
-              <stop offset="100%" stopColor="#1e3a5f" />
-            </linearGradient>
-          </defs>
-        </svg>
-      </div>
 
       {/* About Section - White */}
       <section id="about" className="py-24 md:py-32 lg:py-[120px] px-6 bg-white">
@@ -320,28 +313,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Wave Divider - Top of Contact */}
-      <div className="relative">
-        <svg className="w-full h-16 md:h-20" viewBox="0 0 1200 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-          <path d="M0,40 Q300,0 600,40 T1200,40 L1200,80 L0,80 Z" fill="url(#gradient3)" />
-          <defs>
-            <linearGradient id="gradient3" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#1e3a5f" />
-              <stop offset="100%" stopColor="#2d4a6f" />
-            </linearGradient>
-          </defs>
-        </svg>
-      </div>
-
-      {/* Contact/CTA Section - Navy Gradient */}
+      {/* Contact/CTA Section - Animated Gradient */}
       <section
         id="contact"
-        className="py-24 md:py-32 lg:py-[120px] px-6"
-        style={{
-          background: 'linear-gradient(to bottom, #1e3a5f 0%, #2d4a6f 100%)'
-        }}
+        className="py-24 md:py-32 lg:py-[120px] px-6 relative overflow-hidden"
       >
-        <div className="max-w-[1200px] mx-auto text-center">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0B1F3F] via-[#1a1a1a] to-[#0B1F3F] animate-gradient-slow"></div>
+        <div className="absolute inset-0 opacity-[0.015] bg-noise"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(127,179,213,0.05),transparent_50%)]"></div>
+
+        <div className="max-w-[1200px] mx-auto text-center relative z-10">
           <h2 className="text-[36px] md:text-[48px] font-semibold text-white mb-6" style={{ fontWeight: 600 }}>
             Ready to Enter the Federal Market?
           </h2>
@@ -352,32 +333,19 @@ export default function Home() {
 
           <a
             href="mailto:kevin@civicstrategypartners.com?subject=Consultation Request"
-            className="inline-block bg-white text-[#1E3A8F] px-8 py-4 rounded-lg text-[18px] font-medium hover:bg-gray-50 mb-6"
+            className="inline-block bg-white text-[#0B1F3F] px-8 py-4 rounded-lg text-[18px] font-medium hover:bg-gray-100 mb-6 transition-colors"
           >
             Schedule Consultation
           </a>
 
           <p className="text-[14px] text-white/80">
             or email{' '}
-            <a href="mailto:kevin@civicstrategypartners.com" className="text-white hover:text-white/90 underline">
+            <a href="mailto:kevin@civicstrategypartners.com" className="text-[#93C5FD] hover:text-white underline transition-colors">
               kevin@civicstrategypartners.com
             </a>
           </p>
         </div>
       </section>
-
-      {/* Wave Divider - Bottom of Contact */}
-      <div className="relative">
-        <svg className="w-full h-16 md:h-20" viewBox="0 0 1200 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-          <path d="M0,0 L0,40 Q300,80 600,40 T1200,40 L1200,0 Z" fill="url(#gradient4)" />
-          <defs>
-            <linearGradient id="gradient4" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#2d4a6f" />
-              <stop offset="100%" stopColor="#1e3a5f" />
-            </linearGradient>
-          </defs>
-        </svg>
-      </div>
 
       {/* Footer */}
       <footer className="bg-[#F9FAFB] py-12 px-6">
