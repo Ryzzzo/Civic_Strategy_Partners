@@ -293,15 +293,17 @@ export default function Home() {
           top: 0;
           left: 0;
           right: 0;
-          background: linear-gradient(to bottom,
-            rgba(255, 255, 255, 1) 0%,
-            rgba(255, 255, 255, 0.98) 50%,
-            rgba(255, 255, 255, 0.85) 75%,
-            rgba(255, 255, 255, 0) 100%
-          ) !important;
-          backdrop-filter: blur(12px);
-          box-shadow: none !important;
-          border-bottom: none !important;
+          background: #ffffff;
+          background-color: #ffffff !important;
+          backdrop-filter: none;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+          border-bottom: 1px solid #e5e7eb;
+          z-index: 50;
+        }
+
+        nav.gradient,
+        nav[class*="gradient"] {
+          background: #ffffff !important;
         }
 
         nav button[class*="logo"],
