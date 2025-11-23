@@ -631,7 +631,7 @@ export default function Home() {
 
         .heading-line-1 {
           display: block;
-          margin-left: -80px;
+          margin-left: -160px;
         }
 
         .heading-line-2 {
@@ -641,7 +641,7 @@ export default function Home() {
 
         .heading-line-3 {
           display: block;
-          margin-left: 80px;
+          margin-left: 160px;
         }
 
         .marine-emblem {
