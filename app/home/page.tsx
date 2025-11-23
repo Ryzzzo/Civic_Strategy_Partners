@@ -620,7 +620,7 @@ export default function Home() {
           font-size: 48px;
           font-weight: 800;
           color: #ffffff;
-          text-align: left;
+          text-align: center;
           margin-bottom: 32px;
           margin-left: auto;
           margin-right: auto;
@@ -631,17 +631,17 @@ export default function Home() {
 
         .heading-line-1 {
           display: block;
-          padding-left: 0;
+          margin-left: -80px;
         }
 
         .heading-line-2 {
           display: block;
-          padding-left: 80px;
+          margin-left: 0;
         }
 
         .heading-line-3 {
           display: block;
-          padding-left: 160px;
+          margin-left: 80px;
         }
 
         .marine-emblem {
@@ -875,7 +875,7 @@ export default function Home() {
           .heading-line-1,
           .heading-line-2,
           .heading-line-3 {
-            padding-left: 0 !important;
+            margin-left: 0 !important;
           }
 
           .about-section p {
