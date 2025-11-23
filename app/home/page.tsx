@@ -38,7 +38,6 @@ export default function Home() {
   const [gsaNews, setGsaNews] = useState<GSANewsItem[]>([]);
   const [gsaNewsLoading, setGsaNewsLoading] = useState(true);
   const [gsaNewsError, setGsaNewsError] = useState(false);
-  const [playbackDirection, setPlaybackDirection] = useState(1);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,27 +53,20 @@ export default function Home() {
     if (!video) return;
 
     const handleLoadedMetadata = () => {
-      video.playbackRate = 0.55 * playbackDirection;
-    };
-
-    const handleTimeUpdate = () => {
-      if (playbackDirection === 1 && video.currentTime >= video.duration - 0.1) {
-        setPlaybackDirection(-1);
-        video.playbackRate = -0.55;
-      } else if (playbackDirection === -1 && video.currentTime <= 0.1) {
-        setPlaybackDirection(1);
-        video.playbackRate = 0.55;
-      }
+      video.playbackRate = 0.25;
     };
 
     video.addEventListener('loadedmetadata', handleLoadedMetadata);
-    video.addEventListener('timeupdate', handleTimeUpdate);
+
+    // Trigger it manually in case video is already loaded
+    if (video.readyState >= 2) {
+      video.playbackRate = 0.25;
+    }
 
     return () => {
       video.removeEventListener('loadedmetadata', handleLoadedMetadata);
-      video.removeEventListener('timeupdate', handleTimeUpdate);
     };
-  }, [playbackDirection]);
+  }, []);
 
   useEffect(() => {
     const fetchGSANews = async () => {
