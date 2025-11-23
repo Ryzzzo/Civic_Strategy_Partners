@@ -123,22 +123,43 @@ export default function Home() {
           transform: scale(1.02);
         }
 
-        @keyframes gradient-slow {
-          0%, 100% {
-            background-position: 0% 50%;
+        @keyframes wave-flow {
+          0% {
+            transform: translateX(0) translateZ(0) scaleY(1);
           }
           50% {
-            background-position: 100% 50%;
+            transform: translateX(-25%) translateZ(0) scaleY(1.05);
+          }
+          100% {
+            transform: translateX(-50%) translateZ(0) scaleY(1);
           }
         }
 
-        .animate-gradient-slow {
-          background-size: 200% 200%;
-          animation: gradient-slow 15s ease infinite;
+        @keyframes wave-flow-reverse {
+          0% {
+            transform: translateX(0) translateZ(0) scaleY(1);
+          }
+          50% {
+            transform: translateX(25%) translateZ(0) scaleY(0.95);
+          }
+          100% {
+            transform: translateX(50%) translateZ(0) scaleY(1);
+          }
         }
 
-        .bg-noise {
-          background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        .wave-layer-1 {
+          animation: wave-flow 25s ease-in-out infinite;
+          opacity: 0.15;
+        }
+
+        .wave-layer-2 {
+          animation: wave-flow-reverse 30s ease-in-out infinite;
+          opacity: 0.12;
+        }
+
+        .wave-layer-3 {
+          animation: wave-flow 35s ease-in-out infinite;
+          opacity: 0.08;
         }
       `}</style>
 
@@ -245,14 +266,41 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section - Animated Gradient */}
+      {/* Hero Section - Dramatic Wave Background */}
       <section
         className="flex items-center justify-center px-6 relative overflow-hidden"
         style={{ minHeight: 'calc(100vh - 88px)', marginTop: '88px' }}
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1e3a5f] via-[#152844] to-[#1e3a5f] animate-gradient-slow"></div>
-        <div className="absolute inset-0 opacity-[0.015] bg-noise"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(127,179,213,0.05),transparent_50%)]"></div>
+        <div className="absolute inset-0 bg-[#1e3a5f]"></div>
+
+        {/* Wave Layer 1 - Front */}
+        <div className="absolute inset-0 wave-layer-1" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,50 C150,90 350,0 600,50 C850,100 1050,10 1200,50 L1200,120 L0,120 Z' fill='%23ffffff'/%3E%3C/svg%3E")`,
+          backgroundSize: '200% 300px',
+          backgroundRepeat: 'repeat-x',
+          backgroundPosition: 'center bottom',
+          filter: 'blur(1px)'
+        }}></div>
+
+        {/* Wave Layer 2 - Middle */}
+        <div className="absolute inset-0 wave-layer-2" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,70 C200,20 400,100 600,60 C800,20 1000,90 1200,50 L1200,120 L0,120 Z' fill='%23ffffff'/%3E%3C/svg%3E")`,
+          backgroundSize: '250% 350px',
+          backgroundRepeat: 'repeat-x',
+          backgroundPosition: 'center center'
+        }}></div>
+
+        {/* Wave Layer 3 - Back */}
+        <div className="absolute inset-0 wave-layer-3" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,30 C300,80 500,10 600,40 C700,70 900,20 1200,60 L1200,120 L0,120 Z' fill='%23ffffff'/%3E%3C/svg%3E")`,
+          backgroundSize: '300% 400px',
+          backgroundRepeat: 'repeat-x',
+          backgroundPosition: 'center top',
+          filter: 'blur(2px)'
+        }}></div>
+
+        {/* Gradient Overlay for Depth */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0d2438]/30 via-transparent to-[#1e3a5f]/20"></div>
 
         <div className="text-center relative z-10" style={{ maxWidth: '900px' }}>
           <h1
@@ -408,11 +456,38 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About Section - Animated Gradient */}
+      {/* About Section - Dramatic Wave Background */}
       <section id="about" className="py-24 md:py-32 lg:py-[120px] px-6 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1e3a5f] via-[#152844] to-[#1e3a5f] animate-gradient-slow"></div>
-        <div className="absolute inset-0 opacity-[0.015] bg-noise"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(127,179,213,0.05),transparent_50%)]"></div>
+        <div className="absolute inset-0 bg-[#1e3a5f]"></div>
+
+        {/* Wave Layer 1 - Front */}
+        <div className="absolute inset-0 wave-layer-1" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,50 C150,90 350,0 600,50 C850,100 1050,10 1200,50 L1200,120 L0,120 Z' fill='%23ffffff'/%3E%3C/svg%3E")`,
+          backgroundSize: '200% 300px',
+          backgroundRepeat: 'repeat-x',
+          backgroundPosition: 'center bottom',
+          filter: 'blur(1px)'
+        }}></div>
+
+        {/* Wave Layer 2 - Middle */}
+        <div className="absolute inset-0 wave-layer-2" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,70 C200,20 400,100 600,60 C800,20 1000,90 1200,50 L1200,120 L0,120 Z' fill='%23ffffff'/%3E%3C/svg%3E")`,
+          backgroundSize: '250% 350px',
+          backgroundRepeat: 'repeat-x',
+          backgroundPosition: 'center center'
+        }}></div>
+
+        {/* Wave Layer 3 - Back */}
+        <div className="absolute inset-0 wave-layer-3" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,30 C300,80 500,10 600,40 C700,70 900,20 1200,60 L1200,120 L0,120 Z' fill='%23ffffff'/%3E%3C/svg%3E")`,
+          backgroundSize: '300% 400px',
+          backgroundRepeat: 'repeat-x',
+          backgroundPosition: 'center top',
+          filter: 'blur(2px)'
+        }}></div>
+
+        {/* Gradient Overlay for Depth */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0d2438]/30 via-transparent to-[#1e3a5f]/20"></div>
 
         <div className="max-w-[900px] mx-auto text-center relative z-10">
           <h2 className="text-[36px] font-bold text-white mb-8" style={{ fontWeight: 700 }}>
@@ -494,21 +569,48 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Insights & Expertise Section - Animated Gradient */}
+      {/* Insights & Expertise Section - Dramatic Wave Background */}
       <section id="insights" className="py-24 md:py-32 lg:py-[120px] px-6 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1e3a5f] via-[#152844] to-[#1e3a5f] animate-gradient-slow"></div>
-        <div className="absolute inset-0 opacity-[0.015] bg-noise"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(127,179,213,0.05),transparent_50%)]"></div>
+        <div className="absolute inset-0 bg-[#1e3a5f]"></div>
+
+        {/* Wave Layer 1 - Front */}
+        <div className="absolute inset-0 wave-layer-1" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,50 C150,90 350,0 600,50 C850,100 1050,10 1200,50 L1200,120 L0,120 Z' fill='%23ffffff'/%3E%3C/svg%3E")`,
+          backgroundSize: '200% 300px',
+          backgroundRepeat: 'repeat-x',
+          backgroundPosition: 'center bottom',
+          filter: 'blur(1px)'
+        }}></div>
+
+        {/* Wave Layer 2 - Middle */}
+        <div className="absolute inset-0 wave-layer-2" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,70 C200,20 400,100 600,60 C800,20 1000,90 1200,50 L1200,120 L0,120 Z' fill='%23ffffff'/%3E%3C/svg%3E")`,
+          backgroundSize: '250% 350px',
+          backgroundRepeat: 'repeat-x',
+          backgroundPosition: 'center center'
+        }}></div>
+
+        {/* Wave Layer 3 - Back */}
+        <div className="absolute inset-0 wave-layer-3" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,30 C300,80 500,10 600,40 C700,70 900,20 1200,60 L1200,120 L0,120 Z' fill='%23ffffff'/%3E%3C/svg%3E")`,
+          backgroundSize: '300% 400px',
+          backgroundRepeat: 'repeat-x',
+          backgroundPosition: 'center top',
+          filter: 'blur(2px)'
+        }}></div>
+
+        {/* Gradient Overlay for Depth */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0d2438]/30 via-transparent to-[#1e3a5f]/20"></div>
 
         <div
-          className="absolute top-5 left-5 w-20 h-20 border-t-[3px] border-l-[3px] border-white/30"
+          className="absolute top-5 left-5 w-20 h-20 border-t-[3px] border-l-[3px] border-white/30 z-10"
           style={{
             borderTopColor: 'rgba(255, 255, 255, 0.3)',
             borderLeftColor: 'rgba(255, 255, 255, 0.3)'
           }}
         ></div>
         <div
-          className="absolute bottom-5 right-5 w-20 h-20 border-b-[3px] border-r-[3px] border-white/30"
+          className="absolute bottom-5 right-5 w-20 h-20 border-b-[3px] border-r-[3px] border-white/30 z-10"
           style={{
             borderBottomColor: 'rgba(255, 255, 255, 0.3)',
             borderRightColor: 'rgba(255, 255, 255, 0.3)'
@@ -824,11 +926,38 @@ export default function Home() {
         </div>
       )}
 
-      {/* Footer */}
+      {/* Footer - Dramatic Wave Background */}
       <footer className="py-16 px-6 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1e3a5f] via-[#152844] to-[#1e3a5f] animate-gradient-slow"></div>
-        <div className="absolute inset-0 opacity-[0.015] bg-noise"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(127,179,213,0.05),transparent_50%)]"></div>
+        <div className="absolute inset-0 bg-[#1e3a5f]"></div>
+
+        {/* Wave Layer 1 - Front */}
+        <div className="absolute inset-0 wave-layer-1" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,50 C150,90 350,0 600,50 C850,100 1050,10 1200,50 L1200,120 L0,120 Z' fill='%23ffffff'/%3E%3C/svg%3E")`,
+          backgroundSize: '200% 300px',
+          backgroundRepeat: 'repeat-x',
+          backgroundPosition: 'center bottom',
+          filter: 'blur(1px)'
+        }}></div>
+
+        {/* Wave Layer 2 - Middle */}
+        <div className="absolute inset-0 wave-layer-2" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,70 C200,20 400,100 600,60 C800,20 1000,90 1200,50 L1200,120 L0,120 Z' fill='%23ffffff'/%3E%3C/svg%3E")`,
+          backgroundSize: '250% 350px',
+          backgroundRepeat: 'repeat-x',
+          backgroundPosition: 'center center'
+        }}></div>
+
+        {/* Wave Layer 3 - Back */}
+        <div className="absolute inset-0 wave-layer-3" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,30 C300,80 500,10 600,40 C700,70 900,20 1200,60 L1200,120 L0,120 Z' fill='%23ffffff'/%3E%3C/svg%3E")`,
+          backgroundSize: '300% 400px',
+          backgroundRepeat: 'repeat-x',
+          backgroundPosition: 'center top',
+          filter: 'blur(2px)'
+        }}></div>
+
+        {/* Gradient Overlay for Depth */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0d2438]/30 via-transparent to-[#1e3a5f]/20"></div>
 
         <div className="max-w-[1200px] mx-auto relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
