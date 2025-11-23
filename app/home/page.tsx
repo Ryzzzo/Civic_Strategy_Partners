@@ -480,7 +480,12 @@ export default function Home() {
           left: 0;
           width: 100%;
           height: 100%;
-          background: rgba(30, 58, 95, 0.35);
+          background: linear-gradient(
+            to bottom,
+            rgba(30, 58, 95, 0.30) 0%,
+            rgba(30, 58, 95, 0.45) 50%,
+            rgba(30, 58, 95, 0.55) 100%
+          );
           z-index: 1;
         }
 
