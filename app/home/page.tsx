@@ -357,6 +357,13 @@ export default function Home() {
           border-left: 3px solid rgba(255, 255, 255, 0.3);
           z-index: 10;
         }
+
+        .fillout-container {
+          background: white;
+          padding: 24px;
+          border-radius: 12px;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
       `}</style>
 
       {/* Navigation */}
@@ -810,60 +817,13 @@ export default function Home() {
             </p>
           </div>
 
-          <form className="space-y-5">
-            <input
-              type="text"
-              placeholder="Full Name"
-              required
-              className="w-full px-4 py-3.5 border-2 border-[#E5E7EB] rounded-md text-[16px] focus:outline-none focus:border-[#1e3a5f]"
-              style={{ fontFamily: 'Inter' }}
-            />
-
-            <input
-              type="email"
-              placeholder="Email Address"
-              required
-              className="w-full px-4 py-3.5 border-2 border-[#E5E7EB] rounded-md text-[16px] focus:outline-none focus:border-[#1e3a5f]"
-              style={{ fontFamily: 'Inter' }}
-            />
-
-            <input
-              type="text"
-              placeholder="Company Name"
-              className="w-full px-4 py-3.5 border-2 border-[#E5E7EB] rounded-md text-[16px] focus:outline-none focus:border-[#1e3a5f]"
-              style={{ fontFamily: 'Inter' }}
-            />
-
-            <select
-              required
-              className="w-full px-4 py-3.5 border-2 border-[#E5E7EB] rounded-md text-[16px] text-[#4B5563] focus:outline-none focus:border-[#1e3a5f]"
-              style={{ fontFamily: 'Inter' }}
-            >
-              <option value="">What are you looking for?</option>
-              <option value="mas-diagnosis">MAS Diagnosis</option>
-              <option value="federal-readiness">Federal Readiness</option>
-              <option value="mas-advisory">MAS Advisory</option>
-              <option value="mod-support">Mod Support</option>
-              <option value="compliance">Compliance/Lifecycle</option>
-              <option value="retainer">Retainer Inquiry</option>
-              <option value="custom">Custom Project</option>
-              <option value="general">General Question</option>
-            </select>
-
-            <textarea
-              placeholder="Tell us more about your needs..."
-              rows={5}
-              className="w-full px-4 py-3.5 border-2 border-[#E5E7EB] rounded-md text-[16px] focus:outline-none focus:border-[#1e3a5f] resize-vertical"
-              style={{ fontFamily: 'Inter' }}
-            ></textarea>
-
-            <button
-              type="submit"
-              className="w-full premium-cta"
-            >
-              Send Message
-            </button>
-          </form>
+          <div className="fillout-container" style={{ width: '100%', maxWidth: '600px', margin: '0 auto' }}>
+            <iframe
+              src="[FILLOUT_FORM_URL_HERE]"
+              style={{ width: '100%', height: '700px', border: 'none', borderRadius: '8px' }}
+              allowFullScreen
+            ></iframe>
+          </div>
 
           <div className="text-center mt-8">
             <p className="text-[16px] text-[#6B7280] mb-2" style={{ fontFamily: 'Inter' }}>
