@@ -53,14 +53,14 @@ export default function Home() {
     if (!video) return;
 
     const handleLoadedMetadata = () => {
-      video.playbackRate = 0.25;
+      video.playbackRate = 0.5;
     };
 
     video.addEventListener('loadedmetadata', handleLoadedMetadata);
 
     // Trigger it manually in case video is already loaded
     if (video.readyState >= 2) {
-      video.playbackRate = 0.25;
+      video.playbackRate = 0.5;
     }
 
     return () => {
