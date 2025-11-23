@@ -123,6 +123,18 @@ export default function Home() {
           transform: scale(1.02);
         }
 
+        @keyframes wave-flow {
+          0% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
+          }
+        }
+
         .silk-gradient {
           background: linear-gradient(135deg,
             #15283d 0%,
@@ -131,6 +143,8 @@ export default function Home() {
             #1a3247 75%,
             #15283d 100%
           );
+          background-size: 200% 200%;
+          animation: wave-flow 8s ease-in-out infinite;
         }
 
         .silk-overlay {
