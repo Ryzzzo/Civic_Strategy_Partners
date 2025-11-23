@@ -289,13 +289,29 @@ export default function Home() {
         }
 
         .premium-nav {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
           background: linear-gradient(to bottom,
             rgba(255, 255, 255, 1) 0%,
-            rgba(255, 255, 255, 0.98) 70%,
+            rgba(255, 255, 255, 0.98) 50%,
+            rgba(255, 255, 255, 0.85) 75%,
             rgba(255, 255, 255, 0) 100%
           ) !important;
-          backdrop-filter: blur(10px);
-          border-bottom: none;
+          backdrop-filter: blur(12px);
+          box-shadow: none !important;
+          border-bottom: none !important;
+        }
+
+        nav .logo-button,
+        nav button:first-child {
+          background: transparent !important;
+          background-color: transparent !important;
+        }
+
+        nav .logo-button:hover {
+          background: transparent !important;
         }
 
         input:focus, textarea:focus, select:focus {
@@ -314,6 +330,18 @@ export default function Home() {
         .fade-in-visible {
           opacity: 1;
           transform: translateY(0);
+        }
+
+        .hero {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+        }
+
+        .hero-content {
+          margin: 0 auto;
+          text-align: center;
         }
 
         .hero h1 {
@@ -376,7 +404,7 @@ export default function Home() {
         <div className="max-w-[1200px] mx-auto px-6 h-full flex items-center justify-between">
           <button
             onClick={scrollToTop}
-            className="flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity"
+            className="logo-button flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity"
           >
             <img
               src="/Civic Strategy Partners LLC Logo NO TAGLINE copy.png"
@@ -479,7 +507,7 @@ export default function Home() {
         <div className="absolute inset-0 silk-gradient"></div>
         <div className="absolute inset-0 silk-overlay"></div>
 
-        <div className="text-center relative z-10" style={{ maxWidth: '900px' }}>
+        <div className="hero-content text-center relative z-10" style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
           <h1
             className="text-[36px] md:text-[48px] lg:text-[56px] font-bold text-white mb-6"
             style={{ lineHeight: '1.2', fontWeight: 800, letterSpacing: '-0.02em', textShadow: '0 2px 8px rgba(0,0,0,0.2)' }}
