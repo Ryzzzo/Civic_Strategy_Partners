@@ -618,29 +618,31 @@ export default function Home() {
 
         .marine-emblem {
           position: absolute;
-          top: 40px;
+          top: 50%;
           right: 40px;
-          width: 240px;
-          height: 240px;
-          opacity: 0.6;
-          z-index: 10;
+          transform: translateY(-50%);
+          width: 280px;
+          height: 280px;
+          opacity: 0.9;
+          z-index: 5;
           pointer-events: none;
           filter: brightness(1.1);
           transition: opacity 0.3s ease;
         }
 
         .marine-emblem:hover {
-          opacity: 0.75;
+          opacity: 1;
         }
 
         .service-photo {
           position: absolute;
-          top: 40px;
+          top: 50%;
           left: 40px;
-          width: 420px;
+          transform: translateY(-50%);
+          width: 480px;
           height: auto;
-          opacity: 0.6;
-          z-index: 10;
+          opacity: 0.9;
+          z-index: 5;
           pointer-events: none;
           border-radius: 8px;
           border: 3px solid rgba(255, 255, 255, 0.5);
@@ -650,7 +652,7 @@ export default function Home() {
         }
 
         .service-photo:hover {
-          opacity: 0.75;
+          opacity: 1;
         }
 
         @media (max-width: 768px) {
