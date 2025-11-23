@@ -358,7 +358,7 @@ export default function Home() {
 
         .wave-bar {
           width: 100%;
-          height: 100px;
+          height: 120px;
           position: relative;
           z-index: 1;
         }
@@ -375,7 +375,8 @@ export default function Home() {
         .hero-video {
           position: relative;
           width: 100%;
-          min-height: 600px;
+          min-height: calc(100vh - 88px - 240px);
+          height: 700px;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -430,11 +431,12 @@ export default function Home() {
 
         @media (max-width: 768px) {
           .wave-bar {
-            height: 60px;
+            height: 80px;
           }
 
           .hero-video {
-            min-height: 500px;
+            min-height: calc(100vh - 88px - 160px);
+            height: 600px;
           }
         }
 
@@ -589,7 +591,7 @@ export default function Home() {
       {/* Hero Section with Video */}
       <section className="hero-video">
         <video autoPlay loop muted playsInline className="hero-video-bg">
-          <source src="/cap_building.mp4" type="video/mp4" />
+          <source src="/dc_at_dusk.mp4" type="video/mp4" />
         </video>
         <div className="video-overlay"></div>
         <div className="hero-content">
