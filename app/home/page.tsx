@@ -1541,32 +1541,44 @@ export default function Home() {
               Get in Touch with Civic Strategy Partners
             </h2>
             <p className="text-[18px] text-white/90">
-              Whether you need MAS diagnosis, federal readiness guidance, mod support, or a strategic advisor, CSP is here to help you move with clarity and purpose in the federal marketplace.
+              Whether you need MAS diagnosis, federal readiness guidance, or strategic advisory support, CSP is here to help you move with clarity and purpose in the federal marketplace.
             </p>
           </div>
 
-          <div style={{ width: '100%', maxWidth: '600px', margin: '0 auto', background: 'white', padding: '24px', borderRadius: '12px', boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)' }}>
-            <iframe
-              src="[FILLOUT_FORM_URL_HERE]"
-              style={{ width: '100%', height: '700px', border: 'none', borderRadius: '8px' }}
-              allowFullScreen
-            ></iframe>
-          </div>
-
-          <div className="text-center mt-8">
-            <p className="text-[16px] text-white/80 mb-2" style={{ fontFamily: 'Inter' }}>
-              Or email directly:
+          {/* INQUIRY FORM */}
+          <div className="mb-8">
+            <h3 className="text-[22px] font-semibold text-white text-center mb-3">
+              Have a Question?
+            </h3>
+            <p className="text-[16px] text-white/80 text-center mb-6">
+              Send us a message and we'll get back to you within 24 hours.
             </p>
-            <a
-              href="mailto:info@civicstrategypartners.com"
-              className="text-[18px] text-[#daa520] font-semibold hover:opacity-80 transition-opacity"
-              style={{ fontFamily: 'Inter', fontWeight: 600, textDecoration: 'none' }}
-            >
-              info@civicstrategypartners.com
-            </a>
+
+            <div style={{ width: '100%', maxWidth: '600px', margin: '0 auto', background: 'white', padding: '24px', borderRadius: '12px', boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)' }}>
+              <iframe
+                src="[FILLOUT_FORM_URL_HERE]"
+                style={{ width: '100%', height: '700px', border: 'none', borderRadius: '8px' }}
+                allowFullScreen
+              ></iframe>
+            </div>
           </div>
 
-          <div className="text-center mt-8">
+          {/* OR DIVIDER */}
+          <div className="flex items-center gap-4 my-8">
+            <div className="flex-1 h-[1px] bg-white/20"></div>
+            <span className="text-white/60 font-medium">OR</span>
+            <div className="flex-1 h-[1px] bg-white/20"></div>
+          </div>
+
+          {/* CONSULTATION BOOKING */}
+          <div className="text-center">
+            <h3 className="text-[22px] font-semibold text-white mb-3">
+              Ready to Discuss Your Situation?
+            </h3>
+            <p className="text-[16px] text-white/80 mb-6">
+              Book a consultation to talk strategy with our team.
+            </p>
+
             <a
               href="mailto:info@civicstrategypartners.com?subject=Consultation Request"
               className="premium-cta inline-block text-white px-8 py-3.5 rounded-md text-[16px] font-semibold"
@@ -1577,6 +1589,14 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Gold Separator */}
+      <div style={{
+        height: '2px',
+        background: 'linear-gradient(90deg, transparent 0%, #b8860b 50%, transparent 100%)',
+        maxWidth: '1200px',
+        margin: '0 auto'
+      }}></div>
 
       {/* Modal Popup */}
       {modalOpen && currentArticle && (
