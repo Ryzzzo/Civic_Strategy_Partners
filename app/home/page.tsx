@@ -92,6 +92,28 @@ export default function Home() {
     return () => window.removeEventListener('keydown', handleEscape);
   }, [modalOpen]);
 
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in-visible');
+        }
+      });
+    }, observerOptions);
+
+    const sections = document.querySelectorAll('.fade-in-section');
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
+    };
+  }, []);
+
   return (
     <>
       <style jsx global>{`
@@ -116,7 +138,7 @@ export default function Home() {
         }
 
         button, a {
-          transition: all 0.2s ease;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         button:hover {
@@ -135,6 +157,17 @@ export default function Home() {
           }
         }
 
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
         .silk-gradient {
           background: linear-gradient(135deg,
             #15283d 0%,
@@ -147,15 +180,134 @@ export default function Home() {
           animation: wave-flow 7s ease-in-out infinite;
         }
 
+        .silk-gradient::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background-image: url('data:image/svg+xml,%3Csvg width="100" height="100" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noise"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" /%3E%3C/filter%3E%3Crect width="100" height="100" filter="url(%23noise)" opacity="0.05" /%3E%3C/svg%3E');
+          opacity: 0.03;
+          z-index: 1;
+        }
+
         .silk-overlay {
           background: rgba(255, 255, 255, 0.03);
           opacity: 0.5;
+        }
+
+        .premium-card {
+          background: rgba(255, 255, 255, 1);
+          border: 2px solid rgba(30, 58, 95, 0.08);
+          border-radius: 16px;
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+          position: relative;
+          overflow: hidden;
+        }
+
+        .premium-card::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          border-radius: 16px;
+          padding: 2px;
+          background: linear-gradient(135deg,
+            rgba(184, 134, 11, 0) 0%,
+            rgba(184, 134, 11, 0.3) 50%,
+            rgba(184, 134, 11, 0) 100%
+          );
+          -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+          -webkit-mask-composite: xor;
+          mask-composite: exclude;
+          opacity: 0;
+          transition: opacity 0.3s ease;
+        }
+
+        .premium-card:hover {
+          transform: translateY(-8px) scale(1.02);
+          box-shadow: 0 20px 60px rgba(30, 58, 95, 0.2);
+          border-color: rgba(30, 58, 95, 0.3);
+        }
+
+        .premium-card:hover::before {
+          opacity: 1;
+        }
+
+        .glass-card {
+          background: rgba(255, 255, 255, 0.05);
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 16px;
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+          border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .premium-cta {
+          background: linear-gradient(135deg, #1e3a5f 0%, #2a4a6f 100%);
+          box-shadow: 0 4px 15px rgba(30, 58, 95, 0.3);
+          transition: all 0.3s ease;
+          border-radius: 8px;
+        }
+
+        .premium-cta:hover {
+          box-shadow: 0 6px 25px rgba(30, 58, 95, 0.5);
+          transform: translateY(-2px) scale(1.02);
+        }
+
+        .learn-more-link {
+          position: relative;
+          padding-right: 25px;
+          display: inline-block;
+          transition: all 0.3s ease;
+        }
+
+        .learn-more-link::after {
+          content: '→';
+          position: absolute;
+          right: 0;
+          transition: transform 0.3s ease;
+        }
+
+        .learn-more-link:hover::after {
+          transform: translateX(5px);
+        }
+
+        .premium-nav {
+          background: linear-gradient(to bottom,
+            rgba(255, 255, 255, 1) 0%,
+            rgba(255, 255, 255, 0.98) 50%,
+            rgba(255, 255, 255, 0.95) 100%
+          );
+          backdrop-filter: blur(10px);
+        }
+
+        input:focus, textarea:focus, select:focus {
+          border-color: #1e3a5f;
+          box-shadow: 0 0 0 3px rgba(30, 58, 95, 0.1);
+          transform: translateY(-2px);
+          transition: all 0.3s ease;
+        }
+
+        .fade-in-section {
+          opacity: 0;
+          transform: translateY(30px);
+          transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in-visible {
+          opacity: 1;
+          transform: translateY(0);
         }
       `}</style>
 
       {/* Navigation */}
       <nav
-        className={`fixed top-0 left-0 right-0 bg-white z-50 transition-shadow duration-200 ${
+        className={`fixed top-0 left-0 right-0 premium-nav z-50 transition-shadow duration-200 ${
           scrolled ? 'shadow-sm' : ''
         }`}
         style={{ height: '88px' }}
@@ -266,8 +418,8 @@ export default function Home() {
 
         <div className="text-center relative z-10" style={{ maxWidth: '900px' }}>
           <h1
-            className="text-[32px] md:text-[40px] lg:text-[48px] font-bold text-white mb-6"
-            style={{ lineHeight: '1.2', fontWeight: 700 }}
+            className="text-[36px] md:text-[48px] lg:text-[56px] font-bold text-white mb-6"
+            style={{ lineHeight: '1.2', fontWeight: 800, letterSpacing: '-0.02em', textShadow: '0 2px 8px rgba(0,0,0,0.2)' }}
           >
             Your GSA MAS Contract Won't Sell Itself.
           </h1>
@@ -281,15 +433,15 @@ export default function Home() {
 
           <p
             className="text-[16px] md:text-[18px] mb-12 mx-auto"
-            style={{ maxWidth: '800px', lineHeight: '1.7', color: 'rgba(255, 255, 255, 0.9)' }}
+            style={{ maxWidth: '800px', lineHeight: '1.8', color: 'rgba(255, 255, 255, 0.9)' }}
           >
             Most companies think a GSA Schedule will generate sales automatically. It won't. MAS performs only when it's aligned, maintained, and guided by someone who understands the doctrine—and your CO will not do that for you. If your contract is quiet, misaligned, or at risk of cancellation, you're not alone. CSP brings former-GSA insight and Marine-grade discipline to correct course and build a federal revenue engine that actually works.
           </p>
 
           <a
             href="mailto:kevin@civicstrategypartners.com?subject=Consultation Request"
-            className="inline-block bg-white text-[#1e3a5f] px-10 py-4 rounded-md text-[18px] font-semibold hover:bg-gray-100 transition-colors"
-            style={{ fontWeight: 600 }}
+            className="inline-block bg-white text-[#1e3a5f] px-10 py-4 rounded-md text-[18px] font-semibold hover:bg-gray-100 transition-all"
+            style={{ fontWeight: 600, boxShadow: '0 4px 15px rgba(255, 255, 255, 0.3)' }}
           >
             Book a Consultation
           </a>
@@ -297,10 +449,10 @@ export default function Home() {
       </section>
 
       {/* What We Do Section - White Background */}
-      <section id="services" className="py-24 md:py-32 lg:py-[120px] px-6 bg-white">
+      <section id="services" className="py-24 md:py-32 lg:py-[120px] px-6 bg-white fade-in-section">
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-[36px] font-bold text-[#1e3a5f] mb-4" style={{ fontWeight: 700 }}>
+            <h2 className="text-[42px] font-bold text-[#1e3a5f] mb-4" style={{ fontWeight: 700, textShadow: '0 2px 4px rgba(0,0,0,0.06)' }}>
               What We Do
             </h2>
             <p className="text-[18px] text-[#6B7280]">
@@ -309,7 +461,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div className="border-2 border-[#E5E7EB] rounded-xl p-8 bg-white shadow-sm hover:border-[#1e3a5f] hover:-translate-y-1 transition-all">
+            <div className="premium-card p-8">
               <h3 className="text-[22px] font-bold text-[#1e3a5f] mb-4" style={{ fontWeight: 700 }}>
                 MAS Contract Diagnosis & Performance Correction
               </h3>
@@ -318,14 +470,14 @@ export default function Home() {
               </p>
               <a
                 href="/services#mas-diagnosis"
-                className="text-[#1e3a5f] text-[16px] font-medium hover:opacity-80 transition-opacity"
+                className="text-[#1e3a5f] text-[16px] font-medium learn-more-link"
                 style={{ fontWeight: 500 }}
               >
-                Learn More →
+                Learn More
               </a>
             </div>
 
-            <div className="border-2 border-[#E5E7EB] rounded-xl p-8 bg-white shadow-sm hover:border-[#1e3a5f] hover:-translate-y-1 transition-all">
+            <div className="premium-card p-8">
               <h3 className="text-[22px] font-bold text-[#1e3a5f] mb-4" style={{ fontWeight: 700 }}>
                 Federal Readiness Roadmaps
               </h3>
@@ -334,14 +486,14 @@ export default function Home() {
               </p>
               <a
                 href="/services#readiness"
-                className="text-[#1e3a5f] text-[16px] font-medium hover:opacity-80 transition-opacity"
+                className="text-[#1e3a5f] text-[16px] font-medium learn-more-link"
                 style={{ fontWeight: 500 }}
               >
-                Learn More →
+                Learn More
               </a>
             </div>
 
-            <div className="border-2 border-[#E5E7EB] rounded-xl p-8 bg-white shadow-sm hover:border-[#1e3a5f] hover:-translate-y-1 transition-all">
+            <div className="premium-card p-8">
               <h3 className="text-[22px] font-bold text-[#1e3a5f] mb-4" style={{ fontWeight: 700 }}>
                 MAS Advisory & Offer Support
               </h3>
@@ -350,14 +502,14 @@ export default function Home() {
               </p>
               <a
                 href="/services#advisory"
-                className="text-[#1e3a5f] text-[16px] font-medium hover:opacity-80 transition-opacity"
+                className="text-[#1e3a5f] text-[16px] font-medium learn-more-link"
                 style={{ fontWeight: 500 }}
               >
-                Learn More →
+                Learn More
               </a>
             </div>
 
-            <div className="border-2 border-[#E5E7EB] rounded-xl p-8 bg-white shadow-sm hover:border-[#1e3a5f] hover:-translate-y-1 transition-all">
+            <div className="premium-card p-8">
               <h3 className="text-[22px] font-bold text-[#1e3a5f] mb-4" style={{ fontWeight: 700 }}>
                 Post-Award Compliance & Lifecycle Support
               </h3>
@@ -366,14 +518,14 @@ export default function Home() {
               </p>
               <a
                 href="/services#lifecycle"
-                className="text-[#1e3a5f] text-[16px] font-medium hover:opacity-80 transition-opacity"
+                className="text-[#1e3a5f] text-[16px] font-medium learn-more-link"
                 style={{ fontWeight: 500 }}
               >
-                Learn More →
+                Learn More
               </a>
             </div>
 
-            <div className="border-2 border-[#E5E7EB] rounded-xl p-8 bg-white shadow-sm hover:border-[#1e3a5f] hover:-translate-y-1 transition-all">
+            <div className="premium-card p-8">
               <h3 className="text-[22px] font-bold text-[#1e3a5f] mb-4" style={{ fontWeight: 700 }}>
                 Retainer-Based Support
               </h3>
@@ -382,14 +534,14 @@ export default function Home() {
               </p>
               <a
                 href="/services#retainer"
-                className="text-[#1e3a5f] text-[16px] font-medium hover:opacity-80 transition-opacity"
+                className="text-[#1e3a5f] text-[16px] font-medium learn-more-link"
                 style={{ fontWeight: 500 }}
               >
-                Learn More →
+                Learn More
               </a>
             </div>
 
-            <div className="border-2 border-[#E5E7EB] rounded-xl p-8 bg-white shadow-sm hover:border-[#1e3a5f] hover:-translate-y-1 transition-all">
+            <div className="premium-card p-8">
               <h3 className="text-[22px] font-bold text-[#1e3a5f] mb-4" style={{ fontWeight: 700 }}>
                 À La Carte Mod Support
               </h3>
@@ -398,10 +550,10 @@ export default function Home() {
               </p>
               <a
                 href="/services#mods"
-                className="text-[#1e3a5f] text-[16px] font-medium hover:opacity-80 transition-opacity"
+                className="text-[#1e3a5f] text-[16px] font-medium learn-more-link"
                 style={{ fontWeight: 500 }}
               >
-                Learn More →
+                Learn More
               </a>
             </div>
           </div>
@@ -419,12 +571,12 @@ export default function Home() {
       </section>
 
       {/* About Section - Silk Flag Gradient */}
-      <section id="about" className="py-24 md:py-32 lg:py-[120px] px-6 relative overflow-hidden">
+      <section id="about" className="py-24 md:py-32 lg:py-[120px] px-6 relative overflow-hidden fade-in-section">
         <div className="absolute inset-0 silk-gradient"></div>
         <div className="absolute inset-0 silk-overlay"></div>
 
         <div className="max-w-[900px] mx-auto text-center relative z-10">
-          <h2 className="text-[36px] font-bold text-white mb-8" style={{ fontWeight: 700 }}>
+          <h2 className="text-[42px] font-bold text-white mb-8" style={{ fontWeight: 700, textShadow: '0 2px 4px rgba(0,0,0,0.3)' }}>
             Marine-Owned. Mission-Driven. Federal-Focused.
           </h2>
 
@@ -442,8 +594,8 @@ export default function Home() {
 
           <a
             href="mailto:kevin@civicstrategypartners.com?subject=Consultation Request"
-            className="inline-block mt-12 bg-white text-[#1e3a5f] px-10 py-4 rounded-md text-[18px] font-semibold hover:bg-gray-100 transition-colors"
-            style={{ fontWeight: 600 }}
+            className="inline-block mt-12 bg-white text-[#1e3a5f] px-10 py-4 rounded-md text-[18px] font-semibold hover:bg-gray-100 transition-all"
+            style={{ fontWeight: 600, boxShadow: '0 4px 15px rgba(255, 255, 255, 0.3)' }}
           >
             Book a Consultation
           </a>
@@ -451,10 +603,10 @@ export default function Home() {
       </section>
 
       {/* Results Section - White Background */}
-      <section id="results" className="py-24 md:py-32 lg:py-[120px] px-6 bg-white">
+      <section id="results" className="py-24 md:py-32 lg:py-[120px] px-6 bg-white fade-in-section">
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-[36px] font-bold text-[#1e3a5f] mb-4" style={{ fontWeight: 700 }}>
+            <h2 className="text-[42px] font-bold text-[#1e3a5f] mb-4" style={{ fontWeight: 700, textShadow: '0 2px 4px rgba(0,0,0,0.06)' }}>
               Representative Outcomes & Typical Engagement Results
             </h2>
             <p className="text-[18px] text-[#6B7280] max-w-[800px] mx-auto" style={{ lineHeight: '1.6' }}>
@@ -463,7 +615,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-            <div className="border-2 border-[#E5E7EB] rounded-lg p-8">
+            <div className="premium-card p-8">
               <h3 className="text-[20px] font-bold text-[#1e3a5f] mb-4" style={{ fontWeight: 700 }}>
                 MAS Structure Correction & Performance Alignment
               </h3>
@@ -472,7 +624,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="border-2 border-[#E5E7EB] rounded-lg p-8">
+            <div className="premium-card p-8">
               <h3 className="text-[20px] font-bold text-[#1e3a5f] mb-4" style={{ fontWeight: 700 }}>
                 Federal Readiness Roadmap for a Growing Technology Firm
               </h3>
@@ -481,7 +633,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="border-2 border-[#E5E7EB] rounded-lg p-8">
+            <div className="premium-card p-8">
               <h3 className="text-[20px] font-bold text-[#1e3a5f] mb-4" style={{ fontWeight: 700 }}>
                 Compliance Intervention for a Low-Activity MAS Holder
               </h3>
@@ -494,7 +646,7 @@ export default function Home() {
           <div className="text-center mt-16">
             <a
               href="mailto:kevin@civicstrategypartners.com?subject=Talk Through Your Scenario"
-              className="inline-block bg-[#1e3a5f] text-white px-10 py-4 rounded-md text-[18px] font-semibold hover:bg-[#2a4a6f] transition-colors"
+              className="inline-block premium-cta text-white px-10 py-4 text-[18px] font-semibold"
               style={{ fontWeight: 600 }}
             >
               Talk Through Your Scenario
@@ -504,7 +656,7 @@ export default function Home() {
       </section>
 
       {/* Insights & Expertise Section - Silk Flag Gradient */}
-      <section id="insights" className="py-24 md:py-32 lg:py-[120px] px-6 relative overflow-hidden">
+      <section id="insights" className="py-24 md:py-32 lg:py-[120px] px-6 relative overflow-hidden fade-in-section">
         <div className="absolute inset-0 silk-gradient"></div>
         <div className="absolute inset-0 silk-overlay"></div>
 
@@ -525,7 +677,7 @@ export default function Home() {
 
         <div className="max-w-[1200px] mx-auto relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-[36px] font-semibold text-white mb-4" style={{ fontWeight: 600 }}>
+            <h2 className="text-[42px] font-semibold text-white mb-4" style={{ fontWeight: 600, textShadow: '0 2px 4px rgba(0,0,0,0.3)' }}>
               Insights & Expertise
             </h2>
             <p className="text-[18px] text-white/70">
@@ -593,7 +745,7 @@ export default function Home() {
       </section>
 
       {/* Contact/CTA Section - White Background */}
-      <section id="contact" className="py-24 md:py-32 lg:py-[120px] px-6 bg-white">
+      <section id="contact" className="py-24 md:py-32 lg:py-[120px] px-6 bg-white fade-in-section">
         <div className="max-w-[600px] mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-[36px] font-bold text-[#1e3a5f] mb-4" style={{ fontWeight: 700 }}>
