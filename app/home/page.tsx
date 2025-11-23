@@ -452,7 +452,7 @@ export default function Home() {
         }
 
         .wave-bar-top {
-          margin-top: 88px;
+          margin-top: 100px;
         }
 
         @keyframes wave-flow {
@@ -463,7 +463,7 @@ export default function Home() {
         .hero-video {
           position: relative;
           width: 100%;
-          min-height: calc(100vh - 88px - 240px);
+          min-height: calc(100vh - 100px - 240px);
           height: 700px;
           display: flex;
           align-items: center;
@@ -550,7 +550,7 @@ export default function Home() {
           }
 
           .hero-video {
-            min-height: calc(100vh - 88px - 160px);
+            min-height: calc(100vh - 100px - 160px);
             height: 600px;
           }
         }
@@ -771,7 +771,7 @@ export default function Home() {
 
           /* === HERO SECTION === */
           .hero-video {
-            min-height: calc(100vh - 56px - 120px) !important;
+            min-height: calc(100vh - 60px - 120px) !important;
             height: 500px !important;
           }
 
@@ -1062,7 +1062,7 @@ export default function Home() {
         className={`fixed top-0 left-0 right-0 premium-nav z-50 transition-shadow duration-200 ${
           scrolled ? 'shadow-sm' : ''
         }`}
-        style={{ height: '88px' }}
+        style={{ height: '100px' }}
       >
         <div className="max-w-[1200px] mx-auto px-6 h-full flex items-center justify-between">
           <button
@@ -1070,9 +1070,9 @@ export default function Home() {
             className="logo-button flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity"
           >
             <img
-              src="/Civic Strategy Partners LLC Logo NO TAGLINE copy.png"
+              src="/Civic Strategy Partners Minus LLC.png"
               alt="Civic Strategy Partners Logo"
-              className="h-[70px] w-auto object-contain"
+              className="h-[85px] w-auto object-contain"
             />
             <div className="text-[#0F172A] font-semibold text-[18px]">
               CIVIC STRATEGY PARTNERS
