@@ -250,98 +250,160 @@ export default function Home() {
         className="flex items-center justify-center px-6 relative overflow-hidden"
         style={{ minHeight: 'calc(100vh - 88px)', marginTop: '88px' }}
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0F2847] via-[#0d1520] to-[#0F2847] animate-gradient-slow"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-[#1e3a5f] via-[#152844] to-[#1e3a5f] animate-gradient-slow"></div>
         <div className="absolute inset-0 opacity-[0.015] bg-noise"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(127,179,213,0.05),transparent_50%)]"></div>
 
-        <div className="text-center relative z-10" style={{ maxWidth: '800px' }}>
+        <div className="text-center relative z-10" style={{ maxWidth: '900px' }}>
           <h1
-            className="text-[32px] md:text-[40px] lg:text-[56px] font-semibold text-white mb-6"
-            style={{ lineHeight: '1.1', fontWeight: 600 }}
+            className="text-[32px] md:text-[40px] lg:text-[48px] font-bold text-white mb-6"
+            style={{ lineHeight: '1.2', fontWeight: 700 }}
           >
-            Expert Guidance for Federal Market Success
+            Your GSA MAS Contract Won't Sell Itself.
           </h1>
 
           <p
-            className="text-[20px] md:text-[24px] text-white/80 mb-12 mx-auto"
-            style={{ maxWidth: '600px' }}
+            className="text-[18px] md:text-[24px] text-white/90 mb-8 mx-auto font-medium"
+            style={{ maxWidth: '800px', lineHeight: '1.5', fontWeight: 500 }}
           >
-            Helping businesses navigate GSA schedules, win federal contracts, and build lasting government partnerships.
+            Civic Strategy Partners helps you diagnose, fix, and optimize your MAS or federal sales posture—so you stop missing revenue and start performing.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href="mailto:kevin@civicstrategypartners.com?subject=Consultation Request"
-              className="bg-white text-[#0F2847] px-8 py-3 rounded-lg text-[16px] font-medium hover:bg-gray-100 w-full sm:w-auto text-center transition-colors"
-            >
-              Schedule Consultation
-            </a>
-            <button
-              onClick={() => scrollToSection('services')}
-              className="bg-transparent text-white border-2 border-white px-8 py-3 rounded-lg text-[16px] font-medium hover:bg-white/10 w-full sm:w-auto transition-colors"
-            >
-              View Services
-            </button>
-          </div>
-
-          <p className="text-[14px] text-white/60 mt-12">
-            Marine-Owned • Mission-Driven • Federal-Focused
+          <p
+            className="text-[16px] md:text-[18px] text-white/85 mb-12 mx-auto"
+            style={{ maxWidth: '800px', lineHeight: '1.7' }}
+          >
+            Most companies think a GSA Schedule will generate sales automatically. It won't. MAS performs only when it's aligned, maintained, and guided by someone who understands the doctrine—and your CO will not do that for you. If your contract is quiet, misaligned, or at risk of cancellation, you're not alone. CSP brings former-GSA insight and Marine-grade discipline to correct course and build a federal revenue engine that actually works.
           </p>
+
+          <a
+            href="mailto:kevin@civicstrategypartners.com?subject=Consultation Request"
+            className="inline-block bg-white text-[#1e3a5f] px-10 py-4 rounded-md text-[18px] font-semibold hover:bg-gray-100 transition-colors"
+            style={{ fontWeight: 600 }}
+          >
+            Book a Consultation
+          </a>
         </div>
       </section>
 
-      {/* Services Section - White Background */}
+      {/* What We Do Section - White Background */}
       <section id="services" className="py-24 md:py-32 lg:py-[120px] px-6 bg-white">
         <div className="max-w-[1200px] mx-auto">
-          <h2 className="text-[36px] font-semibold text-[#0F172A] mb-16 text-center" style={{ fontWeight: 600 }}>
-            Services
-          </h2>
+          <div className="text-center mb-16">
+            <h2 className="text-[36px] font-bold text-[#1e3a5f] mb-4" style={{ fontWeight: 700 }}>
+              What We Do
+            </h2>
+            <p className="text-[18px] text-[#6B7280]">
+              Core services designed to diagnose, fix, and optimize your federal sales posture
+            </p>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div>
-              <h3 className="text-[24px] font-semibold text-[#0F172A] mb-4" style={{ fontWeight: 600 }}>
-                Offer Development
+              <h3 className="text-[22px] font-bold text-[#1e3a5f] mb-4" style={{ fontWeight: 700 }}>
+                MAS Contract Diagnosis & Performance Correction
               </h3>
-              <p className="text-[#4B5563] text-[16px] mb-4" style={{ lineHeight: '1.7' }}>
-                Full-scope preparation and submission of GSA MAS offers, from readiness assessment through final award. We handle documentation, pricing strategy, and compliance requirements so you can focus on your business.
+              <p className="text-[#4B5563] text-[16px] mb-4" style={{ lineHeight: '1.6' }}>
+                A MAS contract is not a vending machine. If the foundation is wrong, nothing you do in the marketplace will work. We identify exactly where your contract is failing and build a correction plan to restore compliance, visibility, and performance.
               </p>
               <a
-                href="mailto:kevin@civicstrategypartners.com?subject=Offer Development Inquiry"
-                className="text-[#1E3A8F] text-[16px] font-medium hover:text-[#1E40AF] transition-colors"
+                href="/services#mas-diagnosis"
+                className="text-[#1e3a5f] text-[16px] font-medium hover:opacity-80 transition-opacity"
+                style={{ fontWeight: 500 }}
               >
-                Learn more →
+                Learn More →
               </a>
             </div>
 
             <div>
-              <h3 className="text-[24px] font-semibold text-[#0F172A] mb-4" style={{ fontWeight: 600 }}>
-                Post-Award Compliance
+              <h3 className="text-[22px] font-bold text-[#1e3a5f] mb-4" style={{ fontWeight: 700 }}>
+                Federal Readiness Roadmaps
               </h3>
-              <p className="text-[#4B5563] text-[16px] mb-4" style={{ lineHeight: '1.7' }}>
-                Ongoing contract maintenance, modifications, and Economic Price Adjustments. We keep your Schedule compliant, current, and positioned for long-term success in the federal marketplace.
+              <p className="text-[#4B5563] text-[16px] mb-4" style={{ lineHeight: '1.6' }}>
+                Less than half of one percent of U.S. small businesses sell to the federal government, yet nearly $190B flowed to them last year. We build Federal Readiness Roadmaps that give you land navigation for the federal marketplace.
               </p>
               <a
-                href="mailto:kevin@civicstrategypartners.com?subject=Post-Award Compliance Inquiry"
-                className="text-[#1E3A8F] text-[16px] font-medium hover:text-[#1E40AF] transition-colors"
+                href="/services#readiness"
+                className="text-[#1e3a5f] text-[16px] font-medium hover:opacity-80 transition-opacity"
+                style={{ fontWeight: 500 }}
               >
-                Learn more →
+                Learn More →
               </a>
             </div>
 
             <div>
-              <h3 className="text-[24px] font-semibold text-[#0F172A] mb-4" style={{ fontWeight: 600 }}>
-                Growth Strategy
+              <h3 className="text-[22px] font-bold text-[#1e3a5f] mb-4" style={{ fontWeight: 700 }}>
+                MAS Advisory & Offer Support
               </h3>
-              <p className="text-[#4B5563] text-[16px] mb-4" style={{ lineHeight: '1.7' }}>
-                Catalog expansion, BPA and IDIQ positioning, and GSA-driven sales optimization. We help you expand your federal footprint and turn your Schedule into a sustainable revenue engine.
+              <p className="text-[#4B5563] text-[16px] mb-4" style={{ lineHeight: '1.6' }}>
+                CSP is not a proposal mill. We guide you through the MAS offer or mod process with expert oversight, helping you build the right offer, the right pricing, and the right structure from day one.
               </p>
               <a
-                href="mailto:kevin@civicstrategypartners.com?subject=Growth Strategy Inquiry"
-                className="text-[#1E3A8F] text-[16px] font-medium hover:text-[#1E40AF] transition-colors"
+                href="/services#advisory"
+                className="text-[#1e3a5f] text-[16px] font-medium hover:opacity-80 transition-opacity"
+                style={{ fontWeight: 500 }}
               >
-                Learn more →
+                Learn More →
               </a>
             </div>
+
+            <div>
+              <h3 className="text-[22px] font-bold text-[#1e3a5f] mb-4" style={{ fontWeight: 700 }}>
+                Post-Award Compliance & Lifecycle Support
+              </h3>
+              <p className="text-[#4B5563] text-[16px] mb-4" style={{ lineHeight: '1.6' }}>
+                MAS is a lifecycle program requiring accurate, timely maintenance. CSP supports mod packages, price list updates, EPA strategy, solicitation refresh alignment, and annual requirements. Healthy contracts sell.
+              </p>
+              <a
+                href="/services#lifecycle"
+                className="text-[#1e3a5f] text-[16px] font-medium hover:opacity-80 transition-opacity"
+                style={{ fontWeight: 500 }}
+              >
+                Learn More →
+              </a>
+            </div>
+
+            <div>
+              <h3 className="text-[22px] font-bold text-[#1e3a5f] mb-4" style={{ fontWeight: 700 }}>
+                Retainer-Based Support
+              </h3>
+              <p className="text-[#4B5563] text-[16px] mb-4" style={{ lineHeight: '1.6' }}>
+                Some clients need continuous support, not one-off fixes. CSP offers customizable Advisory and White-Glove retainer packages with direct access to the Principal Consultant and CSP-certified MAS technicians.
+              </p>
+              <a
+                href="/services#retainer"
+                className="text-[#1e3a5f] text-[16px] font-medium hover:opacity-80 transition-opacity"
+                style={{ fontWeight: 500 }}
+              >
+                Learn More →
+              </a>
+            </div>
+
+            <div>
+              <h3 className="text-[22px] font-bold text-[#1e3a5f] mb-4" style={{ fontWeight: 700 }}>
+                À La Carte Mod Support
+              </h3>
+              <p className="text-[#4B5563] text-[16px] mb-4" style={{ lineHeight: '1.6' }}>
+                If you only need a clean, compliant modification, CSP offers à la carte mod support from administrative updates to major contract restructuring—handled by CSP-certified MAS technicians with strategic oversight.
+              </p>
+              <a
+                href="/services#mods"
+                className="text-[#1e3a5f] text-[16px] font-medium hover:opacity-80 transition-opacity"
+                style={{ fontWeight: 500 }}
+              >
+                Learn More →
+              </a>
+            </div>
+          </div>
+
+          <div className="text-center mt-16">
+            <a
+              href="/services"
+              className="text-[18px] text-[#1e3a5f] font-semibold border-b-2 border-[#1e3a5f] pb-1 hover:opacity-80 transition-opacity"
+              style={{ fontWeight: 600, textDecoration: 'none' }}
+            >
+              View All Services & Details →
+            </a>
           </div>
         </div>
       </section>
@@ -438,74 +500,180 @@ export default function Home() {
 
       {/* About Section - Animated Gradient */}
       <section id="about" className="py-24 md:py-32 lg:py-[120px] px-6 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0F2847] via-[#0d1520] to-[#0F2847] animate-gradient-slow"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-[#1e3a5f] via-[#152844] to-[#1e3a5f] animate-gradient-slow"></div>
         <div className="absolute inset-0 opacity-[0.015] bg-noise"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(127,179,213,0.05),transparent_50%)]"></div>
 
-        <div className="max-w-[1200px] mx-auto relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-16 items-center">
-            <div className="md:col-span-2">
-              <img
-                src="/1743701547902 copy.jpeg"
-                alt="Kevin Martin"
-                className="rounded-lg w-full object-cover"
-                style={{ aspectRatio: '4/5' }}
-              />
+        <div className="max-w-[900px] mx-auto text-center relative z-10">
+          <h2 className="text-[36px] font-bold text-white mb-8" style={{ fontWeight: 700 }}>
+            Marine-Owned. Mission-Driven. Federal-Focused.
+          </h2>
+
+          <div className="text-[18px] text-white/90 space-y-6 text-left" style={{ lineHeight: '1.7' }}>
+            <p>
+              Civic Strategy Partners is built on the belief that federal acquisition should be agile, modern, and mission-oriented—and that GSA MAS is becoming the government's fastest, cleanest way to get there. Agencies are moving more requirements onto MAS to speed procurement, increase commercial access, and push capability directly into government hands. That shift demands contractors who understand the doctrine, the compliance landscape, and how to maintain a contract so it performs.
+            </p>
+            <p>
+              CSP brings a blend of Marine Corps discipline, former-GSA Contract Specialist experience, and deep knowledge of MAS structure and federal readiness. We help companies diagnose failing contracts, correct course, and build federal revenue engines that actually work. Our approach is structured, direct, and grounded in the Civic Strategy Method and MAS Doctrine—models designed to help companies operate with clarity in a constantly changing federal environment.
+            </p>
+            <p>
+              For founders, small businesses, and growing federal practices, CSP provides the guidance, structure, and truth you need to perform in the federal space with confidence.
+            </p>
+          </div>
+
+          <a
+            href="mailto:kevin@civicstrategypartners.com?subject=Consultation Request"
+            className="inline-block mt-12 bg-white text-[#1e3a5f] px-10 py-4 rounded-md text-[18px] font-semibold hover:bg-gray-100 transition-colors"
+            style={{ fontWeight: 600 }}
+          >
+            Book a Consultation
+          </a>
+        </div>
+      </section>
+
+      {/* Results Section - White Background */}
+      <section id="results" className="py-24 md:py-32 lg:py-[120px] px-6 bg-white">
+        <div className="max-w-[1200px] mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-[36px] font-bold text-[#1e3a5f] mb-4" style={{ fontWeight: 700 }}>
+              Representative Outcomes & Typical Engagement Results
+            </h2>
+            <p className="text-[18px] text-[#6B7280] max-w-[800px] mx-auto" style={{ lineHeight: '1.6' }}>
+              CSP engagements are confidential, and many clients come to us early in their federal journey. Instead of publishing sensitive details, we highlight representative scenarios that reflect the types of challenges we solve.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+            <div className="border-2 border-[#E5E7EB] rounded-lg p-8">
+              <h3 className="text-[20px] font-bold text-[#1e3a5f] mb-4" style={{ fontWeight: 700 }}>
+                MAS Structure Correction & Performance Alignment
+              </h3>
+              <p className="text-[#4B5563] text-[16px]" style={{ lineHeight: '1.6' }}>
+                A services contractor with minimal MAS sales sought clarity on why their schedule wasn't gaining traction. Analysis revealed misaligned SINs, outdated labor categories, and pricing inconsistencies tied to older solicitation refreshes. CSP provided a corrective action roadmap to rebuild the contract's structure, restore compliance, and position the company for visibility with agency buyers.
+              </p>
             </div>
 
-            <div className="md:col-span-3">
-              <p className="text-[14px] text-white/60 uppercase mb-4" style={{ letterSpacing: '0.1em' }}>
-                About
+            <div className="border-2 border-[#E5E7EB] rounded-lg p-8">
+              <h3 className="text-[20px] font-bold text-[#1e3a5f] mb-4" style={{ fontWeight: 700 }}>
+                Federal Readiness Roadmap for a Growing Technology Firm
+              </h3>
+              <p className="text-[#4B5563] text-[16px]" style={{ lineHeight: '1.6' }}>
+                A tech company exploring federal sales needed to understand market fit, competitive posture, and whether MAS should be part of their strategy. CSP built a Federal Readiness Roadmap assessing capabilities, NAICS alignment, SAM/DSBS posture, agency targets, and contract vehicle pathways. Leadership gained clarity on their federal entry points and a structured path toward future MAS alignment.
               </p>
-
-              <h2 className="text-[36px] font-semibold text-white mb-3" style={{ fontWeight: 600 }}>
-                Kevin Martin
-              </h2>
-
-              <p className="text-[16px] text-white/70 mb-8">
-                MBA • U.S. Marine Corps Veteran • Former GSA Contract Specialist
-              </p>
-
-              <div className="text-[18px] text-white/90 space-y-6" style={{ lineHeight: '1.7' }}>
-                <p>
-                  Kevin brings firsthand federal acquisition expertise from his time at the General Services Administration, where he evaluated offers, negotiated pricing, and guided contractors through the Multiple Award Schedule program. This insider perspective shapes everything Civic Strategy Partners delivers.
-                </p>
-                <p>
-                  As Founder and Principal Consultant, Kevin helps businesses secure, manage, and grow their GSA Schedule contracts with precision, compliance, and confidence. His approach combines strategic business acumen with the discipline and mission focus gained through Marine Corps service.
-                </p>
-                <p>
-                  Whether you're pursuing your first Schedule award or optimizing a mature contract portfolio, Kevin provides hands-on expertise built from inside government itself.
-                </p>
-              </div>
             </div>
+
+            <div className="border-2 border-[#E5E7EB] rounded-lg p-8">
+              <h3 className="text-[20px] font-bold text-[#1e3a5f] mb-4" style={{ fontWeight: 700 }}>
+                Compliance Intervention for a Low-Activity MAS Holder
+              </h3>
+              <p className="text-[#4B5563] text-[16px]" style={{ lineHeight: '1.6' }}>
+                A small business with a quiet MAS contract faced the risk of falling below minimum sales thresholds. CSP conducted a comprehensive compliance and lifecycle review, identifying missing mods, outdated pricing files, and structural issues impacting visibility. Recommendations allowed the company to reestablish compliance, protect their contract, and begin rebuilding a real revenue pathway.
+              </p>
+            </div>
+          </div>
+
+          <div className="text-center mt-16">
+            <a
+              href="mailto:kevin@civicstrategypartners.com?subject=Talk Through Your Scenario"
+              className="inline-block bg-[#1e3a5f] text-white px-10 py-4 rounded-md text-[18px] font-semibold hover:bg-[#2a4a6f] transition-colors"
+              style={{ fontWeight: 600 }}
+            >
+              Talk Through Your Scenario
+            </a>
           </div>
         </div>
       </section>
 
       {/* Contact/CTA Section - White Background */}
       <section id="contact" className="py-24 md:py-32 lg:py-[120px] px-6 bg-white">
-        <div className="max-w-[1200px] mx-auto text-center">
-          <h2 className="text-[36px] md:text-[48px] font-semibold text-[#0F172A] mb-6" style={{ fontWeight: 600 }}>
-            Ready to Enter the Federal Market?
-          </h2>
+        <div className="max-w-[600px] mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-[36px] font-bold text-[#1e3a5f] mb-4" style={{ fontWeight: 700 }}>
+              Get in Touch with Civic Strategy Partners
+            </h2>
+            <p className="text-[18px] text-[#6B7280]">
+              Whether you need MAS diagnosis, federal readiness guidance, mod support, or a strategic advisor, CSP is here to help you move with clarity and purpose in the federal marketplace.
+            </p>
+          </div>
 
-          <p className="text-[20px] text-[#4B5563] mb-12 max-w-[600px] mx-auto">
-            Schedule a consultation to discuss your government contracting goals.
-          </p>
+          <form className="space-y-5">
+            <input
+              type="text"
+              placeholder="Full Name"
+              required
+              className="w-full px-4 py-3.5 border-2 border-[#E5E7EB] rounded-md text-[16px] focus:outline-none focus:border-[#1e3a5f]"
+              style={{ fontFamily: 'Inter' }}
+            />
 
-          <a
-            href="mailto:kevin@civicstrategypartners.com?subject=Consultation Request"
-            className="inline-block bg-[#1E3A8F] text-white px-8 py-4 rounded-lg text-[18px] font-medium hover:bg-[#1E40AF] mb-6 transition-colors"
-          >
-            Schedule Consultation
-          </a>
+            <input
+              type="email"
+              placeholder="Email Address"
+              required
+              className="w-full px-4 py-3.5 border-2 border-[#E5E7EB] rounded-md text-[16px] focus:outline-none focus:border-[#1e3a5f]"
+              style={{ fontFamily: 'Inter' }}
+            />
 
-          <p className="text-[14px] text-[#6B7280]">
-            or email{' '}
-            <a href="mailto:kevin@civicstrategypartners.com" className="text-[#1E3A8F] hover:text-[#1E40AF] underline transition-colors">
+            <input
+              type="text"
+              placeholder="Company Name"
+              className="w-full px-4 py-3.5 border-2 border-[#E5E7EB] rounded-md text-[16px] focus:outline-none focus:border-[#1e3a5f]"
+              style={{ fontFamily: 'Inter' }}
+            />
+
+            <select
+              required
+              className="w-full px-4 py-3.5 border-2 border-[#E5E7EB] rounded-md text-[16px] text-[#4B5563] focus:outline-none focus:border-[#1e3a5f]"
+              style={{ fontFamily: 'Inter' }}
+            >
+              <option value="">What are you looking for?</option>
+              <option value="mas-diagnosis">MAS Diagnosis</option>
+              <option value="federal-readiness">Federal Readiness</option>
+              <option value="mas-advisory">MAS Advisory</option>
+              <option value="mod-support">Mod Support</option>
+              <option value="compliance">Compliance/Lifecycle</option>
+              <option value="retainer">Retainer Inquiry</option>
+              <option value="custom">Custom Project</option>
+              <option value="general">General Question</option>
+            </select>
+
+            <textarea
+              placeholder="Tell us more about your needs..."
+              rows={5}
+              className="w-full px-4 py-3.5 border-2 border-[#E5E7EB] rounded-md text-[16px] focus:outline-none focus:border-[#1e3a5f] resize-vertical"
+              style={{ fontFamily: 'Inter' }}
+            ></textarea>
+
+            <button
+              type="submit"
+              className="w-full bg-[#1e3a5f] text-white px-4 py-4 rounded-md text-[18px] font-semibold hover:bg-[#2a4a6f] transition-colors"
+              style={{ fontFamily: 'Inter', fontWeight: 600 }}
+            >
+              Send Message
+            </button>
+          </form>
+
+          <div className="text-center mt-8">
+            <p className="text-[16px] text-[#6B7280] mb-2" style={{ fontFamily: 'Inter' }}>
+              Or email directly:
+            </p>
+            <a
+              href="mailto:kevin@civicstrategypartners.com"
+              className="text-[18px] text-[#1e3a5f] font-semibold hover:opacity-80 transition-opacity"
+              style={{ fontFamily: 'Inter', fontWeight: 600, textDecoration: 'none' }}
+            >
               kevin@civicstrategypartners.com
             </a>
-          </p>
+          </div>
+
+          <div className="text-center mt-8">
+            <a
+              href="mailto:kevin@civicstrategypartners.com?subject=Consultation Request"
+              className="inline-block bg-white text-[#1e3a5f] border-2 border-[#1e3a5f] px-8 py-3.5 rounded-md text-[16px] font-semibold hover:bg-[#1e3a5f] hover:text-white transition-colors"
+              style={{ fontFamily: 'Inter', fontWeight: 600 }}
+            >
+              Schedule a Consultation
+            </a>
+          </div>
         </div>
       </section>
 
@@ -664,17 +832,90 @@ export default function Home() {
       )}
 
       {/* Footer */}
-      <footer className="py-12 px-6 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0F2847] via-[#0d1520] to-[#0F2847] animate-gradient-slow"></div>
+      <footer className="py-16 px-6 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#1e3a5f] via-[#152844] to-[#1e3a5f] animate-gradient-slow"></div>
         <div className="absolute inset-0 opacity-[0.015] bg-noise"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(127,179,213,0.05),transparent_50%)]"></div>
 
-        <div className="max-w-[1200px] mx-auto text-center relative z-10">
-          <p className="text-[14px] text-white/70">
-            © 2025 Civic Strategy Partners LLC
-          </p>
+        <div className="max-w-[1200px] mx-auto relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+            <div>
+              <h3 className="text-[18px] font-bold text-white mb-4" style={{ fontFamily: 'Inter', fontWeight: 700 }}>
+                Civic Strategy Partners, LLC
+              </h3>
+              <p className="text-[14px] text-white/80 mb-2" style={{ fontFamily: 'Inter', lineHeight: '1.6' }}>
+                Marine-Owned | Mission-Driven | Federal-Focused
+              </p>
+              <p className="text-[14px] text-white/80 mb-2" style={{ fontFamily: 'Inter', lineHeight: '1.6' }}>
+                GSA MAS Architect | Federal Readiness Advisor
+              </p>
+              <p className="text-[14px] text-white/80" style={{ fontFamily: 'Inter', lineHeight: '1.6' }}>
+                New England, USA
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-[18px] font-bold text-white mb-4" style={{ fontFamily: 'Inter', fontWeight: 700 }}>
+                Contact
+              </h3>
+              <p className="text-[14px] text-white/80 mb-2" style={{ fontFamily: 'Inter' }}>
+                <a href="mailto:kevin@civicstrategypartners.com" className="hover:text-white transition-colors" style={{ color: 'rgba(255,255,255,0.8)', textDecoration: 'none' }}>
+                  kevin@civicstrategypartners.com
+                </a>
+              </p>
+              <p className="text-[14px] text-white/80 mb-4" style={{ fontFamily: 'Inter' }}>
+                (603) 969-2269
+              </p>
+              <p className="text-[14px] mt-4" style={{ fontFamily: 'Inter' }}>
+                <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition-colors" style={{ textDecoration: 'none' }}>
+                  LinkedIn →
+                </a>
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-[18px] font-bold text-white mb-4" style={{ fontFamily: 'Inter', fontWeight: 700 }}>
+                Client Portal
+              </h3>
+              <p className="text-[14px]" style={{ fontFamily: 'Inter' }}>
+                <a href="#" className="text-white/80 hover:text-white transition-colors" style={{ textDecoration: 'none' }}>
+                  Pay Invoice →
+                </a>
+              </p>
+            </div>
+          </div>
+
+          <div className="border-t border-white/20 pt-6 text-center">
+            <p className="text-[14px] text-white/60" style={{ fontFamily: 'Inter' }}>
+              © {new Date().getFullYear()} Civic Strategy Partners, LLC. All rights reserved.
+            </p>
+          </div>
         </div>
       </footer>
+
+      {/* Return to Top Button */}
+      <button
+        onClick={scrollToTop}
+        className="fixed bottom-8 right-8 bg-[#1e3a5f] text-white rounded-full w-14 h-14 text-2xl shadow-lg hover:scale-110 transition-transform z-50"
+        style={{
+          position: 'fixed',
+          bottom: '32px',
+          right: '32px',
+          background: '#1e3a5f',
+          color: 'white',
+          border: 'none',
+          borderRadius: '50%',
+          width: '56px',
+          height: '56px',
+          fontSize: '24px',
+          cursor: 'pointer',
+          boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
+          zIndex: 50
+        }}
+        aria-label="Return to top"
+      >
+        ↑
+      </button>
     </>
   );
 }
