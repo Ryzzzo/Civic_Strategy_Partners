@@ -250,24 +250,49 @@ export default function Home() {
           border-color: rgba(255, 255, 255, 0.2);
         }
 
-        .premium-cta, .cta-button {
-          background: linear-gradient(135deg, #1e3a5f 0%, #2a4a6f 100%) !important;
-          color: white !important;
-          padding: 16px 40px !important;
+        .premium-cta,
+        .cta-button,
+        .blue-section .cta-button,
+        .about-section .cta-button,
+        button.cta,
+        a.cta-button {
+          background: linear-gradient(135deg, #b8860b 0%, #daa520 100%) !important;
+          color: #ffffff !important;
+          font-size: 16px !important;
+          font-weight: 700 !important;
+          padding: 14px 32px !important;
           border-radius: 8px !important;
-          font-size: 18px !important;
-          font-weight: 600 !important;
           border: none !important;
-          box-shadow: 0 4px 15px rgba(30, 58, 95, 0.3) !important;
-          transition: all 0.3s ease !important;
           text-decoration: none !important;
           display: inline-block !important;
+          cursor: pointer !important;
+          transition: all 0.3s ease !important;
+          box-shadow: 0 4px 12px rgba(184, 134, 11, 0.3) !important;
+          text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
         }
 
-        .premium-cta:hover, .cta-button:hover {
+        .premium-cta:hover,
+        .cta-button:hover,
+        .blue-section .cta-button:hover,
+        .about-section .cta-button:hover,
+        button.cta:hover,
+        a.cta-button:hover {
+          background: linear-gradient(135deg, #daa520 0%, #b8860b 100%) !important;
           transform: translateY(-2px) !important;
-          box-shadow: 0 6px 25px rgba(30, 58, 95, 0.5) !important;
-          background: linear-gradient(135deg, #2a4a6f 0%, #1e3a5f 100%) !important;
+          box-shadow: 0 8px 20px rgba(184, 134, 11, 0.5) !important;
+        }
+
+        .hero-content .cta-button {
+          background: linear-gradient(135deg, #b8860b 0%, #daa520 100%) !important;
+          padding: 16px 40px !important;
+          font-size: 17px !important;
+          box-shadow: 0 6px 16px rgba(184, 134, 11, 0.4) !important;
+        }
+
+        .hero-content .cta-button:hover {
+          background: linear-gradient(135deg, #daa520 0%, #b8860b 100%) !important;
+          transform: translateY(-3px) !important;
+          box-shadow: 0 10px 24px rgba(184, 134, 11, 0.6) !important;
         }
 
         .learn-more-link {
@@ -330,12 +355,14 @@ export default function Home() {
 
         nav a[href*="Consultation"],
         nav .bg-\[#1E3A8F\] {
-          background: linear-gradient(135deg, #1e3a5f 0%, #2a4a6f 100%) !important;
-          background-color: #1e3a5f !important;
+          background: linear-gradient(135deg, #b8860b 0%, #daa520 100%) !important;
+          background-color: #b8860b !important;
+          box-shadow: 0 2px 8px rgba(184, 134, 11, 0.25) !important;
         }
 
         nav a[href*="Consultation"]:hover {
-          background: linear-gradient(135deg, #2a4a6f 0%, #1e3a5f 100%) !important;
+          background: linear-gradient(135deg, #daa520 0%, #b8860b 100%) !important;
+          box-shadow: 0 4px 12px rgba(184, 134, 11, 0.4) !important;
         }
 
         input:focus, textarea:focus, select:focus {
