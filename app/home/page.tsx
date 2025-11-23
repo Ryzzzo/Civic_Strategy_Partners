@@ -620,9 +620,9 @@ export default function Home() {
           font-size: 48px;
           font-weight: 800;
           color: #ffffff;
-          text-align: center;
+          text-align: left;
           margin-bottom: 32px;
-          margin-left: auto;
+          margin-left: 0;
           margin-right: auto;
           max-width: 900px;
           letter-spacing: -0.02em;
@@ -631,28 +631,28 @@ export default function Home() {
 
         .heading-line-1 {
           display: block;
-          margin-left: -160px;
+          padding-left: 0;
         }
 
         .heading-line-2 {
           display: block;
-          margin-left: 0;
+          padding-left: 80px;
         }
 
         .heading-line-3 {
           display: block;
-          margin-left: 160px;
+          padding-left: 160px;
         }
 
         .marine-emblem {
           position: absolute;
           top: 50%;
-          right: 40px;
-          transform: translateY(-50%);
-          width: 280px;
-          height: 280px;
-          opacity: 0.9;
-          z-index: 5;
+          right: 8%;
+          transform: translate(50%, -50%);
+          width: 200px;
+          height: 200px;
+          opacity: 0.6;
+          z-index: 0;
           pointer-events: none;
           filter: brightness(1.1);
           transition: opacity 0.3s ease;
@@ -875,7 +875,7 @@ export default function Home() {
           .heading-line-1,
           .heading-line-2,
           .heading-line-3 {
-            margin-left: 0 !important;
+            padding-left: 0 !important;
           }
 
           .about-section p {
