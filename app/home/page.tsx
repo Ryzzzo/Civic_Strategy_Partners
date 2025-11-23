@@ -811,17 +811,10 @@ export default function Home() {
               </p>
               <a
                 href="mailto:kevin@civicstrategypartners.com?subject=Consultation Request"
-                className="inline-block bg-[#0F2847] text-white px-8 py-3.5 rounded-md text-[16px] font-medium cursor-pointer hover:bg-[#1e3a5f] transition-colors"
+                className="inline-block bg-[#0F2847] text-white px-8 py-3.5 rounded-md text-[16px] font-medium cursor-pointer hover:bg-[#1e3a5f] transition-colors border-none"
                 style={{
-                  background: '#0F2847',
-                  color: 'white',
-                  border: 'none',
-                  borderRadius: '6px',
-                  padding: '14px 32px',
-                  fontSize: '16px',
                   fontFamily: 'Inter',
-                  fontWeight: 500,
-                  cursor: 'pointer'
+                  fontWeight: 500
                 }}
               >
                 Schedule Consultation →
@@ -886,7 +879,7 @@ export default function Home() {
           </div>
 
           <div className="border-t border-white/20 pt-6 text-center">
-            <p className="text-[14px] text-white/60" style={{ fontFamily: 'Inter' }}>
+            <p className="text-[14px] text-white/60" style={{ fontFamily: 'Inter' }} suppressHydrationWarning>
               © {new Date().getFullYear()} Civic Strategy Partners, LLC. All rights reserved.
             </p>
           </div>
@@ -896,21 +889,9 @@ export default function Home() {
       {/* Return to Top Button */}
       <button
         onClick={scrollToTop}
-        className="fixed bottom-8 right-8 bg-[#1e3a5f] text-white rounded-full w-14 h-14 text-2xl shadow-lg hover:scale-110 transition-transform z-50"
+        className="fixed bottom-8 right-8 bg-[#1e3a5f] text-white border-none rounded-full w-14 h-14 text-2xl cursor-pointer hover:scale-110 transition-transform z-50"
         style={{
-          position: 'fixed',
-          bottom: '32px',
-          right: '32px',
-          background: '#1e3a5f',
-          color: 'white',
-          border: 'none',
-          borderRadius: '50%',
-          width: '56px',
-          height: '56px',
-          fontSize: '24px',
-          cursor: 'pointer',
-          boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
-          zIndex: 50
+          boxShadow: '0 4px 12px rgba(0,0,0,0.3)'
         }}
         aria-label="Return to top"
       >
