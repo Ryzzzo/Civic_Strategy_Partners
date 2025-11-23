@@ -356,30 +356,85 @@ export default function Home() {
           transform: translateY(0);
         }
 
-        .hero {
+        .wave-bar {
+          width: 100%;
+          height: 100px;
+          position: relative;
+          z-index: 1;
+        }
+
+        .wave-bar-top {
+          margin-top: 88px;
+        }
+
+        @keyframes wave-flow {
+          0%, 100% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+        }
+
+        .hero-video {
+          position: relative;
+          width: 100%;
+          min-height: 600px;
           display: flex;
           align-items: center;
           justify-content: center;
-          text-align: center;
+          overflow: hidden;
+        }
+
+        .hero-video-bg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          z-index: 0;
+        }
+
+        .video-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(30, 58, 95, 0.5);
+          z-index: 1;
         }
 
         .hero-content {
-          margin: 0 auto;
+          position: relative;
+          z-index: 2;
           text-align: center;
+          color: #ffffff;
+          max-width: 900px;
+          padding: 0 24px;
         }
 
-        .hero h1,
-        h1[style*="font-weight"] {
-          font-size: clamp(36px, 4vw, 48px) !important;
-          white-space: nowrap !important;
-          overflow: visible !important;
+        .hero-content h1 {
+          font-size: clamp(36px, 4vw, 56px);
+          font-weight: 800;
+          line-height: 1.2;
+          letter-spacing: -0.02em;
+          margin-bottom: 24px;
+          text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+          font-size: 24px;
+          font-weight: 500;
+          margin-bottom: 32px;
+          opacity: 0.95;
+          text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
         @media (max-width: 768px) {
-          .hero h1,
-          h1[style*="font-weight"] {
-            white-space: normal !important;
-            font-size: 32px !important;
+          .wave-bar {
+            height: 60px;
+          }
+
+          .hero-video {
+            min-height: 500px;
           }
         }
 
@@ -528,44 +583,24 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section - Silk Flag Gradient */}
-      <section
-        className="hero flex items-center justify-center px-6 relative overflow-hidden"
-        style={{ minHeight: 'calc(100vh - 88px)', marginTop: '88px' }}
-      >
-        <div className="absolute inset-0 silk-gradient"></div>
-        <div className="absolute inset-0 silk-overlay"></div>
+      {/* Top Wave Bar */}
+      <div className="wave-bar wave-bar-top silk-gradient"></div>
 
-        <div className="hero-content text-center relative z-10" style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
-          <h1
-            className="text-[36px] md:text-[48px] lg:text-[56px] font-bold text-white mb-6"
-            style={{ lineHeight: '1.2', fontWeight: 800, letterSpacing: '-0.02em', textShadow: '0 2px 8px rgba(0,0,0,0.2)' }}
-          >
-            Your GSA MAS Contract Won't Sell Itself.
-          </h1>
-
-          <p
-            className="text-[18px] md:text-[24px] text-white/90 mb-8 mx-auto font-medium"
-            style={{ maxWidth: '800px', lineHeight: '1.5', fontWeight: 500 }}
-          >
-            Civic Strategy Partners helps you diagnose, fix, and optimize your MAS or federal sales posture—so you stop missing revenue and start performing.
-          </p>
-
-          <p
-            className="text-[16px] md:text-[18px] mb-12 mx-auto"
-            style={{ maxWidth: '800px', lineHeight: '1.8', color: 'rgba(255, 255, 255, 0.9)' }}
-          >
-            Most companies think a GSA Schedule will generate sales automatically. It won't. MAS performs only when it's aligned, maintained, and guided by someone who understands the doctrine—and your CO will not do that for you. If your contract is quiet, misaligned, or at risk of cancellation, you're not alone. CSP brings former-GSA insight and Marine-grade discipline to correct course and build a federal revenue engine that actually works.
-          </p>
-
-          <a
-            href="mailto:kevin@civicstrategypartners.com?subject=Consultation Request"
-            className="premium-cta"
-          >
-            Book a Consultation
-          </a>
+      {/* Hero Section with Video */}
+      <section className="hero-video">
+        <video autoPlay loop muted playsInline className="hero-video-bg">
+          <source src="/cap_building.mp4" type="video/mp4" />
+        </video>
+        <div className="video-overlay"></div>
+        <div className="hero-content">
+          <h1>Strategic Guidance for Government Contracting Success</h1>
+          <p className="hero-subtitle">30+ Years of proven success. Experience the difference!</p>
+          <a href="#services" className="cta-button" onClick={(e) => { e.preventDefault(); scrollToSection('services'); }}>Services</a>
         </div>
       </section>
+
+      {/* Bottom Wave Bar */}
+      <div className="wave-bar wave-bar-bottom silk-gradient"></div>
 
       {/* What We Do Section - White Background */}
       <section id="services" className="py-24 md:py-32 lg:py-[120px] px-6 bg-white fade-in-section">
