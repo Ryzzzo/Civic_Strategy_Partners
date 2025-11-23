@@ -1590,12 +1590,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Gold Separator */}
+      {/* Premium Gold Separator Bar */}
       <div style={{
-        height: '2px',
-        background: 'linear-gradient(90deg, transparent 0%, #b8860b 50%, transparent 100%)',
-        maxWidth: '1200px',
-        margin: '0 auto'
+        height: '6px',
+        background: 'linear-gradient(90deg, rgba(184,134,11,0) 0%, rgba(184,134,11,0.3) 15%, #b8860b 50%, rgba(184,134,11,0.3) 85%, rgba(184,134,11,0) 100%)',
+        boxShadow: '0 2px 12px rgba(184,134,11,0.4), 0 -2px 12px rgba(184,134,11,0.4)',
+        maxWidth: '100%',
+        margin: '0'
       }}></div>
 
       {/* Modal Popup */}
