@@ -304,6 +304,18 @@ export default function Home() {
           border-bottom: none !important;
         }
 
+        nav button[class*="logo"],
+        nav .flex.items-center.gap-3,
+        nav button:has(img[alt*="Logo"]) {
+          background: transparent !important;
+          background-color: transparent !important;
+          padding: 0 !important;
+        }
+
+        nav .max-w-\[1200px\] > button:first-child {
+          background: transparent !important;
+        }
+
         nav .logo-button,
         nav button:first-child {
           background: transparent !important;
@@ -312,6 +324,16 @@ export default function Home() {
 
         nav .logo-button:hover {
           background: transparent !important;
+        }
+
+        nav a[href*="Consultation"],
+        nav .bg-\[#1E3A8F\] {
+          background: linear-gradient(135deg, #1e3a5f 0%, #2a4a6f 100%) !important;
+          background-color: #1e3a5f !important;
+        }
+
+        nav a[href*="Consultation"]:hover {
+          background: linear-gradient(135deg, #2a4a6f 0%, #1e3a5f 100%) !important;
         }
 
         input:focus, textarea:focus, select:focus {
@@ -344,13 +366,18 @@ export default function Home() {
           text-align: center;
         }
 
-        .hero h1 {
-          white-space: nowrap;
+        .hero h1,
+        h1[style*="font-weight"] {
+          font-size: clamp(36px, 4vw, 48px) !important;
+          white-space: nowrap !important;
+          overflow: visible !important;
         }
 
-        @media (max-width: 1024px) {
-          .hero h1 {
-            white-space: normal;
+        @media (max-width: 768px) {
+          .hero h1,
+          h1[style*="font-weight"] {
+            white-space: normal !important;
+            font-size: 32px !important;
           }
         }
 
