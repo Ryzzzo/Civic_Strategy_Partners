@@ -408,12 +408,12 @@ export default function Home() {
           z-index: 2;
           text-align: center;
           color: #ffffff;
-          max-width: 900px;
+          max-width: 1000px;
           padding: 0 24px;
         }
 
         .hero-content h1 {
-          font-size: clamp(36px, 4vw, 56px);
+          font-size: clamp(36px, 4vw, 52px);
           font-weight: 800;
           line-height: 1.2;
           letter-spacing: -0.02em;
@@ -421,12 +421,25 @@ export default function Home() {
           text-shadow: 0 2px 8px rgba(0,0,0,0.3);
         }
 
-        .hero-subtitle {
-          font-size: 24px;
-          font-weight: 500;
-          margin-bottom: 32px;
+        .hero-subline {
+          font-size: clamp(18px, 2vw, 22px);
+          font-weight: 600;
+          line-height: 1.4;
+          margin-bottom: 20px;
           opacity: 0.95;
           text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero-intro {
+          font-size: clamp(15px, 1.5vw, 17px);
+          font-weight: 400;
+          line-height: 1.6;
+          margin-bottom: 32px;
+          opacity: 0.9;
+          text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+          max-width: 900px;
+          margin-left: auto;
+          margin-right: auto;
         }
 
         @media (max-width: 768px) {
@@ -451,15 +464,16 @@ export default function Home() {
           font-weight: 800;
           color: #ffffff;
           text-align: center;
-          margin-bottom: 16px;
+          margin-bottom: 12px;
           letter-spacing: -0.02em;
         }
 
-        .insights-section .subtitle {
+        .section-subtitle {
           font-size: 18px;
           color: rgba(255, 255, 255, 0.85);
           text-align: center;
           margin-bottom: 56px;
+          font-weight: 400;
         }
 
         .insights-grid {
@@ -713,8 +727,9 @@ export default function Home() {
         </video>
         <div className="video-overlay"></div>
         <div className="hero-content">
-          <h1>Strategic Guidance for Government Contracting Success</h1>
-          <p className="hero-subtitle">30+ Years of proven success. Experience the difference!</p>
+          <h1>Your GSA MAS Contract Won't Sell Itself.</h1>
+          <p className="hero-subline">Civic Strategy Partners helps you diagnose, fix, and optimize your MAS or federal sales posture—so you stop missing revenue and start performing.</p>
+          <p className="hero-intro">Most companies think a GSA Schedule will generate sales automatically. It won't. MAS performs only when it's aligned, maintained, and guided by someone who understands the doctrine—and your CO will not do that for you. If your contract is quiet, misaligned, or at risk of cancellation, you're not alone. CSP brings former-GSA insight and Marine-grade discipline to correct course and build a federal revenue engine that actually works.</p>
           <a href="#services" className="cta-button" onClick={(e) => { e.preventDefault(); scrollToSection('services'); }}>Services</a>
         </div>
       </section>
@@ -946,8 +961,8 @@ export default function Home() {
         ></div>
 
         <div>
-          <h2>Insights & Expertise</h2>
-          <p className="subtitle">Expert guidance for government market success</p>
+          <h2>Civil Strategy Briefing</h2>
+          <p className="section-subtitle">Insights & Expertise for Government Contracting Success</p>
 
           <div className="insights-grid">
             {mockArticles.map((article, index) => (
