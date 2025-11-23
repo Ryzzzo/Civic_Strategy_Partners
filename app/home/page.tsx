@@ -1257,13 +1257,15 @@ export default function Home() {
               </p>
             </div>
 
-            <a
-              href="#contact"
-              onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }}
-              className="cta-button inline-block mt-8"
-            >
-              Book a Consultation
-            </a>
+            <div className="text-center mt-8">
+              <a
+                href="#contact"
+                onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }}
+                className="cta-button inline-block"
+              >
+                Book a Consultation
+              </a>
+            </div>
           </div>
         </div>
       </section>
