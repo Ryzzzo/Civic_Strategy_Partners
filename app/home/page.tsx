@@ -39,27 +39,11 @@ export default function Home() {
   const [gsaNewsLoading, setGsaNewsLoading] = useState(true);
   const [gsaNewsError, setGsaNewsError] = useState(false);
   const [isClient, setIsClient] = useState(false);
-  const [filloutLoaded, setFilloutLoaded] = useState(false);
 
   useEffect(() => {
     setIsClient(true);
   }, []);
 
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const script = document.createElement('script');
-      script.src = 'https://server.fillout.com/embed/v1/';
-      script.async = true;
-      script.onload = () => setFilloutLoaded(true);
-      document.head.appendChild(script);
-
-      return () => {
-        if (document.head.contains(script)) {
-          document.head.removeChild(script);
-        }
-      };
-    }
-  }, []);
 
 
   useEffect(() => {
@@ -1580,14 +1564,15 @@ export default function Home() {
               }}
             >
               <iframe
-                src="https://forms.fillout.com/t/eQxkUtxCQ9us"
+                src="https://forms.fillout.com/t/eQxkUtxCQ9us?inheritParameters=true"
                 style={{
                   width: '100%',
                   height: '700px',
                   border: 'none',
                   borderRadius: '12px',
-                  backgroundColor: 'white'
+                  overflow: 'hidden'
                 }}
+                allow="payment"
                 title="Contact Form"
               />
             </div>
