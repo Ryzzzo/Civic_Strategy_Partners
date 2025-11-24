@@ -571,7 +571,7 @@ export default function Home() {
         }
 
         .insights-section {
-          background: linear-gradient(135deg, #1e3a5f 0%, #15283d 100%);
+          background: #ffffff;
           padding: 80px 24px;
           position: relative;
         }
@@ -579,7 +579,7 @@ export default function Home() {
         .insights-section h2 {
           font-size: 42px;
           font-weight: 800;
-          color: #ffffff;
+          color: #1e3a5f;
           text-align: center;
           margin-bottom: 12px;
           letter-spacing: -0.02em;
@@ -587,7 +587,7 @@ export default function Home() {
 
         .section-subtitle {
           font-size: 18px;
-          color: rgba(255, 255, 255, 0.85);
+          color: #6B7280;
           text-align: center;
           margin-bottom: 56px;
           font-weight: 400;
@@ -602,20 +602,21 @@ export default function Home() {
         }
 
         .insight-card {
-          background: rgba(255, 255, 255, 0.95);
+          background: #ffffff;
           backdrop-filter: blur(10px);
-          border: 1px solid rgba(255, 255, 255, 0.2);
+          border: 1px solid #e5e7eb;
           border-radius: 12px;
           padding: 32px;
           transition: all 0.3s ease;
           cursor: pointer;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
 
         .insight-card:hover {
-          background: rgba(255, 255, 255, 1);
+          background: #ffffff;
           transform: translateY(-4px);
           box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-          border-color: rgba(255, 255, 255, 0.4);
+          border-color: #d1d5db;
         }
 
         .insight-card h3 {
@@ -1419,20 +1420,39 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Results Section - White Background */}
-      <section id="results" className="py-24 md:py-32 lg:py-[120px] px-6 bg-white fade-in-section">
-        <div className="max-w-[1200px] mx-auto">
+      {/* Results Section - Blue Silk Gradient Background */}
+      <section id="results" className="py-24 md:py-32 lg:py-[120px] px-6 relative overflow-hidden fade-in-section">
+        <div className="absolute inset-0 silk-gradient"></div>
+        <div className="absolute inset-0 silk-overlay"></div>
+
+        {/* Corner Decorations */}
+        <div
+          className="corner-decoration absolute top-5 left-5 w-20 h-20 border-t-[3px] border-l-[3px] border-white/30 z-10"
+          style={{
+            borderTopColor: 'rgba(255, 255, 255, 0.3)',
+            borderLeftColor: 'rgba(255, 255, 255, 0.3)'
+          }}
+        ></div>
+        <div
+          className="corner-decoration absolute bottom-5 right-5 w-20 h-20 border-b-[3px] border-r-[3px] border-white/30 z-10"
+          style={{
+            borderBottomColor: 'rgba(255, 255, 255, 0.3)',
+            borderRightColor: 'rgba(255, 255, 255, 0.3)'
+          }}
+        ></div>
+
+        <div className="max-w-[1200px] mx-auto relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-[42px] font-bold text-[#1e3a5f] mb-4" style={{ fontWeight: 700, textShadow: '0 2px 4px rgba(0,0,0,0.06)' }}>
+            <h2 className="text-[42px] font-bold text-white mb-4" style={{ fontWeight: 700, textShadow: '0 2px 8px rgba(0,0,0,0.2)' }}>
               Representative Outcomes & Typical Engagement Results
             </h2>
-            <p className="text-[18px] text-[#6B7280] max-w-[800px] mx-auto" style={{ lineHeight: '1.6' }}>
+            <p className="text-[18px] text-white/90 max-w-[800px] mx-auto" style={{ lineHeight: '1.6' }}>
               CSP engagements are confidential, and many clients come to us early in their federal journey. Instead of publishing sensitive details, we highlight representative scenarios that reflect the types of challenges we solve.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-            <div className="premium-card p-8">
+            <div className="glass-card p-8" style={{ background: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(10px)' }}>
               <h3 className="text-[20px] font-bold text-[#1e3a5f] mb-4" style={{ fontWeight: 700 }}>
                 MAS Structure Correction & Performance Alignment
               </h3>
@@ -1441,7 +1461,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="premium-card p-8">
+            <div className="glass-card p-8" style={{ background: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(10px)' }}>
               <h3 className="text-[20px] font-bold text-[#1e3a5f] mb-4" style={{ fontWeight: 700 }}>
                 Federal Readiness Roadmap for a Growing Technology Firm
               </h3>
@@ -1450,7 +1470,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="premium-card p-8">
+            <div className="glass-card p-8" style={{ background: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(10px)' }}>
               <h3 className="text-[20px] font-bold text-[#1e3a5f] mb-4" style={{ fontWeight: 700 }}>
                 Compliance Intervention for a Low-Activity MAS Holder
               </h3>
@@ -1472,23 +1492,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Insights & Expertise Section - Light Glassmorphism Cards */}
+      {/* Insights & Expertise Section - White Background */}
       <section id="insights" className="insights-section fade-in-section">
-        <div
-          className="corner-decoration absolute top-5 left-5 w-20 h-20 border-t-[3px] border-l-[3px] border-white/30 z-10"
-          style={{
-            borderTopColor: 'rgba(255, 255, 255, 0.3)',
-            borderLeftColor: 'rgba(255, 255, 255, 0.3)'
-          }}
-        ></div>
-        <div
-          className="corner-decoration absolute bottom-5 right-5 w-20 h-20 border-b-[3px] border-r-[3px] border-white/30 z-10"
-          style={{
-            borderBottomColor: 'rgba(255, 255, 255, 0.3)',
-            borderRightColor: 'rgba(255, 255, 255, 0.3)'
-          }}
-        ></div>
-
         <div>
           <h2>Civil Strategy Briefing</h2>
           <p className="section-subtitle">Insights & Expertise for Government Contracting Success</p>
@@ -1522,6 +1527,8 @@ export default function Home() {
       </section>
 
       {/* Government Contracting News Section - White Background */}
+      {/* HIDDEN - Can be restored later if needed */}
+      {false && (
       <section id="gsa-news" className="py-20 md:py-24 lg:py-[80px] px-6 bg-white fade-in-section">
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-16">
@@ -1593,6 +1600,7 @@ export default function Home() {
           )}
         </div>
       </section>
+      )}
 
       {/* Contact/CTA Section - Navy Background */}
       <section id="contact" className="py-24 md:py-32 lg:py-[120px] px-6 relative overflow-hidden fade-in-section">
