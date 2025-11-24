@@ -45,6 +45,17 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://server.fillout.com/embed/v1/';
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
+  useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
     };
@@ -1562,7 +1573,6 @@ export default function Home() {
                 data-fillout-inherit-parameters
                 data-fillout-dynamic-resize
               ></div>
-              <script src="https://server.fillout.com/embed/v1/"></script>
             </div>
           </div>
 
