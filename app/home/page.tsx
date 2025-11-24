@@ -1559,7 +1559,7 @@ export default function Home() {
             <div
               style={{
                 width: '100%',
-                maxWidth: '600px',
+                maxWidth: '800px',
                 margin: '0 auto'
               }}
             >
@@ -1567,7 +1567,7 @@ export default function Home() {
                 src="https://forms.fillout.com/t/eQxkUtxCQ9us?inheritParameters=true"
                 style={{
                   width: '100%',
-                  height: '700px',
+                  height: '1200px',
                   border: 'none',
                   borderRadius: '12px',
                   overflow: 'hidden'
