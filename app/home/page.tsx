@@ -1550,7 +1550,7 @@ export default function Home() {
       <section id="contact" className="py-24 md:py-32 lg:py-[120px] px-6 relative overflow-hidden fade-in-section">
         <div className="absolute inset-0 silk-gradient"></div>
         <div className="absolute inset-0 silk-overlay"></div>
-        <div className="max-w-[600px] mx-auto relative z-10">
+        <div className="max-w-[900px] mx-auto relative z-10">
           <div className="text-center mb-12">
             <h2 className="text-[36px] font-bold text-white mb-4" style={{ fontWeight: 700 }}>
               Get in Touch with Civic Strategy Partners
@@ -1571,9 +1571,8 @@ export default function Home() {
 
             <div
               style={{
-                width: '80%',
-                height: '500px',
-                margin: '0 auto'
+                width: '100%',
+                height: '500px'
               }}
               data-fillout-id="eQxkUtxCQ9us"
               data-fillout-embed-type="standard"
