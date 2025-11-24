@@ -478,8 +478,8 @@ export default function Home() {
         .hero-video {
           position: relative;
           width: 100%;
-          min-height: calc(100vh - 100px - 240px);
-          height: 700px;
+          min-height: 80vh;
+          height: auto;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -532,9 +532,14 @@ export default function Home() {
         }
 
         @media (max-width: 480px) {
+          .hero-video {
+            min-height: 70vh;
+          }
+
           .hero-content h1 {
             font-size: clamp(20px, 5.5vw, 52px);
             letter-spacing: -0.03em;
+            white-space: normal;
           }
         }
 
@@ -562,11 +567,6 @@ export default function Home() {
         @media (max-width: 768px) {
           .wave-bar {
             height: 80px;
-          }
-
-          .hero-video {
-            min-height: calc(100vh - 100px - 160px);
-            height: 600px;
           }
         }
 
@@ -1371,6 +1371,54 @@ export default function Home() {
         </div>
       </section>
 
+      {/* About the Founder Section - White Background */}
+      <section className="py-24 md:py-32 lg:py-[120px] px-6 bg-white fade-in-section">
+        <div className="max-w-[1200px] mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Left: Portrait Image */}
+            <div className="order-2 md:order-1">
+              <div className="rounded-2xl overflow-hidden shadow-xl">
+                <img
+                  src="/1743701547902.jpeg"
+                  alt="Kevin Martin - Founder of Civic Strategy Partners"
+                  className="w-full h-auto object-cover"
+                  style={{ maxHeight: '600px', objectFit: 'cover' }}
+                />
+              </div>
+            </div>
+
+            {/* Right: Biography */}
+            <div className="order-1 md:order-2">
+              <h2 className="text-[42px] font-bold text-[#1e3a5f] mb-6" style={{ fontWeight: 700, lineHeight: '1.2' }}>
+                About the Founder
+              </h2>
+              <div className="text-[16px] text-[#374151] space-y-4" style={{ lineHeight: '1.7' }}>
+                <p>
+                  Kevin Martin is a Marine Corps veteran, former GSA Contract Specialist, and federal acquisition strategist. After serving in Iraq and transitioning into federal contracting, he worked inside GSA's Multiple Award Schedule (MAS) program, where he reviewed proposals, audited contract files, and saw firsthand how companies succeeded or failed in the federal space.
+                </p>
+                <p>
+                  That experience shaped his approach: federal contracting is not about cutting corners or gaming the system. It's about building capability, maintaining compliance, and operating with discipline. Too many companies treat GSA MAS as a checkbox or a badge—then wonder why they don't win work. Kevin founded Civic Strategy Partners to help businesses approach federal contracting the right way: with structure, readiness, and a commitment to long-term performance.
+                </p>
+                <p>
+                  CSP's methodology is grounded in the Civic Strategy Method and MAS Doctrine—frameworks designed to bring clarity to federal acquisition and help contractors build sustainable federal practices. Whether diagnosing a failing MAS contract, guiding a company toward federal readiness, or providing strategic advisory support, Kevin's work is direct, structured, and focused on results.
+                </p>
+              </div>
+
+              <div className="mt-8">
+                <a
+                  href="#contact"
+                  onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }}
+                  className="inline-block bg-[#1e3a5f] text-white px-8 py-4 rounded-lg font-semibold text-[16px] hover:bg-[#152d4a] transition-all duration-300 shadow-lg hover:shadow-xl"
+                  style={{ textDecoration: 'none' }}
+                >
+                  Work with Kevin
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Results Section - White Background */}
       <section id="results" className="py-24 md:py-32 lg:py-[120px] px-6 bg-white fade-in-section">
         <div className="max-w-[1200px] mx-auto">
@@ -1770,7 +1818,7 @@ export default function Home() {
         <div className="absolute inset-0 silk-overlay"></div>
 
         <div className="max-w-[1200px] mx-auto relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 text-center md:text-left">
             <div>
               <h3 className="text-[18px] font-bold text-white mb-4" style={{ fontFamily: 'Inter', fontWeight: 700 }}>
                 Civic Strategy Partners, LLC
@@ -1817,7 +1865,59 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="border-t border-white/20 pt-6 text-center">
+          {/* Legal Links Section */}
+          <div className="border-t border-white/20 pt-8 pb-6 text-center">
+            <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 mb-6 text-[14px]">
+              <a
+                href="/Privacy Policy.docx"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/70 hover:text-white transition-colors"
+                style={{ fontFamily: 'Inter', textDecoration: 'none' }}
+              >
+                Privacy Policy
+              </a>
+              <span className="text-white/40">|</span>
+              <a
+                href="/TERMS OF SERVICE.docx"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/70 hover:text-white transition-colors"
+                style={{ fontFamily: 'Inter', textDecoration: 'none' }}
+              >
+                Terms of Service
+              </a>
+              <span className="text-white/40">|</span>
+              <a
+                href="/DISCLAIMER.docx"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/70 hover:text-white transition-colors"
+                style={{ fontFamily: 'Inter', textDecoration: 'none' }}
+              >
+                Disclaimer
+              </a>
+              <span className="text-white/40">|</span>
+              <a
+                href="/COOKIE POLICY.docx"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/70 hover:text-white transition-colors"
+                style={{ fontFamily: 'Inter', textDecoration: 'none' }}
+              >
+                Cookie Policy
+              </a>
+              <span className="text-white/40">|</span>
+              <a
+                href="/ACCESSIBILITY STATEMENT.docx"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/70 hover:text-white transition-colors"
+                style={{ fontFamily: 'Inter', textDecoration: 'none' }}
+              >
+                Accessibility Statement
+              </a>
+            </div>
             <p className="text-[14px] text-white/60" style={{ fontFamily: 'Inter' }} suppressHydrationWarning>
               © {new Date().getFullYear()} Civic Strategy Partners, LLC. All rights reserved.
             </p>
@@ -1828,7 +1928,7 @@ export default function Home() {
       {/* Return to Top Button */}
       <button
         onClick={scrollToTop}
-        className="fixed bottom-8 right-8 bg-[#1e3a5f] text-white border-none rounded-full w-14 h-14 text-2xl cursor-pointer hover:scale-110 transition-transform z-50"
+        className="fixed bottom-8 right-8 bg-[#1e3a5f] text-white border-none rounded-full w-14 h-14 text-2xl cursor-pointer hover:scale-110 transition-transform z-50 flex items-center justify-center"
         style={{
           boxShadow: '0 4px 12px rgba(0,0,0,0.3)'
         }}
