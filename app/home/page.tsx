@@ -1639,123 +1639,312 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
       {/* Bottom Wave Bar */}
       <div className="wave-bar wave-bar-bottom silk-gradient"></div>
 
-      {/* What We Do Section - Diamond Layout */}
-      <section id="services" className="py-10 px-6 bg-white fade-in-section">
-        <div className="max-w-[1100px] mx-auto">
-          {/* Section Header */}
-          <div className="text-center mb-8">
-            <h2 className="text-[28px] font-bold text-[#1e3a5f] mb-2" style={{ fontWeight: 700 }}>
-              What We Do
-            </h2>
-            <p className="text-[14px] text-[#6B7280]">
-              Core services designed to diagnose, fix, and optimize your federal sales posture
-            </p>
-          </div>
+      {/* ==================== JSX CODE ==================== */}
 
-          {/* Diamond Grid Container */}
-          <div className="services-diamond-grid">
+{/* What We Do Section - Diamond Layout */}
+<section id="services" className="pt-10 pb-20 px-6 bg-white fade-in-section">
+  <div className="max-w-[1100px] mx-auto">
+    {/* Section Header */}
+    <div className="text-center mb-8">
+      <h2 className="text-[28px] font-bold text-[#1e3a5f] mb-2" style={{ fontWeight: 700 }}>
+        What We Do
+      </h2>
+      <p className="text-[14px] text-[#6B7280]">
+        Core services designed to diagnose, fix, and optimize your federal sales posture
+      </p>
+    </div>
 
-            {/* Row 1 - Tiles inward (columns 2 and 4) */}
-            <div className="diamond-tile tile-1">
-              <div className="premium-card p-4 h-full">
-                <h3 className="text-[15px] font-bold text-[#1e3a5f] mb-2">
-                  MAS Contract Diagnosis & Performance Correction
-                </h3>
-                <p className="text-[#4B5563] text-[13px] mb-3" style={{ lineHeight: '1.5' }}>
-                  We identify exactly where your contract is failing and build a correction plan to restore compliance, visibility, and performance.
-                </p>
-                <a href="/services#mas-diagnosis" className="text-[#1e3a5f] text-[13px] font-medium learn-more-link">
-                  Learn More
-                </a>
-              </div>
-            </div>
-
-            <div className="diamond-tile tile-2">
-              <div className="premium-card p-4 h-full">
-                <h3 className="text-[15px] font-bold text-[#1e3a5f] mb-2">
-                  Federal Readiness Roadmaps
-                </h3>
-                <p className="text-[#4B5563] text-[13px] mb-3" style={{ lineHeight: '1.5' }}>
-                  We build Federal Readiness Roadmaps that give you land navigation for the federal marketplace.
-                </p>
-                <a href="/services#readiness" className="text-[#1e3a5f] text-[13px] font-medium learn-more-link">
-                  Learn More
-                </a>
-              </div>
-            </div>
-
-            {/* Row 2 - Wide row: tiles at edges (columns 1 and 5), logo center (column 3) */}
-            <div className="diamond-tile tile-3">
-              <div className="premium-card p-4 h-full">
-                <h3 className="text-[15px] font-bold text-[#1e3a5f] mb-2">
-                  MAS Advisory & Offer Support
-                </h3>
-                <p className="text-[#4B5563] text-[13px] mb-3" style={{ lineHeight: '1.5' }}>
-                  We guide you through the MAS offer or mod process with expert oversight, helping you build the right structure from day one.
-                </p>
-                <a href="/services#advisory" className="text-[#1e3a5f] text-[13px] font-medium learn-more-link">
-                  Learn More
-                </a>
-              </div>
-            </div>
-
-            {/* Logo Center with Glow */}
-            <div className="diamond-logo-container">
-              <div className="diamond-glow"></div>
-              <div className="diamond-logo">
-                <img
-                  src="/Civic Strategy Partners Minus LLC.png"
-                  alt="Civic Strategy Partners Logo"
-                />
-              </div>
-            </div>
-
-            <div className="diamond-tile tile-4">
-              <div className="premium-card p-4 h-full">
-                <h3 className="text-[15px] font-bold text-[#1e3a5f] mb-2">
-                  Post-Award Compliance & Lifecycle Support
-                </h3>
-                <p className="text-[#4B5563] text-[13px] mb-3" style={{ lineHeight: '1.5' }}>
-                  CSP supports mod packages, price list updates, EPA strategy, solicitation refresh alignment, and annual requirements.
-                </p>
-                <a href="/services#lifecycle" className="text-[#1e3a5f] text-[13px] font-medium learn-more-link">
-                  Learn More
-                </a>
-              </div>
-            </div>
-
-            {/* Row 3 - Tiles inward (columns 2 and 4) */}
-            <div className="diamond-tile tile-5">
-              <div className="premium-card p-4 h-full">
-                <h3 className="text-[15px] font-bold text-[#1e3a5f] mb-2">
-                  Retainer-Based Support
-                </h3>
-                <p className="text-[#4B5563] text-[13px] mb-3" style={{ lineHeight: '1.5' }}>
-                  CSP offers customizable Advisory and White-Glove retainer packages with direct access to the Principal Consultant.
-                </p>
-                <a href="/services#retainer" className="text-[#1e3a5f] text-[13px] font-medium learn-more-link">
-                  Learn More
-                </a>
-              </div>
-            </div>
-
-            <div className="diamond-tile tile-6">
-              <div className="premium-card p-4 h-full">
-                <h3 className="text-[15px] font-bold text-[#1e3a5f] mb-2">
-                  À La Carte Mod Support
-                </h3>
-                <p className="text-[#4B5563] text-[13px] mb-3" style={{ lineHeight: '1.5' }}>
-                  CSP offers à la carte mod support from administrative updates to major contract restructuring.
-                </p>
-                <a href="/services#mods" className="text-[#1e3a5f] text-[13px] font-medium learn-more-link">
-                  Learn More
-                </a>
-              </div>
-            </div>
-
-          </div>
+    {/* Diamond Grid Container */}
+    <div className="services-diamond-grid">
+      
+      {/* Row 1 - Tiles inward (columns 2 and 4) */}
+      <div className="diamond-tile tile-1">
+        <div className="premium-card p-4 h-full">
+          <h3 className="text-[15px] font-bold text-[#1e3a5f] mb-2">
+            MAS Contract Diagnosis & Performance Correction
+          </h3>
+          <p className="text-[#4B5563] text-[13px] mb-3" style={{ lineHeight: '1.5' }}>
+            We identify exactly where your contract is failing and build a correction plan to restore compliance, visibility, and performance.
+          </p>
+          <a href="/services#mas-diagnosis" className="text-[#1e3a5f] text-[13px] font-medium learn-more-link">
+            Learn More
+          </a>
         </div>
-      </section>
+      </div>
+
+      <div className="diamond-tile tile-2">
+        <div className="premium-card p-4 h-full">
+          <h3 className="text-[15px] font-bold text-[#1e3a5f] mb-2">
+            Federal Readiness Roadmaps
+          </h3>
+          <p className="text-[#4B5563] text-[13px] mb-3" style={{ lineHeight: '1.5' }}>
+            We build Federal Readiness Roadmaps that give you land navigation for the federal marketplace.
+          </p>
+          <a href="/services#readiness" className="text-[#1e3a5f] text-[13px] font-medium learn-more-link">
+            Learn More
+          </a>
+        </div>
+      </div>
+
+      {/* Row 2 - Wide row: tiles at edges (columns 1 and 5), logo center (column 3) */}
+      <div className="diamond-tile tile-3">
+        <div className="premium-card p-4 h-full">
+          <h3 className="text-[15px] font-bold text-[#1e3a5f] mb-2">
+            MAS Advisory & Offer Support
+          </h3>
+          <p className="text-[#4B5563] text-[13px] mb-3" style={{ lineHeight: '1.5' }}>
+            We guide you through the MAS offer or mod process with expert oversight, helping you build the right structure from day one.
+          </p>
+          <a href="/services#advisory" className="text-[#1e3a5f] text-[13px] font-medium learn-more-link">
+            Learn More
+          </a>
+        </div>
+      </div>
+
+      {/* Logo Center with Glow */}
+      <div className="diamond-logo-container">
+        <div className="diamond-glow"></div>
+        <div className="diamond-logo">
+          <img
+            src="/Civic Strategy Partners Minus LLC.png"
+            alt="Civic Strategy Partners Logo"
+          />
+        </div>
+      </div>
+
+      <div className="diamond-tile tile-4">
+        <div className="premium-card p-4 h-full">
+          <h3 className="text-[15px] font-bold text-[#1e3a5f] mb-2">
+            Post-Award Compliance & Lifecycle Support
+          </h3>
+          <p className="text-[#4B5563] text-[13px] mb-3" style={{ lineHeight: '1.5' }}>
+            CSP supports mod packages, price list updates, EPA strategy, solicitation refresh alignment, and annual requirements.
+          </p>
+          <a href="/services#lifecycle" className="text-[#1e3a5f] text-[13px] font-medium learn-more-link">
+            Learn More
+          </a>
+        </div>
+      </div>
+
+      {/* Row 3 - Tiles inward (columns 2 and 4) */}
+      <div className="diamond-tile tile-5">
+        <div className="premium-card p-4 h-full">
+          <h3 className="text-[15px] font-bold text-[#1e3a5f] mb-2">
+            Retainer-Based Support
+          </h3>
+          <p className="text-[#4B5563] text-[13px] mb-3" style={{ lineHeight: '1.5' }}>
+            CSP offers customizable Advisory and White-Glove retainer packages with direct access to the Principal Consultant.
+          </p>
+          <a href="/services#retainer" className="text-[#1e3a5f] text-[13px] font-medium learn-more-link">
+            Learn More
+          </a>
+        </div>
+      </div>
+
+      <div className="diamond-tile tile-6">
+        <div className="premium-card p-4 h-full">
+          <h3 className="text-[15px] font-bold text-[#1e3a5f] mb-2">
+            À La Carte Mod Support
+          </h3>
+          <p className="text-[#4B5563] text-[13px] mb-3" style={{ lineHeight: '1.5' }}>
+            CSP offers à la carte mod support from administrative updates to major contract restructuring.
+          </p>
+          <a href="/services#mods" className="text-[#1e3a5f] text-[13px] font-medium learn-more-link">
+            Learn More
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+{/* ==================== CSS CODE ==================== 
+    Add this inside your <style jsx global>{` ... `}</style> tag
+*/}
+
+/* === DIAMOND GRID LAYOUT === */
+.services-diamond-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(3, auto);
+  gap: 16px;
+  position: relative;
+  padding: 10px 0;
+}
+
+/* All tiles get z-index 2 to sit above glow */
+.diamond-tile {
+  position: relative;
+  z-index: 2;
+}
+
+/* Force tiles to be more square-ish */
+.diamond-tile .premium-card {
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Row 1: Tiles in columns 2 and 4 (inward) */
+.tile-1 {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.tile-2 {
+  grid-column: 4;
+  grid-row: 1;
+}
+
+/* Row 2: Tiles at edges (columns 1 and 5) */
+.tile-3 {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.tile-4 {
+  grid-column: 5;
+  grid-row: 2;
+}
+
+/* Row 3: Tiles in columns 2 and 4 (inward) */
+.tile-5 {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+.tile-6 {
+  grid-column: 4;
+  grid-row: 3;
+}
+
+/* Logo container - Dead center (column 3, row 2) */
+.diamond-logo-container {
+  grid-column: 3;
+  grid-row: 2;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+/* Blue glow - MUCH LARGER radial gradient behind everything */
+.diamond-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1000px;
+  height: 1000px;
+  background: radial-gradient(
+    circle,
+    rgba(30, 58, 95, 0.45) 0%,
+    rgba(30, 58, 95, 0.38) 10%,
+    rgba(30, 58, 95, 0.30) 20%,
+    rgba(30, 58, 95, 0.22) 35%,
+    rgba(30, 58, 95, 0.14) 50%,
+    rgba(30, 58, 95, 0.08) 65%,
+    rgba(30, 58, 95, 0.04) 80%,
+    rgba(30, 58, 95, 0.01) 90%,
+    transparent 100%
+  );
+  border-radius: 50%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Logo box styling */
+.diamond-logo {
+  background: white;
+  border-radius: 12px;
+  padding: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.diamond-logo img {
+  max-width: 200px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* === TABLET RESPONSIVE (1024px and below) === */
+@media (max-width: 1024px) {
+  .services-diamond-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 16px;
+  }
+
+  .tile-1 { grid-column: 1; grid-row: 1; }
+  .tile-2 { grid-column: 2; grid-row: 1; }
+  .tile-3 { grid-column: 1; grid-row: 2; }
+  .tile-4 { grid-column: 2; grid-row: 2; }
+  .tile-5 { grid-column: 1; grid-row: 4; }
+  .tile-6 { grid-column: 2; grid-row: 4; }
+
+  .diamond-logo-container {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    padding: 16px 0;
+  }
+
+  .diamond-glow {
+    width: 400px;
+    height: 400px;
+  }
+
+  .diamond-tile .premium-card {
+    min-height: 140px;
+  }
+}
+
+/* === MOBILE RESPONSIVE (640px and below) === */
+@media (max-width: 640px) {
+  .services-diamond-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .tile-1 { grid-column: 1; grid-row: 1; }
+  .tile-2 { grid-column: 1; grid-row: 2; }
+  .tile-3 { grid-column: 1; grid-row: 3; }
+  .diamond-logo-container { grid-column: 1; grid-row: 4; padding: 16px 0; }
+  .tile-4 { grid-column: 1; grid-row: 5; }
+  .tile-5 { grid-column: 1; grid-row: 6; }
+  .tile-6 { grid-column: 1; grid-row: 7; }
+
+  .diamond-glow {
+    width: 250px;
+    height: 250px;
+  }
+
+  .diamond-logo {
+    padding: 14px;
+  }
+
+  .diamond-logo img {
+    max-width: 120px;
+  }
+
+  .diamond-tile .premium-card {
+    min-height: auto;
+  }
+}
+
+
+
+
+
 
       {/* About Section - Side by Side Layout */}
       <section id="about" className="about-section py-24 md:py-32 lg:py-[120px] px-6 relative overflow-hidden fade-in-section">
