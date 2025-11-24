@@ -1557,13 +1557,10 @@ export default function Home() {
 
             <div style={{ width: '100%', maxWidth: '600px', margin: '0 auto', background: 'white', padding: '24px', borderRadius: '12px', boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)' }}>
               <iframe
-                src="https://forms.fillout.com/t/eQxkUtxCQ9us"
-                width="100%"
-                height="700"
-                frameBorder="0"
-                sandbox="allow-forms allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
-                style={{ border: 'none', borderRadius: '8px' }}
+                src="https://forms.fillout.com/embed/t/eQxkUtxCQ9us"
+                style={{ width: '100%', height: '700px', border: 'none', borderRadius: '8px' }}
                 title="Contact Form"
+                allowFullScreen
               ></iframe>
             </div>
           </div>
