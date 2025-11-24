@@ -940,12 +940,12 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
           opacity: 0.15;
         }
 
-        /* === SERVICES GRID 3x3 LAYOUT === */
+        /* === SERVICES GRID CROSS/PLUS PATTERN LAYOUT === */
         .services-grid-container {
           display: grid;
-          grid-template-columns: repeat(3, 1fr);
+          grid-template-columns: repeat(2, 1fr);
           gap: 24px;
-          max-width: 1200px;
+          max-width: 900px;
           margin: 0 auto;
           position: relative;
         }
@@ -956,41 +956,27 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
           z-index: 2;
         }
 
-        /* Top row tiles - offset inward to create diamond pattern */
-        .services-tile:nth-child(1) {
-          grid-column: 1 / 2;
-          margin-left: 90px;
+        /* Top row - 2 tiles side by side */
+        .services-tile:nth-child(1),
+        .services-tile:nth-child(2) {
+          grid-row: 1;
         }
 
+        /* Middle row - left tile, logo, right tile */
         .services-tile:nth-child(3) {
-          grid-column: 3 / 4;
-          margin-right: 90px;
+          grid-column: 1;
+          grid-row: 2;
         }
 
-        /* Middle row tiles - stay at far edges */
         .services-tile:nth-child(4) {
-          grid-column: 1 / 2;
-          margin-left: 0;
+          grid-column: 2;
+          grid-row: 2;
         }
 
+        /* Bottom row - 2 tiles side by side */
+        .services-tile:nth-child(5),
         .services-tile:nth-child(6) {
-          grid-column: 3 / 4;
-          margin-right: 0;
-        }
-
-        /* Bottom row tiles - offset inward to mirror top row */
-        .services-tile:nth-child(7) {
-          grid-column: 1 / 2;
-          margin-left: 90px;
-        }
-
-        .services-tile:nth-child(9) {
-          grid-column: 3 / 4;
-          margin-right: 90px;
-        }
-
-        .services-grid-spacer {
-          min-height: 280px;
+          grid-row: 3;
         }
 
         .services-logo-container {
@@ -1001,22 +987,23 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
           min-height: 280px;
           border-radius: 16px;
           background: white;
-          overflow: hidden;
+          overflow: visible;
           z-index: 1;
-          box-shadow:
-            0 0 150px 80px rgba(30,58,95,0.25),
-            0 0 200px 120px rgba(30,58,95,0.15),
-            0 0 250px 150px rgba(30,58,95,0.08),
-            0 8px 24px rgba(0,0,0,0.1);
+          grid-column: 1 / -1;
+          grid-row: 2;
+          max-width: 440px;
+          margin: 0 auto;
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
         }
 
         .services-logo-glow {
           position: absolute;
-          width: 100%;
-          height: 100%;
-          border-radius: 16px;
-          background: radial-gradient(circle, rgba(30,58,95,0.08) 0%, transparent 70%);
+          width: 200%;
+          height: 200%;
+          border-radius: 50%;
+          background: radial-gradient(circle, rgba(30,58,95,0.08) 0%, transparent 60%);
           pointer-events: none;
+          z-index: -1;
         }
 
         .services-connecting-lines {
@@ -1024,82 +1011,88 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
           width: 100%;
           height: 100%;
           pointer-events: none;
+          z-index: 0;
         }
 
-        .services-connecting-lines .line-horizontal {
-          position: absolute;
-          top: 50%;
-          left: 0;
-          width: 100%;
-          height: 1px;
-          background: linear-gradient(90deg, transparent 0%, rgba(184,134,11,0.15) 50%, transparent 100%);
-          transform: translateY(-50%);
-        }
-
-        .services-connecting-lines .line-vertical {
+        .services-connecting-lines .line-top {
           position: absolute;
           left: 50%;
-          top: 0;
+          bottom: 100%;
           width: 1px;
-          height: 100%;
-          background: linear-gradient(180deg, transparent 0%, rgba(184,134,11,0.15) 50%, transparent 100%);
+          height: 12px;
+          background: rgba(184,134,11,0.15);
+          transform: translateX(-50%);
+        }
+
+        .services-connecting-lines .line-bottom {
+          position: absolute;
+          left: 50%;
+          top: 100%;
+          width: 1px;
+          height: 12px;
+          background: rgba(184,134,11,0.15);
           transform: translateX(-50%);
         }
 
         .services-logo {
           position: relative;
           z-index: 2;
-          max-width: 90%;
+          max-width: 80%;
           height: auto;
           object-fit: contain;
         }
 
         @media (max-width: 768px) {
           .services-grid-container {
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(2, 1fr);
+            max-width: 100%;
             gap: 20px;
           }
 
           .services-logo-container {
-            order: -1;
+            grid-column: 1 / -1;
+            grid-row: 1;
             min-height: 200px;
             margin-bottom: 20px;
-            box-shadow:
-              0 0 40px 20px rgba(30,58,95,0.1),
-              0 8px 24px rgba(0,0,0,0.1);
+            max-width: 100%;
+          }
+
+          .services-tile {
+            min-height: 220px;
+            grid-row: auto !important;
+          }
+
+          .services-tile:nth-child(1),
+          .services-tile:nth-child(2) {
+            grid-row: 2;
+          }
+
+          .services-tile:nth-child(3),
+          .services-tile:nth-child(4) {
+            grid-row: 3;
+          }
+
+          .services-tile:nth-child(5),
+          .services-tile:nth-child(6) {
+            grid-row: 4;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .services-grid-container {
+            grid-template-columns: 1fr;
+            gap: 16px;
+          }
+
+          .services-logo-container {
+            min-height: 180px;
           }
 
           .services-tile {
             min-height: auto;
-            margin-left: 0 !important;
-            margin-right: 0 !important;
           }
 
-          .services-grid-spacer {
-            display: none;
-          }
-        }
-
-        @media (min-width: 769px) and (max-width: 1024px) {
-          .services-grid-container {
-            grid-template-columns: repeat(2, 1fr);
-          }
-
-          .services-logo-container {
-            grid-column: 1 / -1;
-            order: -1;
-            margin-bottom: 20px;
-            box-shadow:
-              0 0 60px 30px rgba(30,58,95,0.12),
-              0 8px 24px rgba(0,0,0,0.1);
-          }
-
-          .services-tile {
-            margin-left: 0 !important;
-            margin-right: 0 !important;
-          }
-
-          .services-grid-spacer {
+          .services-connecting-lines {
             display: none;
           }
         }
@@ -1641,9 +1634,9 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
             </p>
           </div>
 
-          {/* 3x3 Grid with Center Logo */}
+          {/* Cross/Plus Pattern Grid with Center Logo */}
           <div className="services-grid-container">
-            {/* Top Row - Tile 1 */}
+            {/* Top Row - Tiles 1 & 2 */}
             <div className="premium-card p-6 services-tile">
               <h3 className="text-[22px] font-bold text-[#1e3a5f] mb-4" style={{ fontWeight: 700 }}>
                 MAS Contract Diagnosis & Performance Correction
@@ -1660,10 +1653,6 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
               </a>
             </div>
 
-            {/* Top Row - Empty Center */}
-            <div className="services-grid-spacer"></div>
-
-            {/* Top Row - Tile 2 */}
             <div className="premium-card p-6 services-tile">
               <h3 className="text-[22px] font-bold text-[#1e3a5f] mb-4" style={{ fontWeight: 700 }}>
                 Federal Readiness Roadmaps
@@ -1680,7 +1669,7 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
               </a>
             </div>
 
-            {/* Middle Row - Tile 3 */}
+            {/* Middle Row - Tiles 3 & 4 */}
             <div className="premium-card p-6 services-tile">
               <h3 className="text-[22px] font-bold text-[#1e3a5f] mb-4" style={{ fontWeight: 700 }}>
                 MAS Advisory & Offer Support
@@ -1697,21 +1686,6 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
               </a>
             </div>
 
-            {/* Middle Row - Center Logo */}
-            <div className="services-logo-container">
-              <div className="services-logo-glow"></div>
-              <div className="services-connecting-lines">
-                <div className="line-horizontal"></div>
-                <div className="line-vertical"></div>
-              </div>
-              <img
-                src="/Civic Strategy Partners Minus LLC.png"
-                alt="Civic Strategy Partners Logo"
-                className="services-logo"
-              />
-            </div>
-
-            {/* Middle Row - Tile 4 */}
             <div className="premium-card p-6 services-tile">
               <h3 className="text-[22px] font-bold text-[#1e3a5f] mb-4" style={{ fontWeight: 700 }}>
                 Post-Award Compliance & Lifecycle Support
@@ -1728,7 +1702,21 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
               </a>
             </div>
 
-            {/* Bottom Row - Tile 5 */}
+            {/* Center Logo */}
+            <div className="services-logo-container">
+              <div className="services-logo-glow"></div>
+              <div className="services-connecting-lines">
+                <div className="line-top"></div>
+                <div className="line-bottom"></div>
+              </div>
+              <img
+                src="/Civic Strategy Partners Minus LLC.png"
+                alt="Civic Strategy Partners Logo"
+                className="services-logo"
+              />
+            </div>
+
+            {/* Bottom Row - Tiles 5 & 6 */}
             <div className="premium-card p-6 services-tile">
               <h3 className="text-[22px] font-bold text-[#1e3a5f] mb-4" style={{ fontWeight: 700 }}>
                 Retainer-Based Support
@@ -1745,10 +1733,6 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
               </a>
             </div>
 
-            {/* Bottom Row - Empty Center */}
-            <div className="services-grid-spacer"></div>
-
-            {/* Bottom Row - Tile 6 */}
             <div className="premium-card p-6 services-tile">
               <h3 className="text-[22px] font-bold text-[#1e3a5f] mb-4" style={{ fontWeight: 700 }}>
                 À La Carte Mod Support
