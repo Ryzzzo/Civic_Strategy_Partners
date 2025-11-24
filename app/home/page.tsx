@@ -1573,21 +1573,23 @@ export default function Home() {
             </p>
 
             <div
-              className="fillout-form-container"
               style={{
                 width: '100%',
                 maxWidth: '600px',
-                margin: '0 auto',
-                isolation: 'isolate'
+                margin: '0 auto'
               }}
             >
-              <div
-                style={{ width: '100%', height: '500px' }}
-                data-fillout-id="eQxkUtxCQ9us"
-                data-fillout-embed-type="standard"
-                data-fillout-inherit-parameters
-                data-fillout-dynamic-resize
-              ></div>
+              <iframe
+                src="https://forms.fillout.com/t/eQxkUtxCQ9us"
+                style={{
+                  width: '100%',
+                  height: '700px',
+                  border: 'none',
+                  borderRadius: '12px',
+                  backgroundColor: 'white'
+                }}
+                title="Contact Form"
+              />
             </div>
           </div>
 
