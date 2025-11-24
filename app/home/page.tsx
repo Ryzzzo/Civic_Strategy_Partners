@@ -940,137 +940,160 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
           opacity: 0.15;
         }
 
-        /* === SERVICES GRID - 7 TILES IN SYMMETRICAL LAYOUT === */
-        .services-grid-container {
+        /* === DIAMOND GRID LAYOUT === */
+        .services-diamond-grid {
           display: grid;
-          grid-template-columns: repeat(3, 1fr);
+          grid-template-columns: repeat(5, 1fr);
+          grid-template-rows: repeat(3, auto);
           gap: 24px;
-          max-width: 1200px;
-          margin: 0 auto;
           position: relative;
+          padding: 20px 0;
         }
 
-        .services-tile {
-          min-height: 260px;
+        /* All tiles get z-index 2 to sit above glow */
+        .diamond-tile {
           position: relative;
+          z-index: 2;
         }
 
-        /* Row 1 - Top 3 tiles */
-        .services-tile:nth-child(1) {
-          grid-column: 1;
-          grid-row: 1;
-        }
-
-        .services-tile:nth-child(2) {
+        /* Row 1: Tiles in columns 2 and 4 (inward) */
+        .tile-1 {
           grid-column: 2;
           grid-row: 1;
         }
 
-        .services-tile:nth-child(3) {
-          grid-column: 3;
+        .tile-2 {
+          grid-column: 4;
           grid-row: 1;
         }
 
-        /* Row 2 - Left tile, Center logo, Right tile */
-        .services-tile:nth-child(4) {
+        /* Row 2: Tiles at edges (columns 1 and 5) */
+        .tile-3 {
           grid-column: 1;
           grid-row: 2;
         }
 
-        .services-logo-container {
-          grid-column: 2;
+        .tile-4 {
+          grid-column: 5;
           grid-row: 2;
         }
 
-        .services-tile:nth-child(5) {
-          grid-column: 3;
-          grid-row: 2;
-        }
-
-        /* Row 3 - Bottom 2 tiles */
-        .services-tile:nth-child(6) {
-          grid-column: 1;
-          grid-row: 3;
-        }
-
-        .services-tile:nth-child(7) {
+        /* Row 3: Tiles in columns 2 and 4 (inward) */
+        .tile-5 {
           grid-column: 2;
           grid-row: 3;
         }
 
-        .services-logo-container {
+        .tile-6 {
+          grid-column: 4;
+          grid-row: 3;
+        }
+
+        /* Logo container - Dead center (column 3, row 2) */
+        .diamond-logo-container {
+          grid-column: 3;
+          grid-row: 2;
           position: relative;
           display: flex;
           align-items: center;
           justify-content: center;
-          min-height: 260px;
-          border-radius: 16px;
-          background: #ffffff;
-          overflow: hidden;
-          box-shadow:
-            0 0 100px 50px rgba(30,58,95,0.20),
-            0 0 150px 80px rgba(30,58,95,0.12),
-            0 8px 24px rgba(0,0,0,0.08);
+          z-index: 1;
         }
 
-        .services-logo {
-          max-width: 70%;
+        /* Blue glow - Radial gradient behind everything */
+        .diamond-glow {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 600px;
+          height: 600px;
+          background: radial-gradient(
+            circle,
+            rgba(30, 58, 95, 0.28) 0%,
+            rgba(30, 58, 95, 0.18) 25%,
+            rgba(30, 58, 95, 0.10) 45%,
+            rgba(30, 58, 95, 0.04) 65%,
+            transparent 85%
+          );
+          border-radius: 50%;
+          z-index: -1;
+          pointer-events: none;
+        }
+
+        /* Logo box styling */
+        .diamond-logo {
+          background: white;
+          border-radius: 16px;
+          padding: 24px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          z-index: 2;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .diamond-logo img {
+          max-width: 180px;
+          width: 100%;
           height: auto;
           object-fit: contain;
         }
 
-        @media (max-width: 768px) {
-          .services-grid-container {
-            grid-template-columns: repeat(2, 1fr);
-            max-width: 100%;
+        /* === TABLET RESPONSIVE (1024px and below) === */
+        @media (max-width: 1024px) {
+          .services-diamond-grid {
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto;
             gap: 20px;
           }
 
-          .services-logo-container {
+          .tile-1 { grid-column: 1; grid-row: 1; }
+          .tile-2 { grid-column: 2; grid-row: 1; }
+          .tile-3 { grid-column: 1; grid-row: 2; }
+          .tile-4 { grid-column: 2; grid-row: 2; }
+          .tile-5 { grid-column: 1; grid-row: 4; }
+          .tile-6 { grid-column: 2; grid-row: 4; }
+
+          .diamond-logo-container {
             grid-column: 1 / -1;
-            grid-row: 1;
-            min-height: 200px;
-            margin-bottom: 20px;
-            max-width: 100%;
-          }
-
-          .services-tile {
-            min-height: 220px;
-            grid-row: auto !important;
-          }
-
-          .services-tile:nth-child(1),
-          .services-tile:nth-child(2) {
-            grid-row: 2;
-          }
-
-          .services-tile:nth-child(3),
-          .services-tile:nth-child(4) {
             grid-row: 3;
+            padding: 24px 0;
           }
 
-          .services-tile:nth-child(5),
-          .services-tile:nth-child(6) {
-            grid-row: 4;
+          .diamond-glow {
+            width: 350px;
+            height: 350px;
           }
         }
 
-        @media (max-width: 480px) {
-          .services-grid-container {
+        /* === MOBILE RESPONSIVE (640px and below) === */
+        @media (max-width: 640px) {
+          .services-diamond-grid {
             grid-template-columns: 1fr;
             gap: 16px;
           }
 
-          .services-logo-container {
-            min-height: 180px;
+          .tile-1 { grid-column: 1; grid-row: 1; }
+          .tile-2 { grid-column: 1; grid-row: 2; }
+          .tile-3 { grid-column: 1; grid-row: 3; }
+          .diamond-logo-container { grid-column: 1; grid-row: 4; padding: 20px 0; }
+          .tile-4 { grid-column: 1; grid-row: 5; }
+          .tile-5 { grid-column: 1; grid-row: 6; }
+          .tile-6 { grid-column: 1; grid-row: 7; }
+
+          .diamond-glow {
+            width: 280px;
+            height: 280px;
           }
 
-          .services-tile {
-            min-height: auto;
+          .diamond-logo {
+            padding: 20px;
           }
 
-          .services-connecting-lines {
-            display: none;
+          .diamond-logo img {
+            max-width: 150px;
           }
         }
 
@@ -1599,143 +1622,120 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
       {/* Bottom Wave Bar */}
       <div className="wave-bar wave-bar-bottom silk-gradient"></div>
 
-      {/* What We Do Section - White Background */}
-      <section id="services" className="py-24 md:py-32 lg:py-[120px] px-6 bg-white fade-in-section">
+      {/* What We Do Section - Diamond Layout */}
+      <section id="services" className="py-16 px-6 bg-white fade-in-section">
         <div className="max-w-[1200px] mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-[42px] font-bold text-[#1e3a5f] mb-4" style={{ fontWeight: 700, textShadow: '0 2px 4px rgba(0,0,0,0.06)' }}>
+          {/* Section Header */}
+          <div className="text-center mb-12">
+            <h2 className="text-[36px] font-bold text-[#1e3a5f] mb-4" style={{ fontWeight: 700 }}>
               What We Do
             </h2>
-            <p className="text-[18px] text-[#6B7280]">
+            <p className="text-[16px] text-[#6B7280]">
               Core services designed to diagnose, fix, and optimize your federal sales posture
             </p>
           </div>
 
-          {/* 7 Tiles - Symmetrical 3x3 Grid with Center Logo */}
-          <div className="services-grid-container">
-            {/* Row 1 - Top 3 tiles */}
-            <div className="premium-card p-6 services-tile">
-              <h3 className="text-[22px] font-bold text-[#1e3a5f] mb-4" style={{ fontWeight: 700 }}>
-                MAS Contract Diagnosis & Performance Correction
-              </h3>
-              <p className="text-[#4B5563] text-[16px] mb-4" style={{ lineHeight: '1.6' }}>
-                A MAS contract is not a vending machine. If the foundation is wrong, nothing you do in the marketplace will work. We identify exactly where your contract is failing and build a correction plan to restore compliance, visibility, and performance.
-              </p>
-              <a
-                href="/services#mas-diagnosis"
-                className="text-[#1e3a5f] text-[16px] font-medium learn-more-link"
-                style={{ fontWeight: 500 }}
-              >
-                Learn More →
-              </a>
+          {/* Diamond Grid Container */}
+          <div className="services-diamond-grid">
+
+            {/* Row 1 - Tiles inward (columns 2 and 4) */}
+            <div className="diamond-tile tile-1">
+              <div className="premium-card p-6 h-full">
+                <h3 className="text-[20px] font-bold text-[#1e3a5f] mb-3">
+                  MAS Contract Diagnosis & Performance Correction
+                </h3>
+                <p className="text-[#4B5563] text-[15px] mb-4" style={{ lineHeight: '1.6' }}>
+                  A MAS contract is not a vending machine. If the foundation is wrong, nothing you do in the marketplace will work. We identify exactly where your contract is failing and build a correction plan to restore compliance, visibility, and performance.
+                </p>
+                <a href="/services#mas-diagnosis" className="text-[#1e3a5f] text-[15px] font-medium learn-more-link">
+                  Learn More
+                </a>
+              </div>
             </div>
 
-            <div className="premium-card p-6 services-tile">
-              <h3 className="text-[22px] font-bold text-[#1e3a5f] mb-4" style={{ fontWeight: 700 }}>
-                Federal Readiness Roadmaps
-              </h3>
-              <p className="text-[#4B5563] text-[16px] mb-4" style={{ lineHeight: '1.6' }}>
-                Less than half of one percent of U.S. small businesses sell to the federal government, yet nearly $190B flowed to them last year. We build Federal Readiness Roadmaps that give you land navigation for the federal marketplace.
-              </p>
-              <a
-                href="/services#readiness"
-                className="text-[#1e3a5f] text-[16px] font-medium learn-more-link"
-                style={{ fontWeight: 500 }}
-              >
-                Learn More →
-              </a>
+            <div className="diamond-tile tile-2">
+              <div className="premium-card p-6 h-full">
+                <h3 className="text-[20px] font-bold text-[#1e3a5f] mb-3">
+                  Federal Readiness Roadmaps
+                </h3>
+                <p className="text-[#4B5563] text-[15px] mb-4" style={{ lineHeight: '1.6' }}>
+                  Less than half of one percent of U.S. small businesses sell to the federal government, yet nearly $190B flowed to them last year. We build Federal Readiness Roadmaps that give you land navigation for the federal marketplace.
+                </p>
+                <a href="/services#readiness" className="text-[#1e3a5f] text-[15px] font-medium learn-more-link">
+                  Learn More
+                </a>
+              </div>
             </div>
 
-            <div className="premium-card p-6 services-tile">
-              <h3 className="text-[22px] font-bold text-[#1e3a5f] mb-4" style={{ fontWeight: 700 }}>
-                MAS Advisory & Offer Support
-              </h3>
-              <p className="text-[#4B5563] text-[16px] mb-4" style={{ lineHeight: '1.6' }}>
-                CSP is not a proposal mill. We guide you through the MAS offer or mod process with expert oversight, helping you build the right offer, the right pricing, and the right structure from day one.
-              </p>
-              <a
-                href="/services#advisory"
-                className="text-[#1e3a5f] text-[16px] font-medium learn-more-link"
-                style={{ fontWeight: 500 }}
-              >
-                Learn More →
-              </a>
+            {/* Row 2 - Wide row: tiles at edges (columns 1 and 5), logo center (column 3) */}
+            <div className="diamond-tile tile-3">
+              <div className="premium-card p-6 h-full">
+                <h3 className="text-[20px] font-bold text-[#1e3a5f] mb-3">
+                  MAS Advisory & Offer Support
+                </h3>
+                <p className="text-[#4B5563] text-[15px] mb-4" style={{ lineHeight: '1.6' }}>
+                  CSP is not a proposal mill. We guide you through the MAS offer or mod process with expert oversight, helping you build the right offer, the right pricing, and the right structure from day one.
+                </p>
+                <a href="/services#advisory" className="text-[#1e3a5f] text-[15px] font-medium learn-more-link">
+                  Learn More
+                </a>
+              </div>
             </div>
 
-            {/* Row 2 - Left tile, Center logo, Right tile */}
-            <div className="premium-card p-6 services-tile">
-              <h3 className="text-[22px] font-bold text-[#1e3a5f] mb-4" style={{ fontWeight: 700 }}>
-                Post-Award Compliance & Lifecycle Support
-              </h3>
-              <p className="text-[#4B5563] text-[16px] mb-4" style={{ lineHeight: '1.6' }}>
-                MAS is a lifecycle program requiring accurate, timely maintenance. CSP supports mod packages, price list updates, EPA strategy, solicitation refresh alignment, and annual requirements. Healthy contracts sell.
-              </p>
-              <a
-                href="/services#lifecycle"
-                className="text-[#1e3a5f] text-[16px] font-medium learn-more-link"
-                style={{ fontWeight: 500 }}
-              >
-                Learn More →
-              </a>
+            {/* Logo Center with Glow */}
+            <div className="diamond-logo-container">
+              <div className="diamond-glow"></div>
+              <div className="diamond-logo">
+                <img
+                  src="/Civic Strategy Partners Minus LLC.png"
+                  alt="Civic Strategy Partners Logo"
+                />
+              </div>
             </div>
 
-            {/* Center Logo */}
-            <div className="services-logo-container">
-              <img
-                src="/CSP Simple No Background.png"
-                alt="Civic Strategy Partners Logo"
-                className="services-logo"
-              />
+            <div className="diamond-tile tile-4">
+              <div className="premium-card p-6 h-full">
+                <h3 className="text-[20px] font-bold text-[#1e3a5f] mb-3">
+                  Post-Award Compliance & Lifecycle Support
+                </h3>
+                <p className="text-[#4B5563] text-[15px] mb-4" style={{ lineHeight: '1.6' }}>
+                  MAS is a lifecycle program requiring accurate, timely maintenance. CSP supports mod packages, price list updates, EPA strategy, solicitation refresh alignment, and annual requirements. Healthy contracts sell.
+                </p>
+                <a href="/services#lifecycle" className="text-[#1e3a5f] text-[15px] font-medium learn-more-link">
+                  Learn More
+                </a>
+              </div>
             </div>
 
-            <div className="premium-card p-6 services-tile">
-              <h3 className="text-[22px] font-bold text-[#1e3a5f] mb-4" style={{ fontWeight: 700 }}>
-                Retainer-Based Support
-              </h3>
-              <p className="text-[#4B5563] text-[16px] mb-4" style={{ lineHeight: '1.6' }}>
-                Some clients need continuous support, not one-off fixes. CSP offers customizable Advisory and White-Glove retainer packages with direct access to the Principal Consultant and CSP-certified MAS technicians.
-              </p>
-              <a
-                href="/services#retainer"
-                className="text-[#1e3a5f] text-[16px] font-medium learn-more-link"
-                style={{ fontWeight: 500 }}
-              >
-                Learn More →
-              </a>
+            {/* Row 3 - Tiles inward (columns 2 and 4) */}
+            <div className="diamond-tile tile-5">
+              <div className="premium-card p-6 h-full">
+                <h3 className="text-[20px] font-bold text-[#1e3a5f] mb-3">
+                  Retainer-Based Support
+                </h3>
+                <p className="text-[#4B5563] text-[15px] mb-4" style={{ lineHeight: '1.6' }}>
+                  Some clients need continuous support, not one-off fixes. CSP offers customizable Advisory and White-Glove retainer packages with direct access to the Principal Consultant and CSP-certified MAS technicians.
+                </p>
+                <a href="/services#retainer" className="text-[#1e3a5f] text-[15px] font-medium learn-more-link">
+                  Learn More
+                </a>
+              </div>
             </div>
 
-            {/* Row 3 - Bottom 2 tiles */}
-            <div className="premium-card p-6 services-tile">
-              <h3 className="text-[22px] font-bold text-[#1e3a5f] mb-4" style={{ fontWeight: 700 }}>
-                À La Carte Mod Support
-              </h3>
-              <p className="text-[#4B5563] text-[16px] mb-4" style={{ lineHeight: '1.6' }}>
-                If you only need a clean, compliant modification, CSP offers à la carte mod support from administrative updates to major contract restructuring—handled by CSP-certified MAS technicians with strategic oversight.
-              </p>
-              <a
-                href="/services#mods"
-                className="text-[#1e3a5f] text-[16px] font-medium learn-more-link"
-                style={{ fontWeight: 500 }}
-              >
-                Learn More →
-              </a>
+            <div className="diamond-tile tile-6">
+              <div className="premium-card p-6 h-full">
+                <h3 className="text-[20px] font-bold text-[#1e3a5f] mb-3">
+                  À La Carte Mod Support
+                </h3>
+                <p className="text-[#4B5563] text-[15px] mb-4" style={{ lineHeight: '1.6' }}>
+                  If you only need a clean, compliant modification, CSP offers à la carte mod support from administrative updates to major contract restructuring—handled by CSP-certified MAS technicians with strategic oversight.
+                </p>
+                <a href="/services#mods" className="text-[#1e3a5f] text-[15px] font-medium learn-more-link">
+                  Learn More
+                </a>
+              </div>
             </div>
 
-            <div className="premium-card p-6 services-tile">
-              <h3 className="text-[22px] font-bold text-[#1e3a5f] mb-4" style={{ fontWeight: 700 }}>
-                Custom Federal Engagements
-              </h3>
-              <p className="text-[#4B5563] text-[16px] mb-4" style={{ lineHeight: '1.6' }}>
-                Not every need fits a standard engagement. CSP supports custom projects involving federal strategy, market intelligence, lifecycle analysis, competitive positioning, and agency-specific requirements. If you have a unique challenge, we'll scope it and build the plan.
-              </p>
-              <a
-                href="/services#custom"
-                className="text-[#1e3a5f] text-[16px] font-medium learn-more-link"
-                style={{ fontWeight: 500 }}
-              >
-                Learn More →
-              </a>
-            </div>
           </div>
         </div>
       </section>
