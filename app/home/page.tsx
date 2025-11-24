@@ -1523,7 +1523,7 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
             className="logo-button flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity"
           >
             <img
-              src="/Civic Strategy Partners Minus LLC.png"
+              src="/CSP Simple No Background.png"
               alt="Civic Strategy Partners Logo"
               className="h-[85px] w-auto object-contain"
             />
@@ -1725,7 +1725,7 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
                 <div className="line-bottom"></div>
               </div>
               <img
-                src="/Civic Strategy Partners Minus LLC.png"
+                src="/CSP Simple No Background.png"
                 alt="Civic Strategy Partners Logo"
                 className="services-logo"
               />
