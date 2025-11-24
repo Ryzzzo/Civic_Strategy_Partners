@@ -46,17 +46,19 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://server.fillout.com/embed/v1/';
-    script.async = true;
-    script.onload = () => setFilloutLoaded(true);
-    document.body.appendChild(script);
+    if (typeof window !== 'undefined') {
+      const script = document.createElement('script');
+      script.src = 'https://server.fillout.com/embed/v1/';
+      script.async = true;
+      script.onload = () => setFilloutLoaded(true);
+      document.head.appendChild(script);
 
-    return () => {
-      if (document.body.contains(script)) {
-        document.body.removeChild(script);
-      }
-    };
+      return () => {
+        if (document.head.contains(script)) {
+          document.head.removeChild(script);
+        }
+      };
+    }
   }, []);
 
 
@@ -1572,11 +1574,11 @@ export default function Home() {
 
             <div style={{ width: '100%', maxWidth: '600px', margin: '0 auto' }}>
               <div
+                style={{ width: '100%', height: '500px' }}
                 data-fillout-id="eQxkUtxCQ9us"
                 data-fillout-embed-type="standard"
                 data-fillout-inherit-parameters
                 data-fillout-dynamic-resize
-                style={{ width: '100%', height: '700px' }}
               ></div>
             </div>
           </div>
