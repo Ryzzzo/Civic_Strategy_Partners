@@ -1555,11 +1555,14 @@ export default function Home() {
             </p>
 
             <div style={{ width: '100%', maxWidth: '600px', margin: '0 auto', background: 'white', padding: '24px', borderRadius: '12px', boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)' }}>
-              <iframe
-                src="https://forms.fillout.com/embed/t/eQxkUtxCQ9us"
-                style={{ width: '100%', height: '700px', border: 'none', borderRadius: '8px' }}
-                allowFullScreen
-              ></iframe>
+              <div
+                style={{ width: '100%', height: '500px' }}
+                data-fillout-id="eQxkUtxCQ9us"
+                data-fillout-embed-type="standard"
+                data-fillout-inherit-parameters
+                data-fillout-dynamic-resize
+              ></div>
+              <script src="https://server.fillout.com/embed/v1/"></script>
             </div>
           </div>
 
