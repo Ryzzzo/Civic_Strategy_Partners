@@ -2075,7 +2075,7 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
       </section>
 
       {/* Services Section - Compact Grid Layout */}
-      <section style={{ background: '#ffffff', padding: '4rem 1.5rem' }}>
+      <section style={{ background: '#f0f4f8', padding: '5rem 1.5rem' }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
           {/* Section Header */}
           <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
@@ -2095,7 +2095,8 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
               fontSize: '2.5rem',
               fontWeight: 700,
               color: '#1e3a5f',
-              marginBottom: '1rem'
+              marginBottom: '1rem',
+              textShadow: '0 2px 4px rgba(30, 58, 95, 0.1)'
             }}>
               The Services That Get You There
             </h2>
@@ -2114,7 +2115,7 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
-            gap: '24px',
+            gap: '32px',
             maxWidth: '1400px'
           }}>
             {[
@@ -2195,27 +2196,39 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
                 key={index}
                 style={{
                   background: '#ffffff',
-                  border: '1px solid rgba(30, 58, 95, 0.1)',
-                  borderRadius: '16px',
+                  border: '1px solid rgba(30, 58, 95, 0.08)',
+                  borderRadius: '20px',
                   padding: '32px 28px',
-                  boxShadow: '0 2px 12px rgba(30, 58, 95, 0.06)',
-                  transition: 'all 0.3s ease',
+                  boxShadow: '0 4px 16px rgba(30, 58, 95, 0.08), 0 2px 8px rgba(30, 58, 95, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.8)',
+                  transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                   display: 'flex',
                   flexDirection: 'column',
                   cursor: 'pointer'
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-4px)';
-                  e.currentTarget.style.boxShadow = '0 8px 24px rgba(30, 58, 95, 0.12)';
+                  e.currentTarget.style.transform = 'translateY(-8px)';
+                  e.currentTarget.style.boxShadow = '0 12px 32px rgba(30, 58, 95, 0.12), 0 4px 12px rgba(30, 58, 95, 0.06)';
+                  e.currentTarget.style.border = '2px solid rgba(201, 162, 39, 0.2)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = '0 2px 12px rgba(30, 58, 95, 0.06)';
+                  e.currentTarget.style.boxShadow = '0 4px 16px rgba(30, 58, 95, 0.08), 0 2px 8px rgba(30, 58, 95, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.8)';
+                  e.currentTarget.style.border = '1px solid rgba(30, 58, 95, 0.08)';
                 }}
               >
-                {/* Gold Star Icon */}
-                <div style={{ marginBottom: '16px' }}>
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="#c9a227">
+                {/* Gold Star Icon with Background Circle */}
+                <div style={{
+                  marginBottom: '16px',
+                  width: '52px',
+                  height: '52px',
+                  borderRadius: '50%',
+                  background: 'linear-gradient(135deg, rgba(201, 162, 39, 0.1), rgba(201, 162, 39, 0.05))',
+                  border: '1px solid rgba(201, 162, 39, 0.2)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}>
+                  <svg width="36" height="36" viewBox="0 0 24 24" fill="#c9a227" style={{ filter: 'drop-shadow(0 2px 4px rgba(201, 162, 39, 0.3))' }}>
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                   </svg>
                 </div>
@@ -2223,10 +2236,10 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
                 {/* Title */}
                 <h3 style={{
                   fontFamily: 'Merriweather, serif',
-                  fontSize: '1.25rem',
+                  fontSize: '1.35rem',
                   fontWeight: 700,
                   color: '#1e3a5f',
-                  marginBottom: '12px',
+                  marginBottom: '14px',
                   lineHeight: 1.3
                 }}>
                   {service.title}
@@ -2252,7 +2265,9 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
                     textTransform: 'uppercase',
                     letterSpacing: '0.05em',
                     fontWeight: 600,
-                    marginBottom: '12px'
+                    marginBottom: '12px',
+                    borderLeft: '3px solid #c9a227',
+                    paddingLeft: '12px'
                   }}>
                     What You Receive
                   </p>
@@ -2262,7 +2277,7 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
                         fontFamily: 'Source Sans Pro, sans-serif',
                         fontSize: '0.875rem',
                         color: '#4a5568',
-                        marginBottom: '8px',
+                        marginBottom: '10px',
                         paddingLeft: '1.5rem',
                         position: 'relative',
                         lineHeight: 1.5
@@ -2271,8 +2286,8 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
                           position: 'absolute',
                           left: 0,
                           top: '2px',
-                          width: '16px',
-                          height: '16px',
+                          width: '18px',
+                          height: '18px',
                           color: '#c9a227'
                         }} />
                         {item}
@@ -2284,25 +2299,30 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
                 {/* Outcome Metric - pushed to bottom */}
                 <div style={{
                   marginTop: 'auto',
-                  padding: '16px',
-                  background: 'linear-gradient(135deg, rgba(30, 58, 95, 0.05) 0%, rgba(201, 162, 39, 0.05) 100%)',
+                  padding: '20px',
+                  background: 'linear-gradient(135deg, rgba(30, 58, 95, 0.03), rgba(201, 162, 39, 0.03))',
+                  borderLeft: '3px solid #c9a227',
                   borderRadius: '12px',
-                  textAlign: 'center'
+                  textAlign: 'center',
+                  boxShadow: '0 2px 8px rgba(0, 0, 0, 0.04)'
                 }}>
                   <p style={{
                     fontFamily: 'Merriweather, serif',
-                    fontSize: '1.5rem',
+                    fontSize: '1.75rem',
                     fontWeight: 700,
                     color: '#1e3a5f',
-                    marginBottom: '4px'
+                    marginBottom: '4px',
+                    letterSpacing: '-0.02em'
                   }}>
                     {service.outcomeNumber}
                   </p>
                   <p style={{
                     fontFamily: 'Source Sans Pro, sans-serif',
-                    fontSize: '0.75rem',
+                    fontSize: '0.8rem',
                     color: '#6B7280',
-                    margin: 0
+                    margin: 0,
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.05em'
                   }}>
                     {service.outcomeLabel}
                   </p>
