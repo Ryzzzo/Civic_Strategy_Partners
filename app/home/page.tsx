@@ -1446,11 +1446,14 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
 
           .legal-links-container {
             flex-direction: column !important;
-            gap: 6px !important;
+            gap: 4px !important;
+            margin-bottom: 16px !important;
           }
 
           .legal-links-container button {
             font-size: 13px !important;
+            padding: 4px 0 !important;
+            line-height: 1.2 !important;
           }
 
           /* === WHY CSP SECTION === */
