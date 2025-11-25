@@ -1663,7 +1663,7 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
 
       {/* What We Do Section - Orbital Layout */}
       {/* What We Do Section - Orbital Layout with Expandable Modals */}
-      <section id="services" className="pt-20 pb-24 px-6 bg-[#f0f4f8] fade-in-section">
+      <section id="services" className="pt-12 pb-16 px-6 bg-[#f0f4f8] fade-in-section">
         <div className="max-w-[1200px] mx-auto">
           {/* Section Header */}
           <div className="text-center mb-16">
