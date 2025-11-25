@@ -3253,17 +3253,6 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
                 </a>
               </p>
             </div>
-
-            <div>
-              <h3 className="text-[18px] font-bold text-white mb-4" style={{ fontFamily: 'Inter', fontWeight: 700 }}>
-                Client Portal
-              </h3>
-              <p className="text-[14px]" style={{ fontFamily: 'Inter' }}>
-                <a href="#" className="text-white/80 hover:text-white transition-colors" style={{ textDecoration: 'none' }}>
-                  Pay Invoice →
-                </a>
-              </p>
-            </div>
           </div>
 
           {/* Legal Links Section */}
