@@ -102,3 +102,127 @@ html {
 .fillout-form-container {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
+
+/* Services Section Responsive Styles */
+
+/* Tablet (768px - 1023px) */
+@media (max-width: 1023px) and (min-width: 768px) {
+  .services-section {
+    padding: 4rem 1rem !important;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 24px !important;
+  }
+
+  .service-card {
+    padding: 24px 20px !important;
+  }
+
+  .service-card-title {
+    font-size: 1.2rem !important;
+  }
+
+  .service-card-description {
+    font-size: 0.875rem !important;
+  }
+
+  .service-card-bullet {
+    font-size: 0.825rem !important;
+  }
+
+  .service-card-outcome-number {
+    font-size: 1.5rem !important;
+  }
+
+  .service-card-star {
+    width: 46px !important;
+    height: 46px !important;
+  }
+
+  .service-card-star svg {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  .services-title {
+    font-size: 2rem !important;
+  }
+}
+
+/* Mobile (<768px) */
+@media (max-width: 767px) {
+  .services-section {
+    padding: 3rem 1rem !important;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  .service-card {
+    padding: 20px 18px !important;
+    max-width: 100%;
+  }
+
+  .service-card-header {
+    margin-bottom: 10px !important;
+  }
+
+  .service-card-title {
+    font-size: 1.15rem !important;
+  }
+
+  .service-card-description {
+    font-size: 0.85rem !important;
+    margin-bottom: 12px !important;
+  }
+
+  .service-card-receive {
+    padding: 12px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .service-card-receive-label {
+    font-size: 0.7rem !important;
+    margin-bottom: 10px !important;
+  }
+
+  .service-card-bullet {
+    font-size: 0.8rem !important;
+    margin-bottom: 6px !important;
+  }
+
+  .service-card-outcome {
+    margin-top: 14px !important;
+    padding: 16px !important;
+  }
+
+  .service-card-outcome-number {
+    font-size: 1.35rem !important;
+  }
+
+  .service-card-outcome-label {
+    font-size: 0.75rem !important;
+  }
+
+  .service-card-star {
+    width: 42px !important;
+    height: 42px !important;
+  }
+
+  .service-card-star svg {
+    width: 28px !important;
+    height: 28px !important;
+  }
+
+  .services-title {
+    font-size: 1.75rem !important;
+  }
+
+  .services-subtitle {
+    font-size: 0.9rem !important;
+  }
+}

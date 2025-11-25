@@ -2074,11 +2074,38 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
         )}
       </section>
 
+      {/* Decorative Separator */}
+      <div style={{
+        maxWidth: '1200px',
+        margin: '0 auto',
+        padding: '0 24px'
+      }}>
+        <div style={{
+          height: '1px',
+          background: 'linear-gradient(90deg, transparent 0%, rgba(30, 58, 95, 0.15) 20%, rgba(201, 162, 39, 0.3) 50%, rgba(30, 58, 95, 0.15) 80%, transparent 100%)',
+          position: 'relative',
+          margin: '48px auto'
+        }}>
+          {/* Small gold square in center */}
+          <div style={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: '8px',
+            height: '8px',
+            background: '#c9a227',
+            borderRadius: '2px',
+            boxShadow: '0 0 0 4px #f0f4f8'
+          }} />
+        </div>
+      </div>
+
       {/* Services Section - Compact Grid Layout */}
-      <section style={{ background: '#f0f4f8', padding: '5rem 1.5rem' }}>
+      <section className="services-section" style={{ background: '#f0f4f8', padding: '5rem 1.5rem' }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
           {/* Section Header */}
-          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+          <div className="services-header" style={{ textAlign: 'center', marginBottom: '3rem' }}>
             <p style={{
               fontFamily: 'Source Sans Pro, sans-serif',
               fontSize: '0.875rem',
@@ -2090,7 +2117,7 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
             }}>
               Results That Matter
             </p>
-            <h2 style={{
+            <h2 className="services-title" style={{
               fontFamily: 'Merriweather, serif',
               fontSize: '2.5rem',
               fontWeight: 700,
@@ -2100,7 +2127,7 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
             }}>
               The Services That Get You There
             </h2>
-            <p style={{
+            <p className="services-subtitle" style={{
               fontFamily: 'Source Sans Pro, sans-serif',
               fontSize: '1rem',
               color: '#6B7280',
@@ -2112,7 +2139,7 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
           </div>
 
           {/* Services Grid */}
-          <div style={{
+          <div className="services-grid" style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
             gap: '32px',
@@ -2199,6 +2226,7 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
               return (
               <div
                 key={index}
+                className="service-card"
                 style={{
                   background: '#ffffff',
                   border: '2px solid rgba(30, 58, 95, 0.08)',
@@ -2224,14 +2252,14 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
                 }}
               >
                 {/* Header Section - Title and Star on Same Line */}
-                <div style={{
+                <div className="service-card-header" style={{
                   display: 'flex',
                   justifyContent: 'space-between',
                   alignItems: 'flex-start',
                   marginBottom: '12px'
                 }}>
                   {/* Title */}
-                  <h3 style={{
+                  <h3 className="service-card-title" style={{
                     fontFamily: 'Merriweather, serif',
                     fontSize: '1.35rem',
                     fontWeight: 700,
@@ -2245,7 +2273,7 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
                   </h3>
 
                   {/* Star Icon with Background Circle - Unified Gold */}
-                  <div style={{
+                  <div className="service-card-star" style={{
                     width: '52px',
                     height: '52px',
                     borderRadius: '50%',
@@ -2263,7 +2291,7 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
                 </div>
 
                 {/* Description */}
-                <p style={{
+                <p className="service-card-description" style={{
                   fontFamily: 'Source Sans Pro, sans-serif',
                   fontSize: '0.9rem',
                   color: '#6B7280',
@@ -2274,14 +2302,14 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
                 </p>
 
                 {/* What You Receive */}
-                <div style={{
+                <div className="service-card-receive" style={{
                   marginBottom: '16px',
                   background: `linear-gradient(135deg, ${accentRgba}, 0.03), ${accentRgba}, 0.015))`,
                   padding: '16px',
                   borderRadius: '8px',
                   borderLeft: `2px solid ${accentColor}`
                 }}>
-                  <p style={{
+                  <p className="service-card-receive-label" style={{
                     fontFamily: 'Source Sans Pro, sans-serif',
                     fontSize: '0.75rem',
                     color: '#1e3a5f',
@@ -2294,7 +2322,7 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
                   </p>
                   <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                     {service.whatYouReceive.map((item, idx) => (
-                      <li key={idx} style={{
+                      <li key={idx} className="service-card-bullet" style={{
                         fontFamily: 'Source Sans Pro, sans-serif',
                         fontSize: '0.875rem',
                         color: '#4a5568',
@@ -2318,7 +2346,7 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
                 </div>
 
                 {/* Outcome Metric - pushed to bottom */}
-                <div style={{
+                <div className="service-card-outcome" style={{
                   marginTop: '18px',
                   padding: '20px',
                   background: `linear-gradient(135deg, ${accentRgba}, 0.04), ${accentRgba}, 0.02))`,
@@ -2327,7 +2355,7 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
                   textAlign: 'center',
                   boxShadow: '0 2px 8px rgba(0, 0, 0, 0.04)'
                 }}>
-                  <p style={{
+                  <p className="service-card-outcome-number" style={{
                     fontFamily: 'Merriweather, serif',
                     fontSize: '1.75rem',
                     fontWeight: 700,
@@ -2337,7 +2365,7 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
                   }}>
                     {service.outcomeNumber}
                   </p>
-                  <p style={{
+                  <p className="service-card-outcome-label" style={{
                     fontFamily: 'Source Sans Pro, sans-serif',
                     fontSize: '0.8rem',
                     color: '#6B7280',
