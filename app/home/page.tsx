@@ -3233,8 +3233,12 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
             }}>
               Get in Touch with Civic Strategy Partners
             </h2>
-            <p className="text-[16px] md:text-[18px] text-white/90 max-w-[800px] mx-auto" style={{ lineHeight: '1.6' }}>
-              Whether you need MAS diagnosis, federal readiness guidance, or strategic advisory support—we're here to help you move with clarity and purpose.
+            <p className="text-[16px] md:text-[18px] text-white/90 max-w-[750px] mx-auto" style={{
+              lineHeight: '1.6',
+              hyphens: 'none',
+              wordBreak: 'normal'
+            }}>
+              Whether you need MAS diagnosis, federal readiness guidance,<br className="hidden md:block" /> or strategic advisory support—we're here to help you<br className="hidden md:block" /> move with clarity and purpose.
             </p>
           </div>
 
