@@ -1,0 +1,698 @@
+
+      {/* Results Section - Blue Silk Gradient Background */}
+      <section id="results" className="py-24 md:py-32 lg:py-[120px] px-6 relative overflow-hidden fade-in-section">
+        <div className="absolute inset-0 silk-gradient"></div>
+        <div className="absolute inset-0 silk-overlay"></div>
+
+        {/* Corner Decorations */}
+        <div
+          className="corner-decoration absolute top-5 left-5 w-20 h-20 border-t-[3px] border-l-[3px] border-white/30 z-10"
+          style={{
+            borderTopColor: 'rgba(255, 255, 255, 0.3)',
+            borderLeftColor: 'rgba(255, 255, 255, 0.3)'
+          }}
+        ></div>
+        <div
+          className="corner-decoration absolute bottom-5 right-5 w-20 h-20 border-b-[3px] border-r-[3px] border-white/30 z-10"
+          style={{
+            borderBottomColor: 'rgba(255, 255, 255, 0.3)',
+            borderRightColor: 'rgba(255, 255, 255, 0.3)'
+          }}
+        ></div>
+
+        <div className="max-w-[1200px] mx-auto relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="text-[42px] font-bold text-white mb-4" style={{ fontWeight: 700, textShadow: '0 2px 8px rgba(0,0,0,0.2)' }}>
+              Representative Outcomes & Typical Engagement Results
+            </h2>
+            <p className="text-[18px] text-white/90 max-w-[800px] mx-auto" style={{ lineHeight: '1.6' }}>
+              CSP engagements are confidential, and many clients come to us early in their federal journey. Instead of publishing sensitive details, we highlight representative scenarios that reflect the types of challenges we solve.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+            <div className="glass-card p-8" style={{ background: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(10px)' }}>
+              <h3 className="text-[20px] font-bold text-[#1e3a5f] mb-4" style={{ fontWeight: 700 }}>
+                MAS Structure Correction & Performance Alignment
+              </h3>
+              <p className="text-[#4B5563] text-[16px]" style={{ lineHeight: '1.6' }}>
+                A services contractor with minimal MAS sales sought clarity on why their schedule wasn't gaining traction. Analysis revealed misaligned SINs, outdated labor categories, and pricing inconsistencies tied to older solicitation refreshes. CSP provided a corrective action roadmap to rebuild the contract's structure, restore compliance, and position the company for visibility with agency buyers.
+              </p>
+            </div>
+
+            <div className="glass-card p-8" style={{ background: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(10px)' }}>
+              <h3 className="text-[20px] font-bold text-[#1e3a5f] mb-4" style={{ fontWeight: 700 }}>
+                Federal Readiness Roadmap for a Growing Technology Firm
+              </h3>
+              <p className="text-[#4B5563] text-[16px]" style={{ lineHeight: '1.6' }}>
+                A tech company exploring federal sales needed to understand market fit, competitive posture, and whether MAS should be part of their strategy. CSP built a Federal Readiness Roadmap assessing capabilities, NAICS alignment, SAM/DSBS posture, agency targets, and contract vehicle pathways. Leadership gained clarity on their federal entry points and a structured path toward future MAS alignment.
+              </p>
+            </div>
+
+            <div className="glass-card p-8" style={{ background: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(10px)' }}>
+              <h3 className="text-[20px] font-bold text-[#1e3a5f] mb-4" style={{ fontWeight: 700 }}>
+                Compliance Intervention for a Low-Activity MAS Holder
+              </h3>
+              <p className="text-[#4B5563] text-[16px]" style={{ lineHeight: '1.6' }}>
+                A small business with a quiet MAS contract faced the risk of falling below minimum sales thresholds. CSP conducted a comprehensive compliance and lifecycle review, identifying missing mods, outdated pricing files, and structural issues impacting visibility. Recommendations allowed the company to reestablish compliance, protect their contract, and begin rebuilding a real revenue pathway.
+              </p>
+            </div>
+          </div>
+
+          <div className="text-center mt-16">
+            <a
+              href="mailto:info@civicstrategypartners.com?subject=Talk Through Your Scenario"
+              className="inline-block premium-cta text-white px-10 py-4 text-[18px] font-semibold"
+              style={{ fontWeight: 600 }}
+            >
+              Talk Through Your Scenario
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Insights & Expertise Section - White Background */}
+      <section id="insights" className="insights-section fade-in-section">
+        <div>
+          <h2>Civil Strategy Briefing</h2>
+          <p className="section-subtitle">Insights & Expertise for Government Contracting Success</p>
+
+          <div className="insights-grid">
+            {mockArticles.map((article, index) => (
+              <article
+                key={index}
+                onClick={() => openModal(article)}
+                className="insight-card"
+              >
+                <h3>{article.title}</h3>
+                <span className="date">{formatDate(article.date)}</span>
+                <p className="excerpt">
+                  {article.content.substring(0, 150)}...
+                </p>
+                <a
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    openModal(article);
+                  }}
+                  className="read-more"
+                >
+                  Read more
+                </a>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Government Contracting News Section - White Background */}
+      {/* HIDDEN - Can be restored later if needed */}
+      {false && (
+      <section id="gsa-news" className="py-20 md:py-24 lg:py-[80px] px-6 bg-white fade-in-section">
+        <div className="max-w-[1200px] mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-[42px] font-bold text-[#1e3a5f] mb-4" style={{ fontWeight: 700, textShadow: '0 2px 4px rgba(0,0,0,0.06)' }}>
+              Government Contracting News
+            </h2>
+            <p className="text-[18px] text-[#6B7280]">
+              Latest updates on GSA Schedules, federal procurement, and contract opportunities
+            </p>
+          </div>
+
+          {gsaNewsLoading ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[1, 2, 3, 4].map((i) => (
+                <div key={i} className="bg-white/95 backdrop-blur-[10px] border border-white/20 rounded-2xl p-6 animate-pulse">
+                  <div className="h-4 bg-gray-200 rounded w-3/4 mb-3"></div>
+                  <div className="h-6 bg-gray-300 rounded mb-3"></div>
+                  <div className="h-20 bg-gray-200 rounded mb-4"></div>
+                  <div className="h-4 bg-gray-200 rounded w-1/2"></div>
+                </div>
+              ))}
+            </div>
+          ) : gsaNewsError ? (
+            <div className="text-center py-12">
+              <p className="text-[16px] text-[#6B7280] mb-4">
+                Unable to load latest government contracting news. Please visit{' '}
+                <a
+                  href="https://govconwire.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#1e3a5f] font-semibold hover:opacity-80 transition-opacity"
+                >
+                  GovConWire.com
+                </a>
+                {' '}directly.
+              </p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {gsaNews.map((item, index) => (
+                <article
+                  key={index}
+                  className="bg-white/95 backdrop-blur-[10px] border border-white/20 rounded-2xl p-6 hover:bg-white hover:shadow-[0_12px_40px_rgba(0,0,0,0.15)] hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+                  style={{
+                    boxShadow: '0 4px 16px rgba(0,0,0,0.08)'
+                  }}
+                >
+                  <span className="text-[14px] text-[#6B7280] uppercase block mb-2">
+                    {item.pubDate}
+                  </span>
+                  <h3 className="text-[20px] font-semibold text-[#1e3a5f] mb-3 line-clamp-2" style={{ fontWeight: 600, lineHeight: '1.4' }}>
+                    {item.title}
+                  </h3>
+                  <p className="text-[15px] text-[#4B5563] mb-4 line-clamp-3" style={{ lineHeight: '1.6' }}>
+                    {item.description.length > 120 ? item.description.substring(0, 120) + '...' : item.description}
+                  </p>
+                  <a
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[15px] text-[#1e3a5f] font-medium hover:opacity-80 transition-opacity inline-flex items-center gap-1"
+                    style={{ fontWeight: 500 }}
+                  >
+                    Read Full Story →
+                  </a>
+                </article>
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+      )}
+
+      {/* About Section - Side by Side Layout */}
+      <section id="about" className="about-section py-24 md:py-32 lg:py-[120px] px-6 relative overflow-hidden fade-in-section">
+        <div className="absolute inset-0 silk-gradient"></div>
+        <div className="absolute inset-0 silk-overlay"></div>
+
+        <div className="about-container max-w-[1200px] mx-auto relative z-10">
+          {/* Iraq Photo - Left Side */}
+          <div className="about-image">
+            <img
+              src="/A714F951-FD08-400C-9B27-FCCB0D74049D.JPG"
+              alt="Kevin Martin - Operation Iraqi Freedom"
+            />
+            <p className="image-caption">
+              Operation Iraqi Freedom<br />Kevin Martin, USMC
+            </p>
+          </div>
+
+          {/* Text Content - Right Side */}
+          <div className="about-content">
+            <h2>
+              <span className="line-1">Marine-Owned.</span>
+              <span className="line-2">Mission-Driven.</span>
+              <span className="line-3">Federal-Focused.</span>
+            </h2>
+
+            <div className="text-[16px] text-white/95 space-y-4" style={{ lineHeight: '1.7' }}>
+              <p>
+                Civic Strategy Partners is built on the belief that federal acquisition should be agile, modern, and mission-oriented—and that GSA MAS is becoming the government's fastest, cleanest way to get there. Agencies are moving more requirements onto MAS to speed procurement, increase commercial access, and push capability directly into government hands. That shift demands contractors who understand the doctrine, the compliance landscape, and how to maintain a contract so it performs.
+              </p>
+              <p>
+                CSP brings a blend of Marine Corps discipline, former-GSA Contract Specialist experience, and deep knowledge of MAS structure and federal readiness. We help companies diagnose failing contracts, correct course, and build federal revenue engines that actually work. Our approach is structured, direct, and grounded in the Civic Strategy Method and MAS Doctrine—models designed to help companies operate with clarity in a constantly changing federal environment.
+              </p>
+              <p>
+                For founders, small businesses, and growing federal practices, CSP provides the guidance, structure, and truth you need to perform in the federal space with confidence.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* About the Founder Section - White Background */}
+      <section className="py-24 md:py-32 lg:py-[120px] px-6 bg-white fade-in-section">
+        <div className="max-w-[1200px] mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Left: Portrait Image */}
+            <div className="order-2 md:order-1">
+              <div className="rounded-2xl overflow-hidden shadow-xl">
+                <img
+                  src="/1743701547902.jpeg"
+                  alt="Kevin Martin - Founder of Civic Strategy Partners"
+                  className="w-full h-auto object-cover"
+                  style={{ maxHeight: '600px', objectFit: 'cover' }}
+                />
+              </div>
+            </div>
+
+            {/* Right: Biography */}
+            <div className="order-1 md:order-2">
+              <h2 className="text-[42px] font-bold text-[#1e3a5f] mb-6" style={{ fontWeight: 700, lineHeight: '1.2' }}>
+                About the Founder
+              </h2>
+              <div className="text-[16px] text-[#374151] space-y-4" style={{ lineHeight: '1.7' }}>
+                <p>
+                  Kevin Martin is a Marine Corps veteran, former GSA Contract Specialist, and federal acquisition strategist. After serving in Iraq and transitioning into federal contracting, he worked inside GSA's Multiple Award Schedule (MAS) program, where he reviewed proposals, audited contract files, and saw firsthand how companies succeeded or failed in the federal space.
+                </p>
+                <p>
+                  That experience shaped his approach: federal contracting is not about cutting corners or gaming the system. It's about building capability, maintaining compliance, and operating with discipline. Too many companies treat GSA MAS as a checkbox or a badge—then wonder why they don't win work. Kevin founded Civic Strategy Partners to help businesses approach federal contracting the right way: with structure, readiness, and a commitment to long-term performance.
+                </p>
+                <p>
+                  CSP's methodology is grounded in the Civic Strategy Method and MAS Doctrine—frameworks designed to bring clarity to federal acquisition and help contractors build sustainable federal practices. Whether diagnosing a failing MAS contract, guiding a company toward federal readiness, or providing strategic advisory support, Kevin's work is direct, structured, and focused on results.
+                </p>
+              </div>
+
+              <div className="mt-6">
+                <a
+                  href="https://www.linkedin.com/in/kevinmartinmba"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-[#0a66c2] hover:text-[#004182] transition-colors text-[15px] font-medium"
+                  style={{ textDecoration: 'none' }}
+                >
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                  </svg>
+                  Connect with Kevin on LinkedIn
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact/CTA Section - Navy Background */}
+      <section id="contact" className="py-24 md:py-32 lg:py-[120px] px-6 relative overflow-hidden fade-in-section">
+        <div className="absolute inset-0 silk-gradient"></div>
+        <div className="absolute inset-0 silk-overlay"></div>
+        <div className="max-w-[900px] mx-auto relative z-10">
+          <div className="text-center mb-12">
+            <h2 className="text-[36px] font-bold text-white mb-4" style={{ fontWeight: 700 }}>
+              Get in Touch with Civic Strategy Partners
+            </h2>
+            <p className="text-[18px] text-white/90">
+              Whether you need MAS diagnosis, federal readiness guidance, or strategic advisory support, CSP is here to help you move with clarity and purpose in the federal marketplace.
+            </p>
+          </div>
+
+          {/* INQUIRY FORM */}
+          <div className="mb-8">
+            <h3 className="text-[22px] font-semibold text-white text-center mb-3">
+              Have a Question?
+            </h3>
+            <p className="text-[16px] text-white/80 text-center mb-6">
+              Send us a message and we'll get back to you within 24 hours.
+            </p>
+
+            <div
+              style={{
+                width: '100%',
+                height: '500px'
+              }}
+              data-fillout-id="eQxkUtxCQ9us"
+              data-fillout-embed-type="standard"
+              data-fillout-inherit-parameters
+              data-fillout-dynamic-resize
+            />
+          </div>
+
+          {/* OR DIVIDER */}
+          <div className="flex items-center gap-4 my-8">
+            <div className="flex-1 h-[1px] bg-white/20"></div>
+            <span className="text-white/60 font-medium">OR</span>
+            <div className="flex-1 h-[1px] bg-white/20"></div>
+          </div>
+
+          {/* CONSULTATION BOOKING */}
+          <div className="text-center">
+            <h3 className="text-[22px] font-semibold text-white mb-3">
+              Ready to Discuss Your Situation?
+            </h3>
+            <p className="text-[16px] text-white/80 mb-6">
+              Book a consultation to talk strategy with our team.
+            </p>
+
+            <a
+              href="mailto:info@civicstrategypartners.com?subject=Consultation Request"
+              className="premium-cta inline-block text-white px-8 py-3.5 rounded-md text-[16px] font-semibold"
+              style={{ fontFamily: 'Inter', fontWeight: 600 }}
+            >
+              Schedule a Consultation
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Premium Gold Separator Bar */}
+      <div style={{
+        height: '6px',
+        background: 'linear-gradient(90deg, rgba(184,134,11,0) 0%, rgba(184,134,11,0.3) 15%, #b8860b 50%, rgba(184,134,11,0.3) 85%, rgba(184,134,11,0) 100%)',
+        boxShadow: '0 2px 12px rgba(184,134,11,0.4), 0 -2px 12px rgba(184,134,11,0.4)',
+        maxWidth: '100%',
+        margin: '0'
+      }}></div>
+
+      {/* Modal Popup */}
+      {modalOpen && currentArticle && (
+        <div
+          onClick={closeModal}
+          className="fixed inset-0 bg-black/80 flex justify-center items-center z-[1000] p-10"
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'rgba(0, 0, 0, 0.8)',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            zIndex: 1000,
+            padding: '40px'
+          }}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="bg-white rounded-xl max-w-[800px] max-h-[90vh] overflow-y-auto relative shadow-2xl"
+            style={{
+              background: 'white',
+              maxWidth: '800px',
+              maxHeight: '90vh',
+              borderRadius: '12px',
+              overflowY: 'auto',
+              position: 'relative',
+              boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3)'
+            }}
+          >
+            <button
+              onClick={closeModal}
+              className="absolute top-5 right-5 bg-white border-2 border-[#E5E7EB] rounded-full w-10 h-10 text-2xl text-[#6B7280] cursor-pointer z-10 hover:bg-gray-50 transition-colors"
+              style={{
+                position: 'absolute',
+                top: '20px',
+                right: '20px',
+                background: 'white',
+                border: '2px solid #E5E7EB',
+                borderRadius: '50%',
+                width: '40px',
+                height: '40px',
+                fontSize: '24px',
+                color: '#6B7280',
+                cursor: 'pointer',
+                zIndex: 10
+              }}
+            >
+              ×
+            </button>
+
+            <img
+              src={currentArticle.imageUrl}
+              alt={currentArticle.title}
+              className="w-full object-cover"
+              style={{
+                width: '100%',
+                aspectRatio: '1200/627',
+                objectFit: 'cover',
+                borderRadius: '12px 12px 0 0'
+              }}
+            />
+
+            <h1
+              className="text-[32px] font-semibold text-[#0F2847] mx-10 mt-10 mb-3"
+              style={{
+                fontFamily: 'Inter',
+                fontWeight: 600,
+                fontSize: '32px',
+                color: '#0F2847',
+                lineHeight: '1.2',
+                margin: '40px 40px 12px'
+              }}
+            >
+              {currentArticle.title}
+            </h1>
+
+            <p
+              className="text-[14px] text-[#6B7280] mx-10 mb-8"
+              style={{
+                fontFamily: 'Inter',
+                fontSize: '14px',
+                color: '#6B7280',
+                margin: '0 40px 32px'
+              }}
+            >
+              {formatDate(currentArticle.date)} | {calculateReadTime(currentArticle.content)}
+            </p>
+
+            <div
+              className="text-[18px] text-[#374151] mx-10 pb-10"
+              style={{
+                fontFamily: 'Inter',
+                fontSize: '18px',
+                color: '#374151',
+                lineHeight: '1.8',
+                margin: '0 40px',
+                paddingBottom: '40px'
+              }}
+            >
+              {currentArticle.content.split('\n\n').map((paragraph, i) => (
+                <p key={i} style={{ marginBottom: '24px' }}>
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+
+            <div
+              className="bg-[#F9FAFB] border-2 border-[#E5E7EB] rounded-lg p-8 m-10 text-center"
+              style={{
+                background: '#F9FAFB',
+                border: '2px solid #E5E7EB',
+                borderRadius: '8px',
+                padding: '32px',
+                margin: '40px',
+                textAlign: 'center'
+              }}
+            >
+              <p
+                className="text-[20px] font-semibold text-[#0F2847] mb-5"
+                style={{
+                  fontFamily: 'Inter',
+                  fontWeight: 600,
+                  fontSize: '20px',
+                  color: '#0F2847',
+                  marginBottom: '20px'
+                }}
+              >
+                Ready to discuss your GSA strategy?
+              </p>
+              <a
+                href="mailto:info@civicstrategypartners.com?subject=Consultation Request"
+                className="inline-block bg-[#0F2847] text-white px-8 py-3.5 rounded-md text-[16px] font-medium cursor-pointer hover:bg-[#1e3a5f] transition-colors border-none"
+                style={{
+                  fontFamily: 'Inter',
+                  fontWeight: 500
+                }}
+              >
+                Schedule Consultation →
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Legal Modal Popup */}
+      {legalModalOpen && legalModalContent && (
+        <div
+          onClick={closeLegalModal}
+          className="fixed inset-0 bg-black/80 flex justify-center items-center z-[1000] p-10"
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'rgba(0, 0, 0, 0.8)',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            zIndex: 1000,
+            padding: '40px'
+          }}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="bg-white rounded-xl max-w-[800px] max-h-[90vh] overflow-y-auto relative shadow-2xl"
+            style={{
+              background: 'white',
+              maxWidth: '800px',
+              maxHeight: '90vh',
+              borderRadius: '12px',
+              overflowY: 'auto',
+              position: 'relative',
+              boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3)'
+            }}
+          >
+            <button
+              onClick={closeLegalModal}
+              className="absolute top-5 right-5 bg-white border-2 border-[#E5E7EB] rounded-full w-10 h-10 text-2xl text-[#6B7280] cursor-pointer z-10 hover:bg-gray-50 transition-colors"
+              style={{
+                position: 'absolute',
+                top: '20px',
+                right: '20px',
+                background: 'white',
+                border: '2px solid #E5E7EB',
+                borderRadius: '50%',
+                width: '40px',
+                height: '40px',
+                fontSize: '24px',
+                color: '#6B7280',
+                cursor: 'pointer',
+                zIndex: 10
+              }}
+            >
+              ×
+            </button>
+
+            <div className="p-10">
+              <h1
+                className="text-[32px] font-semibold text-[#0F2847] mb-8"
+                style={{
+                  fontFamily: 'Inter',
+                  fontWeight: 600,
+                  fontSize: '32px',
+                  color: '#0F2847',
+                  lineHeight: '1.2',
+                  marginBottom: '32px'
+                }}
+              >
+                {legalModalContent.title}
+              </h1>
+
+              <div
+                className="text-[16px] text-[#374151]"
+                style={{
+                  fontFamily: 'Inter',
+                  fontSize: '16px',
+                  color: '#374151',
+                  lineHeight: '1.8'
+                }}
+              >
+                {legalModalContent.content.split('\n\n').map((section, i) => (
+                  <p key={i} style={{ marginBottom: '24px', whiteSpace: 'pre-line' }}>
+                    {section}
+                  </p>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Footer - Silk Flag Gradient */}
+      <footer className="py-16 px-6 relative overflow-hidden">
+        <div className="absolute inset-0 silk-gradient"></div>
+        <div className="absolute inset-0 silk-overlay"></div>
+
+        <div className="max-w-[1200px] mx-auto relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 text-center md:text-left">
+            <div>
+              <h3 className="text-[18px] font-bold text-white mb-4" style={{ fontFamily: 'Inter', fontWeight: 700 }}>
+                Civic Strategy Partners, LLC
+              </h3>
+              <p className="text-[14px] text-white/80 mb-2" style={{ fontFamily: 'Inter', lineHeight: '1.6' }}>
+                Marine-Owned | Mission-Driven | Federal-Focused
+              </p>
+              <p className="text-[14px] text-white/80 mb-2" style={{ fontFamily: 'Inter', lineHeight: '1.6' }}>
+                GSA MAS Architect | Federal Readiness Advisor
+              </p>
+              <p className="text-[14px] text-white/80" style={{ fontFamily: 'Inter', lineHeight: '1.6' }}>
+                New England, USA
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-[18px] font-bold text-white mb-4" style={{ fontFamily: 'Inter', fontWeight: 700 }}>
+                Contact
+              </h3>
+              <p className="text-[14px] text-white/80 mb-2" style={{ fontFamily: 'Inter' }}>
+                <a href="mailto:info@civicstrategypartners.com" className="hover:text-white transition-colors" style={{ color: 'rgba(255,255,255,0.8)', textDecoration: 'none' }}>
+                  info@civicstrategypartners.com
+                </a>
+              </p>
+              <p className="text-[14px] text-white/80 mb-4" style={{ fontFamily: 'Inter' }}>
+                (202) 796-7987
+              </p>
+              <p className="text-[14px] mt-4" style={{ fontFamily: 'Inter' }}>
+                <a href="https://www.linkedin.com/company/civic-strategy-partners-llc/" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition-colors" style={{ textDecoration: 'none' }}>
+                  LinkedIn →
+                </a>
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-[18px] font-bold text-white mb-4" style={{ fontFamily: 'Inter', fontWeight: 700 }}>
+                Client Portal
+              </h3>
+              <p className="text-[14px]" style={{ fontFamily: 'Inter' }}>
+                <a href="#" className="text-white/80 hover:text-white transition-colors" style={{ textDecoration: 'none' }}>
+                  Pay Invoice →
+                </a>
+              </p>
+            </div>
+          </div>
+
+          {/* Legal Links Section */}
+          <div className="border-t border-white/20 pt-8 pb-6 text-center">
+            <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 mb-6 text-[14px]">
+              <button
+                onClick={() => openLegalModal('privacy')}
+                className="text-white/70 hover:text-white transition-colors cursor-pointer bg-transparent border-none"
+                style={{ fontFamily: 'Inter', textDecoration: 'none' }}
+              >
+                Privacy Policy
+              </button>
+              <span className="text-white/40">|</span>
+              <button
+                onClick={() => openLegalModal('terms')}
+                className="text-white/70 hover:text-white transition-colors cursor-pointer bg-transparent border-none"
+                style={{ fontFamily: 'Inter', textDecoration: 'none' }}
+              >
+                Terms of Service
+              </button>
+              <span className="text-white/40">|</span>
+              <button
+                onClick={() => openLegalModal('disclaimer')}
+                className="text-white/70 hover:text-white transition-colors cursor-pointer bg-transparent border-none"
+                style={{ fontFamily: 'Inter', textDecoration: 'none' }}
+              >
+                Disclaimer
+              </button>
+              <span className="text-white/40">|</span>
+              <button
+                onClick={() => openLegalModal('cookies')}
+                className="text-white/70 hover:text-white transition-colors cursor-pointer bg-transparent border-none"
+                style={{ fontFamily: 'Inter', textDecoration: 'none' }}
+              >
+                Cookie Policy
+              </button>
+              <span className="text-white/40">|</span>
+              <button
+                onClick={() => openLegalModal('accessibility')}
+                className="text-white/70 hover:text-white transition-colors cursor-pointer bg-transparent border-none"
+                style={{ fontFamily: 'Inter', textDecoration: 'none' }}
+              >
+                Accessibility Statement
+              </button>
+            </div>
+            <p className="text-[14px] text-white/60" style={{ fontFamily: 'Inter' }} suppressHydrationWarning>
+              © {new Date().getFullYear()} Civic Strategy Partners, LLC. All rights reserved.
+            </p>
+          </div>
+        </div>
+      </footer>
+
+      {/* Return to Top Button */}
+      <button
+        onClick={scrollToTop}
+        className="fixed bottom-8 right-8 bg-[#1e3a5f] text-white border-none rounded-full w-14 h-14 text-2xl cursor-pointer hover:scale-110 transition-transform z-50 flex items-center justify-center"
+        style={{
+          boxShadow: '0 4px 12px rgba(0,0,0,0.3)'
+        }}
+        aria-label="Return to top"
+      >
+        ↑
+      </button>
+    </>
+  );
+}

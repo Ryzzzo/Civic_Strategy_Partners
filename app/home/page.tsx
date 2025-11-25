@@ -1527,12 +1527,12 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
           </div>
 
           {/* Orbital Layout Container */}
-          <div className="relative w-full mx-auto" style={{ height: '700px', maxWidth: '1000px' }}>
+          <div className="relative w-full mx-auto" style={{ height: '900px', maxWidth: '1200px' }}>
 
             {/* SVG Connection Lines Layer */}
             <svg
               className="absolute top-0 left-0 w-full h-full pointer-events-none"
-              viewBox="0 0 1000 700"
+              viewBox="0 0 1200 900"
               preserveAspectRatio="xMidYMid meet"
               style={{ zIndex: 1 }}
             >
@@ -1573,54 +1573,54 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
               </defs>
 
               {/* Center hub glow */}
-              <circle cx="500" cy="350" r="100" fill="url(#hubGlow)" opacity="0.5">
-                <animate attributeName="r" values="100;110;100" dur="4s" repeatCount="indefinite"/>
+              <circle cx="600" cy="450" r="140" fill="url(#hubGlow)" opacity="0.5">
+                <animate attributeName="r" values="140;155;140" dur="4s" repeatCount="indefinite"/>
                 <animate attributeName="opacity" values="0.5;0.7;0.5" dur="4s" repeatCount="indefinite"/>
               </circle>
 
               {/* Decorative Rings */}
-              <circle cx="500" cy="350" r="160" fill="none" stroke="rgba(30, 58, 95, 0.05)" strokeWidth="1" />
-              <circle cx="500" cy="350" r="130" fill="none" stroke="rgba(201, 162, 39, 0.1)" strokeWidth="1.5" strokeDasharray="4 8">
-                <animateTransform attributeName="transform" type="rotate" from="0 500 350" to="360 500 350" dur="60s" repeatCount="indefinite"/>
+              <circle cx="600" cy="450" r="220" fill="none" stroke="rgba(30, 58, 95, 0.05)" strokeWidth="1" />
+              <circle cx="600" cy="450" r="180" fill="none" stroke="rgba(201, 162, 39, 0.1)" strokeWidth="1.5" strokeDasharray="4 8">
+                <animateTransform attributeName="transform" type="rotate" from="0 600 450" to="360 600 450" dur="60s" repeatCount="indefinite"/>
               </circle>
-              <circle cx="500" cy="350" r="100" fill="none" stroke="rgba(30, 58, 95, 0.08)" strokeWidth="1" strokeDasharray="2 6">
-                <animateTransform attributeName="transform" type="rotate" from="0 500 350" to="-360 500 350" dur="45s" repeatCount="indefinite"/>
+              <circle cx="600" cy="450" r="150" fill="none" stroke="rgba(30, 58, 95, 0.08)" strokeWidth="1" strokeDasharray="2 6">
+                <animateTransform attributeName="transform" type="rotate" from="0 600 450" to="-360 600 450" dur="45s" repeatCount="indefinite"/>
               </circle>
 
               {/* Connection Lines - Curved paths from cards to center */}
               {/* Card 1 (top-left) to center */}
-              <path id="path1" d="M 250 80 Q 350 200 500 300" fill="none" stroke="rgba(30, 58, 95, 0.08)" strokeWidth="2" strokeLinecap="round"/>
-              <path d="M 250 80 Q 350 200 500 300" fill="none" stroke="url(#goldGradient)" strokeWidth="2" strokeDasharray="6 14" strokeLinecap="round">
+              <path id="path1" d="M 180 100 Q 350 250 600 400" fill="none" stroke="rgba(30, 58, 95, 0.08)" strokeWidth="2" strokeLinecap="round"/>
+              <path d="M 180 100 Q 350 250 600 400" fill="none" stroke="url(#goldGradient)" strokeWidth="2" strokeDasharray="6 14" strokeLinecap="round">
                 <animate attributeName="stroke-dashoffset" from="0" to="-200" dur="15s" repeatCount="indefinite"/>
               </path>
 
               {/* Card 2 (top-right) to center */}
-              <path id="path2" d="M 750 80 Q 650 200 500 300" fill="none" stroke="rgba(30, 58, 95, 0.08)" strokeWidth="2" strokeLinecap="round"/>
-              <path d="M 750 80 Q 650 200 500 300" fill="none" stroke="url(#goldGradient)" strokeWidth="2" strokeDasharray="6 14" strokeLinecap="round">
+              <path id="path2" d="M 1020 100 Q 850 250 600 400" fill="none" stroke="rgba(30, 58, 95, 0.08)" strokeWidth="2" strokeLinecap="round"/>
+              <path d="M 1020 100 Q 850 250 600 400" fill="none" stroke="url(#goldGradient)" strokeWidth="2" strokeDasharray="6 14" strokeLinecap="round">
                 <animate attributeName="stroke-dashoffset" from="-40" to="-240" dur="15s" repeatCount="indefinite"/>
               </path>
 
               {/* Card 3 (middle-left) to center */}
-              <path id="path3" d="M 50 350 Q 250 350 430 350" fill="none" stroke="rgba(30, 58, 95, 0.08)" strokeWidth="2" strokeLinecap="round"/>
-              <path d="M 50 350 Q 250 350 430 350" fill="none" stroke="url(#goldGradient)" strokeWidth="2" strokeDasharray="6 14" strokeLinecap="round">
+              <path id="path3" d="M 20 450 Q 280 450 520 450" fill="none" stroke="rgba(30, 58, 95, 0.08)" strokeWidth="2" strokeLinecap="round"/>
+              <path d="M 20 450 Q 280 450 520 450" fill="none" stroke="url(#goldGradient)" strokeWidth="2" strokeDasharray="6 14" strokeLinecap="round">
                 <animate attributeName="stroke-dashoffset" from="-80" to="-280" dur="15s" repeatCount="indefinite"/>
               </path>
 
               {/* Card 4 (middle-right) to center */}
-              <path id="path4" d="M 950 350 Q 750 350 570 350" fill="none" stroke="rgba(30, 58, 95, 0.08)" strokeWidth="2" strokeLinecap="round"/>
-              <path d="M 950 350 Q 750 350 570 350" fill="none" stroke="url(#goldGradient)" strokeWidth="2" strokeDasharray="6 14" strokeLinecap="round">
+              <path id="path4" d="M 1180 450 Q 920 450 680 450" fill="none" stroke="rgba(30, 58, 95, 0.08)" strokeWidth="2" strokeLinecap="round"/>
+              <path d="M 1180 450 Q 920 450 680 450" fill="none" stroke="url(#goldGradient)" strokeWidth="2" strokeDasharray="6 14" strokeLinecap="round">
                 <animate attributeName="stroke-dashoffset" from="-120" to="-320" dur="15s" repeatCount="indefinite"/>
               </path>
 
               {/* Card 5 (bottom-left) to center */}
-              <path id="path5" d="M 250 620 Q 350 500 500 400" fill="none" stroke="rgba(30, 58, 95, 0.08)" strokeWidth="2" strokeLinecap="round"/>
-              <path d="M 250 620 Q 350 500 500 400" fill="none" stroke="url(#goldGradient)" strokeWidth="2" strokeDasharray="6 14" strokeLinecap="round">
+              <path id="path5" d="M 180 800 Q 350 650 600 500" fill="none" stroke="rgba(30, 58, 95, 0.08)" strokeWidth="2" strokeLinecap="round"/>
+              <path d="M 180 800 Q 350 650 600 500" fill="none" stroke="url(#goldGradient)" strokeWidth="2" strokeDasharray="6 14" strokeLinecap="round">
                 <animate attributeName="stroke-dashoffset" from="-160" to="-360" dur="15s" repeatCount="indefinite"/>
               </path>
 
               {/* Card 6 (bottom-right) to center */}
-              <path id="path6" d="M 750 620 Q 650 500 500 400" fill="none" stroke="rgba(30, 58, 95, 0.08)" strokeWidth="2" strokeLinecap="round"/>
-              <path d="M 750 620 Q 650 500 500 400" fill="none" stroke="url(#goldGradient)" strokeWidth="2" strokeDasharray="6 14" strokeLinecap="round">
+              <path id="path6" d="M 1020 800 Q 850 650 600 500" fill="none" stroke="rgba(30, 58, 95, 0.08)" strokeWidth="2" strokeLinecap="round"/>
+              <path d="M 1020 800 Q 850 650 600 500" fill="none" stroke="url(#goldGradient)" strokeWidth="2" strokeDasharray="6 14" strokeLinecap="round">
                 <animate attributeName="stroke-dashoffset" from="-200" to="-400" dur="15s" repeatCount="indefinite"/>
               </path>
 
@@ -1723,14 +1723,15 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
             >
               {/* Glow background */}
               <div
-                className="absolute logo-glow-breathe"
+                className="absolute"
                 style={{
                   top: '50%',
                   left: '50%',
                   transform: 'translate(-50%, -50%)',
-                  width: '220px',
-                  height: '220px',
-                  background: 'radial-gradient(circle, rgba(201, 162, 39, 0.1) 0%, transparent 70%)',
+                  width: '320px',
+                  height: '320px',
+                  background: 'radial-gradient(circle, rgba(201, 162, 39, 0.12) 0%, transparent 70%)',
+                  animation: 'logo-breathe 4s ease-in-out infinite',
                   zIndex: -1
                 }}
               />
@@ -1739,54 +1740,44 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
               <div
                 className="relative"
                 style={{
-                  width: '180px',
-                  height: '180px',
+                  width: '260px',
+                  height: '260px',
                   background: 'linear-gradient(145deg, #ffffff 0%, #f8fafc 100%)',
-                  borderRadius: '24px',
+                  borderRadius: '28px',
                   border: '2px solid rgba(30, 58, 95, 0.06)',
-                  boxShadow: '0 8px 40px rgba(30, 58, 95, 0.12), 0 2px 8px rgba(30, 58, 95, 0.06), inset 0 2px 0 rgba(255, 255, 255, 0.8)',
+                  boxShadow: '0 10px 50px rgba(30, 58, 95, 0.12), 0 2px 10px rgba(30, 58, 95, 0.06), inset 0 2px 0 rgba(255, 255, 255, 0.8)',
                   display: 'flex',
                   alignItems: 'center',
-                  justifyContent: 'center',
-                  transition: 'all 0.4s ease',
-                  cursor: 'pointer'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'scale(1.03)';
-                  e.currentTarget.style.boxShadow = '0 16px 60px rgba(30, 58, 95, 0.18), 0 4px 16px rgba(30, 58, 95, 0.1), inset 0 2px 0 rgba(255, 255, 255, 0.9)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'scale(1)';
-                  e.currentTarget.style.boxShadow = '0 8px 40px rgba(30, 58, 95, 0.12), 0 2px 8px rgba(30, 58, 95, 0.06), inset 0 2px 0 rgba(255, 255, 255, 0.8)';
+                  justifyContent: 'center'
                 }}
               >
                 {/* Corner brackets */}
                 <div
                   className="absolute"
                   style={{
-                    top: '14px',
-                    left: '14px',
-                    width: '24px',
-                    height: '24px',
-                    border: '2px solid #c9a227',
+                    top: '16px',
+                    left: '16px',
+                    width: '28px',
+                    height: '28px',
+                    border: '2.5px solid #c9a227',
                     borderRight: 'none',
                     borderBottom: 'none',
-                    borderRadius: '6px 0 0 0',
-                    opacity: 0.5
+                    borderRadius: '8px 0 0 0',
+                    opacity: 0.6
                   }}
                 />
                 <div
                   className="absolute"
                   style={{
-                    bottom: '14px',
-                    right: '14px',
-                    width: '24px',
-                    height: '24px',
-                    border: '2px solid #c9a227',
+                    bottom: '16px',
+                    right: '16px',
+                    width: '28px',
+                    height: '28px',
+                    border: '2.5px solid #c9a227',
                     borderLeft: 'none',
                     borderTop: 'none',
-                    borderRadius: '0 0 6px 0',
-                    opacity: 0.5
+                    borderRadius: '0 0 8px 0',
+                    opacity: 0.6
                   }}
                 />
 
@@ -1794,7 +1785,7 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
                   src="/Civic Strategy Partners Minus LLC.png"
                   alt="Civic Strategy Partners"
                   style={{
-                    width: '120px',
+                    width: '180px',
                     height: 'auto',
                     objectFit: 'contain'
                   }}
@@ -1808,8 +1799,8 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
               className="absolute cursor-pointer orbital-card"
               style={{
                 top: '20px',
-                left: '50px',
-                width: '260px',
+                left: '10px',
+                width: '250px',
                 minHeight: '200px',
                 background: 'rgba(255, 255, 255, 0.95)',
                 backdropFilter: 'blur(10px)',
@@ -1861,8 +1852,8 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
               className="absolute cursor-pointer orbital-card"
               style={{
                 top: '20px',
-                right: '50px',
-                width: '260px',
+                right: '10px',
+                width: '250px',
                 minHeight: '200px',
                 background: 'rgba(255, 255, 255, 0.95)',
                 backdropFilter: 'blur(10px)',
@@ -2022,8 +2013,8 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
               className="absolute cursor-pointer orbital-card"
               style={{
                 bottom: '20px',
-                left: '50px',
-                width: '260px',
+                left: '10px',
+                width: '250px',
                 minHeight: '200px',
                 background: 'rgba(255, 255, 255, 0.95)',
                 backdropFilter: 'blur(10px)',
@@ -2075,8 +2066,8 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
               className="absolute cursor-pointer orbital-card"
               style={{
                 bottom: '20px',
-                right: '50px',
-                width: '260px',
+                right: '10px',
+                width: '250px',
                 minHeight: '200px',
                 background: 'rgba(255, 255, 255, 0.95)',
                 backdropFilter: 'blur(10px)',
