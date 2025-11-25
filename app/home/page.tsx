@@ -41,6 +41,154 @@ export default function Home() {
   const [isClient, setIsClient] = useState(false);
   const [legalModalOpen, setLegalModalOpen] = useState(false);
   const [legalModalContent, setLegalModalContent] = useState<{title: string, content: string} | null>(null);
+  const [expandedService, setExpandedService] = useState<number | null>(null);
+
+  const services = [
+    {
+      id: 1,
+      title: "MAS Performance Diagnosis & Correction",
+      teaser: "We identify exactly where your contract is failing and build a correction plan to restore compliance, visibility, and performance.",
+      fullDescription: `Your MAS contract isn't performing, and you know something's wrong—but pinpointing the exact issue can feel like navigating a maze blindfolded. That's where we come in.
+
+Our MAS Performance Diagnosis & Correction service is built to give you clarity and a path forward. We don't just tell you what's broken—we show you why it broke, how to fix it, and how to prevent it from happening again.
+
+**What You Receive:**
+• Comprehensive contract health audit identifying compliance gaps, structural weaknesses, and performance blockers
+• Root cause analysis showing exactly where and why your contract is underperforming
+• Prioritized correction roadmap with clear, actionable steps to restore compliance and visibility
+• Documentation package aligned with GSA expectations and audit requirements
+• Implementation support to execute corrections and verify results
+
+**The Outcome:**
+You'll move from uncertainty to confidence—with a clear understanding of your contract's current state, a proven plan to fix what's broken, and the tools to maintain performance long-term. Your contract becomes an asset again, not a liability.`,
+      outcomes: [
+        "Contract compliance restored to GSA standards",
+        "Visibility gaps closed with proper documentation",
+        "Performance metrics improved and measurable",
+        "Audit-ready documentation package delivered"
+      ]
+    },
+    {
+      id: 2,
+      title: "Federal Readiness Roadmap",
+      teaser: "We build Federal Readiness Roadmaps that give you land navigation for the federal marketplace.",
+      fullDescription: `Entering the federal marketplace without a roadmap is like deploying without a mission brief—you're moving, but you don't know if you're moving toward the objective.
+
+Our Federal Readiness Roadmap service gives you that mission brief. We assess where you are now, identify what's missing, and build a step-by-step plan to get you contract-ready—whether that means your first GSA Schedule, expanding into new agencies, or positioning for competitive bids.
+
+**What You Receive:**
+• Current state assessment of your federal readiness across compliance, capabilities, and positioning
+• Gap analysis identifying what you need to compete effectively in your target markets
+• Phased implementation roadmap with clear milestones, timelines, and resource requirements
+• Market intelligence briefing on your target agencies, competitors, and procurement trends
+• Certification and registration guidance (SAM, DSBS, GSA, etc.)
+
+**The Outcome:**
+You'll know exactly where you stand, what you need to build, and how to get there. No more guessing, no more wasted effort—just a clear path from where you are to where you need to be to win federal work.`,
+      outcomes: [
+        "Clear path from current state to contract-ready",
+        "Market positioning strategy developed",
+        "Certification roadmap with timelines",
+        "Competitive intelligence on target agencies"
+      ]
+    },
+    {
+      id: 3,
+      title: "MAS Advisory & Offer Strategy",
+      teaser: "We guide you through the MAS offer or mod process with expert oversight, helping you build the right structure from day one.",
+      fullDescription: `The MAS offer process isn't just complex—it's designed to catch mistakes. One wrong move in your initial offer can haunt you for years, from pricing structures that don't scale to compliance requirements you didn't know existed.
+
+Our MAS Advisory & Offer Strategy service embeds expert guidance into your offer development from day one. We don't just review your work—we help you build it right the first time, avoiding the costly corrections and delays that plague most first-time offerors.
+
+**What You Receive:**
+• Pre-offer strategy session to align your offer structure with your business model and market positioning
+• Offer development support including SIN selection, pricing strategy, T&C negotiation, and compliance documentation
+• Real-time review and feedback as you build your offer, catching issues before they become problems
+• GSA submission package review ensuring completeness, accuracy, and alignment with current requirements
+• Post-award support to verify your contract is set up correctly and performing as expected
+
+**The Outcome:**
+Your MAS offer gets accepted faster, with fewer iterations and corrections. You'll launch with a contract structure that actually works for your business—not one that creates ongoing headaches or limits your growth.`,
+      outcomes: [
+        "Offer accepted with minimal iterations",
+        "Pricing structure optimized for profitability",
+        "Compliance documentation audit-ready",
+        "Contract structure aligned with business model"
+      ]
+    },
+    {
+      id: 4,
+      title: "MAS Lifecycle & Compliance Support",
+      teaser: "CSP supports mod packages, price list updates, EPA strategy, solicitation refresh alignment, and annual requirements.",
+      fullDescription: `Your GSA Schedule isn't a "set it and forget it" asset—it requires ongoing maintenance, updates, and strategic adjustments to stay compliant and competitive. Miss an update window or file the wrong paperwork, and you're looking at compliance issues, lost opportunities, or worse.
+
+Our MAS Lifecycle & Compliance Support service takes the ongoing management burden off your plate. We handle the routine maintenance, guide you through strategic modifications, and keep you ahead of GSA's ever-changing requirements.
+
+**What You Receive:**
+• Annual compliance calendar with key deadlines, requirements, and submission windows
+• Modification package development for price adjustments, SIN additions, T&C updates, and EPA changes
+• Price list update support ensuring accuracy, compliance, and competitive positioning
+• Solicitation refresh alignment to keep your contract competitive as GSA updates requirements
+• Annual reporting and documentation support (sales reporting, SCA compliance, etc.)
+
+**The Outcome:**
+Your contract stays current, compliant, and competitive without consuming your internal resources. You'll never miss a deadline, file incorrect paperwork, or lose market positioning because your contract fell out of date.`,
+      outcomes: [
+        "100% on-time compliance with GSA deadlines",
+        "Contract modifications executed correctly",
+        "Competitive positioning maintained",
+        "Zero compliance violations or penalties"
+      ]
+    },
+    {
+      id: 5,
+      title: "White-Glove Retainer Support",
+      teaser: "CSP offers customizable Advisory and White-Glove retainer packages with direct access to the Principal Consultant.",
+      fullDescription: `Some federal contractors don't need project-based support—they need a trusted advisor on call. Someone who understands their business, knows their contract inside and out, and can provide strategic guidance when decisions need to be made quickly.
+
+Our White-Glove Retainer Support service gives you that advisor. Think of it as having a GSA expert embedded in your team—available when you need guidance, proactive about keeping your contract optimized, and invested in your long-term success.
+
+**What You Receive:**
+• Direct access to the Principal Consultant with guaranteed response times
+• Proactive contract monitoring to identify opportunities, risks, and required actions before they become urgent
+• Strategic guidance on pricing, modifications, market positioning, and growth opportunities
+• Priority support for urgent issues, questions, or time-sensitive decisions
+• Quarterly business reviews to assess performance, adjust strategy, and plan ahead
+
+**The Outcome:**
+You'll operate with confidence, knowing you have expert guidance available whenever you need it. Your contract becomes a strategic asset actively managed for maximum performance, not a compliance burden you're constantly worried about.`,
+      outcomes: [
+        "Expert guidance available on-demand",
+        "Proactive contract optimization",
+        "Strategic decisions made with confidence",
+        "Long-term partnership vs. transactional support"
+      ]
+    },
+    {
+      id: 6,
+      title: "À La Carte Mod Support",
+      teaser: "CSP offers à la carte mod support from administrative updates to major contract restructuring.",
+      fullDescription: `Not every modification requires full-service support. Sometimes you just need expert help with a specific change—a SIN addition, a price adjustment, a T&C update, or a major contract restructuring.
+
+Our À La Carte Mod Support service gives you flexible, project-based assistance for individual modifications. You get the expertise you need without committing to ongoing support—perfect for contractors who manage their contracts internally but want expert backup for specific changes.
+
+**What You Receive:**
+• Modification scoping and strategy to determine the best approach for your specific change
+• Package development support including documentation, pricing analysis, and compliance verification
+• GSA submission review ensuring accuracy and completeness before filing
+• Follow-up support to address any GSA questions or requested revisions
+• Implementation guidance to execute approved modifications correctly
+
+**The Outcome:**
+Your modification gets filed correctly, approved faster, and implemented properly—without the delays, rejections, or compliance issues that come from DIY approaches. You get expert help exactly when and where you need it.`,
+      outcomes: [
+        "Modifications approved on first submission",
+        "No compliance issues or rejections",
+        "Faster approval timelines",
+        "Expertise applied only where needed"
+      ]
+    }
+  ];
 
   useEffect(() => {
     setIsClient(true);
@@ -1514,10 +1662,11 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
       <div className="wave-bar wave-bar-bottom silk-gradient"></div>
 
       {/* What We Do Section - Orbital Layout */}
-      <section id="services" className="pt-12 pb-16 px-6 bg-[#f0f4f8] fade-in-section">
+      {/* What We Do Section - Orbital Layout with Expandable Modals */}
+      <section id="services" className="pt-20 pb-24 px-6 bg-[#f0f4f8] fade-in-section">
         <div className="max-w-[1200px] mx-auto">
           {/* Section Header */}
-          <div className="text-center mb-8">
+          <div className="text-center mb-16">
             <h2 className="text-[2.75rem] font-bold text-[#1e3a5f] mb-3" style={{ fontFamily: 'Merriweather, serif', fontWeight: 700 }}>
               What We Do
             </h2>
@@ -1527,24 +1676,22 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
           </div>
 
           {/* Orbital Layout Container */}
-          <div className="relative w-full mx-auto" style={{ height: '750px', maxWidth: '1200px' }}>
+          <div className="relative w-full mx-auto" style={{ height: '900px', maxWidth: '1200px' }}>
 
             {/* SVG Connection Lines Layer */}
             <svg
               className="absolute top-0 left-0 w-full h-full pointer-events-none"
-              viewBox="0 0 1200 750"
+              viewBox="0 0 1200 900"
               preserveAspectRatio="xMidYMid meet"
               style={{ zIndex: 1 }}
             >
               <defs>
-                {/* Gold Gradient */}
                 <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                   <stop offset="0%" style={{ stopColor: 'rgba(201, 162, 39, 0.1)' }} />
                   <stop offset="50%" style={{ stopColor: 'rgba(201, 162, 39, 0.4)' }} />
                   <stop offset="100%" style={{ stopColor: 'rgba(201, 162, 39, 0.1)' }} />
                 </linearGradient>
 
-                {/* Pulse Glow - Gold */}
                 <filter id="pulseGlow" x="-100%" y="-100%" width="300%" height="300%">
                   <feGaussianBlur stdDeviation="4" result="blur"/>
                   <feFlood floodColor="#c9a227" floodOpacity="0.6"/>
@@ -1555,7 +1702,6 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
                   </feMerge>
                 </filter>
 
-                {/* Pulse Glow - Navy */}
                 <filter id="pulseGlowNavy" x="-100%" y="-100%" width="300%" height="300%">
                   <feGaussianBlur stdDeviation="3" result="blur"/>
                   <feFlood floodColor="#2c5282" floodOpacity="0.5"/>
@@ -1572,141 +1718,97 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
                 </radialGradient>
               </defs>
 
-              {/* Center hub glow */}
-              <circle cx="600" cy="375" r="140" fill="url(#hubGlow)" opacity="0.5">
+              <circle cx="600" cy="450" r="140" fill="url(#hubGlow)" opacity="0.5">
                 <animate attributeName="r" values="140;155;140" dur="4s" repeatCount="indefinite"/>
                 <animate attributeName="opacity" values="0.5;0.7;0.5" dur="4s" repeatCount="indefinite"/>
               </circle>
 
-              {/* Decorative Rings */}
-              <circle cx="600" cy="375" r="220" fill="none" stroke="rgba(30, 58, 95, 0.05)" strokeWidth="1" />
-              <circle cx="600" cy="375" r="180" fill="none" stroke="rgba(201, 162, 39, 0.1)" strokeWidth="1.5" strokeDasharray="4 8">
-                <animateTransform attributeName="transform" type="rotate" from="0 600 375" to="360 600 375" dur="60s" repeatCount="indefinite"/>
+              <circle cx="600" cy="450" r="220" fill="none" stroke="rgba(30, 58, 95, 0.05)" strokeWidth="1" />
+              <circle cx="600" cy="450" r="180" fill="none" stroke="rgba(201, 162, 39, 0.1)" strokeWidth="1.5" strokeDasharray="4 8">
+                <animateTransform attributeName="transform" type="rotate" from="0 600 450" to="360 600 450" dur="60s" repeatCount="indefinite"/>
               </circle>
-              <circle cx="600" cy="375" r="150" fill="none" stroke="rgba(30, 58, 95, 0.08)" strokeWidth="1" strokeDasharray="2 6">
-                <animateTransform attributeName="transform" type="rotate" from="0 600 375" to="-360 600 375" dur="45s" repeatCount="indefinite"/>
+              <circle cx="600" cy="450" r="150" fill="none" stroke="rgba(30, 58, 95, 0.08)" strokeWidth="1" strokeDasharray="2 6">
+                <animateTransform attributeName="transform" type="rotate" from="0 600 450" to="-360 600 450" dur="45s" repeatCount="indefinite"/>
               </circle>
 
-              {/* Connection Lines - Curved paths from cards to center */}
-              {/* Card 1 (top-left) to center */}
-              <path id="path1" d="M 180 80 Q 350 200 600 325" fill="none" stroke="rgba(30, 58, 95, 0.08)" strokeWidth="2" strokeLinecap="round"/>
-              <path d="M 180 80 Q 350 200 600 325" fill="none" stroke="url(#goldGradient)" strokeWidth="2" strokeDasharray="6 14" strokeLinecap="round">
+              <path id="path1" d="M 180 100 Q 350 250 600 400" fill="none" stroke="rgba(30, 58, 95, 0.08)" strokeWidth="2" strokeLinecap="round"/>
+              <path d="M 180 100 Q 350 250 600 400" fill="none" stroke="url(#goldGradient)" strokeWidth="2" strokeDasharray="6 14" strokeLinecap="round">
                 <animate attributeName="stroke-dashoffset" from="0" to="-200" dur="15s" repeatCount="indefinite"/>
               </path>
 
-              {/* Card 2 (top-right) to center */}
-              <path id="path2" d="M 1020 80 Q 850 200 600 325" fill="none" stroke="rgba(30, 58, 95, 0.08)" strokeWidth="2" strokeLinecap="round"/>
-              <path d="M 1020 80 Q 850 200 600 325" fill="none" stroke="url(#goldGradient)" strokeWidth="2" strokeDasharray="6 14" strokeLinecap="round">
+              <path id="path2" d="M 1020 100 Q 850 250 600 400" fill="none" stroke="rgba(30, 58, 95, 0.08)" strokeWidth="2" strokeLinecap="round"/>
+              <path d="M 1020 100 Q 850 250 600 400" fill="none" stroke="url(#goldGradient)" strokeWidth="2" strokeDasharray="6 14" strokeLinecap="round">
                 <animate attributeName="stroke-dashoffset" from="-40" to="-240" dur="15s" repeatCount="indefinite"/>
               </path>
 
-              {/* Card 3 (middle-left) to center */}
-              <path id="path3" d="M 20 375 Q 280 375 520 375" fill="none" stroke="rgba(30, 58, 95, 0.08)" strokeWidth="2" strokeLinecap="round"/>
-              <path d="M 20 375 Q 280 375 520 375" fill="none" stroke="url(#goldGradient)" strokeWidth="2" strokeDasharray="6 14" strokeLinecap="round">
+              <path id="path3" d="M 20 450 Q 280 450 520 450" fill="none" stroke="rgba(30, 58, 95, 0.08)" strokeWidth="2" strokeLinecap="round"/>
+              <path d="M 20 450 Q 280 450 520 450" fill="none" stroke="url(#goldGradient)" strokeWidth="2" strokeDasharray="6 14" strokeLinecap="round">
                 <animate attributeName="stroke-dashoffset" from="-80" to="-280" dur="15s" repeatCount="indefinite"/>
               </path>
 
-              {/* Card 4 (middle-right) to center */}
-              <path id="path4" d="M 1180 375 Q 920 375 680 375" fill="none" stroke="rgba(30, 58, 95, 0.08)" strokeWidth="2" strokeLinecap="round"/>
-              <path d="M 1180 375 Q 920 375 680 375" fill="none" stroke="url(#goldGradient)" strokeWidth="2" strokeDasharray="6 14" strokeLinecap="round">
+              <path id="path4" d="M 1180 450 Q 920 450 680 450" fill="none" stroke="rgba(30, 58, 95, 0.08)" strokeWidth="2" strokeLinecap="round"/>
+              <path d="M 1180 450 Q 920 450 680 450" fill="none" stroke="url(#goldGradient)" strokeWidth="2" strokeDasharray="6 14" strokeLinecap="round">
                 <animate attributeName="stroke-dashoffset" from="-120" to="-320" dur="15s" repeatCount="indefinite"/>
               </path>
 
-              {/* Card 5 (bottom-left) to center */}
-              <path id="path5" d="M 180 670 Q 350 550 600 425" fill="none" stroke="rgba(30, 58, 95, 0.08)" strokeWidth="2" strokeLinecap="round"/>
-              <path d="M 180 670 Q 350 550 600 425" fill="none" stroke="url(#goldGradient)" strokeWidth="2" strokeDasharray="6 14" strokeLinecap="round">
+              <path id="path5" d="M 180 800 Q 350 650 600 500" fill="none" stroke="rgba(30, 58, 95, 0.08)" strokeWidth="2" strokeLinecap="round"/>
+              <path d="M 180 800 Q 350 650 600 500" fill="none" stroke="url(#goldGradient)" strokeWidth="2" strokeDasharray="6 14" strokeLinecap="round">
                 <animate attributeName="stroke-dashoffset" from="-160" to="-360" dur="15s" repeatCount="indefinite"/>
               </path>
 
-              {/* Card 6 (bottom-right) to center */}
-              <path id="path6" d="M 1020 670 Q 850 550 600 425" fill="none" stroke="rgba(30, 58, 95, 0.08)" strokeWidth="2" strokeLinecap="round"/>
-              <path d="M 1020 670 Q 850 550 600 425" fill="none" stroke="url(#goldGradient)" strokeWidth="2" strokeDasharray="6 14" strokeLinecap="round">
+              <path id="path6" d="M 1020 800 Q 850 650 600 500" fill="none" stroke="rgba(30, 58, 95, 0.08)" strokeWidth="2" strokeLinecap="round"/>
+              <path d="M 1020 800 Q 850 650 600 500" fill="none" stroke="url(#goldGradient)" strokeWidth="2" strokeDasharray="6 14" strokeLinecap="round">
                 <animate attributeName="stroke-dashoffset" from="-200" to="-400" dur="15s" repeatCount="indefinite"/>
               </path>
 
-              {/* Animated Pulse Dots - Primary (Gold) */}
+              {/* Pulse Dots */}
               <circle r="7" fill="#c9a227" filter="url(#pulseGlow)">
-                <animateMotion dur="2.8s" repeatCount="indefinite">
-                  <mpath href="#path1"/>
-                </animateMotion>
+                <animateMotion dur="2.8s" repeatCount="indefinite"><mpath href="#path1"/></animateMotion>
                 <animate attributeName="opacity" values="0;1;1;0" dur="2.8s" repeatCount="indefinite"/>
               </circle>
-
               <circle r="7" fill="#c9a227" filter="url(#pulseGlow)">
-                <animateMotion dur="3.2s" repeatCount="indefinite" begin="0.6s">
-                  <mpath href="#path2"/>
-                </animateMotion>
+                <animateMotion dur="3.2s" repeatCount="indefinite" begin="0.6s"><mpath href="#path2"/></animateMotion>
                 <animate attributeName="opacity" values="0;1;1;0" dur="3.2s" repeatCount="indefinite" begin="0.6s"/>
               </circle>
-
               <circle r="7" fill="#c9a227" filter="url(#pulseGlow)">
-                <animateMotion dur="2.4s" repeatCount="indefinite" begin="1.2s">
-                  <mpath href="#path3"/>
-                </animateMotion>
+                <animateMotion dur="2.4s" repeatCount="indefinite" begin="1.2s"><mpath href="#path3"/></animateMotion>
                 <animate attributeName="opacity" values="0;1;1;0" dur="2.4s" repeatCount="indefinite" begin="1.2s"/>
               </circle>
-
               <circle r="7" fill="#c9a227" filter="url(#pulseGlow)">
-                <animateMotion dur="2.4s" repeatCount="indefinite" begin="1.8s">
-                  <mpath href="#path4"/>
-                </animateMotion>
+                <animateMotion dur="2.4s" repeatCount="indefinite" begin="1.8s"><mpath href="#path4"/></animateMotion>
                 <animate attributeName="opacity" values="0;1;1;0" dur="2.4s" repeatCount="indefinite" begin="1.8s"/>
               </circle>
-
               <circle r="7" fill="#c9a227" filter="url(#pulseGlow)">
-                <animateMotion dur="2.8s" repeatCount="indefinite" begin="2.4s">
-                  <mpath href="#path5"/>
-                </animateMotion>
+                <animateMotion dur="2.8s" repeatCount="indefinite" begin="2.4s"><mpath href="#path5"/></animateMotion>
                 <animate attributeName="opacity" values="0;1;1;0" dur="2.8s" repeatCount="indefinite" begin="2.4s"/>
               </circle>
-
               <circle r="7" fill="#c9a227" filter="url(#pulseGlow)">
-                <animateMotion dur="3.2s" repeatCount="indefinite" begin="3s">
-                  <mpath href="#path6"/>
-                </animateMotion>
+                <animateMotion dur="3.2s" repeatCount="indefinite" begin="3s"><mpath href="#path6"/></animateMotion>
                 <animate attributeName="opacity" values="0;1;1;0" dur="3.2s" repeatCount="indefinite" begin="3s"/>
               </circle>
 
-              {/* Secondary Pulses (Navy - smaller) */}
               <circle r="5" fill="#2c5282" filter="url(#pulseGlowNavy)">
-                <animateMotion dur="2.8s" repeatCount="indefinite" begin="1.4s">
-                  <mpath href="#path1"/>
-                </animateMotion>
+                <animateMotion dur="2.8s" repeatCount="indefinite" begin="1.4s"><mpath href="#path1"/></animateMotion>
                 <animate attributeName="opacity" values="0;0.8;0.8;0" dur="2.8s" repeatCount="indefinite" begin="1.4s"/>
               </circle>
-
               <circle r="5" fill="#2c5282" filter="url(#pulseGlowNavy)">
-                <animateMotion dur="3.2s" repeatCount="indefinite" begin="2.2s">
-                  <mpath href="#path2"/>
-                </animateMotion>
+                <animateMotion dur="3.2s" repeatCount="indefinite" begin="2.2s"><mpath href="#path2"/></animateMotion>
                 <animate attributeName="opacity" values="0;0.8;0.8;0" dur="3.2s" repeatCount="indefinite" begin="2.2s"/>
               </circle>
-
               <circle r="5" fill="#2c5282" filter="url(#pulseGlowNavy)">
-                <animateMotion dur="2.4s" repeatCount="indefinite">
-                  <mpath href="#path3"/>
-                </animateMotion>
+                <animateMotion dur="2.4s" repeatCount="indefinite"><mpath href="#path3"/></animateMotion>
                 <animate attributeName="opacity" values="0;0.8;0.8;0" dur="2.4s" repeatCount="indefinite"/>
               </circle>
-
               <circle r="5" fill="#2c5282" filter="url(#pulseGlowNavy)">
-                <animateMotion dur="2.4s" repeatCount="indefinite" begin="0.6s">
-                  <mpath href="#path4"/>
-                </animateMotion>
+                <animateMotion dur="2.4s" repeatCount="indefinite" begin="0.6s"><mpath href="#path4"/></animateMotion>
                 <animate attributeName="opacity" values="0;0.8;0.8;0" dur="2.4s" repeatCount="indefinite" begin="0.6s"/>
               </circle>
-
               <circle r="5" fill="#2c5282" filter="url(#pulseGlowNavy)">
-                <animateMotion dur="2.8s" repeatCount="indefinite" begin="0.8s">
-                  <mpath href="#path5"/>
-                </animateMotion>
+                <animateMotion dur="2.8s" repeatCount="indefinite" begin="0.8s"><mpath href="#path5"/></animateMotion>
                 <animate attributeName="opacity" values="0;0.8;0.8;0" dur="2.8s" repeatCount="indefinite" begin="0.8s"/>
               </circle>
-
               <circle r="5" fill="#2c5282" filter="url(#pulseGlowNavy)">
-                <animateMotion dur="3.2s" repeatCount="indefinite" begin="1.5s">
-                  <mpath href="#path6"/>
-                </animateMotion>
+                <animateMotion dur="3.2s" repeatCount="indefinite" begin="1.5s"><mpath href="#path6"/></animateMotion>
                 <animate attributeName="opacity" values="0;0.8;0.8;0" dur="3.2s" repeatCount="indefinite" begin="1.5s"/>
               </circle>
             </svg>
@@ -1718,10 +1820,17 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
                 top: '50%',
                 left: '50%',
                 transform: 'translate(-50%, -50%)',
-                zIndex: 20
+                zIndex: 20,
+                cursor: 'pointer',
+                transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translate(-50%, -50%) scale(1.05)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translate(-50%, -50%) scale(1)';
               }}
             >
-              {/* Glow background */}
               <div
                 className="absolute"
                 style={{
@@ -1736,7 +1845,6 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
                 }}
               />
 
-              {/* Logo container */}
               <div
                 className="relative"
                 style={{
@@ -1751,342 +1859,245 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
                   justifyContent: 'center'
                 }}
               >
-                <img
-                  src="/Civic Strategy Partners Minus LLC.png"
-                  alt="Civic Strategy Partners"
-                  style={{
-                    width: '180px',
-                    height: 'auto',
-                    objectFit: 'contain'
-                  }}
-                />
+                <div style={{ position: 'absolute', top: '16px', left: '16px', width: '28px', height: '28px', border: '2.5px solid #c9a227', borderRight: 'none', borderBottom: 'none', borderRadius: '8px 0 0 0', opacity: 0.6 }} />
+                <div style={{ position: 'absolute', bottom: '16px', right: '16px', width: '28px', height: '28px', border: '2.5px solid #c9a227', borderLeft: 'none', borderTop: 'none', borderRadius: '0 0 8px 0', opacity: 0.6 }} />
+
+                <img src="/Civic Strategy Partners Minus LLC.png" alt="Civic Strategy Partners" style={{ width: '180px', height: 'auto', objectFit: 'contain' }} />
               </div>
             </div>
 
-            {/* Service Cards - Absolute Positioned */}
-            {/* Card 1 - Top Left */}
-            <div
-              className="absolute cursor-pointer orbital-card"
-              style={{
-                top: '20px',
-                left: '10px',
-                width: '250px',
-                minHeight: '200px',
-                background: 'rgba(255, 255, 255, 0.95)',
-                backdropFilter: 'blur(10px)',
-                borderRadius: '20px',
-                padding: '26px 22px',
-                border: '1px solid rgba(30, 58, 95, 0.06)',
-                boxShadow: '0 4px 24px rgba(30, 58, 95, 0.08), 0 1px 3px rgba(30, 58, 95, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.8)',
-                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-                zIndex: 10,
-                display: 'flex',
-                flexDirection: 'column'
-              }}
-            >
-              <h3 style={{
-                fontFamily: 'Merriweather, serif',
-                fontSize: '1.05rem',
-                fontWeight: 700,
-                color: '#1e3a5f',
-                marginBottom: '12px',
-                lineHeight: 1.3
-              }}>
-                MAS Performance Diagnosis & Correction
-              </h3>
-              <p style={{
-                fontFamily: 'Source Sans Pro, sans-serif',
-                fontSize: '0.875rem',
-                color: '#4a5568',
-                lineHeight: 1.6,
-                marginBottom: '16px',
-                flex: 1
-              }}>
-                We identify exactly where your contract is failing and build a correction plan to restore compliance, visibility, and performance.
-              </p>
-              <div className="card-cta-text" style={{
-                fontFamily: 'Source Sans Pro, sans-serif',
-                fontSize: '0.875rem',
-                fontWeight: 600,
-                color: '#1e3a5f',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '6px'
-              }}>
-                Learn More <span className="card-arrow">→</span>
+            {/* Service Cards - CLICKABLE */}
+            {[
+              { position: { top: '20px', left: '10px' }, service: services[0] },
+              { position: { top: '20px', right: '10px' }, service: services[1] },
+              { position: { top: '50%', left: '0', transform: 'translateY(-50%)' }, service: services[2] },
+              { position: { top: '50%', right: '0', transform: 'translateY(-50%)' }, service: services[3] },
+              { position: { bottom: '20px', left: '10px' }, service: services[4] },
+              { position: { bottom: '20px', right: '10px' }, service: services[5] }
+            ].map(({ position, service }, idx) => (
+              <div
+                key={service.id}
+                className="absolute cursor-pointer"
+                style={{
+                  ...position,
+                  width: '250px',
+                  background: 'rgba(255, 255, 255, 0.95)',
+                  backdropFilter: 'blur(10px)',
+                  borderRadius: '20px',
+                  padding: '26px 22px',
+                  border: '1px solid rgba(30, 58, 95, 0.06)',
+                  boxShadow: '0 4px 24px rgba(30, 58, 95, 0.08)',
+                  zIndex: 10,
+                  transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
+                }}
+                onClick={() => setExpandedService(service.id)}
+                onMouseEnter={(e) => {
+                  const el = e.currentTarget;
+                  const isMiddle = position.transform === 'translateY(-50%)';
+                  el.style.transform = isMiddle ? 'translateY(-50%) translateY(-10px) scale(1.03)' : 'translateY(-10px) scale(1.03)';
+                  el.style.boxShadow = '0 20px 60px rgba(30, 58, 95, 0.15)';
+                  el.style.border = '2px solid transparent';
+                  el.style.backgroundImage = 'linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), linear-gradient(135deg, #1e3a5f, #c9a227)';
+                  el.style.backgroundOrigin = 'border-box';
+                  el.style.backgroundClip = 'padding-box, border-box';
+                  const cta = el.querySelector('[data-cta]');
+                  if (cta) (cta as HTMLElement).style.color = '#c9a227';
+                }}
+                onMouseLeave={(e) => {
+                  const el = e.currentTarget;
+                  const isMiddle = position.transform === 'translateY(-50%)';
+                  el.style.transform = isMiddle ? 'translateY(-50%)' : '';
+                  el.style.boxShadow = '0 4px 24px rgba(30, 58, 95, 0.08)';
+                  el.style.border = '1px solid rgba(30, 58, 95, 0.06)';
+                  el.style.backgroundImage = '';
+                  const cta = el.querySelector('[data-cta]');
+                  if (cta) (cta as HTMLElement).style.color = '#1e3a5f';
+                }}
+              >
+                <h3 style={{
+                  fontFamily: 'Merriweather, serif',
+                  fontSize: '1.05rem',
+                  fontWeight: 700,
+                  color: '#1e3a5f',
+                  marginBottom: '12px',
+                  lineHeight: 1.3
+                }}>
+                  {service.title}
+                </h3>
+                <p style={{
+                  fontFamily: 'Source Sans Pro, sans-serif',
+                  fontSize: '0.875rem',
+                  color: '#4a5568',
+                  lineHeight: 1.6,
+                  marginBottom: '16px'
+                }}>
+                  {service.teaser}
+                </p>
+                <div data-cta style={{
+                  fontFamily: 'Source Sans Pro, sans-serif',
+                  fontSize: '0.875rem',
+                  fontWeight: 600,
+                  color: '#1e3a5f',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  transition: 'color 0.3s ease'
+                }}>
+                  Learn More <span>→</span>
+                </div>
               </div>
-            </div>
-
-            {/* Card 2 - Top Right */}
-            <div
-              className="absolute cursor-pointer orbital-card"
-              style={{
-                top: '20px',
-                right: '10px',
-                width: '250px',
-                minHeight: '200px',
-                background: 'rgba(255, 255, 255, 0.95)',
-                backdropFilter: 'blur(10px)',
-                borderRadius: '20px',
-                padding: '26px 22px',
-                border: '1px solid rgba(30, 58, 95, 0.06)',
-                boxShadow: '0 4px 24px rgba(30, 58, 95, 0.08), 0 1px 3px rgba(30, 58, 95, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.8)',
-                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-                zIndex: 10,
-                display: 'flex',
-                flexDirection: 'column'
-              }}
-            >
-              <h3 style={{
-                fontFamily: 'Merriweather, serif',
-                fontSize: '1.05rem',
-                fontWeight: 700,
-                color: '#1e3a5f',
-                marginBottom: '12px',
-                lineHeight: 1.3
-              }}>
-                Federal Readiness Roadmap
-              </h3>
-              <p style={{
-                fontFamily: 'Source Sans Pro, sans-serif',
-                fontSize: '0.875rem',
-                color: '#4a5568',
-                lineHeight: 1.6,
-                marginBottom: '16px',
-                flex: 1
-              }}>
-                We build Federal Readiness Roadmaps that give you land navigation for the federal marketplace.
-              </p>
-              <div className="card-cta-text" style={{
-                fontFamily: 'Source Sans Pro, sans-serif',
-                fontSize: '0.875rem',
-                fontWeight: 600,
-                color: '#1e3a5f',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '6px'
-              }}>
-                Learn More <span className="card-arrow">→</span>
-              </div>
-            </div>
-
-            {/* Card 3 - Middle Left */}
-            <div
-              className="absolute cursor-pointer orbital-card orbital-card-middle-left"
-              style={{
-                top: '50%',
-                left: '0',
-                transform: 'translateY(-50%)',
-                width: '250px',
-                minHeight: '200px',
-                background: 'rgba(255, 255, 255, 0.95)',
-                backdropFilter: 'blur(10px)',
-                borderRadius: '20px',
-                padding: '26px 22px',
-                border: '1px solid rgba(30, 58, 95, 0.06)',
-                boxShadow: '0 4px 24px rgba(30, 58, 95, 0.08), 0 1px 3px rgba(30, 58, 95, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.8)',
-                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-                zIndex: 10,
-                display: 'flex',
-                flexDirection: 'column'
-              }}
-            >
-              <h3 style={{
-                fontFamily: 'Merriweather, serif',
-                fontSize: '1.05rem',
-                fontWeight: 700,
-                color: '#1e3a5f',
-                marginBottom: '12px',
-                lineHeight: 1.3
-              }}>
-                MAS Advisory & Offer Strategy
-              </h3>
-              <p style={{
-                fontFamily: 'Source Sans Pro, sans-serif',
-                fontSize: '0.875rem',
-                color: '#4a5568',
-                lineHeight: 1.6,
-                marginBottom: '16px',
-                flex: 1
-              }}>
-                We guide you through the MAS offer or mod process with expert oversight, helping you build the right structure from day one.
-              </p>
-              <div className="card-cta-text" style={{
-                fontFamily: 'Source Sans Pro, sans-serif',
-                fontSize: '0.875rem',
-                fontWeight: 600,
-                color: '#1e3a5f',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '6px'
-              }}>
-                Learn More <span className="card-arrow">→</span>
-              </div>
-            </div>
-
-            {/* Card 4 - Middle Right */}
-            <div
-              className="absolute cursor-pointer orbital-card orbital-card-middle-right"
-              style={{
-                top: '50%',
-                right: '0',
-                transform: 'translateY(-50%)',
-                width: '250px',
-                minHeight: '200px',
-                background: 'rgba(255, 255, 255, 0.95)',
-                backdropFilter: 'blur(10px)',
-                borderRadius: '20px',
-                padding: '26px 22px',
-                border: '1px solid rgba(30, 58, 95, 0.06)',
-                boxShadow: '0 4px 24px rgba(30, 58, 95, 0.08), 0 1px 3px rgba(30, 58, 95, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.8)',
-                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-                zIndex: 10,
-                display: 'flex',
-                flexDirection: 'column'
-              }}
-            >
-              <h3 style={{
-                fontFamily: 'Merriweather, serif',
-                fontSize: '1.05rem',
-                fontWeight: 700,
-                color: '#1e3a5f',
-                marginBottom: '12px',
-                lineHeight: 1.3
-              }}>
-                MAS Lifecycle & Compliance Support
-              </h3>
-              <p style={{
-                fontFamily: 'Source Sans Pro, sans-serif',
-                fontSize: '0.875rem',
-                color: '#4a5568',
-                lineHeight: 1.6,
-                marginBottom: '16px',
-                flex: 1
-              }}>
-                CSP supports mod packages, price list updates, EPA strategy, solicitation refresh alignment, and annual requirements.
-              </p>
-              <div className="card-cta-text" style={{
-                fontFamily: 'Source Sans Pro, sans-serif',
-                fontSize: '0.875rem',
-                fontWeight: 600,
-                color: '#1e3a5f',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '6px'
-              }}>
-                Learn More <span className="card-arrow">→</span>
-              </div>
-            </div>
-
-            {/* Card 5 - Bottom Left */}
-            <div
-              className="absolute cursor-pointer orbital-card"
-              style={{
-                bottom: '20px',
-                left: '10px',
-                width: '250px',
-                minHeight: '200px',
-                background: 'rgba(255, 255, 255, 0.95)',
-                backdropFilter: 'blur(10px)',
-                borderRadius: '20px',
-                padding: '26px 22px',
-                border: '1px solid rgba(30, 58, 95, 0.06)',
-                boxShadow: '0 4px 24px rgba(30, 58, 95, 0.08), 0 1px 3px rgba(30, 58, 95, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.8)',
-                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-                zIndex: 10,
-                display: 'flex',
-                flexDirection: 'column'
-              }}
-            >
-              <h3 style={{
-                fontFamily: 'Merriweather, serif',
-                fontSize: '1.05rem',
-                fontWeight: 700,
-                color: '#1e3a5f',
-                marginBottom: '12px',
-                lineHeight: 1.3
-              }}>
-                White-Glove Retainer Support
-              </h3>
-              <p style={{
-                fontFamily: 'Source Sans Pro, sans-serif',
-                fontSize: '0.875rem',
-                color: '#4a5568',
-                lineHeight: 1.6,
-                marginBottom: '16px',
-                flex: 1
-              }}>
-                CSP offers customizable Advisory and White-Glove retainer packages with direct access to the Principal Consultant.
-              </p>
-              <div className="card-cta-text" style={{
-                fontFamily: 'Source Sans Pro, sans-serif',
-                fontSize: '0.875rem',
-                fontWeight: 600,
-                color: '#1e3a5f',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '6px'
-              }}>
-                Learn More <span className="card-arrow">→</span>
-              </div>
-            </div>
-
-            {/* Card 6 - Bottom Right */}
-            <div
-              className="absolute cursor-pointer orbital-card"
-              style={{
-                bottom: '20px',
-                right: '10px',
-                width: '250px',
-                minHeight: '200px',
-                background: 'rgba(255, 255, 255, 0.95)',
-                backdropFilter: 'blur(10px)',
-                borderRadius: '20px',
-                padding: '26px 22px',
-                border: '1px solid rgba(30, 58, 95, 0.06)',
-                boxShadow: '0 4px 24px rgba(30, 58, 95, 0.08), 0 1px 3px rgba(30, 58, 95, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.8)',
-                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-                zIndex: 10,
-                display: 'flex',
-                flexDirection: 'column'
-              }}
-            >
-              <h3 style={{
-                fontFamily: 'Merriweather, serif',
-                fontSize: '1.05rem',
-                fontWeight: 700,
-                color: '#1e3a5f',
-                marginBottom: '12px',
-                lineHeight: 1.3
-              }}>
-                À La Carte Mod Support
-              </h3>
-              <p style={{
-                fontFamily: 'Source Sans Pro, sans-serif',
-                fontSize: '0.875rem',
-                color: '#4a5568',
-                lineHeight: 1.6,
-                marginBottom: '16px',
-                flex: 1
-              }}>
-                CSP offers à la carte mod support from administrative updates to major contract restructuring.
-              </p>
-              <div className="card-cta-text" style={{
-                fontFamily: 'Source Sans Pro, sans-serif',
-                fontSize: '0.875rem',
-                fontWeight: 600,
-                color: '#1e3a5f',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '6px'
-              }}>
-                Learn More <span className="card-arrow">→</span>
-              </div>
-            </div>
+            ))}
 
           </div>
         </div>
+
+        {/* Modal Overlay - Shows when card is clicked */}
+        {expandedService !== null && (
+          <div
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-6 z-50"
+            onClick={() => setExpandedService(null)}
+            style={{
+              animation: 'fadeIn 0.3s ease-out'
+            }}
+          >
+            <div
+              className="bg-white rounded-2xl max-w-4xl w-full max-h-[85vh] overflow-y-auto relative"
+              onClick={(e) => e.stopPropagation()}
+              style={{
+                animation: 'slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                boxShadow: '0 24px 80px rgba(0, 0, 0, 0.3)'
+              }}
+            >
+              {/* Close Button */}
+              <button
+                onClick={() => setExpandedService(null)}
+                className="absolute top-6 right-6 w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
+                style={{ zIndex: 10 }}
+              >
+                <span style={{ fontSize: '1.5rem', color: '#4a5568' }}>×</span>
+              </button>
+
+              {/* Modal Content */}
+              <div className="p-10">
+                {services.filter(s => s.id === expandedService).map(service => (
+                  <div key={service.id}>
+                    <h2 style={{
+                      fontFamily: 'Merriweather, serif',
+                      fontSize: '2.25rem',
+                      fontWeight: 700,
+                      color: '#1e3a5f',
+                      marginBottom: '24px',
+                      lineHeight: 1.2
+                    }}>
+                      {service.title}
+                    </h2>
+
+                    <div style={{
+                      fontFamily: 'Source Sans Pro, sans-serif',
+                      fontSize: '1.05rem',
+                      color: '#374151',
+                      lineHeight: 1.8,
+                      whiteSpace: 'pre-line',
+                      marginBottom: '32px'
+                    }}>
+                      {service.fullDescription}
+                    </div>
+
+                    <div style={{
+                      padding: '24px',
+                      background: 'linear-gradient(135deg, rgba(30, 58, 95, 0.05), rgba(201, 162, 39, 0.05))',
+                      borderRadius: '16px',
+                      borderLeft: '4px solid #c9a227'
+                    }}>
+                      <h3 style={{
+                        fontFamily: 'Merriweather, serif',
+                        fontSize: '1.25rem',
+                        fontWeight: 700,
+                        color: '#1e3a5f',
+                        marginBottom: '16px'
+                      }}>
+                        Key Outcomes
+                      </h3>
+                      <ul style={{
+                        fontFamily: 'Source Sans Pro, sans-serif',
+                        fontSize: '1rem',
+                        color: '#374151',
+                        lineHeight: 1.8,
+                        paddingLeft: '20px'
+                      }}>
+                        {service.outcomes.map((outcome, idx) => (
+                          <li key={idx} style={{ marginBottom: '8px' }}>
+                            {outcome}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="mt-8 pt-8 border-t border-gray-200 flex justify-center">
+                      <button
+                        onClick={() => setExpandedService(null)}
+                        style={{
+                          fontFamily: 'Source Sans Pro, sans-serif',
+                          fontSize: '1rem',
+                          fontWeight: 600,
+                          color: '#ffffff',
+                          background: 'linear-gradient(135deg, #1e3a5f, #2c5282)',
+                          padding: '14px 32px',
+                          borderRadius: '12px',
+                          border: 'none',
+                          cursor: 'pointer',
+                          transition: 'all 0.3s ease',
+                          boxShadow: '0 4px 12px rgba(30, 58, 95, 0.2)'
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.transform = 'translateY(-2px)';
+                          e.currentTarget.style.boxShadow = '0 8px 20px rgba(30, 58, 95, 0.3)';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.transform = 'translateY(0)';
+                          e.currentTarget.style.boxShadow = '0 4px 12px rgba(30, 58, 95, 0.2)';
+                        }}
+                      >
+                        Contact Us About This Service
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
       </section>
+
+      {/* CSS Animations */}
+      <style jsx global>{`
+        @keyframes logo-breathe {
+          0%, 100% {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 0.5;
+          }
+          50% {
+            transform: translate(-50%, -50%) scale(1.15);
+            opacity: 0.7;
+          }
+        }
+
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
 
       {/* Results Section - Blue Silk Gradient Background */}
       <section id="results" className="py-24 md:py-32 lg:py-[120px] px-6 relative overflow-hidden fade-in-section">
