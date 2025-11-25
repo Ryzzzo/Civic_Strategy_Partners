@@ -2196,9 +2196,9 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
                 key={index}
                 style={{
                   background: '#ffffff',
-                  border: '1px solid rgba(30, 58, 95, 0.08)',
+                  border: '2px solid rgba(30, 58, 95, 0.08)',
                   borderRadius: '20px',
-                  padding: '28px 24px',
+                  padding: '27px 23px',
                   boxShadow: '0 4px 16px rgba(30, 58, 95, 0.08), 0 2px 8px rgba(30, 58, 95, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.8)',
                   transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                   display: 'flex',
@@ -2209,12 +2209,12 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-8px)';
                   e.currentTarget.style.boxShadow = '0 12px 32px rgba(30, 58, 95, 0.12), 0 4px 12px rgba(30, 58, 95, 0.06)';
-                  e.currentTarget.style.border = '2px solid rgba(201, 162, 39, 0.2)';
+                  e.currentTarget.style.borderColor = 'rgba(201, 162, 39, 0.2)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = 'translateY(0)';
                   e.currentTarget.style.boxShadow = '0 4px 16px rgba(30, 58, 95, 0.08), 0 2px 8px rgba(30, 58, 95, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.8)';
-                  e.currentTarget.style.border = '1px solid rgba(30, 58, 95, 0.08)';
+                  e.currentTarget.style.borderColor = 'rgba(30, 58, 95, 0.08)';
                 }}
               >
                 {/* Header Section - Title and Star on Same Line */}
