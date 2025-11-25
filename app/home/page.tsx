@@ -1446,7 +1446,7 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
 
           .legal-links-container {
             flex-direction: column !important;
-            gap: 12px !important;
+            gap: 6px !important;
           }
 
           .legal-links-container button {
