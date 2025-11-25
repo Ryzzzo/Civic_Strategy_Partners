@@ -1437,6 +1437,24 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
             gap: 40px !important;
           }
 
+          /* === WHY CSP SECTION === */
+          .why-csp-card svg {
+            width: 40px !important;
+            height: 40px !important;
+          }
+
+          .why-csp-card h3 {
+            font-size: 18px !important;
+          }
+
+          .why-csp-card p {
+            font-size: 14px !important;
+          }
+
+          .why-csp-card {
+            padding: 24px !important;
+          }
+
           /* === BACK TO TOP BUTTON === */
           button[aria-label="Return to top"] {
             width: 48px !important;
@@ -2337,6 +2355,240 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
             </div>
           </div>
         )}
+      </section>
+
+      {/* Premium Gold Separator Bar */}
+      <div style={{
+        height: '6px',
+        background: 'linear-gradient(90deg, rgba(184,134,11,0) 0%, rgba(184,134,11,0.3) 15%, #b8860b 50%, rgba(184,134,11,0.3) 85%, rgba(184,134,11,0) 100%)',
+        boxShadow: '0 2px 12px rgba(184,134,11,0.4), 0 -2px 12px rgba(184,134,11,0.4)',
+        maxWidth: '100%',
+        margin: '0'
+      }}></div>
+
+      {/* Why CSP Section - Navy Silk Gradient Background */}
+      <section className="py-16 md:py-24 px-6 relative overflow-hidden">
+        <div className="absolute inset-0 silk-gradient"></div>
+        <div className="absolute inset-0 silk-overlay"></div>
+
+        {/* Corner Decorations */}
+        <div
+          className="corner-decoration absolute top-5 left-5 w-20 h-20 border-t-[3px] border-l-[3px] border-white/30 z-10"
+          style={{
+            borderTopColor: 'rgba(255, 255, 255, 0.3)',
+            borderLeftColor: 'rgba(255, 255, 255, 0.3)'
+          }}
+        ></div>
+        <div
+          className="corner-decoration absolute bottom-5 right-5 w-20 h-20 border-b-[3px] border-r-[3px] border-white/30 z-10"
+          style={{
+            borderBottomColor: 'rgba(255, 255, 255, 0.3)',
+            borderRightColor: 'rgba(255, 255, 255, 0.3)'
+          }}
+        ></div>
+
+        <div className="max-w-[1400px] mx-auto relative z-10">
+          {/* Section Header */}
+          <div className="text-center mb-12 md:mb-16">
+            <p style={{
+              fontFamily: 'Source Sans Pro, sans-serif',
+              fontSize: '0.875rem',
+              color: '#c9a227',
+              textTransform: 'uppercase',
+              letterSpacing: '0.1em',
+              fontWeight: 600,
+              marginBottom: '0.75rem'
+            }}>
+              WHY CIVIC STRATEGY PARTNERS
+            </p>
+            <h2 className="text-[32px] md:text-[42px] font-bold text-white mb-4" style={{
+              fontWeight: 700,
+              textShadow: '0 2px 8px rgba(0,0,0,0.2)',
+              lineHeight: '1.2'
+            }}>
+              Built Different. Proven Results.
+            </h2>
+            <p className="text-[16px] md:text-[18px] text-white/90 max-w-[800px] mx-auto" style={{ lineHeight: '1.6' }}>
+              CSP brings credentials, methodology, and direct access that generic consultants can't match.
+            </p>
+          </div>
+
+          {/* Credentials Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+            {/* Card 1 - Former GSA Contract Specialist */}
+            <div className="why-csp-card" style={{
+              background: 'rgba(255,255,255,0.95)',
+              border: '1px solid rgba(255,255,255,0.2)',
+              borderRadius: '16px',
+              padding: '32px',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+              transition: 'all 0.3s ease',
+              position: 'relative'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'translateY(-4px)';
+              e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.15)';
+              e.currentTarget.style.border = '1px solid rgba(201,162,39,0.3)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
+              e.currentTarget.style.border = '1px solid rgba(255,255,255,0.2)';
+            }}>
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#c9a227" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginBottom: '20px' }}>
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+              <h3 style={{
+                fontFamily: 'Merriweather, serif',
+                fontSize: '20px',
+                fontWeight: 700,
+                color: '#1e3a5f',
+                marginBottom: '12px'
+              }}>
+                Former GSA Contract Specialist
+              </h3>
+              <p style={{
+                fontFamily: 'Source Sans Pro, sans-serif',
+                fontSize: '15px',
+                color: '#4B5563',
+                lineHeight: '1.6'
+              }}>
+                Kevin Martin worked inside GSA's MAS program—reviewing offers, auditing contracts, and understanding exactly how the system works from the inside.
+              </p>
+            </div>
+
+            {/* Card 2 - Marine Corps Veteran */}
+            <div className="why-csp-card" style={{
+              background: 'rgba(255,255,255,0.95)',
+              border: '1px solid rgba(255,255,255,0.2)',
+              borderRadius: '16px',
+              padding: '32px',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+              transition: 'all 0.3s ease',
+              position: 'relative'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'translateY(-4px)';
+              e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.15)';
+              e.currentTarget.style.border = '1px solid rgba(201,162,39,0.3)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
+              e.currentTarget.style.border = '1px solid rgba(255,255,255,0.2)';
+            }}>
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#c9a227" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginBottom: '20px' }}>
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+              <h3 style={{
+                fontFamily: 'Merriweather, serif',
+                fontSize: '20px',
+                fontWeight: 700,
+                color: '#1e3a5f',
+                marginBottom: '12px'
+              }}>
+                Marine Corps Veteran
+              </h3>
+              <p style={{
+                fontFamily: 'Source Sans Pro, sans-serif',
+                fontSize: '15px',
+                color: '#4B5563',
+                lineHeight: '1.6'
+              }}>
+                CSP operates with Marine-grade discipline: structured methodology, direct communication, and mission-focused execution. No fluff, no excuses.
+              </p>
+            </div>
+
+            {/* Card 3 - MAS Doctrine & Methodology */}
+            <div className="why-csp-card" style={{
+              background: 'rgba(255,255,255,0.95)',
+              border: '1px solid rgba(255,255,255,0.2)',
+              borderRadius: '16px',
+              padding: '32px',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+              transition: 'all 0.3s ease',
+              position: 'relative'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'translateY(-4px)';
+              e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.15)';
+              e.currentTarget.style.border = '1px solid rgba(201,162,39,0.3)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
+              e.currentTarget.style.border = '1px solid rgba(255,255,255,0.2)';
+            }}>
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#c9a227" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginBottom: '20px' }}>
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+              <h3 style={{
+                fontFamily: 'Merriweather, serif',
+                fontSize: '20px',
+                fontWeight: 700,
+                color: '#1e3a5f',
+                marginBottom: '12px'
+              }}>
+                MAS Doctrine & Methodology
+              </h3>
+              <p style={{
+                fontFamily: 'Source Sans Pro, sans-serif',
+                fontSize: '15px',
+                color: '#4B5563',
+                lineHeight: '1.6'
+              }}>
+                Our Civic Strategy Method and MAS Doctrine frameworks bring clarity to federal acquisition—not generic advice, but structured approaches that work.
+              </p>
+            </div>
+
+            {/* Card 4 - Direct Principal Access */}
+            <div className="why-csp-card" style={{
+              background: 'rgba(255,255,255,0.95)',
+              border: '1px solid rgba(255,255,255,0.2)',
+              borderRadius: '16px',
+              padding: '32px',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+              transition: 'all 0.3s ease',
+              position: 'relative'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'translateY(-4px)';
+              e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.15)';
+              e.currentTarget.style.border = '1px solid rgba(201,162,39,0.3)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
+              e.currentTarget.style.border = '1px solid rgba(255,255,255,0.2)';
+            }}>
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#c9a227" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginBottom: '20px' }}>
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+              <h3 style={{
+                fontFamily: 'Merriweather, serif',
+                fontSize: '20px',
+                fontWeight: 700,
+                color: '#1e3a5f',
+                marginBottom: '12px'
+              }}>
+                Direct Principal Access
+              </h3>
+              <p style={{
+                fontFamily: 'Source Sans Pro, sans-serif',
+                fontSize: '15px',
+                color: '#4B5563',
+                lineHeight: '1.6'
+              }}>
+                You work directly with Kevin Martin—not junior staff, not account managers. Your strategy comes from the expert who built it.
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Premium Gold Separator Bar */}
