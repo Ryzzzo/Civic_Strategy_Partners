@@ -941,294 +941,52 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
         }
 
         /* === ORBITAL SERVICES LAYOUT === */
-        .orbital-container {
-          position: relative;
-          width: 100%;
-          height: 800px;
-          max-width: 1100px;
-          margin: 0 auto;
-        }
-
-        /* Logo Hub Wrapper - Absolute Center */
-        .logo-hub-wrapper {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          z-index: 10;
-        }
-
-        /* Glowing Background */
-        .logo-glow {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          width: 220px;
-          height: 220px;
-          background: radial-gradient(circle, rgba(201, 162, 39, 0.1) 0%, transparent 70%);
+        .logo-glow-breathe {
           animation: logo-breathe 4s ease-in-out infinite;
-          z-index: -1;
         }
 
         @keyframes logo-breathe {
-          0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
-          50% { transform: translate(-50%, -50%) scale(1.15); opacity: 0.8; }
+          0%, 100% {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 0.5;
+          }
+          50% {
+            transform: translate(-50%, -50%) scale(1.15);
+            opacity: 0.8;
+          }
         }
 
-        /* Logo Hub Container */
-        .logo-hub {
-          position: relative;
-          width: 180px;
-          height: 180px;
-          background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
-          border-radius: 24px;
-          border: 2px solid rgba(30, 58, 95, 0.06);
-          box-shadow:
-            0 8px 40px rgba(30, 58, 95, 0.12),
-            0 2px 8px rgba(30, 58, 95, 0.06),
-            inset 0 2px 0 rgba(255, 255, 255, 0.8);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-
-        /* Corner Brackets */
-        .corner-bracket {
-          position: absolute;
-          width: 24px;
-          height: 24px;
-          border: 2px solid #c9a227;
-          opacity: 0.5;
-        }
-
-        .corner-tl {
-          top: -6px;
-          left: -6px;
-          border-right: none;
-          border-bottom: none;
-        }
-
-        .corner-br {
-          bottom: -6px;
-          right: -6px;
-          border-left: none;
-          border-top: none;
-        }
-
-        /* Concentric Rings */
-        .ring {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          border-radius: 50%;
-          border: 1px solid rgba(30, 58, 95, 0.08);
-        }
-
-        .outer-ring {
-          width: 180px;
-          height: 180px;
-        }
-
-        .middle-ring {
-          width: 150px;
-          height: 150px;
-          border-color: rgba(201, 162, 39, 0.15);
-          stroke-dasharray: 4 8;
-          animation: ring-rotate 20s linear infinite;
-        }
-
-        .inner-ring {
-          width: 120px;
-          height: 120px;
-          stroke-dasharray: 2 6;
-          animation: ring-rotate-reverse 15s linear infinite;
-        }
-
-        @keyframes ring-rotate {
-          to { transform: translate(-50%, -50%) rotate(360deg); }
-        }
-
-        @keyframes ring-rotate-reverse {
-          to { transform: translate(-50%, -50%) rotate(-360deg); }
-        }
-
-        /* Logo Content */
-        .logo-content {
-          position: relative;
-          z-index: 5;
-        }
-
-        .logo-img {
-          width: 120px;
-          height: auto;
-          object-fit: contain;
-        }
-
-        /* Service Cards - Orbital Positioning */
-        .service-card {
-          position: absolute;
-          width: 260px;
-          min-height: 220px;
-          background: rgba(255, 255, 255, 0.95);
-          backdrop-filter: blur(10px);
-          -webkit-backdrop-filter: blur(10px);
-          border-radius: 20px;
-          padding: 28px 24px;
-          border: 1px solid rgba(30, 58, 95, 0.06);
-          box-shadow:
-            0 4px 24px rgba(30, 58, 95, 0.08),
-            0 1px 3px rgba(30, 58, 95, 0.04),
-            inset 0 1px 0 rgba(255, 255, 255, 0.8);
-          cursor: pointer;
-          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-          display: flex;
-          flex-direction: column;
-        }
-
-        .service-card:hover {
+        /* Orbital Card Hover Effects */
+        .orbital-card:hover {
           transform: translateY(-8px) scale(1.02);
-          box-shadow: 0 20px 60px rgba(30, 58, 95, 0.15);
-          border: 2px solid transparent;
-          background-image: linear-gradient(white, white), linear-gradient(135deg, #1e3a5f, #c9a227);
-          background-origin: border-box;
-          background-clip: padding-box, border-box;
+          box-shadow: 0 20px 60px rgba(30, 58, 95, 0.15) !important;
+          border: 2px solid transparent !important;
+          background-image: linear-gradient(white, white), linear-gradient(135deg, #1e3a5f, #c9a227) !important;
+          background-origin: border-box !important;
+          background-clip: padding-box, border-box !important;
         }
 
-        /* Card Positioning */
-        .card-1 {
-          top: 50px;
-          left: 80px;
+        .orbital-card-middle-left:hover {
+          transform: translateY(-50%) translateY(-8px) scale(1.02) !important;
         }
 
-        .card-2 {
-          top: 50px;
-          right: 80px;
+        .orbital-card-middle-right:hover {
+          transform: translateY(-50%) translateY(-8px) scale(1.02) !important;
         }
 
-        .card-3 {
-          top: 50%;
-          left: 0;
-          transform: translateY(-50%);
-        }
-
-        .card-4 {
-          top: 50%;
-          right: 0;
-          transform: translateY(-50%);
-        }
-
-        .card-5 {
-          bottom: 50px;
-          left: 80px;
-        }
-
-        .card-6 {
-          bottom: 50px;
-          right: 80px;
-        }
-
-        /* Card Content */
-        .card-title {
-          font-family: 'Merriweather', serif;
-          font-size: 1.05rem;
-          font-weight: 700;
-          color: #1e3a5f;
-          margin-bottom: 12px;
-          line-height: 1.3;
-        }
-
-        .card-teaser {
-          font-family: 'Source Sans Pro', sans-serif;
-          font-size: 0.9rem;
-          color: #4a5568;
-          line-height: 1.6;
-          margin-bottom: 16px;
-          flex-grow: 1;
-        }
-
-        .card-cta {
-          font-family: 'Source Sans Pro', sans-serif;
-          font-size: 0.9rem;
-          font-weight: 600;
-          color: #1e3a5f;
-          display: flex;
-          align-items: center;
-          gap: 6px;
-          transition: all 0.3s ease;
-        }
-
-        .service-card:hover .card-cta {
+        .orbital-card:hover .card-cta-text {
           color: #c9a227;
         }
 
-        .service-card:hover .card-cta span {
+        .orbital-card:hover .card-arrow {
           transform: translateX(6px);
         }
 
-        .card-cta span {
+        .card-arrow {
+          display: inline-block;
           transition: transform 0.3s ease;
         }
 
-        /* Responsive Design */
-        @media (max-width: 900px) {
-          .orbital-container {
-            height: auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-          }
-
-          .logo-hub-wrapper {
-            position: relative;
-            top: auto;
-            left: auto;
-            transform: none;
-            order: -1;
-            margin-bottom: 20px;
-          }
-
-          .service-card {
-            position: relative;
-            top: auto;
-            left: auto;
-            right: auto;
-            bottom: auto;
-            transform: none !important;
-            max-width: 340px;
-            width: 100%;
-          }
-
-          .service-card:hover {
-            transform: translateY(-4px) !important;
-          }
-        }
-
-        @media (max-width: 600px) {
-          .logo-hub {
-            width: 140px;
-            height: 140px;
-          }
-
-          .logo-img {
-            width: 90px;
-          }
-
-          .service-card {
-            padding: 24px 20px;
-            min-height: auto;
-          }
-
-          .card-title {
-            font-size: 0.95rem;
-          }
-
-          .card-teaser {
-            font-size: 0.85rem;
-          }
-        }
 
         @media (max-width: 768px) {
           .insights-section {
@@ -1768,63 +1526,603 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
             </p>
           </div>
 
-          {/* Orbital Cards Container */}
-          <div className="orbital-container">
+          {/* Orbital Layout Container */}
+          <div className="relative w-full mx-auto" style={{ height: '700px', maxWidth: '1000px' }}>
+
+            {/* SVG Connection Lines Layer */}
+            <svg
+              className="absolute top-0 left-0 w-full h-full pointer-events-none"
+              viewBox="0 0 1000 700"
+              preserveAspectRatio="xMidYMid meet"
+              style={{ zIndex: 1 }}
+            >
+              <defs>
+                {/* Gold Gradient */}
+                <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" style={{ stopColor: 'rgba(201, 162, 39, 0.1)' }} />
+                  <stop offset="50%" style={{ stopColor: 'rgba(201, 162, 39, 0.4)' }} />
+                  <stop offset="100%" style={{ stopColor: 'rgba(201, 162, 39, 0.1)' }} />
+                </linearGradient>
+
+                {/* Pulse Glow - Gold */}
+                <filter id="pulseGlow" x="-100%" y="-100%" width="300%" height="300%">
+                  <feGaussianBlur stdDeviation="4" result="blur"/>
+                  <feFlood floodColor="#c9a227" floodOpacity="0.6"/>
+                  <feComposite in2="blur" operator="in"/>
+                  <feMerge>
+                    <feMergeNode/>
+                    <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
+
+                {/* Pulse Glow - Navy */}
+                <filter id="pulseGlowNavy" x="-100%" y="-100%" width="300%" height="300%">
+                  <feGaussianBlur stdDeviation="3" result="blur"/>
+                  <feFlood floodColor="#2c5282" floodOpacity="0.5"/>
+                  <feComposite in2="blur" operator="in"/>
+                  <feMerge>
+                    <feMergeNode/>
+                    <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
+
+                <radialGradient id="hubGlow" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" style={{ stopColor: 'rgba(201, 162, 39, 0.15)' }} />
+                  <stop offset="100%" style={{ stopColor: 'transparent' }} />
+                </radialGradient>
+              </defs>
+
+              {/* Center hub glow */}
+              <circle cx="500" cy="350" r="100" fill="url(#hubGlow)" opacity="0.5">
+                <animate attributeName="r" values="100;110;100" dur="4s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0.5;0.7;0.5" dur="4s" repeatCount="indefinite"/>
+              </circle>
+
+              {/* Decorative Rings */}
+              <circle cx="500" cy="350" r="160" fill="none" stroke="rgba(30, 58, 95, 0.05)" strokeWidth="1" />
+              <circle cx="500" cy="350" r="130" fill="none" stroke="rgba(201, 162, 39, 0.1)" strokeWidth="1.5" strokeDasharray="4 8">
+                <animateTransform attributeName="transform" type="rotate" from="0 500 350" to="360 500 350" dur="60s" repeatCount="indefinite"/>
+              </circle>
+              <circle cx="500" cy="350" r="100" fill="none" stroke="rgba(30, 58, 95, 0.08)" strokeWidth="1" strokeDasharray="2 6">
+                <animateTransform attributeName="transform" type="rotate" from="0 500 350" to="-360 500 350" dur="45s" repeatCount="indefinite"/>
+              </circle>
+
+              {/* Connection Lines - Curved paths from cards to center */}
+              {/* Card 1 (top-left) to center */}
+              <path id="path1" d="M 250 80 Q 350 200 500 300" fill="none" stroke="rgba(30, 58, 95, 0.08)" strokeWidth="2" strokeLinecap="round"/>
+              <path d="M 250 80 Q 350 200 500 300" fill="none" stroke="url(#goldGradient)" strokeWidth="2" strokeDasharray="6 14" strokeLinecap="round">
+                <animate attributeName="stroke-dashoffset" from="0" to="-200" dur="15s" repeatCount="indefinite"/>
+              </path>
+
+              {/* Card 2 (top-right) to center */}
+              <path id="path2" d="M 750 80 Q 650 200 500 300" fill="none" stroke="rgba(30, 58, 95, 0.08)" strokeWidth="2" strokeLinecap="round"/>
+              <path d="M 750 80 Q 650 200 500 300" fill="none" stroke="url(#goldGradient)" strokeWidth="2" strokeDasharray="6 14" strokeLinecap="round">
+                <animate attributeName="stroke-dashoffset" from="-40" to="-240" dur="15s" repeatCount="indefinite"/>
+              </path>
+
+              {/* Card 3 (middle-left) to center */}
+              <path id="path3" d="M 50 350 Q 250 350 430 350" fill="none" stroke="rgba(30, 58, 95, 0.08)" strokeWidth="2" strokeLinecap="round"/>
+              <path d="M 50 350 Q 250 350 430 350" fill="none" stroke="url(#goldGradient)" strokeWidth="2" strokeDasharray="6 14" strokeLinecap="round">
+                <animate attributeName="stroke-dashoffset" from="-80" to="-280" dur="15s" repeatCount="indefinite"/>
+              </path>
+
+              {/* Card 4 (middle-right) to center */}
+              <path id="path4" d="M 950 350 Q 750 350 570 350" fill="none" stroke="rgba(30, 58, 95, 0.08)" strokeWidth="2" strokeLinecap="round"/>
+              <path d="M 950 350 Q 750 350 570 350" fill="none" stroke="url(#goldGradient)" strokeWidth="2" strokeDasharray="6 14" strokeLinecap="round">
+                <animate attributeName="stroke-dashoffset" from="-120" to="-320" dur="15s" repeatCount="indefinite"/>
+              </path>
+
+              {/* Card 5 (bottom-left) to center */}
+              <path id="path5" d="M 250 620 Q 350 500 500 400" fill="none" stroke="rgba(30, 58, 95, 0.08)" strokeWidth="2" strokeLinecap="round"/>
+              <path d="M 250 620 Q 350 500 500 400" fill="none" stroke="url(#goldGradient)" strokeWidth="2" strokeDasharray="6 14" strokeLinecap="round">
+                <animate attributeName="stroke-dashoffset" from="-160" to="-360" dur="15s" repeatCount="indefinite"/>
+              </path>
+
+              {/* Card 6 (bottom-right) to center */}
+              <path id="path6" d="M 750 620 Q 650 500 500 400" fill="none" stroke="rgba(30, 58, 95, 0.08)" strokeWidth="2" strokeLinecap="round"/>
+              <path d="M 750 620 Q 650 500 500 400" fill="none" stroke="url(#goldGradient)" strokeWidth="2" strokeDasharray="6 14" strokeLinecap="round">
+                <animate attributeName="stroke-dashoffset" from="-200" to="-400" dur="15s" repeatCount="indefinite"/>
+              </path>
+
+              {/* Animated Pulse Dots - Primary (Gold) */}
+              <circle r="7" fill="#c9a227" filter="url(#pulseGlow)">
+                <animateMotion dur="2.8s" repeatCount="indefinite">
+                  <mpath href="#path1"/>
+                </animateMotion>
+                <animate attributeName="opacity" values="0;1;1;0" dur="2.8s" repeatCount="indefinite"/>
+              </circle>
+
+              <circle r="7" fill="#c9a227" filter="url(#pulseGlow)">
+                <animateMotion dur="3.2s" repeatCount="indefinite" begin="0.6s">
+                  <mpath href="#path2"/>
+                </animateMotion>
+                <animate attributeName="opacity" values="0;1;1;0" dur="3.2s" repeatCount="indefinite" begin="0.6s"/>
+              </circle>
+
+              <circle r="7" fill="#c9a227" filter="url(#pulseGlow)">
+                <animateMotion dur="2.4s" repeatCount="indefinite" begin="1.2s">
+                  <mpath href="#path3"/>
+                </animateMotion>
+                <animate attributeName="opacity" values="0;1;1;0" dur="2.4s" repeatCount="indefinite" begin="1.2s"/>
+              </circle>
+
+              <circle r="7" fill="#c9a227" filter="url(#pulseGlow)">
+                <animateMotion dur="2.4s" repeatCount="indefinite" begin="1.8s">
+                  <mpath href="#path4"/>
+                </animateMotion>
+                <animate attributeName="opacity" values="0;1;1;0" dur="2.4s" repeatCount="indefinite" begin="1.8s"/>
+              </circle>
+
+              <circle r="7" fill="#c9a227" filter="url(#pulseGlow)">
+                <animateMotion dur="2.8s" repeatCount="indefinite" begin="2.4s">
+                  <mpath href="#path5"/>
+                </animateMotion>
+                <animate attributeName="opacity" values="0;1;1;0" dur="2.8s" repeatCount="indefinite" begin="2.4s"/>
+              </circle>
+
+              <circle r="7" fill="#c9a227" filter="url(#pulseGlow)">
+                <animateMotion dur="3.2s" repeatCount="indefinite" begin="3s">
+                  <mpath href="#path6"/>
+                </animateMotion>
+                <animate attributeName="opacity" values="0;1;1;0" dur="3.2s" repeatCount="indefinite" begin="3s"/>
+              </circle>
+
+              {/* Secondary Pulses (Navy - smaller) */}
+              <circle r="5" fill="#2c5282" filter="url(#pulseGlowNavy)">
+                <animateMotion dur="2.8s" repeatCount="indefinite" begin="1.4s">
+                  <mpath href="#path1"/>
+                </animateMotion>
+                <animate attributeName="opacity" values="0;0.8;0.8;0" dur="2.8s" repeatCount="indefinite" begin="1.4s"/>
+              </circle>
+
+              <circle r="5" fill="#2c5282" filter="url(#pulseGlowNavy)">
+                <animateMotion dur="3.2s" repeatCount="indefinite" begin="2.2s">
+                  <mpath href="#path2"/>
+                </animateMotion>
+                <animate attributeName="opacity" values="0;0.8;0.8;0" dur="3.2s" repeatCount="indefinite" begin="2.2s"/>
+              </circle>
+
+              <circle r="5" fill="#2c5282" filter="url(#pulseGlowNavy)">
+                <animateMotion dur="2.4s" repeatCount="indefinite">
+                  <mpath href="#path3"/>
+                </animateMotion>
+                <animate attributeName="opacity" values="0;0.8;0.8;0" dur="2.4s" repeatCount="indefinite"/>
+              </circle>
+
+              <circle r="5" fill="#2c5282" filter="url(#pulseGlowNavy)">
+                <animateMotion dur="2.4s" repeatCount="indefinite" begin="0.6s">
+                  <mpath href="#path4"/>
+                </animateMotion>
+                <animate attributeName="opacity" values="0;0.8;0.8;0" dur="2.4s" repeatCount="indefinite" begin="0.6s"/>
+              </circle>
+
+              <circle r="5" fill="#2c5282" filter="url(#pulseGlowNavy)">
+                <animateMotion dur="2.8s" repeatCount="indefinite" begin="0.8s">
+                  <mpath href="#path5"/>
+                </animateMotion>
+                <animate attributeName="opacity" values="0;0.8;0.8;0" dur="2.8s" repeatCount="indefinite" begin="0.8s"/>
+              </circle>
+
+              <circle r="5" fill="#2c5282" filter="url(#pulseGlowNavy)">
+                <animateMotion dur="3.2s" repeatCount="indefinite" begin="1.5s">
+                  <mpath href="#path6"/>
+                </animateMotion>
+                <animate attributeName="opacity" values="0;0.8;0.8;0" dur="3.2s" repeatCount="indefinite" begin="1.5s"/>
+              </circle>
+            </svg>
+
             {/* Center Logo Hub */}
-            <div className="logo-hub-wrapper">
-              <div className="logo-glow"></div>
-              <div className="logo-hub">
-                <div className="corner-bracket corner-tl"></div>
-                <div className="corner-bracket corner-br"></div>
-                <div className="ring outer-ring"></div>
-                <div className="ring middle-ring"></div>
-                <div className="ring inner-ring"></div>
-                <div className="logo-content">
-                  <img
-                    src="/Civic Strategy Partners Minus LLC.png"
-                    alt="Civic Strategy Partners"
-                    className="logo-img"
-                  />
-                </div>
+            <div
+              className="absolute"
+              style={{
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                zIndex: 20
+              }}
+            >
+              {/* Glow background */}
+              <div
+                className="absolute logo-glow-breathe"
+                style={{
+                  top: '50%',
+                  left: '50%',
+                  transform: 'translate(-50%, -50%)',
+                  width: '220px',
+                  height: '220px',
+                  background: 'radial-gradient(circle, rgba(201, 162, 39, 0.1) 0%, transparent 70%)',
+                  zIndex: -1
+                }}
+              />
+
+              {/* Logo container */}
+              <div
+                className="relative"
+                style={{
+                  width: '180px',
+                  height: '180px',
+                  background: 'linear-gradient(145deg, #ffffff 0%, #f8fafc 100%)',
+                  borderRadius: '24px',
+                  border: '2px solid rgba(30, 58, 95, 0.06)',
+                  boxShadow: '0 8px 40px rgba(30, 58, 95, 0.12), 0 2px 8px rgba(30, 58, 95, 0.06), inset 0 2px 0 rgba(255, 255, 255, 0.8)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  transition: 'all 0.4s ease',
+                  cursor: 'pointer'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'scale(1.03)';
+                  e.currentTarget.style.boxShadow = '0 16px 60px rgba(30, 58, 95, 0.18), 0 4px 16px rgba(30, 58, 95, 0.1), inset 0 2px 0 rgba(255, 255, 255, 0.9)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'scale(1)';
+                  e.currentTarget.style.boxShadow = '0 8px 40px rgba(30, 58, 95, 0.12), 0 2px 8px rgba(30, 58, 95, 0.06), inset 0 2px 0 rgba(255, 255, 255, 0.8)';
+                }}
+              >
+                {/* Corner brackets */}
+                <div
+                  className="absolute"
+                  style={{
+                    top: '14px',
+                    left: '14px',
+                    width: '24px',
+                    height: '24px',
+                    border: '2px solid #c9a227',
+                    borderRight: 'none',
+                    borderBottom: 'none',
+                    borderRadius: '6px 0 0 0',
+                    opacity: 0.5
+                  }}
+                />
+                <div
+                  className="absolute"
+                  style={{
+                    bottom: '14px',
+                    right: '14px',
+                    width: '24px',
+                    height: '24px',
+                    border: '2px solid #c9a227',
+                    borderLeft: 'none',
+                    borderTop: 'none',
+                    borderRadius: '0 0 6px 0',
+                    opacity: 0.5
+                  }}
+                />
+
+                <img
+                  src="/Civic Strategy Partners Minus LLC.png"
+                  alt="Civic Strategy Partners"
+                  style={{
+                    width: '120px',
+                    height: 'auto',
+                    objectFit: 'contain'
+                  }}
+                />
               </div>
             </div>
 
-            {/* Service Cards */}
-            <div className="service-card card-1">
-              <h3 className="card-title">MAS Performance Diagnosis & Correction</h3>
-              <p className="card-teaser">We identify exactly where your contract is failing and build a correction plan to restore compliance, visibility, and performance.</p>
-              <div className="card-cta">Learn More <span>→</span></div>
+            {/* Service Cards - Absolute Positioned */}
+            {/* Card 1 - Top Left */}
+            <div
+              className="absolute cursor-pointer orbital-card"
+              style={{
+                top: '20px',
+                left: '50px',
+                width: '260px',
+                minHeight: '200px',
+                background: 'rgba(255, 255, 255, 0.95)',
+                backdropFilter: 'blur(10px)',
+                borderRadius: '20px',
+                padding: '28px 24px',
+                border: '1px solid rgba(30, 58, 95, 0.06)',
+                boxShadow: '0 4px 24px rgba(30, 58, 95, 0.08), 0 1px 3px rgba(30, 58, 95, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.8)',
+                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                zIndex: 10,
+                display: 'flex',
+                flexDirection: 'column'
+              }}
+            >
+              <h3 style={{
+                fontFamily: 'Merriweather, serif',
+                fontSize: '1.05rem',
+                fontWeight: 700,
+                color: '#1e3a5f',
+                marginBottom: '12px',
+                lineHeight: 1.3
+              }}>
+                MAS Performance Diagnosis & Correction
+              </h3>
+              <p style={{
+                fontFamily: 'Source Sans Pro, sans-serif',
+                fontSize: '0.9rem',
+                color: '#4a5568',
+                lineHeight: 1.6,
+                marginBottom: '16px',
+                flex: 1
+              }}>
+                We identify exactly where your contract is failing and build a correction plan to restore compliance, visibility, and performance.
+              </p>
+              <div className="card-cta-text" style={{
+                fontFamily: 'Source Sans Pro, sans-serif',
+                fontSize: '0.9rem',
+                fontWeight: 600,
+                color: '#1e3a5f',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px'
+              }}>
+                Learn More <span className="card-arrow">→</span>
+              </div>
             </div>
 
-            <div className="service-card card-2">
-              <h3 className="card-title">Federal Readiness Roadmap</h3>
-              <p className="card-teaser">We build Federal Readiness Roadmaps that give you land navigation for the federal marketplace.</p>
-              <div className="card-cta">Learn More <span>→</span></div>
+            {/* Card 2 - Top Right */}
+            <div
+              className="absolute cursor-pointer orbital-card"
+              style={{
+                top: '20px',
+                right: '50px',
+                width: '260px',
+                minHeight: '200px',
+                background: 'rgba(255, 255, 255, 0.95)',
+                backdropFilter: 'blur(10px)',
+                borderRadius: '20px',
+                padding: '28px 24px',
+                border: '1px solid rgba(30, 58, 95, 0.06)',
+                boxShadow: '0 4px 24px rgba(30, 58, 95, 0.08), 0 1px 3px rgba(30, 58, 95, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.8)',
+                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                zIndex: 10,
+                display: 'flex',
+                flexDirection: 'column'
+              }}
+            >
+              <h3 style={{
+                fontFamily: 'Merriweather, serif',
+                fontSize: '1.05rem',
+                fontWeight: 700,
+                color: '#1e3a5f',
+                marginBottom: '12px',
+                lineHeight: 1.3
+              }}>
+                Federal Readiness Roadmap
+              </h3>
+              <p style={{
+                fontFamily: 'Source Sans Pro, sans-serif',
+                fontSize: '0.9rem',
+                color: '#4a5568',
+                lineHeight: 1.6,
+                marginBottom: '16px',
+                flex: 1
+              }}>
+                We build Federal Readiness Roadmaps that give you land navigation for the federal marketplace.
+              </p>
+              <div className="card-cta-text" style={{
+                fontFamily: 'Source Sans Pro, sans-serif',
+                fontSize: '0.9rem',
+                fontWeight: 600,
+                color: '#1e3a5f',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px'
+              }}>
+                Learn More <span className="card-arrow">→</span>
+              </div>
             </div>
 
-            <div className="service-card card-3">
-              <h3 className="card-title">MAS Advisory & Offer Strategy</h3>
-              <p className="card-teaser">We guide you through the MAS offer or mod process with expert oversight, helping you build the right structure from day one.</p>
-              <div className="card-cta">Learn More <span>→</span></div>
+            {/* Card 3 - Middle Left */}
+            <div
+              className="absolute cursor-pointer orbital-card orbital-card-middle-left"
+              style={{
+                top: '50%',
+                left: '0',
+                transform: 'translateY(-50%)',
+                width: '260px',
+                minHeight: '200px',
+                background: 'rgba(255, 255, 255, 0.95)',
+                backdropFilter: 'blur(10px)',
+                borderRadius: '20px',
+                padding: '28px 24px',
+                border: '1px solid rgba(30, 58, 95, 0.06)',
+                boxShadow: '0 4px 24px rgba(30, 58, 95, 0.08), 0 1px 3px rgba(30, 58, 95, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.8)',
+                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                zIndex: 10,
+                display: 'flex',
+                flexDirection: 'column'
+              }}
+            >
+              <h3 style={{
+                fontFamily: 'Merriweather, serif',
+                fontSize: '1.05rem',
+                fontWeight: 700,
+                color: '#1e3a5f',
+                marginBottom: '12px',
+                lineHeight: 1.3
+              }}>
+                MAS Advisory & Offer Strategy
+              </h3>
+              <p style={{
+                fontFamily: 'Source Sans Pro, sans-serif',
+                fontSize: '0.9rem',
+                color: '#4a5568',
+                lineHeight: 1.6,
+                marginBottom: '16px',
+                flex: 1
+              }}>
+                We guide you through the MAS offer or mod process with expert oversight, helping you build the right structure from day one.
+              </p>
+              <div className="card-cta-text" style={{
+                fontFamily: 'Source Sans Pro, sans-serif',
+                fontSize: '0.9rem',
+                fontWeight: 600,
+                color: '#1e3a5f',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px'
+              }}>
+                Learn More <span className="card-arrow">→</span>
+              </div>
             </div>
 
-            <div className="service-card card-4">
-              <h3 className="card-title">MAS Lifecycle & Compliance Support</h3>
-              <p className="card-teaser">CSP supports mod packages, price list updates, EPA strategy, solicitation refresh alignment, and annual requirements.</p>
-              <div className="card-cta">Learn More <span>→</span></div>
+            {/* Card 4 - Middle Right */}
+            <div
+              className="absolute cursor-pointer orbital-card orbital-card-middle-right"
+              style={{
+                top: '50%',
+                right: '0',
+                transform: 'translateY(-50%)',
+                width: '260px',
+                minHeight: '200px',
+                background: 'rgba(255, 255, 255, 0.95)',
+                backdropFilter: 'blur(10px)',
+                borderRadius: '20px',
+                padding: '28px 24px',
+                border: '1px solid rgba(30, 58, 95, 0.06)',
+                boxShadow: '0 4px 24px rgba(30, 58, 95, 0.08), 0 1px 3px rgba(30, 58, 95, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.8)',
+                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                zIndex: 10,
+                display: 'flex',
+                flexDirection: 'column'
+              }}
+            >
+              <h3 style={{
+                fontFamily: 'Merriweather, serif',
+                fontSize: '1.05rem',
+                fontWeight: 700,
+                color: '#1e3a5f',
+                marginBottom: '12px',
+                lineHeight: 1.3
+              }}>
+                MAS Lifecycle & Compliance Support
+              </h3>
+              <p style={{
+                fontFamily: 'Source Sans Pro, sans-serif',
+                fontSize: '0.9rem',
+                color: '#4a5568',
+                lineHeight: 1.6,
+                marginBottom: '16px',
+                flex: 1
+              }}>
+                CSP supports mod packages, price list updates, EPA strategy, solicitation refresh alignment, and annual requirements.
+              </p>
+              <div className="card-cta-text" style={{
+                fontFamily: 'Source Sans Pro, sans-serif',
+                fontSize: '0.9rem',
+                fontWeight: 600,
+                color: '#1e3a5f',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px'
+              }}>
+                Learn More <span className="card-arrow">→</span>
+              </div>
             </div>
 
-            <div className="service-card card-5">
-              <h3 className="card-title">White-Glove Retainer Support</h3>
-              <p className="card-teaser">CSP offers customizable Advisory and White-Glove retainer packages with direct access to the Principal Consultant.</p>
-              <div className="card-cta">Learn More <span>→</span></div>
+            {/* Card 5 - Bottom Left */}
+            <div
+              className="absolute cursor-pointer orbital-card"
+              style={{
+                bottom: '20px',
+                left: '50px',
+                width: '260px',
+                minHeight: '200px',
+                background: 'rgba(255, 255, 255, 0.95)',
+                backdropFilter: 'blur(10px)',
+                borderRadius: '20px',
+                padding: '28px 24px',
+                border: '1px solid rgba(30, 58, 95, 0.06)',
+                boxShadow: '0 4px 24px rgba(30, 58, 95, 0.08), 0 1px 3px rgba(30, 58, 95, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.8)',
+                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                zIndex: 10,
+                display: 'flex',
+                flexDirection: 'column'
+              }}
+            >
+              <h3 style={{
+                fontFamily: 'Merriweather, serif',
+                fontSize: '1.05rem',
+                fontWeight: 700,
+                color: '#1e3a5f',
+                marginBottom: '12px',
+                lineHeight: 1.3
+              }}>
+                White-Glove Retainer Support
+              </h3>
+              <p style={{
+                fontFamily: 'Source Sans Pro, sans-serif',
+                fontSize: '0.9rem',
+                color: '#4a5568',
+                lineHeight: 1.6,
+                marginBottom: '16px',
+                flex: 1
+              }}>
+                CSP offers customizable Advisory and White-Glove retainer packages with direct access to the Principal Consultant.
+              </p>
+              <div className="card-cta-text" style={{
+                fontFamily: 'Source Sans Pro, sans-serif',
+                fontSize: '0.9rem',
+                fontWeight: 600,
+                color: '#1e3a5f',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px'
+              }}>
+                Learn More <span className="card-arrow">→</span>
+              </div>
             </div>
 
-            <div className="service-card card-6">
-              <h3 className="card-title">À La Carte Mod Support</h3>
-              <p className="card-teaser">CSP offers à la carte mod support from administrative updates to major contract restructuring.</p>
-              <div className="card-cta">Learn More <span>→</span></div>
+            {/* Card 6 - Bottom Right */}
+            <div
+              className="absolute cursor-pointer orbital-card"
+              style={{
+                bottom: '20px',
+                right: '50px',
+                width: '260px',
+                minHeight: '200px',
+                background: 'rgba(255, 255, 255, 0.95)',
+                backdropFilter: 'blur(10px)',
+                borderRadius: '20px',
+                padding: '28px 24px',
+                border: '1px solid rgba(30, 58, 95, 0.06)',
+                boxShadow: '0 4px 24px rgba(30, 58, 95, 0.08), 0 1px 3px rgba(30, 58, 95, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.8)',
+                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                zIndex: 10,
+                display: 'flex',
+                flexDirection: 'column'
+              }}
+            >
+              <h3 style={{
+                fontFamily: 'Merriweather, serif',
+                fontSize: '1.05rem',
+                fontWeight: 700,
+                color: '#1e3a5f',
+                marginBottom: '12px',
+                lineHeight: 1.3
+              }}>
+                À La Carte Mod Support
+              </h3>
+              <p style={{
+                fontFamily: 'Source Sans Pro, sans-serif',
+                fontSize: '0.9rem',
+                color: '#4a5568',
+                lineHeight: 1.6,
+                marginBottom: '16px',
+                flex: 1
+              }}>
+                CSP offers à la carte mod support from administrative updates to major contract restructuring.
+              </p>
+              <div className="card-cta-text" style={{
+                fontFamily: 'Source Sans Pro, sans-serif',
+                fontSize: '0.9rem',
+                fontWeight: 600,
+                color: '#1e3a5f',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px'
+              }}>
+                Learn More <span className="card-arrow">→</span>
+              </div>
             </div>
+
           </div>
         </div>
       </section>
