@@ -1533,6 +1533,204 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
             display: none !important;
           }
         }
+
+        /* === MOBILE RESPONSIVE FIXES === */
+        @media (max-width: 767px) {
+          /* WHAT WE DO SECTION - HIDE ORBITAL, SHOW SIMPLE STACK */
+          #services .relative.w-full.mx-auto {
+            height: auto !important;
+            max-width: 100% !important;
+          }
+
+          #services svg {
+            display: none !important;
+          }
+
+          #services .absolute[style*="width: 260px"] {
+            display: none !important;
+          }
+
+          #services .absolute.cursor-pointer {
+            position: relative !important;
+            width: 100% !important;
+            height: auto !important;
+            top: auto !important;
+            left: auto !important;
+            right: auto !important;
+            bottom: auto !important;
+            transform: none !important;
+            margin-bottom: 16px !important;
+            padding: 20px 18px !important;
+          }
+
+          #services .absolute.cursor-pointer h3 {
+            font-size: 1.1rem !important;
+            line-height: 1.3 !important;
+          }
+
+          #services .absolute.cursor-pointer p {
+            font-size: 0.85rem !important;
+            line-height: 1.4 !important;
+          }
+
+          #services .absolute.cursor-pointer button {
+            font-size: 0.8rem !important;
+            padding: 8px 14px !important;
+          }
+
+          /* SERVICES SECTION - AGGRESSIVE SCALING */
+          .services-section {
+            padding: 2.5rem 1rem !important;
+          }
+
+          .services-header {
+            margin-bottom: 2rem !important;
+          }
+
+          .services-header p:first-child {
+            font-size: 0.75rem !important;
+          }
+
+          .services-title {
+            font-size: 1.5rem !important;
+            margin-bottom: 0.75rem !important;
+          }
+
+          .services-subtitle {
+            font-size: 0.85rem !important;
+          }
+
+          .services-grid {
+            grid-template-columns: 1fr !important;
+            gap: 20px !important;
+          }
+
+          .service-card {
+            padding: 18px 16px !important;
+          }
+
+          .service-card-header {
+            margin-bottom: 10px !important;
+          }
+
+          .service-card-title {
+            font-size: 1rem !important;
+            line-height: 1.3 !important;
+            padding-right: 8px !important;
+          }
+
+          .service-card-star {
+            width: 38px !important;
+            height: 38px !important;
+          }
+
+          .service-card-star svg {
+            width: 24px !important;
+            height: 24px !important;
+          }
+
+          .service-card-description {
+            font-size: 0.75rem !important;
+            line-height: 1.4 !important;
+            margin-bottom: 12px !important;
+          }
+
+          .service-card-receive {
+            margin-bottom: 12px !important;
+            padding: 12px !important;
+          }
+
+          .service-card-receive-label {
+            font-size: 0.65rem !important;
+            margin-bottom: 8px !important;
+          }
+
+          .service-card-receive ul {
+            gap: 6px !important;
+          }
+
+          .service-card-receive li {
+            font-size: 0.7rem !important;
+            line-height: 1.3 !important;
+            padding-left: 18px !important;
+          }
+
+          .service-card-outcome {
+            margin-top: 12px !important;
+            padding-top: 12px !important;
+          }
+
+          .service-card-outcome-number {
+            font-size: 1.2rem !important;
+          }
+
+          .service-card-outcome-label {
+            font-size: 0.7rem !important;
+          }
+
+          /* REPRESENTATIVE OUTCOMES SECTION */
+          .glass-card {
+            padding: 20px !important;
+          }
+
+          .glass-card h3 {
+            font-size: 1.1rem !important;
+            margin-bottom: 12px !important;
+          }
+
+          .glass-card p {
+            font-size: 0.8rem !important;
+            line-height: 1.5 !important;
+          }
+
+          section[style*="py-24"],
+          section[style*="py-32"] {
+            padding-top: 2.5rem !important;
+            padding-bottom: 2.5rem !important;
+          }
+
+          section h2 {
+            font-size: 1.5rem !important;
+            margin-bottom: 1rem !important;
+          }
+
+          section p {
+            font-size: 0.8rem !important;
+            line-height: 1.4 !important;
+          }
+        }
+
+        /* === TABLET RESPONSIVE (768px - 1023px) === */
+        @media (min-width: 768px) and (max-width: 1023px) {
+          .services-title {
+            font-size: 2rem !important;
+          }
+
+          .services-subtitle {
+            font-size: 0.9rem !important;
+          }
+
+          .services-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 24px !important;
+          }
+
+          .service-card-title {
+            font-size: 1.15rem !important;
+          }
+
+          .service-card-description {
+            font-size: 0.8rem !important;
+          }
+
+          .service-card-receive li {
+            font-size: 0.8rem !important;
+          }
+
+          section h2 {
+            font-size: 1.75rem !important;
+          }
+        }
       `}</style>
 
       {/* Navigation */}
