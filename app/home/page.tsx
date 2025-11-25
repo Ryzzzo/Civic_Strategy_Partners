@@ -1805,7 +1805,7 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
                 background: 'rgba(255, 255, 255, 0.95)',
                 backdropFilter: 'blur(10px)',
                 borderRadius: '20px',
-                padding: '28px 24px',
+                padding: '26px 22px',
                 border: '1px solid rgba(30, 58, 95, 0.06)',
                 boxShadow: '0 4px 24px rgba(30, 58, 95, 0.08), 0 1px 3px rgba(30, 58, 95, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.8)',
                 transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
@@ -1826,7 +1826,7 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
               </h3>
               <p style={{
                 fontFamily: 'Source Sans Pro, sans-serif',
-                fontSize: '0.9rem',
+                fontSize: '0.875rem',
                 color: '#4a5568',
                 lineHeight: 1.6,
                 marginBottom: '16px',
@@ -1836,7 +1836,7 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
               </p>
               <div className="card-cta-text" style={{
                 fontFamily: 'Source Sans Pro, sans-serif',
-                fontSize: '0.9rem',
+                fontSize: '0.875rem',
                 fontWeight: 600,
                 color: '#1e3a5f',
                 display: 'flex',
@@ -1858,7 +1858,7 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
                 background: 'rgba(255, 255, 255, 0.95)',
                 backdropFilter: 'blur(10px)',
                 borderRadius: '20px',
-                padding: '28px 24px',
+                padding: '26px 22px',
                 border: '1px solid rgba(30, 58, 95, 0.06)',
                 boxShadow: '0 4px 24px rgba(30, 58, 95, 0.08), 0 1px 3px rgba(30, 58, 95, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.8)',
                 transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
@@ -1879,7 +1879,7 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
               </h3>
               <p style={{
                 fontFamily: 'Source Sans Pro, sans-serif',
-                fontSize: '0.9rem',
+                fontSize: '0.875rem',
                 color: '#4a5568',
                 lineHeight: 1.6,
                 marginBottom: '16px',
@@ -1889,7 +1889,7 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
               </p>
               <div className="card-cta-text" style={{
                 fontFamily: 'Source Sans Pro, sans-serif',
-                fontSize: '0.9rem',
+                fontSize: '0.875rem',
                 fontWeight: 600,
                 color: '#1e3a5f',
                 display: 'flex',
@@ -1907,12 +1907,12 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
                 top: '50%',
                 left: '0',
                 transform: 'translateY(-50%)',
-                width: '260px',
+                width: '250px',
                 minHeight: '200px',
                 background: 'rgba(255, 255, 255, 0.95)',
                 backdropFilter: 'blur(10px)',
                 borderRadius: '20px',
-                padding: '28px 24px',
+                padding: '26px 22px',
                 border: '1px solid rgba(30, 58, 95, 0.06)',
                 boxShadow: '0 4px 24px rgba(30, 58, 95, 0.08), 0 1px 3px rgba(30, 58, 95, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.8)',
                 transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
@@ -1933,7 +1933,7 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
               </h3>
               <p style={{
                 fontFamily: 'Source Sans Pro, sans-serif',
-                fontSize: '0.9rem',
+                fontSize: '0.875rem',
                 color: '#4a5568',
                 lineHeight: 1.6,
                 marginBottom: '16px',
@@ -1943,7 +1943,7 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
               </p>
               <div className="card-cta-text" style={{
                 fontFamily: 'Source Sans Pro, sans-serif',
-                fontSize: '0.9rem',
+                fontSize: '0.875rem',
                 fontWeight: 600,
                 color: '#1e3a5f',
                 display: 'flex',
@@ -1961,12 +1961,12 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
                 top: '50%',
                 right: '0',
                 transform: 'translateY(-50%)',
-                width: '260px',
+                width: '250px',
                 minHeight: '200px',
                 background: 'rgba(255, 255, 255, 0.95)',
                 backdropFilter: 'blur(10px)',
                 borderRadius: '20px',
-                padding: '28px 24px',
+                padding: '26px 22px',
                 border: '1px solid rgba(30, 58, 95, 0.06)',
                 boxShadow: '0 4px 24px rgba(30, 58, 95, 0.08), 0 1px 3px rgba(30, 58, 95, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.8)',
                 transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
@@ -1987,7 +1987,7 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
               </h3>
               <p style={{
                 fontFamily: 'Source Sans Pro, sans-serif',
-                fontSize: '0.9rem',
+                fontSize: '0.875rem',
                 color: '#4a5568',
                 lineHeight: 1.6,
                 marginBottom: '16px',
@@ -1997,7 +1997,7 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
               </p>
               <div className="card-cta-text" style={{
                 fontFamily: 'Source Sans Pro, sans-serif',
-                fontSize: '0.9rem',
+                fontSize: '0.875rem',
                 fontWeight: 600,
                 color: '#1e3a5f',
                 display: 'flex',
@@ -2019,7 +2019,7 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
                 background: 'rgba(255, 255, 255, 0.95)',
                 backdropFilter: 'blur(10px)',
                 borderRadius: '20px',
-                padding: '28px 24px',
+                padding: '26px 22px',
                 border: '1px solid rgba(30, 58, 95, 0.06)',
                 boxShadow: '0 4px 24px rgba(30, 58, 95, 0.08), 0 1px 3px rgba(30, 58, 95, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.8)',
                 transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
@@ -2040,7 +2040,7 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
               </h3>
               <p style={{
                 fontFamily: 'Source Sans Pro, sans-serif',
-                fontSize: '0.9rem',
+                fontSize: '0.875rem',
                 color: '#4a5568',
                 lineHeight: 1.6,
                 marginBottom: '16px',
@@ -2050,7 +2050,7 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
               </p>
               <div className="card-cta-text" style={{
                 fontFamily: 'Source Sans Pro, sans-serif',
-                fontSize: '0.9rem',
+                fontSize: '0.875rem',
                 fontWeight: 600,
                 color: '#1e3a5f',
                 display: 'flex',
@@ -2072,7 +2072,7 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
                 background: 'rgba(255, 255, 255, 0.95)',
                 backdropFilter: 'blur(10px)',
                 borderRadius: '20px',
-                padding: '28px 24px',
+                padding: '26px 22px',
                 border: '1px solid rgba(30, 58, 95, 0.06)',
                 boxShadow: '0 4px 24px rgba(30, 58, 95, 0.08), 0 1px 3px rgba(30, 58, 95, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.8)',
                 transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
@@ -2093,7 +2093,7 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
               </h3>
               <p style={{
                 fontFamily: 'Source Sans Pro, sans-serif',
-                fontSize: '0.9rem',
+                fontSize: '0.875rem',
                 color: '#4a5568',
                 lineHeight: 1.6,
                 marginBottom: '16px',
@@ -2103,7 +2103,7 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
               </p>
               <div className="card-cta-text" style={{
                 fontFamily: 'Source Sans Pro, sans-serif',
-                fontSize: '0.9rem',
+                fontSize: '0.875rem',
                 fontWeight: 600,
                 color: '#1e3a5f',
                 display: 'flex',
