@@ -1539,19 +1539,29 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
           /* WHAT WE DO SECTION - HIDE ORBITAL, SHOW SIMPLE STACK */
           #services .logo-accent-mobile {
             display: flex !important;
+            position: relative !important;
+            z-index: 10 !important;
           }
 
           #services .center-logo-hub {
             display: none !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
           }
 
           #services .relative.w-full.mx-auto {
             height: auto !important;
             max-width: 100% !important;
+            position: relative !important;
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 16px !important;
           }
 
           #services svg {
             display: none !important;
+            visibility: hidden !important;
           }
 
           #services .absolute.cursor-pointer {
@@ -1563,8 +1573,9 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
             right: auto !important;
             bottom: auto !important;
             transform: none !important;
-            margin-bottom: 16px !important;
+            margin-bottom: 0 !important;
             padding: 20px 18px !important;
+            z-index: 1 !important;
           }
 
           #services .absolute.cursor-pointer h3 {
@@ -1709,10 +1720,20 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
           /* WHAT WE DO SECTION - Show small logo, hide large center logo */
           #services .logo-accent-mobile {
             display: flex !important;
+            position: relative !important;
+            z-index: 10 !important;
           }
 
           #services .center-logo-hub {
             display: none !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+          }
+
+          #services .relative.w-full.mx-auto {
+            position: relative !important;
+            z-index: 1 !important;
           }
 
           .services-title {
@@ -1889,7 +1910,7 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
             <div className="logo-accent-mobile" style={{
               display: 'none',
               justifyContent: 'center',
-              marginBottom: '16px'
+              marginBottom: '20px'
             }}>
               <img
                 src="/Civic Strategy Partners Minus LLC.png"
@@ -1899,7 +1920,8 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
                   height: 'auto',
                   objectFit: 'contain',
                   opacity: 0.9,
-                  filter: 'drop-shadow(0 2px 4px rgba(30, 58, 95, 0.15))'
+                  filter: 'drop-shadow(0 2px 4px rgba(30, 58, 95, 0.15))',
+                  borderRadius: '12px'
                 }}
               />
             </div>
