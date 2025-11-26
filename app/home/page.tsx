@@ -1985,8 +1985,8 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
               alt="Civic Strategy Partners Logo"
               className="h-[85px] w-auto object-contain"
             />
-            <div className="text-[#0F172A] font-semibold text-[18px]">
-              CIVIC STRATEGY PARTNERS
+            <div className="text-[#0F172A] font-bold text-[18px]" style={{ fontFamily: 'Cormorant Garamond, serif' }}>
+              Civic Strategy Partners
             </div>
           </button>
 
@@ -2019,16 +2019,9 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
           </div>
 
           <div className="md:hidden flex items-center gap-3">
-            <a
-              href="mailto:info@civicstrategypartners.com?subject=Consultation Request"
-              className="mobile-contact-btn text-white font-semibold text-[12px] px-3 py-1.5 rounded-md transition-all"
-              style={{
-                background: 'linear-gradient(135deg, #b8860b 0%, #daa520 100%)',
-                boxShadow: '0 2px 8px rgba(184, 134, 11, 0.3)'
-              }}
-            >
-              Contact
-            </a>
+            <div className="text-[#0F172A] font-bold text-[16px]" style={{ fontFamily: 'Cormorant Garamond, serif' }}>
+              Civic Strategy Partners
+            </div>
             <button
               className="text-[#0F172A]"
               onClick={() => {
@@ -2072,7 +2065,7 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
               }}
               className="text-[#4B5563] text-[15px] font-medium text-left"
             >
-              Contact
+              Get in Touch
             </button>
             <a
               href="mailto:info@civicstrategypartners.com?subject=Consultation Request"
