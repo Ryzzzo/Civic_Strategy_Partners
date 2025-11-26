@@ -3924,7 +3924,9 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
                 Ready to discuss your federal strategy? Book time directly with our team.
               </p>
               <button
-                onClick={() => setSchedulingModalOpen(true)}
+                onClick={() => {
+                  window.open('https://meetings-na2.hubspot.com/kmartin', '_blank');
+                }}
                 className="premium-cta"
                 style={{
                   width: '100%',
