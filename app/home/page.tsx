@@ -1982,13 +1982,13 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
           padding: 0 8px 8px 0 !important;
         }
 
-        /* Force 2-column grid layout */
+        /* Force 3-column grid layout */
         .hs-form-frame form,
         .hs-form-frame .hbspt-form form,
         .hs-form-frame .hs-form {
           display: grid !important;
-          grid-template-columns: repeat(2, 1fr) !important;
-          gap: 12px 20px !important;
+          grid-template-columns: repeat(3, 1fr) !important;
+          gap: 10px 16px !important;
           font-family: 'Inter', sans-serif !important;
         }
 
@@ -2114,27 +2114,19 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
         }
 
         /* Mobile responsive */
+        @media (max-width: 1024px) {
+          .hs-form-frame form,
+          .hs-form-frame .hbspt-form form,
+          .hs-form-frame .hs-form {
+            grid-template-columns: repeat(2, 1fr) !important;
+          }
+        }
+
         @media (max-width: 768px) {
           .hs-form-frame form,
           .hs-form-frame .hbspt-form form,
           .hs-form-frame .hs-form {
             grid-template-columns: 1fr !important;
-            gap: 12px !important;
-          }
-
-          .hs-form-frame .hs_which_categories_best_describe_your_needs_,
-          .hs-form-frame .hs_how_can_we_help_,
-          .hs-form-frame .hs-fieldtype-textarea,
-          .hs-form-frame .hs-fieldtype-checkbox,
-          .hs-form-frame .hs-fieldtype-booleancheckbox,
-          .hs-form-frame .hs_message,
-          .hs-form-frame .hs-submit,
-          .hs-form-frame .legal-consent-container {
-            grid-column: 1 !important;
-          }
-
-          .hs-form-frame {
-            max-height: 65vh !important;
           }
         }
       `}</style>
@@ -4024,17 +4016,16 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="bg-white rounded-xl max-w-[900px] w-full relative shadow-2xl"
+            className="bg-white rounded-xl w-full relative shadow-2xl"
             style={{
               background: 'white',
-              maxWidth: '900px',
-              width: '100%',
-              maxHeight: '90vh',
+              maxWidth: '1400px',
+              width: '95vw',
+              maxHeight: '95vh',
               borderRadius: '16px',
               position: 'relative',
               boxShadow: '0 20px 60px rgba(0, 0, 0, 0.4)',
-              display: 'flex',
-              flexDirection: 'column'
+              overflow: 'auto'
             }}
           >
             <button
@@ -4063,7 +4054,7 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
               ×
             </button>
 
-            <div className="p-8" style={{ maxHeight: 'calc(90vh - 40px)', overflowY: 'auto' }}>
+            <div className="p-6">
               <h2
                 className="text-[28px] font-bold text-[#1e3a5f] mb-4"
                 style={{
