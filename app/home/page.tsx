@@ -2084,6 +2084,15 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
           overflow: hidden !important;
         }
 
+        .hs-form-frame .hsfc-Step__Banner,
+        .hsfc-Step__Banner {
+          display: none !important;
+          visibility: hidden !important;
+          height: 0 !important;
+          margin: 0 !important;
+          padding: 0 !important;
+        }
+
         /* Remove extra spacing from form fieldsets */
         .hs-form-frame fieldset {
           margin: 0 !important;
