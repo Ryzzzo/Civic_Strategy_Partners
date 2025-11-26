@@ -39,7 +39,6 @@ export default function Home() {
   const [gsaNews, setGsaNews] = useState<GSANewsItem[]>([]);
   const [gsaNewsLoading, setGsaNewsLoading] = useState(true);
   const [gsaNewsError, setGsaNewsError] = useState(false);
-  const [isClient, setIsClient] = useState(false);
   const [legalModalOpen, setLegalModalOpen] = useState(false);
   const [legalModalContent, setLegalModalContent] = useState<{title: string, content: string} | null>(null);
   const [expandedService, setExpandedService] = useState<number | null>(null);
@@ -193,9 +192,6 @@ Your modification gets filed correctly, approved faster, and implemented properl
     }
   ];
 
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
 
 
   useEffect(() => {
@@ -2087,7 +2083,6 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
           muted
           playsInline
           className="hero-video-bg"
-          style={{ opacity: isClient ? 1 : 0, transition: 'opacity 0.3s ease-in' }}
         >
           <source src="/dc_at_dusk.mp4" type="video/mp4" />
         </video>
