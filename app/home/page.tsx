@@ -225,6 +225,8 @@ Your modification gets filed correctly, approved faster, and implemented properl
 
   useEffect(() => {
     if (inquiryModalOpen) {
+      document.body.style.overflow = 'hidden';
+
       // Check if script already exists
       const existingScript = document.querySelector('script[src*="hsforms.net/forms/embed"]');
 
@@ -234,7 +236,13 @@ Your modification gets filed correctly, approved faster, and implemented properl
         script.async = true;
         document.body.appendChild(script);
       }
+    } else {
+      document.body.style.overflow = 'auto';
     }
+
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
   }, [inquiryModalOpen]);
 
   useEffect(() => {
@@ -3826,7 +3834,10 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
                 Not sure where to start? Tell us about your situation and we'll respond within 24 hours.
               </p>
               <button
-                onClick={() => setInquiryModalOpen(true)}
+                onClick={() => {
+                  setInquiryModalOpen(true);
+                  document.body.style.overflow = 'hidden';
+                }}
                 className="premium-cta"
                 style={{
                   width: '100%',
@@ -4163,7 +4174,10 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
       {inquiryModalOpen && (
         <div
           className="inquiry-modal-overlay"
-          onClick={() => setInquiryModalOpen(false)}
+          onClick={() => {
+            setInquiryModalOpen(false);
+            document.body.style.overflow = 'auto';
+          }}
           style={{
             position: 'fixed',
             top: 0,
@@ -4191,7 +4205,10 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
             }}
           >
             <button
-              onClick={() => setInquiryModalOpen(false)}
+              onClick={() => {
+                setInquiryModalOpen(false);
+                document.body.style.overflow = 'auto';
+              }}
               style={{
                 position: 'absolute',
                 top: '16px',
