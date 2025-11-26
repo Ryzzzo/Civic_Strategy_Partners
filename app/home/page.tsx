@@ -2247,6 +2247,20 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
           .inquiry-modal-container > div {
             padding: 20px 16px 120px 16px !important;
           }
+
+          .hs-form-frame iframe,
+          .hs-form-frame embed,
+          .hs-form-frame object {
+            height: auto !important;
+            min-height: 500px !important;
+            max-height: none !important;
+          }
+
+          /* Nuclear option - target everything inside the form frame */
+          .hs-form-frame * {
+            max-height: none !important;
+            overflow: visible !important;
+          }
         }
       `}</style>
 
