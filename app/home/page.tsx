@@ -2084,13 +2084,27 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
           overflow: hidden !important;
         }
 
+        /* Hide HubSpot multi-step form banner - aggressive targeting */
+        .hsfc-Step__Banner,
         .hs-form-frame .hsfc-Step__Banner,
-        .hsfc-Step__Banner {
+        [data-hsfc-id="Banner"],
+        .hs-form-frame [data-hsfc-id="Banner"],
+        div.hsfc-Step__Banner,
+        .hsfc-FormWrapper .hsfc-Step__Banner,
+        .hsfc-Step__Content,
+        .hs-form-frame .hsfc-Step__Content {
           display: none !important;
           visibility: hidden !important;
           height: 0 !important;
+          max-height: 0 !important;
+          min-height: 0 !important;
           margin: 0 !important;
           padding: 0 !important;
+          overflow: hidden !important;
+          opacity: 0 !important;
+          pointer-events: none !important;
+          position: absolute !important;
+          left: -9999px !important;
         }
 
         /* Remove extra spacing from form fieldsets */
