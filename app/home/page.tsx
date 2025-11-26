@@ -2278,6 +2278,21 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
             overflow-y: scroll !important;
           }
         }
+
+        /* Override HubSpot's fixed height on form frame */
+        .hs-form-frame,
+        .hs-form-frame[style],
+        div[data-region="na2"],
+        div[data-form-id] {
+          height: auto !important;
+          min-height: auto !important;
+          max-height: none !important;
+        }
+
+        /* Also remove the inline paddingTop we added and use CSS instead */
+        .hs-form-frame {
+          padding-top: 20px !important;
+        }
       `}</style>
 
       {/* Navigation */}
@@ -4204,7 +4219,6 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
               data-region="na2"
               data-form-id="2f32081e-73eb-45a9-b666-6fd5150e7d19"
               data-portal-id="244293135"
-              style={{ paddingTop: '20px' }}
             ></div>
           </div>
         </div>
