@@ -96,15 +96,73 @@ html {
 
 /* HubSpot Form Styling */
 .hs-form-frame {
-  --hs-form-background: transparent;
-  --hs-form-font-family: 'Inter', sans-serif;
-  --hs-form-accent-color: #b8860b;
-  --hs-form-input-border-color: rgba(255,255,255,0.3);
-  --hs-form-input-background: rgba(255,255,255,0.1);
-  --hs-form-text-color: white;
-  --hs-form-label-color: white;
-  --hs-form-submit-background: #b8860b;
-  --hs-form-submit-color: white;
+  font-family: 'Inter', sans-serif;
+}
+
+.hs-form-frame form {
+  font-family: 'Inter', sans-serif !important;
+}
+
+.hs-form-frame label {
+  color: #1e3a5f !important;
+  font-weight: 500 !important;
+  margin-bottom: 8px !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+.hs-form-frame input[type="text"],
+.hs-form-frame input[type="email"],
+.hs-form-frame input[type="tel"],
+.hs-form-frame textarea,
+.hs-form-frame select {
+  border: 1px solid #D1D5DB !important;
+  border-radius: 8px !important;
+  padding: 12px !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 14px !important;
+  background: white !important;
+  color: #1e3a5f !important;
+  width: 100% !important;
+}
+
+.hs-form-frame input[type="text"]:focus,
+.hs-form-frame input[type="email"]:focus,
+.hs-form-frame input[type="tel"]:focus,
+.hs-form-frame textarea:focus,
+.hs-form-frame select:focus {
+  border-color: #b8860b !important;
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.1) !important;
+}
+
+.hs-form-frame input[type="submit"],
+.hs-form-frame .hs-button {
+  background: linear-gradient(135deg, #b8860b 0%, #daa520 100%) !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 8px !important;
+  padding: 12px 24px !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 16px !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+}
+
+.hs-form-frame input[type="submit"]:hover,
+.hs-form-frame .hs-button:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(184, 134, 11, 0.3) !important;
+}
+
+.hs-form-frame .hs-error-msgs {
+  color: #dc2626 !important;
+  font-size: 12px !important;
+  margin-top: 4px !important;
+}
+
+.hs-form-frame .hs-form-field {
+  margin-bottom: 20px !important;
 }
 
 /* Services Section Responsive Styles */
