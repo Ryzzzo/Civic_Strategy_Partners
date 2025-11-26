@@ -4067,7 +4067,7 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
               }}
             >
               <a
-                href="https://www.linkedin.com/company/civic-strategy-partners-llc/"
+                href="https://www.linkedin.com/in/kevinmartinmba"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
