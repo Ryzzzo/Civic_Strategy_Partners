@@ -4210,11 +4210,13 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
               background: 'white',
               maxWidth: '600px',
               width: '100%',
+              minHeight: '500px',
+              maxHeight: '90vh',
+              overflowY: 'auto',
               borderRadius: '16px',
               position: 'relative',
-              margin: '0 auto 100px auto',
-              padding: '24px',
-              paddingBottom: '40px'
+              margin: '0 auto',
+              padding: '24px'
             }}
           >
             <button

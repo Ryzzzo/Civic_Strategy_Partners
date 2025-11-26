@@ -381,3 +381,14 @@ html {
     font-size: 0.9rem !important;
   }
 }
+
+/* Desktop HubSpot form fix */
+@media (min-width: 769px) {
+  .hs-form-frame,
+  .hs-form-frame > div,
+  .hs-form-frame form,
+  [data-region="na2"] {
+    min-height: 400px !important;
+    height: auto !important;
+  }
+}
