@@ -44,6 +44,7 @@ export default function Home() {
   const [expandedService, setExpandedService] = useState<number | null>(null);
   const [inquiryModalOpen, setInquiryModalOpen] = useState(false);
   const [schedulingModalOpen, setSchedulingModalOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const services = [
     {
@@ -221,6 +222,13 @@ Your modification gets filed correctly, approved faster, and implemented properl
     return () => {
       video.removeEventListener('loadedmetadata', handleLoadedMetadata);
     };
+  }, []);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
   useEffect(() => {
@@ -3835,8 +3843,12 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
               </p>
               <button
                 onClick={() => {
-                  setInquiryModalOpen(true);
-                  document.body.style.overflow = 'hidden';
+                  if (isMobile) {
+                    window.open('https://share.hsforms.com/2f32081e-73eb-45a9-b666-6fd5150e7d19', '_blank');
+                  } else {
+                    setInquiryModalOpen(true);
+                    document.body.style.overflow = 'hidden';
+                  }
                 }}
                 className="premium-cta"
                 style={{
