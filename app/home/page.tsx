@@ -1979,33 +1979,30 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
 
         /* ========== HUBSPOT FORM OVERRIDES ========== */
         .hs-form-frame {
-          padding: 0 8px 8px 0 !important;
+          padding: 0 !important;
         }
 
-        /* Force 3-column grid layout */
         .hs-form-frame form,
         .hs-form-frame .hbspt-form form,
         .hs-form-frame .hs-form {
           display: grid !important;
-          grid-template-columns: repeat(3, 1fr) !important;
-          gap: 10px 16px !important;
+          grid-template-columns: 1fr 1fr !important;
+          gap: 16px 24px !important;
           font-family: 'Inter', sans-serif !important;
         }
 
-        /* All regular fields take 1 column */
+        /* All fields default to single column */
         .hs-form-frame .hs-form-field {
-          margin-bottom: 0 !important;
+          grid-column: span 1 !important;
         }
 
-        /* These fields span full width */
-        .hs-form-frame .hs_which_categories_best_describe_your_needs_,
-        .hs-form-frame .hs_how_can_we_help_,
+        /* ONLY these specific fields span full width */
         .hs-form-frame .hs-fieldtype-textarea,
         .hs-form-frame .hs-fieldtype-checkbox,
         .hs-form-frame .hs-fieldtype-booleancheckbox,
-        .hs-form-frame .hs_message,
         .hs-form-frame .hs-submit,
-        .hs-form-frame .legal-consent-container {
+        .hs-form-frame .legal-consent-container,
+        .hs-form-frame .hs-richtext {
           grid-column: 1 / -1 !important;
         }
 
@@ -2018,7 +2015,7 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
           display: block !important;
         }
 
-        /* All input fields */
+        /* Input fields */
         .hs-form-frame input[type="text"],
         .hs-form-frame input[type="email"],
         .hs-form-frame input[type="tel"],
@@ -2034,7 +2031,6 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
           color: #374151 !important;
           background: #ffffff !important;
           box-sizing: border-box !important;
-          transition: border-color 0.2s ease !important;
         }
 
         .hs-form-frame input:focus,
@@ -2050,83 +2046,34 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
           resize: vertical !important;
         }
 
-        /* Checkboxes - horizontal layout */
-        .hs-form-frame .inputs-list {
-          display: flex !important;
-          flex-wrap: wrap !important;
-          gap: 8px 16px !important;
-          list-style: none !important;
-          padding: 0 !important;
-          margin: 0 !important;
-        }
-
-        .hs-form-frame .hs-form-checkbox,
-        .hs-form-frame .hs-form-booleancheckbox {
-          display: inline-flex !important;
-          align-items: center !important;
-          gap: 6px !important;
-        }
-
-        .hs-form-frame .hs-form-checkbox input[type="checkbox"],
-        .hs-form-frame .hs-form-booleancheckbox input[type="checkbox"] {
-          width: auto !important;
-          margin: 0 !important;
-          cursor: pointer !important;
-        }
-
-        .hs-form-frame .hs-form-checkbox-display,
-        .hs-form-frame .hs-form-booleancheckbox-display {
-          display: inline-flex !important;
-          align-items: center !important;
-          font-size: 13px !important;
-          font-weight: 400 !important;
-          cursor: pointer !important;
-        }
-
         /* Submit button */
         .hs-form-frame .hs-button {
           background: linear-gradient(135deg, #1e3a5f 0%, #2d4a6f 100%) !important;
           color: white !important;
           border: none !important;
           border-radius: 8px !important;
-          padding: 12px 32px !important;
-          font-family: 'Inter', sans-serif !important;
+          padding: 14px 32px !important;
           font-weight: 600 !important;
           font-size: 15px !important;
           cursor: pointer !important;
-          transition: all 0.3s ease !important;
           width: auto !important;
         }
 
         .hs-form-frame .hs-button:hover {
           transform: translateY(-2px) !important;
           box-shadow: 0 6px 20px rgba(30, 58, 95, 0.3) !important;
-          background: linear-gradient(135deg, #2d4a6f 0%, #1e3a5f 100%) !important;
         }
 
-        /* Error messages */
-        .hs-form-frame .hs-error-msgs {
-          color: #dc2626 !important;
-          font-size: 12px !important;
-          margin-top: 4px !important;
-          list-style: none !important;
-          padding: 0 !important;
-        }
-
-        /* Mobile responsive */
-        @media (max-width: 1024px) {
-          .hs-form-frame form,
-          .hs-form-frame .hbspt-form form,
-          .hs-form-frame .hs-form {
-            grid-template-columns: repeat(2, 1fr) !important;
-          }
-        }
-
+        /* Mobile - single column */
         @media (max-width: 768px) {
           .hs-form-frame form,
           .hs-form-frame .hbspt-form form,
           .hs-form-frame .hs-form {
             grid-template-columns: 1fr !important;
+          }
+
+          .hs-form-frame .hs-form-field {
+            grid-column: 1 !important;
           }
         }
       `}</style>
