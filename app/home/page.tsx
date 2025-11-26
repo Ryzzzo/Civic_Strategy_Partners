@@ -4432,6 +4432,26 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
                 </a>
               </p>
             </div>
+
+            <div>
+              <h3 className="text-[18px] font-bold text-white mb-4" style={{ fontFamily: 'Inter', fontWeight: 700 }}>
+                Credentials
+              </h3>
+              <p className="text-[14px] text-white/80 mb-2" style={{ fontFamily: 'Inter', lineHeight: '1.6' }}>
+                UEI: NBDDCG8WGB75
+              </p>
+              <p className="text-[14px] text-white/80 mb-2" style={{ fontFamily: 'Inter', lineHeight: '1.6' }}>
+                CAGE: 168R1
+              </p>
+              <p className="text-[14px] text-white/80 mb-1" style={{ fontFamily: 'Inter', fontWeight: 600, lineHeight: '1.6' }}>
+                NAICS:
+              </p>
+              <p className="text-[14px] text-white/80" style={{ fontFamily: 'Inter', lineHeight: '1.8' }}>
+                541611 – Admin & Management Consulting<br />
+                541618 – Other Management Consulting<br />
+                541990 – Other Professional Services
+              </p>
+            </div>
           </div>
 
           {/* Legal Links Section */}
