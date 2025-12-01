@@ -57,6 +57,7 @@ export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
   const [briefings, setBriefings] = useState<BriefingItem[]>([]);
   const [briefingsLoading, setBriefingsLoading] = useState(true);
+  const [selectedBriefing, setSelectedBriefing] = useState<BriefingItem | null>(null);
 
   const services = [
     {
@@ -3641,19 +3642,19 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
               }}
             >
               {briefings.map((briefing, index) => (
-                <a
+                <div
                   key={index}
-                  href={briefing.linkedInUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group block rounded-2xl overflow-hidden transition-all duration-300"
+                  onClick={() => {
+                    setSelectedBriefing(briefing);
+                    document.body.style.overflow = 'hidden';
+                  }}
+                  className="group block rounded-2xl overflow-hidden transition-all duration-300 cursor-pointer"
                   style={{
                     backgroundColor: '#ffffff',
                     boxShadow: '0 4px 20px rgba(30, 58, 95, 0.08)',
                     border: '1px solid rgba(30, 58, 95, 0.06)',
                     maxWidth: '380px',
-                    flex: '1 1 380px',
-                    textDecoration: 'none'
+                    flex: '1 1 380px'
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = 'translateY(-8px)';
@@ -3744,7 +3745,7 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
                       {briefing.excerpt}
                     </p>
 
-                    {/* Author + CTA Row */}
+                    {/* Author + CTA Row - Hardcoded to Kevin Martin */}
                     <div style={{
                       display: 'flex',
                       alignItems: 'center',
@@ -3754,8 +3755,8 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
                     }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                         <img
-                          src={briefing.authorAvatar}
-                          alt={briefing.authorName}
+                          src="/1743701547902.jpeg"
+                          alt="Kevin Martin, MBA"
                           style={{
                             width: '36px',
                             height: '36px',
@@ -3770,11 +3771,10 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
                           color: '#374151',
                           fontWeight: 600
                         }}>
-                          {briefing.authorName}
+                          Kevin Martin, MBA
                         </span>
                       </div>
                       <span
-                        className="group-hover:gap-2 transition-all duration-300"
                         style={{
                           color: '#c9a227',
                           fontSize: '14px',
@@ -3788,11 +3788,203 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
                       </span>
                     </div>
                   </div>
-                </a>
+                </div>
               ))}
             </div>
           </div>
         </section>
+      )}
+
+      {/* Briefing Modal */}
+      {selectedBriefing && (
+        <div
+          onClick={() => {
+            setSelectedBriefing(null);
+            document.body.style.overflow = 'auto';
+          }}
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'rgba(0, 0, 0, 0.85)',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            zIndex: 1000,
+            padding: '24px'
+          }}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              background: 'white',
+              maxWidth: '800px',
+              width: '100%',
+              maxHeight: '90vh',
+              overflowY: 'auto',
+              borderRadius: '16px',
+              position: 'relative',
+              boxShadow: '0 20px 60px rgba(0, 0, 0, 0.4)'
+            }}
+          >
+            {/* Close Button */}
+            <button
+              onClick={() => {
+                setSelectedBriefing(null);
+                document.body.style.overflow = 'auto';
+              }}
+              style={{
+                position: 'absolute',
+                top: '16px',
+                right: '16px',
+                background: 'white',
+                border: '2px solid #E5E7EB',
+                borderRadius: '50%',
+                width: '40px',
+                height: '40px',
+                fontSize: '24px',
+                color: '#6B7280',
+                cursor: 'pointer',
+                zIndex: 10,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}
+            >
+              ×
+            </button>
+
+            {/* Featured Image */}
+            <div style={{ position: 'relative' }}>
+              <img
+                src={selectedBriefing.featuredImage}
+                alt={selectedBriefing.title}
+                style={{
+                  width: '100%',
+                  height: '250px',
+                  objectFit: 'cover',
+                  borderRadius: '16px 16px 0 0'
+                }}
+              />
+              <div style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                height: '5px',
+                background: 'linear-gradient(90deg, #c9a227, #daa520)',
+                borderRadius: '16px 16px 0 0'
+              }} />
+            </div>
+
+            {/* Content */}
+            <div style={{ padding: '32px 40px 40px' }}>
+              {/* Author & Date */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '20px' }}>
+                <img
+                  src="/1743701547902.jpeg"
+                  alt="Kevin Martin, MBA"
+                  style={{
+                    width: '48px',
+                    height: '48px',
+                    borderRadius: '50%',
+                    objectFit: 'cover',
+                    border: '3px solid #f0f4f8'
+                  }}
+                />
+                <div>
+                  <p style={{
+                    fontFamily: 'Source Sans Pro, sans-serif',
+                    fontSize: '16px',
+                    color: '#1e3a5f',
+                    fontWeight: 600,
+                    margin: 0
+                  }}>
+                    Kevin Martin, MBA
+                  </p>
+                  <p style={{
+                    fontFamily: 'Source Sans Pro, sans-serif',
+                    fontSize: '14px',
+                    color: '#6B7280',
+                    margin: 0
+                  }}>
+                    {selectedBriefing.publishDate}
+                  </p>
+                </div>
+              </div>
+
+              {/* Title */}
+              <h1 style={{
+                fontFamily: 'Merriweather, serif',
+                fontSize: '28px',
+                fontWeight: 700,
+                color: '#1e3a5f',
+                lineHeight: 1.3,
+                marginBottom: '24px'
+              }}>
+                {selectedBriefing.title}
+              </h1>
+
+              {/* Article Content */}
+              <div style={{
+                fontFamily: 'Source Sans Pro, sans-serif',
+                fontSize: '17px',
+                color: '#374151',
+                lineHeight: 1.8
+              }}>
+                {selectedBriefing.excerpt.split('\n\n').map((paragraph, i) => (
+                  <p key={i} style={{ marginBottom: '20px' }}>
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+
+              {/* LinkedIn CTA */}
+              <div style={{
+                marginTop: '32px',
+                paddingTop: '24px',
+                borderTop: '1px solid #E5E7EB',
+                textAlign: 'center'
+              }}>
+                <a
+                  href={selectedBriefing.linkedInUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    background: 'linear-gradient(135deg, #0a66c2 0%, #004182 100%)',
+                    color: '#ffffff',
+                    padding: '14px 28px',
+                    borderRadius: '8px',
+                    fontFamily: 'Source Sans Pro, sans-serif',
+                    fontSize: '16px',
+                    fontWeight: 600,
+                    textDecoration: 'none',
+                    transition: 'all 0.3s ease',
+                    boxShadow: '0 4px 12px rgba(10, 102, 194, 0.3)'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                    e.currentTarget.style.boxShadow = '0 6px 20px rgba(10, 102, 194, 0.4)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.boxShadow = '0 4px 12px rgba(10, 102, 194, 0.3)';
+                  }}
+                >
+                  <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                  </svg>
+                  Continue Reading on LinkedIn
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
       )}
 
       {/* Government Contracting News Section - White Background */}
