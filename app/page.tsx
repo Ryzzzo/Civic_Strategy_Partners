@@ -31,6 +31,16 @@ interface GSANewsItem {
   description: string;
 }
 
+interface BriefingItem {
+  title: string;
+  publishDate: string;
+  excerpt: string;
+  featuredImage: string;
+  linkedInUrl: string;
+  authorName: string;
+  authorAvatar: string;
+}
+
 export default function Home() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [scrolled, setScrolled] = useState(false);
@@ -45,6 +55,8 @@ export default function Home() {
   const [inquiryModalOpen, setInquiryModalOpen] = useState(false);
   const [schedulingModalOpen, setSchedulingModalOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [briefings, setBriefings] = useState<BriefingItem[]>([]);
+  const [briefingsLoading, setBriefingsLoading] = useState(true);
 
   const services = [
     {
@@ -229,6 +241,24 @@ Your modification gets filed correctly, approved faster, and implemented properl
     checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  useEffect(() => {
+    const fetchBriefings = async () => {
+      try {
+        const response = await fetch('/api/briefings');
+        const data = await response.json();
+        if (data.briefings && data.briefings.length > 0) {
+          setBriefings(data.briefings);
+        }
+      } catch (error) {
+        console.error('Error fetching briefings:', error);
+      } finally {
+        setBriefingsLoading(false);
+      }
+    };
+
+    fetchBriefings();
   }, []);
 
   useEffect(() => {
@@ -3512,39 +3542,175 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
         </div>
       </section>
 
-      {/* Insights & Expertise Section - White Background */}
-      <section id="insights" className="insights-section fade-in-section">
-        <div>
-          <h2>Civic Strategy Briefing</h2>
-          <p className="section-subtitle">Insights & Expertise for Government Contracting Success</p>
-
-          <div className="insights-grid">
-            {mockArticles.map((article, index) => (
-              <article
-                key={index}
-                onClick={() => openModal(article)}
-                className="insight-card"
+      {/* Civic Strategy Briefing Section - Navy Background with Premium Cards */}
+      {!briefingsLoading && briefings.length > 0 && (
+        <section
+          id="insights"
+          className="py-20 md:py-24 lg:py-[80px] px-6 fade-in-section"
+          style={{ backgroundColor: '#1e3a5f' }}
+        >
+          <div className="max-w-[1200px] mx-auto">
+            <div className="text-center mb-16">
+              <h2
+                className="text-[42px] font-bold mb-4"
+                style={{
+                  color: '#ffffff',
+                  fontFamily: 'Merriweather, serif',
+                  fontWeight: 700,
+                  textShadow: '0 2px 4px rgba(0,0,0,0.2)'
+                }}
               >
-                <h3>{article.title}</h3>
-                <span className="date">{formatDate(article.date)}</span>
-                <p className="excerpt">
-                  {article.content.substring(0, 150)}...
-                </p>
-                <a
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    openModal(article);
+                Civic Strategy Briefing
+              </h2>
+              <p
+                className="text-[18px]"
+                style={{
+                  color: 'rgba(255,255,255,0.85)',
+                  fontFamily: 'Source Sans Pro, sans-serif'
+                }}
+              >
+                Insights & Expertise for Government Contracting Success
+              </p>
+            </div>
+
+            <div
+              style={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                justifyContent: 'center',
+                gap: '24px'
+              }}
+            >
+              {briefings.map((briefing, index) => (
+                <article
+                  key={index}
+                  className="group"
+                  style={{
+                    backgroundColor: '#ffffff',
+                    borderRadius: '16px',
+                    overflow: 'hidden',
+                    boxShadow: '0 4px 16px rgba(0,0,0,0.1)',
+                    transition: 'all 0.3s ease',
+                    cursor: 'pointer',
+                    maxWidth: '380px',
+                    flex: '1 1 380px'
                   }}
-                  className="read-more"
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-4px)';
+                    e.currentTarget.style.boxShadow = '0 12px 32px rgba(0,0,0,0.15)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.boxShadow = '0 4px 16px rgba(0,0,0,0.1)';
+                  }}
+                  onClick={() => window.open(briefing.linkedInUrl, '_blank')}
                 >
-                  Read more
-                </a>
-              </article>
-            ))}
+                  <div style={{ position: 'relative' }}>
+                    <img
+                      src={briefing.featuredImage}
+                      alt={briefing.title}
+                      style={{
+                        width: '100%',
+                        height: '220px',
+                        objectFit: 'cover'
+                      }}
+                    />
+                    <span
+                      style={{
+                        position: 'absolute',
+                        top: '12px',
+                        left: '12px',
+                        backgroundColor: '#c9a227',
+                        color: '#ffffff',
+                        fontSize: '12px',
+                        fontWeight: 600,
+                        padding: '6px 12px',
+                        borderRadius: '20px',
+                        fontFamily: 'Inter, sans-serif',
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.5px'
+                      }}
+                    >
+                      Civic Strategy Briefing
+                    </span>
+                  </div>
+
+                  <div style={{ padding: '24px' }}>
+                    <h3
+                      style={{
+                        fontFamily: 'Merriweather, serif',
+                        fontSize: '20px',
+                        fontWeight: 700,
+                        color: '#1e3a5f',
+                        marginBottom: '8px',
+                        lineHeight: '1.4',
+                        display: '-webkit-box',
+                        WebkitLineClamp: 2,
+                        WebkitBoxOrient: 'vertical',
+                        overflow: 'hidden'
+                      }}
+                    >
+                      {briefing.title}
+                    </h3>
+
+                    <p
+                      style={{
+                        fontFamily: 'Source Sans Pro, sans-serif',
+                        fontSize: '14px',
+                        color: '#6B7280',
+                        marginBottom: '12px'
+                      }}
+                    >
+                      {briefing.publishDate}
+                    </p>
+
+                    <p
+                      style={{
+                        fontFamily: 'Source Sans Pro, sans-serif',
+                        fontSize: '15px',
+                        color: '#4B5563',
+                        lineHeight: '1.6',
+                        marginBottom: '16px',
+                        display: '-webkit-box',
+                        WebkitLineClamp: 3,
+                        WebkitBoxOrient: 'vertical',
+                        overflow: 'hidden'
+                      }}
+                    >
+                      {briefing.excerpt}
+                    </p>
+
+                    <a
+                      href={briefing.linkedInUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        fontFamily: 'Inter, sans-serif',
+                        fontSize: '15px',
+                        fontWeight: 600,
+                        color: '#c9a227',
+                        textDecoration: 'none',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '6px'
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.textDecoration = 'underline';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.textDecoration = 'none';
+                      }}
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      Read on LinkedIn →
+                    </a>
+                  </div>
+                </article>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Government Contracting News Section - White Background */}
       {/* HIDDEN - Can be restored later if needed */}
