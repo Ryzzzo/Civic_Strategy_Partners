@@ -14,7 +14,7 @@ export async function GET() {
   try {
     console.log('Fetching briefings from HubSpot...');
     const response = await fetch(
-      'https://api.hubapi.com/cms/v3/blogs/posts?limit=6&state=PUBLISHED&sort=-publishDate',
+      'https://api.hubapi.com/cms/v3/blogs/posts?limit=10&state=PUBLISHED&sort=-publishDate',
       {
         headers: {
           Authorization: `Bearer ${hubspotToken}`,
