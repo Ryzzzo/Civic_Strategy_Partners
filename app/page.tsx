@@ -1618,44 +1618,22 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
 
           /* === FOOTER LEGAL LINKS - MOBILE === */
           .legal-links-container {
-            display: flex !important;
-            flex-direction: column !important;
-            align-items: center !important;
-            gap: 6px !important;
+            display: grid !important;
+            grid-template-columns: 1fr 1fr !important;
+            gap: 12px 16px !important;
+            max-width: 400px !important;
+            margin: 0 auto !important;
           }
 
           .legal-link {
             font-size: 13px !important;
-            padding: 3px 0 !important;
+            padding: 0 !important;
             line-height: 1.3 !important;
-          }
-
-          /* Hide first separator after Privacy Policy */
-          .legal-link:nth-child(1) + .legal-separator {
-            display: none !important;
-          }
-
-          /* Row 2: Terms + Separator + Disclaimer */
-          .legal-link:nth-child(3),
-          .legal-link:nth-child(3) + .legal-separator,
-          .legal-link:nth-child(5) {
-            display: inline !important;
-          }
-
-          /* Hide separator after Disclaimer */
-          .legal-link:nth-child(5) + .legal-separator {
-            display: none !important;
-          }
-
-          /* Row 3: Cookie + Separator + Accessibility */
-          .legal-link:nth-child(7),
-          .legal-link:nth-child(7) + .legal-separator,
-          .legal-link:nth-child(9) {
-            display: inline !important;
+            text-align: center !important;
           }
 
           .legal-separator {
-            margin: 0 8px !important;
+            display: none !important;
           }
 
           /* === SERVICE MODAL === */
