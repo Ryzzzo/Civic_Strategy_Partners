@@ -54,6 +54,7 @@ export async function GET() {
         title: post.name || post.htmlTitle || 'Untitled',
         publishDate: formattedDate,
         excerpt: excerpt,
+        fullContent: post.postBody || post.post_body || '',
         featuredImage: post.featuredImage || 'https://placehold.co/1200x627/1e3a5f/ffffff?text=CSP+Briefing',
         linkedInUrl: linkedInUrl,
         authorName: post.authorName || post.blogAuthor?.displayName || 'Kevin Martin, MBA',

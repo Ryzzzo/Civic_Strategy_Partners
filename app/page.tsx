@@ -35,6 +35,7 @@ interface BriefingItem {
   title: string;
   publishDate: string;
   excerpt: string;
+  fullContent: string;
   featuredImage: string;
   linkedInUrl: string;
   authorName: string;
@@ -262,6 +263,7 @@ Your modification gets filed correctly, approved faster, and implemented properl
               title: "Navigating GSA Schedule Compliance in 2025",
               publishDate: "November 15, 2024",
               excerpt: "Understanding the latest compliance requirements for GSA Schedule holders and how to maintain your contract in good standing.",
+              fullContent: "<p>Understanding the latest compliance requirements for GSA Schedule holders and how to maintain your contract in good standing.</p><p>This is placeholder content. Connect your HubSpot account to see real briefings.</p>",
               featuredImage: "https://placehold.co/1200x627/1e3a5f/ffffff?text=GSA+Compliance",
               linkedInUrl: "https://www.linkedin.com/in/kevinmartincsp/",
               authorName: "Kevin Martin, MBA",
@@ -271,6 +273,7 @@ Your modification gets filed correctly, approved faster, and implemented properl
               title: "Strategic Positioning for Federal Contracts",
               publishDate: "November 8, 2024",
               excerpt: "Key strategies for positioning your business to win more federal contracts and stand out in a competitive marketplace.",
+              fullContent: "<p>Key strategies for positioning your business to win more federal contracts and stand out in a competitive marketplace.</p><p>This is placeholder content. Connect your HubSpot account to see real briefings.</p>",
               featuredImage: "https://placehold.co/1200x627/1e3a5f/ffffff?text=Federal+Strategy",
               linkedInUrl: "https://www.linkedin.com/in/kevinmartincsp/",
               authorName: "Kevin Martin, MBA",
@@ -280,6 +283,7 @@ Your modification gets filed correctly, approved faster, and implemented properl
               title: "Understanding MAS Contract Modifications",
               publishDate: "November 1, 2024",
               excerpt: "A comprehensive guide to managing Multiple Award Schedule contract modifications and avoiding common pitfalls.",
+              fullContent: "<p>A comprehensive guide to managing Multiple Award Schedule contract modifications and avoiding common pitfalls.</p><p>This is placeholder content. Connect your HubSpot account to see real briefings.</p>",
               featuredImage: "https://placehold.co/1200x627/1e3a5f/ffffff?text=MAS+Modifications",
               linkedInUrl: "https://www.linkedin.com/in/kevinmartincsp/",
               authorName: "Kevin Martin, MBA",
@@ -295,6 +299,7 @@ Your modification gets filed correctly, approved faster, and implemented properl
             title: "Government Contracting Best Practices",
             publishDate: "October 25, 2024",
             excerpt: "Essential best practices every government contractor should know to succeed in the federal marketplace.",
+            fullContent: "<p>Essential best practices every government contractor should know to succeed in the federal marketplace.</p><p>This is placeholder content. Connect your HubSpot account to see real briefings.</p>",
             featuredImage: "https://placehold.co/1200x627/1e3a5f/ffffff?text=Best+Practices",
             linkedInUrl: "https://www.linkedin.com/in/kevinmartincsp/",
             authorName: "Kevin Martin, MBA",
@@ -3929,19 +3934,16 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
                 {selectedBriefing.title}
               </h1>
 
-              {/* Article Content - Full text, no truncation */}
-              <div style={{
-                fontFamily: 'Source Sans Pro, sans-serif',
-                fontSize: '18px',
-                color: '#374151',
-                lineHeight: 1.85
-              }}>
-                {selectedBriefing.excerpt.split('\n\n').map((paragraph, i) => (
-                  <p key={i} style={{ marginBottom: '24px' }}>
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
+              {/* Article Content - Full text from HubSpot */}
+              <div
+                style={{
+                  fontFamily: 'Source Sans Pro, sans-serif',
+                  fontSize: '18px',
+                  color: '#374151',
+                  lineHeight: 1.85
+                }}
+                dangerouslySetInnerHTML={{ __html: selectedBriefing.fullContent || selectedBriefing.excerpt }}
+              />
 
               {/* LinkedIn CTA */}
               <div style={{
