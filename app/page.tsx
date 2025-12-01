@@ -3589,43 +3589,55 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
         </div>
       </section>
 
-      {/* Civic Strategy Briefing Section - Navy Background with Premium Cards */}
+      {/* Civic Strategy Briefing Section - Light Gray with Premium Cards */}
       {!briefingsLoading && briefings.length > 0 && (
         <section
           id="insights"
           className="py-20 md:py-24 lg:py-[80px] px-6"
-          style={{ backgroundColor: '#1e3a5f' }}
+          style={{ backgroundColor: '#f0f4f8' }}
         >
           <div className="max-w-[1200px] mx-auto">
+            {/* Section Header */}
             <div className="text-center mb-16">
+              <p style={{
+                fontFamily: 'Source Sans Pro, sans-serif',
+                fontSize: '0.875rem',
+                color: '#c9a227',
+                textTransform: 'uppercase',
+                letterSpacing: '0.1em',
+                fontWeight: 600,
+                marginBottom: '0.75rem'
+              }}>
+                INSIGHTS & THOUGHT LEADERSHIP
+              </p>
               <h2
                 className="text-[42px] font-bold mb-4"
                 style={{
-                  color: '#ffffff',
+                  color: '#1e3a5f',
                   fontFamily: 'Merriweather, serif',
-                  fontWeight: 700,
-                  textShadow: '0 2px 4px rgba(0,0,0,0.2)'
+                  fontWeight: 700
                 }}
               >
                 Civic Strategy Briefing
               </h2>
               <p
-                className="text-[18px]"
+                className="text-[18px] max-w-[600px] mx-auto"
                 style={{
-                  color: 'rgba(255,255,255,0.85)',
+                  color: '#6B7280',
                   fontFamily: 'Source Sans Pro, sans-serif'
                 }}
               >
-                Insights & Expertise for Government Contracting Success
+                Strategic perspectives on federal acquisition, GSA MAS performance, and building sustainable government practices
               </p>
             </div>
 
+            {/* Cards Grid */}
             <div
               style={{
                 display: 'flex',
                 flexWrap: 'wrap',
                 justifyContent: 'center',
-                gap: '24px'
+                gap: '32px'
               }}
             >
               {briefings.map((briefing, index) => (
@@ -3634,52 +3646,79 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
                   href={briefing.linkedInUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group block rounded-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
+                  className="group block rounded-2xl overflow-hidden transition-all duration-300"
                   style={{
                     backgroundColor: '#ffffff',
-                    boxShadow: '0 4px 16px rgba(0,0,0,0.1)',
+                    boxShadow: '0 4px 20px rgba(30, 58, 95, 0.08)',
+                    border: '1px solid rgba(30, 58, 95, 0.06)',
                     maxWidth: '380px',
                     flex: '1 1 380px',
                     textDecoration: 'none'
                   }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-8px)';
+                    e.currentTarget.style.boxShadow = '0 20px 40px rgba(30, 58, 95, 0.15)';
+                    e.currentTarget.style.borderColor = 'rgba(201, 162, 39, 0.3)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.boxShadow = '0 4px 20px rgba(30, 58, 95, 0.08)';
+                    e.currentTarget.style.borderColor = 'rgba(30, 58, 95, 0.06)';
+                  }}
                 >
-                  <div className="relative overflow-hidden" style={{ height: '220px', backgroundColor: '#f3f4f6' }}>
+                  {/* Image Container */}
+                  <div className="relative overflow-hidden" style={{ height: '200px', backgroundColor: '#1e3a5f' }}>
                     <img
                       src={briefing.featuredImage}
                       alt={briefing.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      style={{ opacity: 0.95 }}
                     />
+                    {/* Gold accent line at top */}
+                    <div style={{
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      height: '4px',
+                      background: 'linear-gradient(90deg, #c9a227, #daa520)'
+                    }} />
                     <span
-                      className="absolute top-3 left-3 text-xs font-semibold px-3 py-1.5 rounded-full uppercase tracking-wide"
+                      className="absolute top-4 left-4 text-xs font-semibold px-3 py-1.5 rounded-full uppercase tracking-wide"
                       style={{
                         backgroundColor: '#c9a227',
-                        color: '#ffffff'
+                        color: '#ffffff',
+                        fontSize: '11px',
+                        letterSpacing: '0.05em'
                       }}
                     >
                       Civic Strategy Briefing
                     </span>
                   </div>
 
-                  <div style={{ padding: '24px', backgroundColor: '#ffffff' }}>
+                  {/* Card Content */}
+                  <div style={{ padding: '28px' }}>
                     <p
                       style={{
                         fontFamily: 'Source Sans Pro, sans-serif',
                         color: '#6B7280',
-                        fontSize: '14px',
-                        marginBottom: '8px'
+                        fontSize: '13px',
+                        marginBottom: '12px',
+                        fontWeight: 500
                       }}
                     >
                       {briefing.publishDate}
                     </p>
 
                     <h3
+                      className="group-hover:text-[#c9a227] transition-colors duration-300"
                       style={{
                         fontFamily: 'Merriweather, serif',
-                        lineHeight: '1.4',
+                        lineHeight: '1.35',
                         color: '#1e3a5f',
                         fontSize: '20px',
                         fontWeight: 700,
-                        marginBottom: '12px',
+                        marginBottom: '14px',
                         display: '-webkit-box',
                         WebkitLineClamp: 2,
                         WebkitBoxOrient: 'vertical',
@@ -3695,7 +3734,7 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
                         lineHeight: '1.6',
                         color: '#4B5563',
                         fontSize: '15px',
-                        marginBottom: '16px',
+                        marginBottom: '20px',
                         display: '-webkit-box',
                         WebkitLineClamp: 3,
                         WebkitBoxOrient: 'vertical',
@@ -3705,18 +3744,49 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
                       {briefing.excerpt}
                     </p>
 
-                    <span
-                      style={{
-                        color: '#c9a227',
-                        fontSize: '15px',
-                        fontWeight: 600,
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: '4px'
-                      }}
-                    >
-                      Read on LinkedIn →
-                    </span>
+                    {/* Author + CTA Row */}
+                    <div style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      paddingTop: '16px',
+                      borderTop: '1px solid #f0f4f8'
+                    }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                        <img
+                          src={briefing.authorAvatar}
+                          alt={briefing.authorName}
+                          style={{
+                            width: '36px',
+                            height: '36px',
+                            borderRadius: '50%',
+                            objectFit: 'cover',
+                            border: '2px solid #f0f4f8'
+                          }}
+                        />
+                        <span style={{
+                          fontFamily: 'Source Sans Pro, sans-serif',
+                          fontSize: '13px',
+                          color: '#374151',
+                          fontWeight: 600
+                        }}>
+                          {briefing.authorName}
+                        </span>
+                      </div>
+                      <span
+                        className="group-hover:gap-2 transition-all duration-300"
+                        style={{
+                          color: '#c9a227',
+                          fontSize: '14px',
+                          fontWeight: 600,
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '4px'
+                        }}
+                      >
+                        Read <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+                      </span>
+                    </div>
                   </div>
                 </a>
               ))}
