@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { Activity, Map, Briefcase, RefreshCw, Award, Package, Check } from 'lucide-react';
+import Lenis from 'lenis';
 
 const mockArticles = [
   {
@@ -59,6 +60,8 @@ export default function Home() {
   const [briefings, setBriefings] = useState<BriefingItem[]>([]);
   const [briefingsLoading, setBriefingsLoading] = useState(true);
   const [selectedBriefing, setSelectedBriefing] = useState<BriefingItem | null>(null);
+  const [statsAnimated, setStatsAnimated] = useState<boolean[]>([false, false, false, false, false, false]);
+  const statsRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const services = [
     {
@@ -209,6 +212,25 @@ Your modification gets filed correctly, approved faster, and implemented properl
 
 
 
+  // Initialize Lenis smooth scroll
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // easeOutExpo
+    });
+
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
@@ -244,6 +266,100 @@ Your modification gets filed correctly, approved faster, and implemented properl
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
+
+  // Count-up animation for stats
+  useEffect(() => {
+    const observers: IntersectionObserver[] = [];
+
+    statsRefs.current.forEach((ref, index) => {
+      if (!ref) return;
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting && !statsAnimated[index]) {
+              const newAnimated = [...statsAnimated];
+              newAnimated[index] = true;
+              setStatsAnimated(newAnimated);
+
+              const element = entry.target as HTMLElement;
+              const outcomeText = element.textContent || '';
+
+              // Count-up for numeric values
+              if (outcomeText.includes('30-Day')) {
+                animateNumber(element, 30, 'Day');
+              } else if (outcomeText.includes('90-Day')) {
+                animateNumber(element, 90, 'Day');
+              } else if (outcomeText.includes('98%')) {
+                animateNumber(element, 98, '%');
+              } else if (outcomeText.includes('30-60 Day')) {
+                animateDoubleNumber(element, 30, 60, 'Day');
+              } else {
+                // Fade in for non-numeric (Zero, Direct Access)
+                element.style.opacity = '0';
+                element.style.animation = 'fadeIn 1s ease-out forwards';
+              }
+            }
+          });
+        },
+        { threshold: 0.5 }
+      );
+
+      observer.observe(ref);
+      observers.push(observer);
+    });
+
+    return () => {
+      observers.forEach((observer) => observer.disconnect());
+    };
+  }, [statsAnimated]);
+
+  const animateNumber = (element: HTMLElement, target: number, suffix: string) => {
+    const duration = 2000;
+    const start = 0;
+    const startTime = performance.now();
+
+    const updateNumber = (currentTime: number) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const easeOutProgress = 1 - Math.pow(1 - progress, 3);
+      const current = Math.floor(start + (target - start) * easeOutProgress);
+
+      element.textContent = `${current}${suffix ? '-' + suffix : suffix}`;
+
+      if (progress < 1) {
+        requestAnimationFrame(updateNumber);
+      } else {
+        element.textContent = `${target}-${suffix}`;
+      }
+    };
+
+    requestAnimationFrame(updateNumber);
+  };
+
+  const animateDoubleNumber = (element: HTMLElement, target1: number, target2: number, suffix: string) => {
+    const duration = 2000;
+    const start = 0;
+    const startTime = performance.now();
+
+    const updateNumber = (currentTime: number) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const easeOutProgress = 1 - Math.pow(1 - progress, 3);
+      const current1 = Math.floor(start + (target1 - start) * easeOutProgress);
+      const current2 = Math.floor(start + (target2 - start) * easeOutProgress);
+
+      element.textContent = `${current1}-${current2} ${suffix}`;
+
+      if (progress < 1) {
+        requestAnimationFrame(updateNumber);
+      } else {
+        element.textContent = `${target1}-${target2} ${suffix}`;
+      }
+    };
+
+    requestAnimationFrame(updateNumber);
+  };
 
   useEffect(() => {
     const fetchBriefings = async () => {
@@ -365,16 +481,14 @@ Your modification gets filed correctly, approved faster, and implemented properl
       const navHeight = 88;
       const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
       window.scrollTo({
-        top: elementPosition - navHeight,
-        behavior: 'smooth'
+        top: elementPosition - navHeight
       });
     }
   };
 
   const scrollToTop = () => {
     window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
+      top: 0
     });
   };
 
@@ -2500,10 +2614,10 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
         </video>
         <div className="video-overlay"></div>
         <div className="hero-content">
-          <h1>Your GSA MAS Contract Won't Sell Itself.</h1>
-          <p className="hero-subline">Civic Strategy Partners helps you diagnose, fix, and optimize your MAS or federal sales posture—so you stop missing revenue and start performing.</p>
-          <p className="hero-intro">Most companies think a GSA Schedule will generate sales automatically. It won't. MAS performs only when it's aligned, maintained, and guided by someone who understands the doctrine—and your CO will not do that for you. If your contract is quiet, misaligned, or at risk of cancellation, you're not alone. CSP brings former-GSA insight and Marine-grade discipline to correct course and build a federal revenue engine that actually works.</p>
-          <a href="#services" className="cta-button" onClick={(e) => { e.preventDefault(); scrollToSection('services'); }}>Services</a>
+          <h1 className="hero-fade-up" style={{ animationDelay: '0.2s' }}>Your GSA MAS Contract Won't Sell Itself.</h1>
+          <p className="hero-subline hero-fade-up" style={{ animationDelay: '0.4s' }}>Civic Strategy Partners helps you diagnose, fix, and optimize your MAS or federal sales posture—so you stop missing revenue and start performing.</p>
+          <p className="hero-intro hero-fade-up" style={{ animationDelay: '0.6s' }}>Most companies think a GSA Schedule will generate sales automatically. It won't. MAS performs only when it's aligned, maintained, and guided by someone who understands the doctrine—and your CO will not do that for you. If your contract is quiet, misaligned, or at risk of cancellation, you're not alone. CSP brings former-GSA insight and Marine-grade discipline to correct course and build a federal revenue engine that actually works.</p>
+          <a href="#services" className="cta-button hero-fade-up" style={{ animationDelay: '0.8s' }} onClick={(e) => { e.preventDefault(); scrollToSection('services'); }}>Services</a>
         </div>
       </section>
 
@@ -3453,14 +3567,18 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
                   textAlign: 'center',
                   boxShadow: '0 2px 8px rgba(0, 0, 0, 0.04)'
                 }}>
-                  <p className="service-card-outcome-number" style={{
-                    fontFamily: 'Merriweather, serif',
-                    fontSize: '1.75rem',
-                    fontWeight: 700,
-                    color: '#1e3a5f',
-                    marginBottom: '4px',
-                    letterSpacing: '-0.02em'
-                  }}>
+                  <p
+                    ref={(el) => { statsRefs.current[index] = el; }}
+                    className="service-card-outcome-number"
+                    style={{
+                      fontFamily: 'Merriweather, serif',
+                      fontSize: '1.75rem',
+                      fontWeight: 700,
+                      color: '#1e3a5f',
+                      marginBottom: '4px',
+                      letterSpacing: '-0.02em'
+                    }}
+                  >
                     {service.outcomeNumber}
                   </p>
                   <p className="service-card-outcome-label" style={{
@@ -3508,6 +3626,22 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
             opacity: 1;
             transform: translateY(0);
           }
+        }
+
+        @keyframes heroFadeUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .hero-fade-up {
+          opacity: 0;
+          animation: heroFadeUp 0.8s ease-out forwards;
         }
       `}</style>
 

@@ -79,9 +79,6 @@
   body {
     @apply bg-background text-foreground;
   }
-  html {
-    scroll-behavior: smooth;
-  }
 }
 
 /* Prevent FOUC - ensure background shows immediately */
