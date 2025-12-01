@@ -246,10 +246,15 @@ Your modification gets filed correctly, approved faster, and implemented properl
   useEffect(() => {
     const fetchBriefings = async () => {
       try {
+        console.log('Fetching briefings from /api/briefings...');
         const response = await fetch('/api/briefings');
         const data = await response.json();
+        console.log('Briefings API response:', data);
         if (data.briefings && data.briefings.length > 0) {
+          console.log('Setting briefings:', data.briefings);
           setBriefings(data.briefings);
+        } else {
+          console.log('No briefings returned or empty array');
         }
       } catch (error) {
         console.error('Error fetching briefings:', error);

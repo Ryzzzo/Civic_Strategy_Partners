@@ -1,29 +1,10 @@
 import { NextResponse } from 'next/server';
 
-interface HubSpotBlogPost {
-  id: string;
-  name: string;
-  publishDate: string;
-  metaDescription: string;
-  postBody: string;
-  featuredImage: string;
-  url: string;
-  linkRelCanonicalUrl: string; // This is the canonical URL field (LinkedIn link)
-  tagIds: number[];
-  blogAuthor?: {
-    displayName: string;
-    avatar: string;
-  };
-}
-
-interface HubSpotResponse {
-  results: HubSpotBlogPost[];
-}
-
 export async function GET() {
   const hubspotToken = process.env.HUBSPOT_ACCESS_TOKEN;
 
   if (!hubspotToken) {
+    console.error('HubSpot access token not configured');
     return NextResponse.json(
       { error: 'HubSpot access token not configured', briefings: [] },
       { status: 500 }
@@ -31,58 +12,62 @@ export async function GET() {
   }
 
   try {
+    console.log('Fetching briefings from HubSpot...');
     const response = await fetch(
-      'https://api.hubapi.com/cms/v3/blogs/posts?limit=5&state=PUBLISHED&sort=-publishDate',
+      'https://api.hubapi.com/cms/v3/blogs/posts?limit=6&state=PUBLISHED&sort=-publishDate',
       {
         headers: {
           Authorization: `Bearer ${hubspotToken}`,
           'Content-Type': 'application/json',
         },
-        next: { revalidate: 300 },
+        next: { revalidate: 3600 },
       }
     );
 
     if (!response.ok) {
-      const errorText = await response.text();
-      console.error('HubSpot API error:', response.status, errorText);
-      throw new Error(`HubSpot API error: ${response.status}`);
+      const errorData = await response.json();
+      console.error('HubSpot API Error:', response.status, errorData);
+      return NextResponse.json({ briefings: [], error: errorData }, { status: response.status });
     }
 
-    const data: HubSpotResponse = await response.json();
+    const data = await response.json();
+    console.log('HubSpot raw response:', JSON.stringify(data, null, 2));
 
-    const briefings = data.results
-      .slice(0, 5)
-      .map((post) => {
-        const publishDate = new Date(post.publishDate);
-        const formattedDate = publishDate.toLocaleDateString('en-US', {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric',
-        });
-
-        const excerpt =
-          post.metaDescription ||
-          (post.postBody
-            ? post.postBody.replace(/<[^>]*>/g, '').substring(0, 150) + '...'
-            : '');
-
-        return {
-          title: post.name,
-          publishDate: formattedDate,
-          excerpt,
-          featuredImage: post.featuredImage || 'https://placehold.co/1200x627/1e3a5f/ffffff?text=Civic+Strategy+Briefing',
-          linkedInUrl: post.linkRelCanonicalUrl || post.url, // Use canonical URL (LinkedIn) if set, fallback to HubSpot URL
-          authorName: post.blogAuthor?.displayName || 'Kevin Martin, MBA',
-          authorAvatar: post.blogAuthor?.avatar || '',
-        };
+    const briefings = (data.results || []).map((post: any) => {
+      const date = new Date(post.publishDate || post.created);
+      const formattedDate = date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
       });
 
-    return NextResponse.json({ briefings }, { status: 200 });
+      let excerpt = '';
+      if (post.postBody) {
+        excerpt = post.postBody.replace(/<[^>]*>/g, '').substring(0, 200) + '...';
+      } else if (post.metaDescription) {
+        excerpt = post.metaDescription;
+      }
+
+      const linkedInUrl = post.linkRelCanonicalUrl || post.url;
+
+      const briefing = {
+        title: post.name || post.htmlTitle || 'Untitled',
+        publishDate: formattedDate,
+        excerpt: excerpt,
+        featuredImage: post.featuredImage || 'https://placehold.co/1200x627/1e3a5f/ffffff?text=CSP+Briefing',
+        linkedInUrl: linkedInUrl,
+        authorName: post.authorName || post.blogAuthor?.displayName || 'Kevin Martin, MBA',
+        authorAvatar: post.blogAuthor?.avatar || '/1743701547902.jpeg'
+      };
+
+      console.log('Transformed briefing:', briefing);
+      return briefing;
+    });
+
+    console.log('Total briefings transformed:', briefings.length);
+    return NextResponse.json({ briefings });
   } catch (error) {
-    console.error('Error fetching HubSpot blog posts:', error);
-    return NextResponse.json(
-      { error: 'Failed to fetch briefings', briefings: [] },
-      { status: 500 }
-    );
+    console.error('Error fetching briefings:', error);
+    return NextResponse.json({ briefings: [], error: 'Failed to fetch briefings' }, { status: 500 });
   }
 }
