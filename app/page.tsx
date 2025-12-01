@@ -3637,13 +3637,13 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
               </p>
             </div>
 
-            {/* Cards Grid - Up to 5 per row */}
+            {/* Cards Grid - Up to 5 per row, cards max 380px */}
             <div
               style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+                gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 380px))',
                 gap: '24px',
-                maxWidth: '100%'
+                justifyContent: 'center'
               }}
             >
               {briefings.map((briefing, index) => (
