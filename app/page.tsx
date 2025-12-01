@@ -2491,7 +2491,10 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
         className={`fixed top-0 left-0 right-0 premium-nav z-50 transition-shadow duration-200 ${
           scrolled ? 'shadow-sm' : ''
         }`}
-        style={{ height: '100px' }}
+        style={{
+          height: scrolled ? '75px' : '100px',
+          transition: 'all 0.3s ease'
+        }}
       >
         <div className="max-w-[1200px] mx-auto px-6 h-full flex items-center justify-between">
           <button
@@ -2501,7 +2504,7 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
             <img
               src="/CSP Simple No Background.png"
               alt="Civic Strategy Partners Logo"
-              className="h-[85px] w-auto object-contain"
+              className={`${scrolled ? 'h-[60px]' : 'h-[85px]'} w-auto object-contain transition-all duration-300`}
             />
             <div className="text-[#0F172A] font-semibold text-[18px]">
               CIVIC STRATEGY PARTNERS
