@@ -4433,9 +4433,7 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
                 Not sure where to start? Tell us about your situation and we'll respond within 24 hours.
               </p>
               <button
-                onClick={() => {
-                  window.open('https://41g1sf.share-na2.hsforms.com/2LzIIHnPrRam2Zm_VFQ59GQ', '_blank');
-                }}
+                onClick={() => setInquiryModalOpen(true)}
                 className="premium-cta"
                 style={{
                   width: '100%',
