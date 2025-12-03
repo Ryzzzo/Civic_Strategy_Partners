@@ -3940,11 +3940,13 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
             justifyContent: 'center',
             alignItems: 'center',
             zIndex: 1000,
-            padding: '16px'
+            padding: '16px',
+            overflow: 'hidden'
           }}
         >
           <div
             onClick={(e) => e.stopPropagation()}
+            onWheel={(e) => e.stopPropagation()}
             style={{
               background: 'white',
               maxWidth: '960px',
@@ -3953,7 +3955,8 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
               overflowY: 'auto',
               borderRadius: '16px',
               position: 'relative',
-              boxShadow: '0 20px 60px rgba(0, 0, 0, 0.4)'
+              boxShadow: '0 20px 60px rgba(0, 0, 0, 0.4)',
+              WebkitOverflowScrolling: 'touch'
             }}
           >
             {/* Close Button */}
@@ -4537,11 +4540,13 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
             justifyContent: 'center',
             alignItems: 'center',
             zIndex: 1000,
-            padding: '40px'
+            padding: '40px',
+            overflow: 'hidden'
           }}
         >
           <div
             onClick={(e) => e.stopPropagation()}
+            onWheel={(e) => e.stopPropagation()}
             className="bg-white rounded-xl article-modal-container max-h-[85vh] overflow-y-auto relative shadow-2xl"
             style={{
               background: 'white',
@@ -4550,7 +4555,8 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
               borderRadius: '12px',
               overflowY: 'auto',
               position: 'relative',
-              boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3)'
+              boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3)',
+              WebkitOverflowScrolling: 'touch'
             }}
           >
             <button
