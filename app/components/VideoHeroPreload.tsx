@@ -42,6 +42,11 @@ export default function VideoHeroPreload({
     if (!video) return;
 
     // Set up event listeners before loading
+    const handleLoadedMetadata = () => {
+      // Set slow motion playback like original
+      video.playbackRate = 0.5;
+    };
+
     const handleCanPlay = () => {
       setVideoLoaded(true);
       // Small delay to ensure smooth transition
@@ -59,6 +64,7 @@ export default function VideoHeroPreload({
       setVideoLoaded(true);
     };
 
+    video.addEventListener('loadedmetadata', handleLoadedMetadata);
     video.addEventListener('canplay', handleCanPlay);
     video.addEventListener('loadeddata', handleLoadedData);
     video.addEventListener('error', handleError);
@@ -68,6 +74,7 @@ export default function VideoHeroPreload({
 
     // Cleanup
     return () => {
+      video.removeEventListener('loadedmetadata', handleLoadedMetadata);
       video.removeEventListener('canplay', handleCanPlay);
       video.removeEventListener('loadeddata', handleLoadedData);
       video.removeEventListener('error', handleError);
@@ -75,7 +82,7 @@ export default function VideoHeroPreload({
   }, []);
 
   return (
-    <section className="hero-video-preload">
+    <section className="hero-video">
       {/* Loading State - Shows while video loads */}
       <div
         className={`loading-state ${isReady ? 'fade-out' : ''}`}
@@ -112,6 +119,9 @@ export default function VideoHeroPreload({
         </div>
       </div>
 
+      {/* Background - Slate for instant render */}
+      <div className="absolute inset-0 bg-slate-900 z-0"></div>
+
       {/* Video Background - Desktop */}
       <video
         ref={videoRef}
@@ -122,15 +132,8 @@ export default function VideoHeroPreload({
         preload="auto"
         className={`hero-video-bg ${videoLoaded ? 'loaded' : ''} hidden md:block`}
         style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          objectFit: 'cover',
           opacity: videoLoaded && isReady ? 1 : 0,
-          transition: 'opacity 0.8s ease-in-out',
-          zIndex: 0
+          transition: 'opacity 0.8s ease-in-out'
         }}
       >
         <source src={videoSrc} type="video/mp4" />
@@ -145,44 +148,17 @@ export default function VideoHeroPreload({
           height={mobileFallbackHeight}
           priority
           quality={90}
-          className="w-full h-full object-cover"
-          style={{
-            filter: 'blur(8px) brightness(0.4)',
-            opacity: 0.3
-          }}
+          className="w-full h-full object-cover opacity-30"
+          style={{ filter: 'blur(8px) brightness(0.4)' }}
         />
       </div>
 
-      {/* Error Fallback - Shows if video fails */}
-      {videoError && (
-        <div
-          className="hidden md:block"
-          style={{
-            position: 'absolute',
-            inset: 0,
-            background: 'linear-gradient(135deg, #1e293b 0%, #0f172a 100%)',
-            zIndex: 0
-          }}
-        />
-      )}
-
-      {/* Overlay */}
-      <div
-        className="video-overlay"
-        style={{
-          position: 'absolute',
-          inset: 0,
-          background: 'linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 100%)',
-          zIndex: 1
-        }}
-      />
+      {/* Overlay - Blue theme matching original */}
+      <div className="video-overlay"></div>
 
       {/* Content - Fades in with video */}
       <div
-        className="hero-content"
         style={{
-          position: 'relative',
-          zIndex: 10,
           opacity: isReady ? 1 : 0,
           transform: isReady ? 'translateY(0)' : 'translateY(20px)',
           transition: 'opacity 0.6s ease-out 0.3s, transform 0.6s ease-out 0.3s'
@@ -204,14 +180,6 @@ export default function VideoHeroPreload({
 
         @keyframes spin {
           to { transform: rotate(360deg); }
-        }
-
-        .hero-video-preload {
-          position: relative;
-          min-height: 100vh;
-          width: 100%;
-          overflow: hidden;
-          background: #0f172a;
         }
       `}</style>
     </section>
