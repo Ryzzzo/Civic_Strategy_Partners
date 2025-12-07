@@ -1135,7 +1135,7 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
           height: 100%;
           object-fit: cover;
           z-index: 0;
-          opacity: 0;
+          opacity: 1;
           transition: opacity 0.6s ease-in;
         }
 
@@ -3701,8 +3701,8 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
 
         @keyframes heroFadeUp {
           from {
-            opacity: 0;
-            transform: translateY(30px);
+            opacity: 0.85;
+            transform: translateY(15px);
           }
           to {
             opacity: 1;
@@ -3711,8 +3711,8 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
         }
 
         .hero-fade-up {
-          opacity: 0;
-          animation: heroFadeUp 0.8s ease-out forwards;
+          opacity: 0.85;
+          animation: heroFadeUp 0.5s ease-out forwards;
         }
       `}</style>
 

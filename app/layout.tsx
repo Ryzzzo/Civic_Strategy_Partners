@@ -5,14 +5,16 @@ import { Inter, Playfair_Display } from 'next/font/google';
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
-  display: 'swap',
-  preload: true
+  display: 'optional',
+  preload: true,
+  adjustFontFallback: true
 });
 const playfair = Playfair_Display({
   subsets: ['latin'],
   variable: '--font-playfair',
-  display: 'swap',
-  preload: true
+  display: 'optional',
+  preload: true,
+  adjustFontFallback: true
 });
 
 export const metadata: Metadata = {
@@ -93,9 +95,11 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/244293135.js"></script>
       </head>
-      <body className={`${inter.variable} ${playfair.variable} font-sans`}>{children}</body>
+      <body className={`${inter.variable} ${playfair.variable} font-sans`}>
+        {children}
+        <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/244293135.js"></script>
+      </body>
     </html>
   );
 }

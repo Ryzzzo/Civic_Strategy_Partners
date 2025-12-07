@@ -81,14 +81,22 @@
   }
 }
 
-/* Prevent FOUC - ensure background shows immediately */
+/* Prevent FOUC - Critical styles for immediate render */
+html {
+  background: #0F172A;
+}
+
 body {
   background: #0F172A;
   min-height: 100vh;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
-html {
-  background: #0F172A;
+/* Prevent flash of invisible content */
+body > * {
+  opacity: 1;
+  visibility: visible;
 }
 
 /* HubSpot Form Styling - CSP Brand */
