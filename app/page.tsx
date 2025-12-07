@@ -2648,15 +2648,15 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
 
       {/* Hero Section with Video */}
       <section className="hero-video">
+        <div className="absolute inset-0 bg-slate-900 z-0"></div>
         <video
           ref={videoRef}
           autoPlay
           loop
           muted
           playsInline
-          preload="none"
-          poster="/CSP_WIDE_Larger_Text.png"
-          className={`hero-video-bg ${videoLoaded ? 'loaded' : ''} hidden md:block`}
+          preload="auto"
+          className="hero-video-bg loaded hidden md:block"
         >
           <source src="/dc_at_dusk.mp4" type="video/mp4" />
         </video>
@@ -2668,15 +2668,16 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
             height={715}
             priority
             quality={90}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover opacity-30"
+            style={{ filter: 'blur(8px) brightness(0.4)' }}
           />
         </div>
         <div className="video-overlay"></div>
         <div className="hero-content">
-          <h1 className="hero-fade-up" style={{ animationDelay: '0.2s' }}>Your GSA MAS Contract Won't Sell Itself.</h1>
-          <p className="hero-subline hero-fade-up" style={{ animationDelay: '0.4s' }}>Civic Strategy Partners helps you diagnose, fix, and optimize your MAS or federal sales posture—so you stop missing revenue and start performing.</p>
-          <p className="hero-intro hero-fade-up" style={{ animationDelay: '0.6s' }}>Most companies think a GSA Schedule will generate sales automatically. It won't. MAS performs only when it's aligned, maintained, and guided by someone who understands the doctrine—and your CO will not do that for you. If your contract is quiet, misaligned, or at risk of cancellation, you're not alone. CSP brings former-GSA insight and Marine-grade discipline to correct course and build a federal revenue engine that actually works.</p>
-          <a href="#services" className="cta-button hero-fade-up" style={{ animationDelay: '0.8s' }} onClick={(e) => { e.preventDefault(); scrollToSection('services'); }}>Services</a>
+          <h1 className="hero-fade-up" style={{ animationDelay: '0s' }}>Your GSA MAS Contract Won't Sell Itself.</h1>
+          <p className="hero-subline hero-fade-up" style={{ animationDelay: '0.1s' }}>Civic Strategy Partners helps you diagnose, fix, and optimize your MAS or federal sales posture—so you stop missing revenue and start performing.</p>
+          <p className="hero-intro hero-fade-up" style={{ animationDelay: '0.15s' }}>Most companies think a GSA Schedule will generate sales automatically. It won't. MAS performs only when it's aligned, maintained, and guided by someone who understands the doctrine—and your CO will not do that for you. If your contract is quiet, misaligned, or at risk of cancellation, you're not alone. CSP brings former-GSA insight and Marine-grade discipline to correct course and build a federal revenue engine that actually works.</p>
+          <a href="#services" className="cta-button hero-fade-up" style={{ animationDelay: '0.2s' }} onClick={(e) => { e.preventDefault(); scrollToSection('services'); }}>Services</a>
         </div>
       </section>
 
@@ -3701,8 +3702,8 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
 
         @keyframes heroFadeUp {
           from {
-            opacity: 0.85;
-            transform: translateY(15px);
+            opacity: 0.9;
+            transform: translateY(8px);
           }
           to {
             opacity: 1;
@@ -3711,8 +3712,8 @@ This statement was last updated on ${new Date().toLocaleDateString('en-US', { ye
         }
 
         .hero-fade-up {
-          opacity: 0.85;
-          animation: heroFadeUp 0.5s ease-out forwards;
+          opacity: 0.9;
+          animation: heroFadeUp 0.3s ease-out forwards;
         }
       `}</style>
 
