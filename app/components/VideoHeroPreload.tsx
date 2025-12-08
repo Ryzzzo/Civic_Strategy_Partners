@@ -129,7 +129,7 @@ export default function VideoHeroPreload({
         loop
         muted
         playsInline
-        preload="auto"
+        preload="none"
         className={`hero-video-bg ${videoLoaded ? 'loaded' : ''}`}
         style={{
           opacity: videoLoaded && isReady ? 1 : 0,

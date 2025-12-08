@@ -101,7 +101,7 @@ export default function VideoHeroCurtain({
         loop
         muted
         playsInline
-        preload="auto"
+        preload="none"
         className="hero-video-bg"
         style={{
           position: 'absolute',
