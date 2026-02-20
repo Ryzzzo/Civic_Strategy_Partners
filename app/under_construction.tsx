@@ -24,30 +24,29 @@ export default function Home() {
         }`}
       >
         <div className="mb-16 flex justify-center">
-          <div className="inline-block bg-white/[0.05] backdrop-blur-sm border border-white/[0.12] rounded-2xl p-8 transition-transform duration-300 hover:shadow-[0_8px_32px_rgba(0,0,0,0.2)]">
+          <div className="inline-block transition-transform duration-300 hover:scale-[1.03]">
             <Image
-              src="/Civic Strategy Partners LLC Logo NO TAGLINE.png"
+              src="/fy26_update/new_logo_2026_clear.png"
               alt="Civic Strategy Partners, LLC"
-              width={200}
-              height={80}
+              width={320}
+              height={320}
               priority
-              className="w-auto h-auto max-w-[200px]"
+              className="w-[220px] h-[220px] sm:w-[260px] sm:h-[260px] lg:w-[320px] lg:h-[320px] object-contain drop-shadow-[0_8px_32px_rgba(0,0,0,0.3)]"
             />
           </div>
         </div>
 
-        <h1 className="font-playfair text-4xl sm:text-5xl lg:text-[56px] font-bold text-white mb-6 leading-[1.2] tracking-[-0.02em] drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]">
-          Under Construction
+        <h1 className="font-playfair text-3xl sm:text-4xl lg:text-[48px] font-bold text-white mb-6 leading-[1.2] tracking-[-0.02em] drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]">
+          Exciting Changes Coming Soon
         </h1>
 
-        <h2 className="font-playfair text-xl sm:text-2xl lg:text-[28px] text-white/95 mb-12 leading-relaxed">
-          Expert guidance for federal market success
+        <h2 className="font-playfair text-lg sm:text-xl lg:text-[24px] text-white/95 mb-8 leading-relaxed italic">
+          Your excellence. Our strategy. Federal impact.
         </h2>
 
         <p className="font-sans text-base sm:text-lg leading-relaxed mb-16 max-w-[600px] mx-auto px-4" style={{ color: 'rgba(255, 255, 255, 0.85)' }}>
-          Our new website is currently under development. We're building
-          something great for federal contractors and agencies seeking expert
-          guidance.
+          We&apos;re refining our experience to better serve federal contractors
+          and agencies. Something great is on the way.
         </p>
 
         <div className="mb-12 max-w-3xl mx-auto">

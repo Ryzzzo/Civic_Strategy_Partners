@@ -1,5 +1,21 @@
 'use client';
 
+// ============================================================
+// REBRAND IN PROGRESS — Under-construction page active
+// To restore the full site:
+//   1. Remove the UnderConstruction import and wrapper below
+//   2. Rename _OriginalHome back to `export default function Home()`
+//   3. Uncomment the original imports directly below
+// ============================================================
+
+import UnderConstruction from './under_construction';
+
+export default function Home() {
+  return <UnderConstruction />;
+}
+
+// --- ORIGINAL SITE CONTENT (preserved for restoration) ---
+// These imports are kept active so the preserved _OriginalHome function below still compiles.
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { Activity, Map, Briefcase, RefreshCw, Award, Package, Check } from 'lucide-react';
@@ -45,7 +61,8 @@ interface BriefingItem {
   authorAvatar: string;
 }
 
-export default function Home() {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+function _OriginalHome() {
   const [scrolled, setScrolled] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [currentArticle, setCurrentArticle] = useState<typeof mockArticles[0] | null>(null);
