@@ -23,15 +23,15 @@ export default function Home() {
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
         }`}
       >
-        <div className="mb-16 flex justify-center">
+        <div className="mb-6 flex justify-center">
           <div className="inline-block transition-transform duration-300 hover:scale-[1.03]">
             <Image
               src="/fy26_update/new_logo_2026_clear.png"
               alt="Civic Strategy Partners, LLC"
-              width={320}
-              height={320}
+              width={460}
+              height={460}
               priority
-              className="w-[220px] h-[220px] sm:w-[260px] sm:h-[260px] lg:w-[320px] lg:h-[320px] object-contain drop-shadow-[0_8px_32px_rgba(0,0,0,0.3)]"
+              className="w-[300px] h-[300px] sm:w-[380px] sm:h-[380px] lg:w-[460px] lg:h-[460px] object-contain drop-shadow-[0_8px_32px_rgba(0,0,0,0.3)]"
             />
           </div>
         </div>
