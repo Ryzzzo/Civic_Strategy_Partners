@@ -40,23 +40,9 @@ export default function Home() {
           Exciting Changes Coming Soon
         </h1>
 
-        <h2 className="font-playfair text-lg sm:text-xl lg:text-[24px] text-white/95 mb-8 leading-relaxed italic">
+        <h2 className="font-playfair text-lg sm:text-xl lg:text-[24px] text-white/95 mb-12 leading-relaxed italic">
           Your excellence. Our strategy. Federal impact.
         </h2>
-
-        <p className="font-sans text-base sm:text-lg leading-relaxed mb-16 max-w-[600px] mx-auto px-4" style={{ color: 'rgba(255, 255, 255, 0.85)' }}>
-          We&apos;re refining our experience to better serve federal contractors
-          and agencies. Something great is on the way.
-        </p>
-
-        <div className="mb-12 max-w-3xl mx-auto">
-          <p className="font-playfair text-xl sm:text-2xl lg:text-[28px] text-white/90 leading-relaxed mb-4">
-            Marine-Owned. Mission-Driven. Federal-Focused.
-          </p>
-          <p className="font-sans text-sm sm:text-base text-white/75 leading-relaxed">
-            Helping businesses enter, compete, and grow in the U.S. government marketplace.
-          </p>
-        </div>
 
         <div className="pt-10 border-t border-white/10 max-w-xl mx-auto">
           <p className="text-base text-white/70">
