@@ -1,9 +1,193 @@
 'use client';
 
+import { useFadeIn } from '../hooks/useFadeIn';
+import GoldDivider from '../components/GoldDivider';
+
 export default function Contact() {
+  const headerFade = useFadeIn();
+  const formFade = useFadeIn();
+  const infoFade = useFadeIn();
+
   return (
-    <section className="py-24 flex items-center justify-center text-white font-playfair text-2xl">
-      Contact — Placeholder
+    <section
+      id="contact"
+      className="relative py-24 md:py-32 px-6"
+      style={{
+        background: 'linear-gradient(165deg, #0C1B2E 0%, #152A45 50%, #0C1B2E 100%)',
+      }}
+    >
+      {/* Subtle grid pattern */}
+      <div
+        className="absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage:
+            'linear-gradient(#C5993A 1px, transparent 1px), linear-gradient(90deg, #C5993A 1px, transparent 1px)',
+          backgroundSize: '60px 60px',
+        }}
+      />
+
+      <div className="relative z-10 max-w-[900px] mx-auto">
+
+        {/* ── Header ── */}
+        <div
+          ref={headerFade.ref}
+          className={`text-center mb-16 transition-all duration-1000 ease-[cubic-bezier(.22,1,.36,1)] ${
+            headerFade.visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
+          <p className="font-cormorant font-semibold text-brand-gold text-[12px] tracking-[0.35em] uppercase mb-4">
+            Get in Touch
+          </p>
+          <h2 className="font-playfair font-bold text-white text-3xl md:text-[40px] leading-tight">
+            Let&rsquo;s Talk About Your Contract.
+          </h2>
+          <div className="flex justify-center">
+            <GoldDivider width={60} />
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-16">
+
+          {/* ── Contact Form (3 cols) ── */}
+          <div
+            ref={formFade.ref}
+            className={`md:col-span-3 transition-all duration-1000 ease-[cubic-bezier(.22,1,.36,1)] ${
+              formFade.visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+          >
+            <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <input
+                  type="text"
+                  placeholder="First Name"
+                  required
+                  className="w-full px-4 py-3.5 font-sans text-[15px] text-white bg-white/[0.06] border border-white/10 focus:border-brand-gold/50 focus:outline-none transition-colors placeholder:text-white/30"
+                />
+                <input
+                  type="text"
+                  placeholder="Last Name"
+                  required
+                  className="w-full px-4 py-3.5 font-sans text-[15px] text-white bg-white/[0.06] border border-white/10 focus:border-brand-gold/50 focus:outline-none transition-colors placeholder:text-white/30"
+                />
+              </div>
+
+              <input
+                type="text"
+                placeholder="Company Name"
+                className="w-full px-4 py-3.5 font-sans text-[15px] text-white bg-white/[0.06] border border-white/10 focus:border-brand-gold/50 focus:outline-none transition-colors placeholder:text-white/30"
+              />
+
+              <input
+                type="email"
+                placeholder="Email Address"
+                required
+                className="w-full px-4 py-3.5 font-sans text-[15px] text-white bg-white/[0.06] border border-white/10 focus:border-brand-gold/50 focus:outline-none transition-colors placeholder:text-white/30"
+              />
+
+              <input
+                type="tel"
+                placeholder="Phone (optional)"
+                className="w-full px-4 py-3.5 font-sans text-[15px] text-white bg-white/[0.06] border border-white/10 focus:border-brand-gold/50 focus:outline-none transition-colors placeholder:text-white/30"
+              />
+
+              <select
+                className="w-full px-4 py-3.5 font-sans text-[15px] text-white/50 bg-white/[0.06] border border-white/10 focus:border-brand-gold/50 focus:outline-none transition-colors appearance-none"
+                defaultValue=""
+              >
+                <option value="" disabled>What are you looking for help with?</option>
+                <option value="new-offer" className="text-[#0C1B2E]">New GSA MAS Offer</option>
+                <option value="optimization" className="text-[#0C1B2E]">MAS Optimization</option>
+                <option value="retainer" className="text-[#0C1B2E]">Retainer Advisory</option>
+                <option value="readiness" className="text-[#0C1B2E]">Federal Market Readiness</option>
+                <option value="other" className="text-[#0C1B2E]">Other</option>
+              </select>
+
+              <textarea
+                placeholder="Brief description of your situation"
+                rows={4}
+                className="w-full px-4 py-3.5 font-sans text-[15px] text-white bg-white/[0.06] border border-white/10 focus:border-brand-gold/50 focus:outline-none transition-colors resize-none placeholder:text-white/30"
+              />
+
+              <button
+                type="submit"
+                className="w-full sm:w-auto px-10 py-4 font-cormorant font-bold text-[14px] tracking-[0.2em] uppercase text-[#0C1B2E] transition-all duration-300 hover:opacity-90 hover:-translate-y-px"
+                style={{
+                  background: 'linear-gradient(135deg, #C5993A, #D4AA4F)',
+                  boxShadow: '0 4px 24px rgba(197,153,58,0.2)',
+                }}
+              >
+                Request a Consultation
+              </button>
+            </form>
+          </div>
+
+          {/* ── Contact Info (2 cols) ── */}
+          <div
+            ref={infoFade.ref}
+            className={`md:col-span-2 transition-all duration-1000 ease-[cubic-bezier(.22,1,.36,1)] ${
+              infoFade.visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+          >
+            <div className="space-y-8">
+              {/* CTA Block */}
+              <div className="p-6 border-l-[3px] border-l-brand-gold" style={{ background: 'rgba(21,42,69,0.5)' }}>
+                <p className="font-sans text-white/65 text-[15px] leading-relaxed mb-4">
+                  If your GSA MAS contract exists but is not producing, that is a strategy issue — not a paperwork issue.
+                </p>
+                <a
+                  href="#contact"
+                  className="inline-block font-cormorant font-semibold text-brand-gold text-[13px] tracking-[0.15em] uppercase no-underline hover:tracking-[0.2em] transition-all duration-300"
+                >
+                  Schedule a Consultation →
+                </a>
+              </div>
+
+              {/* Contact Details */}
+              <div className="space-y-6 pt-4">
+                <div>
+                  <p className="font-cormorant font-semibold text-brand-gold text-[10px] tracking-[0.25em] uppercase mb-1">
+                    Phone
+                  </p>
+                  <p className="font-sans text-white/70 text-[15px]">
+                    (202) 796-7987
+                  </p>
+                </div>
+
+                <div>
+                  <p className="font-cormorant font-semibold text-brand-gold text-[10px] tracking-[0.25em] uppercase mb-1">
+                    Email
+                  </p>
+                  <a href="mailto:kevin@civicstrategypartners.com" className="font-sans text-white/70 text-[15px] hover:text-brand-gold transition-colors no-underline">
+                    kevin@civicstrategypartners.com
+                  </a>
+                </div>
+
+                <div>
+                  <p className="font-cormorant font-semibold text-brand-gold text-[10px] tracking-[0.25em] uppercase mb-1">
+                    Website
+                  </p>
+                  <p className="font-sans text-white/70 text-[15px]">
+                    civicstrategypartners.com
+                  </p>
+                </div>
+
+                <div>
+                  <p className="font-cormorant font-semibold text-brand-gold text-[10px] tracking-[0.25em] uppercase mb-1">
+                    Signal
+                  </p>
+                  <p className="font-sans text-white/70 text-[15px]">
+                    civicstrategy.09
+                  </p>
+                </div>
+              </div>
+
+              {/* DEV NOTE: Kevin to provide Calendly or booking link for embedded scheduling widget.
+                 Kevin to confirm LinkedIn profile URL for link. */}
+            </div>
+          </div>
+
+        </div>
+      </div>
     </section>
   );
 }
