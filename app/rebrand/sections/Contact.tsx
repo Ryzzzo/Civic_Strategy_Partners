@@ -91,7 +91,7 @@ export default function Contact() {
               />
 
               <select
-                className="w-full px-4 py-3.5 font-sans text-[15px] text-white/50 bg-white/[0.06] border border-white/10 focus:border-brand-gold/50 focus:outline-none transition-colors appearance-none"
+                className="w-full px-4 py-3.5 font-sans text-[15px] text-white/60 bg-white/[0.06] border border-white/10 focus:border-brand-gold/50 focus:outline-none transition-colors appearance-none"
                 defaultValue=""
               >
                 <option value="" disabled>What are you looking for help with?</option>
@@ -131,7 +131,7 @@ export default function Contact() {
             <div className="space-y-8">
               {/* CTA Block */}
               <div className="p-6 border-l-[3px] border-l-brand-gold" style={{ background: 'rgba(21,42,69,0.5)' }}>
-                <p className="font-sans text-white/65 text-[15px] leading-relaxed mb-4">
+                <p className="font-sans text-white/80 text-[15px] leading-relaxed mb-4">
                   If your GSA MAS contract exists but is not producing, that is a strategy issue — not a paperwork issue.
                 </p>
                 <a
@@ -157,8 +157,8 @@ export default function Contact() {
                   <p className="font-cormorant font-semibold text-brand-gold text-[10px] tracking-[0.25em] uppercase mb-1">
                     Email
                   </p>
-                  <a href="mailto:kevin@civicstrategypartners.com" className="font-sans text-white/70 text-[15px] hover:text-brand-gold transition-colors no-underline">
-                    kevin@civicstrategypartners.com
+                  <a href="mailto:info@civicstrategypartners.com" className="font-sans text-white/70 text-[15px] hover:text-brand-gold transition-colors no-underline">
+                    info@civicstrategypartners.com
                   </a>
                 </div>
 

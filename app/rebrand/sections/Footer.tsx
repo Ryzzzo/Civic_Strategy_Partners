@@ -24,7 +24,7 @@ export default function Footer() {
               <a
                 key={link}
                 href={`#${link.toLowerCase()}`}
-                className="font-cormorant font-semibold text-[11px] tracking-[0.15em] uppercase text-white/40 hover:text-brand-gold transition-colors duration-300 no-underline"
+                className="font-cormorant font-semibold text-[11px] tracking-[0.15em] uppercase text-white/60 hover:text-brand-gold transition-colors duration-300 no-underline"
               >
                 {link}
               </a>
@@ -38,7 +38,7 @@ export default function Footer() {
         {/* Bottom row */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <div>
-            <p className="font-cormorant text-white/40 text-[13px]">
+            <p className="font-cormorant text-white/60 text-[13px]">
               &copy; 2026 Civic Strategy Partners. All rights reserved.
             </p>
             <p className="font-cormorant text-white/20 text-[11px] italic mt-1">

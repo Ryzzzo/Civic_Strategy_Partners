@@ -45,7 +45,7 @@ export default function Hero() {
             loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
           }`}
         >
-          <p className="font-cormorant font-semibold text-brand-gold text-[13px] tracking-[0.35em] uppercase mb-8">
+          <p className="font-cormorant font-semibold text-brand-gold text-[14px] tracking-[0.3em] uppercase mb-8">
             Elite Federal Contract Advisory
           </p>
         </div>
@@ -56,7 +56,7 @@ export default function Hero() {
             loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
           }`}
         >
-          <h1 className="font-playfair font-bold text-white text-4xl md:text-[52px] leading-[1.15] mb-2">
+          <h1 className="font-playfair font-bold text-white text-[42px] md:text-[58px] leading-[1.15] mb-2">
             Fractional GSA MAS
             <br />
             <span className="text-brand-gold">Authorized Negotiator</span>
@@ -72,7 +72,7 @@ export default function Hero() {
           <div className="flex justify-center">
             <GoldDivider width={80} />
           </div>
-          <p className="font-cormorant text-white/75 text-lg md:text-xl leading-relaxed max-w-[580px] mx-auto mb-10 font-light">
+          <p className="font-cormorant text-white/75 text-xl md:text-[22px] leading-relaxed max-w-[580px] mx-auto mb-10 font-light">
             I embed with companies as their fractional GSA MAS authorized negotiator
             and executive advisor — leading new offers, modifications, pricing strategy,
             and lifecycle compliance without the overhead of a full-time hire.
@@ -85,7 +85,7 @@ export default function Hero() {
             loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
           }`}
         >
-          <p className="font-cormorant text-brand-gold/60 text-sm tracking-[0.2em] uppercase mb-10">
+          <p className="font-cormorant text-brand-gold/75 text-[15px] tracking-[0.18em] uppercase mb-10">
             Principal-led · Retainer-based · Built for revenue performance
           </p>
         </div>
@@ -98,7 +98,7 @@ export default function Hero() {
         >
           <a
             href="#contact"
-            className="inline-block px-9 py-4 font-cormorant font-bold text-[14px] tracking-[0.2em] uppercase text-brand-navy-deep no-underline transition-all duration-300 hover:opacity-90 hover:-translate-y-px"
+            className="inline-block px-9 py-4 font-cormorant font-bold text-[15px] tracking-[0.18em] uppercase text-brand-navy-deep no-underline transition-all duration-300 hover:opacity-90 hover:-translate-y-px"
             style={{
               background: 'linear-gradient(135deg, #C5993A, #D4AA4F)',
               boxShadow: '0 4px 24px rgba(197,153,58,0.2)',
@@ -108,7 +108,7 @@ export default function Hero() {
           </a>
           <a
             href="#services"
-            className="inline-block px-9 py-4 font-cormorant font-semibold text-[14px] tracking-[0.2em] uppercase text-white/80 border border-white/15 hover:border-brand-gold/40 hover:text-brand-gold transition-all duration-300 no-underline"
+            className="inline-block px-9 py-4 font-cormorant font-semibold text-[15px] tracking-[0.18em] uppercase text-white/80 border border-white/15 hover:border-brand-gold/40 hover:text-brand-gold transition-all duration-300 no-underline"
           >
             How I Work →
           </a>

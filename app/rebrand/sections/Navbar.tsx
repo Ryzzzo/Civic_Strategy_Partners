@@ -23,7 +23,7 @@ export default function Navbar() {
     >
       <div
         className={`max-w-[1200px] mx-auto flex items-center justify-between transition-all duration-400 ${
-          scrolled ? 'h-16' : 'h-20'
+          scrolled ? 'h-[72px]' : 'h-24'
         }`}
       >
         {/* Logo Area */}
@@ -31,7 +31,7 @@ export default function Navbar() {
           <img
             src="/fy26_update/new_logo_2026_clear.png"
             alt="Civic Strategy Partners"
-            className={`transition-all duration-400 ${scrolled ? 'h-10' : 'h-12'}`}
+            className={`transition-all duration-400 ${scrolled ? 'h-12' : 'h-16'}`}
           />
         </a>
 
@@ -41,7 +41,7 @@ export default function Navbar() {
             <a
               key={link}
               href={`#${link.toLowerCase()}`}
-              className="font-cormorant font-semibold text-[12px] tracking-[0.15em] uppercase text-white/70 hover:text-brand-gold transition-colors duration-300 no-underline"
+              className="font-cormorant font-semibold text-[13px] tracking-[0.12em] uppercase text-white/70 hover:text-brand-gold transition-colors duration-300 no-underline"
             >
               {link}
             </a>

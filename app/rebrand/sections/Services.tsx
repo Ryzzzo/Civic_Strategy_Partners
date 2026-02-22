@@ -75,7 +75,7 @@ function ScopeItem({ text }: { text: string }) {
   return (
     <div className="flex items-start gap-3 py-2">
       <span className="text-brand-gold mt-1.5 text-[10px]">◆</span>
-      <span className="font-sans text-white/65 text-[15px] md:text-[16px] leading-relaxed">{text}</span>
+      <span className="font-sans text-white/80 text-[16px] md:text-[17px] leading-relaxed">{text}</span>
     </div>
   );
 }
@@ -125,23 +125,23 @@ function TierCard({
         </p>
 
         {/* Title */}
-        <h3 className="font-playfair font-bold text-white text-2xl md:text-[28px] leading-tight mb-1">
+        <h3 className="font-playfair font-bold text-white text-[26px] md:text-[30px] leading-tight mb-1">
           {title}
         </h3>
 
         {/* Subtitle */}
-        <p className="font-cormorant text-brand-gold/70 text-[15px] tracking-wide mb-6">
+        <p className="font-cormorant text-brand-gold/80 text-[15px] tracking-wide mb-6">
           {subtitle}
         </p>
 
         {/* Description */}
-        <p className="font-sans text-white/65 text-[15px] md:text-[16px] leading-relaxed mb-8">
+        <p className="font-sans text-white/80 text-[16px] md:text-[17px] leading-relaxed mb-8">
           {description}
         </p>
 
         {/* Scope */}
         {scopeTitle && (
-          <p className="font-cormorant font-semibold text-white/40 text-[11px] tracking-[0.25em] uppercase mb-3">
+          <p className="font-cormorant font-semibold text-white/60 text-[11px] tracking-[0.25em] uppercase mb-3">
             {scopeTitle}
           </p>
         )}
@@ -154,7 +154,7 @@ function TierCard({
         {/* Optional Access */}
         {optionalTitle && optionalItems && (
           <>
-            <p className="font-cormorant font-semibold text-white/40 text-[11px] tracking-[0.25em] uppercase mb-3 mt-6">
+            <p className="font-cormorant font-semibold text-white/60 text-[11px] tracking-[0.25em] uppercase mb-3 mt-6">
               {optionalTitle}
             </p>
             <div className="mb-6">
@@ -167,7 +167,7 @@ function TierCard({
 
         {/* Footnote */}
         {footnote && (
-          <p className="font-cormorant text-brand-gold/50 text-[14px] italic mt-6 pt-6 border-t border-white/[0.06]">
+          <p className="font-cormorant text-brand-gold/65 text-[14px] italic mt-6 pt-6 border-t border-white/[0.06]">
             {footnote}
           </p>
         )}
@@ -212,7 +212,7 @@ export default function Services() {
           <div className="flex justify-center">
             <GoldDivider width={60} />
           </div>
-          <p className="font-sans text-white/60 text-[16px] md:text-[17px] leading-relaxed max-w-[600px] mx-auto">
+          <p className="font-sans text-white/80 text-[16px] md:text-[17px] leading-relaxed max-w-[600px] mx-auto">
             Civic Strategy Partners operates across three engagement tiers plus standalone
             project-based options. Scope and structure are tailored to where you are and
             what your contract requires.
@@ -238,7 +238,7 @@ export default function Services() {
               <h4 className="font-playfair font-bold text-white text-[17px] md:text-[18px] leading-tight mb-3">
                 {lane.title}
               </h4>
-              <p className="font-sans text-white/55 text-[14px] leading-relaxed">
+              <p className="font-sans text-white/80 text-[15px] leading-relaxed">
                 {lane.description}
               </p>
             </div>
@@ -247,8 +247,8 @@ export default function Services() {
 
         {/* Standalone options note */}
         <div className="text-center mb-20">
-          <p className="font-cormorant text-white/40 text-[14px] tracking-wide">
-            Standalone options: <span className="text-brand-gold/60">MAS Optimization Roadmaps</span> · <span className="text-brand-gold/60">À la Carte Modification Support</span>
+          <p className="font-cormorant text-white/60 text-[14px] tracking-wide">
+            Standalone options: <span className="text-brand-gold/75">MAS Optimization Roadmaps</span> · <span className="text-brand-gold/75">À la Carte Modification Support</span>
           </p>
         </div>
 
@@ -317,7 +317,7 @@ export default function Services() {
           <p className="font-cormorant font-semibold text-brand-gold text-[12px] tracking-[0.35em] uppercase mb-4">
             Investment & Engagement Philosophy
           </p>
-          <p className="font-sans text-white/60 text-[16px] md:text-[17px] leading-relaxed max-w-[680px] mx-auto">
+          <p className="font-sans text-white/80 text-[16px] md:text-[17px] leading-relaxed max-w-[680px] mx-auto">
             Engagements are structured as retainers or defined strategic projects — not
             transactional filing services. Pricing reflects direct access to a former GSA 1102,
             fractional authorized negotiator authority, embedded contract leadership, and limited
@@ -338,7 +338,7 @@ export default function Services() {
               <br />
               of Contract Leadership.
             </h3>
-            <p className="font-sans text-white/55 text-[16px] md:text-[17px] leading-relaxed max-w-[600px] mx-auto">
+            <p className="font-sans text-white/80 text-[17px] md:text-[18px] leading-relaxed max-w-[600px] mx-auto">
               If your goal is simply to &ldquo;get on schedule&rdquo; as cheaply as possible, there are
               providers built for that. That is not this firm.
             </p>

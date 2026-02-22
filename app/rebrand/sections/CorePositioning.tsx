@@ -23,7 +23,7 @@ export default function CorePositioning() {
           How I Work
         </p>
 
-        <h2 className="font-playfair font-bold text-white text-3xl md:text-[38px] leading-tight mb-4">
+        <h2 className="font-playfair font-bold text-white text-[32px] md:text-[42px] leading-tight mb-4">
           I embed with companies as their fractional
           <span className="text-brand-gold"> GSA MAS authorized negotiator.</span>
         </h2>
@@ -33,21 +33,21 @@ export default function CorePositioning() {
         </div>
 
         <div className="space-y-6 text-left mt-8">
-          <p className="font-sans text-white/70 text-[16px] md:text-[17px] leading-relaxed">
+          <p className="font-sans text-white/70 text-[17px] md:text-[18px] leading-relaxed">
             New offers. Modifications. Pricing strategy. Lifecycle compliance. Full contract
             management — without the full-time hire.
           </p>
 
-          <p className="font-sans text-white/70 text-[16px] md:text-[17px] leading-relaxed">
+          <p className="font-sans text-white/70 text-[17px] md:text-[18px] leading-relaxed">
             If you need to get on the GSA Schedule, I will build and negotiate your offer from scratch.
           </p>
 
-          <p className="font-sans text-white/70 text-[16px] md:text-[17px] leading-relaxed">
+          <p className="font-sans text-white/70 text-[17px] md:text-[18px] leading-relaxed">
             If you are already on schedule and your contract is collecting dust, bleeding margin, or
             drifting out of compliance — I will diagnose the problem and correct it.
           </p>
 
-          <p className="font-sans text-white/70 text-[16px] md:text-[17px] leading-relaxed">
+          <p className="font-sans text-white/70 text-[17px] md:text-[18px] leading-relaxed">
             If you want a former government insider managing mods, pricing, and lifecycle decisions
             month to month — that is exactly what I do on retainer.
           </p>

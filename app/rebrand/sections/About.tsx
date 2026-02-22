@@ -62,11 +62,11 @@ export default function About() {
             storyFade.visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          <p className="font-sans text-white/70 text-[16px] md:text-[17px] leading-relaxed">
+          <p className="font-sans text-white/70 text-[17px] md:text-[18px] leading-relaxed">
             Before founding Civic Strategy Partners, I served as a Contract Specialist (1102)
             inside GSA&rsquo;s Multiple Award Schedule program.
           </p>
-          <p className="font-sans text-white/70 text-[16px] md:text-[17px] leading-relaxed">
+          <p className="font-sans text-white/70 text-[17px] md:text-[18px] leading-relaxed">
             I reviewed and evaluated offers. I negotiated pricing. I audited contract files.
             I assessed compliance posture. I saw exactly where companies strengthened their
             position — and where they quietly lost leverage.
@@ -76,7 +76,7 @@ export default function About() {
             <br />
             <span className="text-brand-gold">Now I sit in yours.</span>
           </p>
-          <p className="font-sans text-white/70 text-[16px] md:text-[17px] leading-relaxed">
+          <p className="font-sans text-white/70 text-[17px] md:text-[18px] leading-relaxed">
             Civic Strategy Partners was built around a simple premise: if you understand how
             government evaluators think, how negotiations unfold, and where scrutiny actually
             lands — you can engineer contract position, not just file paperwork.
@@ -94,7 +94,7 @@ export default function About() {
           <p className="font-cormorant font-semibold text-brand-gold text-[11px] tracking-[0.3em] uppercase mb-4">
             Firm Philosophy
           </p>
-          <p className="font-sans text-white/65 text-[16px] md:text-[17px] leading-relaxed">
+          <p className="font-sans text-white/80 text-[17px] md:text-[18px] leading-relaxed">
             This firm is intentionally structured as an elite boutique advisory. Limited client
             load. Direct Principal access. Embedded execution when necessary. No junior layers.
             No outsourced drafting teams. No volume-based template business. One contract vehicle.
@@ -116,19 +116,19 @@ export default function About() {
             {credentials.map((cred, i) => (
               <div key={i} className="flex items-start gap-3">
                 <span className="text-brand-gold mt-1.5 text-[10px]">◆</span>
-                <span className="font-sans text-white/65 text-[15px] md:text-[16px] leading-relaxed">{cred}</span>
+                <span className="font-sans text-white/80 text-[16px] md:text-[17px] leading-relaxed">{cred}</span>
               </div>
             ))}
           </div>
 
-          <p className="font-cormorant font-semibold text-white/40 text-[11px] tracking-[0.25em] uppercase mb-4">
+          <p className="font-cormorant font-semibold text-white/60 text-[11px] tracking-[0.25em] uppercase mb-4">
             Currently Pursuing
           </p>
           <div className="space-y-3">
             {pursuing.map((cert, i) => (
               <div key={i} className="flex items-start gap-3">
-                <span className="text-brand-gold/50 mt-1.5 text-[10px]">◆</span>
-                <span className="font-sans text-white/50 text-[15px] leading-relaxed">{cert}</span>
+                <span className="text-brand-gold/65 mt-1.5 text-[10px]">◆</span>
+                <span className="font-sans text-white/60 text-[15px] leading-relaxed">{cert}</span>
               </div>
             ))}
           </div>
@@ -147,7 +147,7 @@ export default function About() {
           <p className="font-playfair font-bold text-white text-xl md:text-2xl italic mb-3">
             Virtuum Civium Ductus
           </p>
-          <p className="font-sans text-white/50 text-[15px] leading-relaxed max-w-[550px] mx-auto">
+          <p className="font-sans text-white/60 text-[15px] leading-relaxed max-w-[550px] mx-auto">
             &ldquo;The Leadership of the Citizens&rsquo; Virtues.&rdquo; The government runs on the
             capabilities of its contractors. This motto signifies our role in mobilizing the best
             of the commercial world for public service.

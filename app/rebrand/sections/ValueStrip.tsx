@@ -46,11 +46,11 @@ export default function ValueStrip() {
               {pillar.label}
             </p>
             {/* Title */}
-            <h3 className="font-playfair font-bold text-white text-xl md:text-[22px] mb-4 leading-tight">
+            <h3 className="font-playfair font-bold text-white text-[22px] md:text-[24px] mb-4 leading-tight">
               {pillar.title}
             </h3>
             {/* Description */}
-            <p className="font-sans text-white/60 text-[15px] leading-relaxed">
+            <p className="font-sans text-white/80 text-[16px] leading-relaxed">
               {pillar.description}
             </p>
           </div>

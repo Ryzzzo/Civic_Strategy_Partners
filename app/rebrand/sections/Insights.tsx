@@ -58,7 +58,7 @@ export default function Insights() {
           <div className="flex justify-center">
             <GoldDivider width={60} />
           </div>
-          <p className="font-sans text-white/55 text-[16px] leading-relaxed max-w-[500px] mx-auto">
+          <p className="font-sans text-white/80 text-[16px] leading-relaxed max-w-[500px] mx-auto">
             Analysis and perspective from a former GSA Contract Specialist.
           </p>
         </div>
@@ -77,7 +77,7 @@ export default function Insights() {
               style={{ background: 'rgba(21,42,69,0.5)' }}
             >
               {/* Tag */}
-              <p className="font-cormorant font-semibold text-brand-gold/70 text-[11px] tracking-[0.25em] uppercase mb-3">
+              <p className="font-cormorant font-semibold text-brand-gold/80 text-[11px] tracking-[0.25em] uppercase mb-3">
                 {article.tag}
               </p>
 
@@ -88,13 +88,13 @@ export default function Insights() {
 
               {/* Byline */}
               {article.byline && (
-                <p className="font-cormorant text-white/40 text-[14px] italic mb-4">
+                <p className="font-cormorant text-white/60 text-[14px] italic mb-4">
                   {article.byline}
                 </p>
               )}
 
               {/* Synopsis */}
-              <p className="font-sans text-white/55 text-[15px] leading-relaxed">
+              <p className="font-sans text-white/80 text-[16px] leading-relaxed">
                 {article.synopsis}
               </p>
 
