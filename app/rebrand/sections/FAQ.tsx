@@ -1,9 +1,107 @@
 'use client';
 
+import { useState } from 'react';
+import { useFadeIn } from '../hooks/useFadeIn';
+import GoldDivider from '../components/GoldDivider';
+
+const faqs = [
+  {
+    q: 'What exactly does a fractional GSA MAS authorized negotiator do?',
+    a: "I function as your embedded GSA MAS expert — handling offer builds, modifications, pricing strategy, compliance management, and lifecycle decisions — without you hiring a full-time federal contracts specialist. You get direct access to someone who spent years inside GSA reviewing these exact contracts from the government side.",
+  },
+  {
+    q: 'Who is an ideal client for Civic Strategy Partners?',
+    a: "Companies that already hold a GSA MAS contract and aren't seeing the revenue it should generate. Companies entering the federal marketplace that want to do it right the first time. And companies that have had bad experiences with GovCon consultants who delivered paperwork instead of strategy. If you treat your contract like a checkbox, we're probably not a fit. If you treat it like a revenue channel, we are.",
+  },
+  {
+    q: "What's the difference between Tier 1 and Tier 2 engagements?",
+    a: "Tier 1 (Fractional Authorized Negotiator) is full embedding — I lead the work directly, including negotiation, modification execution, and direct engagement with contracting officers. Tier 2 (Strategic Retainer Advisory) is oversight-led — you execute internally, and I provide strategy, review, and correction. Both include direct Principal access. The difference is depth of execution involvement.",
+  },
+  {
+    q: "What's wrong with most GSA MAS consultants?",
+    a: "Most are upload shops. They help you submit documents and move on. They don't go deep on pricing posture, SIN alignment, EPA clause strategy, or what actually happens when a contracting officer opens your file. I've been that contracting officer. My work is built around what happens after submission.",
+  },
+  {
+    q: "Do you work with companies that don't have a GSA Schedule yet?",
+    a: "Yes. I offer Federal Market Readiness Roadmaps and Offer Readiness Diagnostics for companies evaluating whether MAS is the right path and how to position themselves competitively. I'll also tell you honestly if GSA MAS isn't the right vehicle for your situation.",
+  },
+  {
+    q: 'Can you help with SBIR Phase III and GSA MAS combined strategy?',
+    a: "Yes. The intersection of SBIR Phase III authority and GSA MAS is underutilized and often misunderstood. I help clients understand how to structure these vehicles together to maximize compliance defensibility and sales channel coverage. See the Resources section for a one-pager on this topic.",
+  },
+  {
+    q: 'How do I get started?',
+    a: "Book a strategy call through the Contact page. We'll talk through your current situation, what you're trying to accomplish, and whether there's a fit. No pitch — just a direct conversation about where you are and what it would take to get where you want to go.",
+  },
+];
+
 export default function FAQ() {
+  const headerFade = useFadeIn();
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
   return (
-    <section className="py-24 bg-brand-cream flex items-center justify-center text-brand-navy-deep font-playfair text-2xl">
-      FAQ — Placeholder
+    <section
+      id="faq"
+      className="py-24 md:py-32 px-6"
+      style={{ background: '#F5F1EB' }}
+    >
+      <div className="max-w-[720px] mx-auto">
+
+        {/* ── Header ── */}
+        <div
+          ref={headerFade.ref}
+          className={`text-center mb-12 transition-all duration-1000 ease-[cubic-bezier(.22,1,.36,1)] ${
+            headerFade.visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
+          <p className="font-cormorant font-semibold text-brand-gold text-[12px] tracking-[0.35em] uppercase mb-4">
+            FAQ
+          </p>
+          <h2 className="font-playfair font-bold text-[#0C1B2E] text-3xl md:text-[38px] leading-tight">
+            Frequently Asked Questions
+          </h2>
+          <div className="flex justify-center">
+            <GoldDivider width={60} />
+          </div>
+        </div>
+
+        {/* ── Accordion ── */}
+        <div>
+          {faqs.map((faq, i) => (
+            <div
+              key={i}
+              className="border-b border-[#0C1B2E]/10 cursor-pointer"
+              onClick={() => setOpenIndex(openIndex === i ? null : i)}
+            >
+              {/* Question */}
+              <div className="flex justify-between items-center py-6">
+                <h3 className="font-playfair font-semibold text-[#0C1B2E] text-[16px] md:text-[17px] pr-5 leading-snug">
+                  {faq.q}
+                </h3>
+                <span
+                  className={`text-brand-gold text-2xl font-light flex-shrink-0 transition-transform duration-300 ${
+                    openIndex === i ? 'rotate-45' : 'rotate-0'
+                  }`}
+                >
+                  +
+                </span>
+              </div>
+
+              {/* Answer */}
+              <div
+                className={`overflow-hidden transition-all duration-400 ${
+                  openIndex === i ? 'max-h-[400px] pb-6' : 'max-h-0'
+                }`}
+              >
+                <p className="font-sans text-[#1B3A5C] text-[15px] md:text-[16px] leading-relaxed">
+                  {faq.a}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
     </section>
   );
 }
