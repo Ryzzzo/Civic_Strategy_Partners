@@ -3,6 +3,7 @@
 import Navbar from './sections/Navbar';
 import Hero from './sections/Hero';
 import ValueStrip from './sections/ValueStrip';
+import CorePositioning from './sections/CorePositioning';
 import Services from './sections/Services';
 import About from './sections/About';
 import Testimonials from './sections/Testimonials';
@@ -18,6 +19,7 @@ export default function CSPRebrandLayout() {
       <Navbar />
       <Hero />
       <ValueStrip />
+      <CorePositioning />
       <Services />
       <About />
       <Testimonials />
