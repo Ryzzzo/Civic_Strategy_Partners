@@ -12,6 +12,7 @@ const config: Config = {
       fontFamily: {
         sans: ['var(--font-inter)', 'sans-serif'],
         playfair: ['var(--font-playfair)', 'serif'],
+        cormorant: ['var(--font-cormorant)', 'Georgia', 'serif'],
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
@@ -24,6 +25,20 @@ const config: Config = {
         sm: 'calc(var(--radius) - 4px)',
       },
       colors: {
+        brand: {
+          navy: {
+            deep: '#0C1B2E',
+            DEFAULT: '#152A45',
+            light: '#1B3A5C',
+          },
+          gold: {
+            DEFAULT: '#C5993A',
+            light: '#D4AA4F',
+            muted: '#B8924A',
+          },
+          cream: '#F5F1EB',
+          gray: '#8A9AAE',
+        },
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {

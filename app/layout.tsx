@@ -1,6 +1,6 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Inter, Playfair_Display } from 'next/font/google';
+import { Inter, Playfair_Display, Cormorant_Garamond } from 'next/font/google';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -15,6 +15,12 @@ const playfair = Playfair_Display({
   display: 'swap',
   preload: true,
   adjustFontFallback: true
+});
+const cormorant = Cormorant_Garamond({
+  subsets: ['latin'],
+  variable: '--font-cormorant',
+  display: 'swap',
+  weight: ['300', '400', '500', '600', '700'],
 });
 
 export const metadata: Metadata = {
@@ -98,7 +104,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`${inter.variable} ${playfair.variable} font-sans`}>
+      <body className={`${inter.variable} ${playfair.variable} ${cormorant.variable} font-sans`}>
         {children}
         <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/244293135.js"></script>
       </body>
