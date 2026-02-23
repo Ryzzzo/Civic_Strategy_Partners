@@ -19,7 +19,7 @@ export default function CorePositioning() {
           visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}
       >
-        <p className="font-cormorant font-semibold text-brand-gold text-[12px] tracking-[0.35em] uppercase mb-6">
+        <p className="font-cormorant font-semibold text-brand-gold text-[14px] tracking-[0.35em] uppercase mb-6">
           How I Work
         </p>
 

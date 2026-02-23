@@ -54,7 +54,7 @@ export default function FAQ() {
             headerFade.visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          <p className="font-cormorant font-semibold text-brand-gold text-[12px] tracking-[0.35em] uppercase mb-4">
+          <p className="font-cormorant font-semibold text-brand-gold text-[14px] tracking-[0.35em] uppercase mb-4">
             FAQ
           </p>
           <h2 className="font-playfair font-bold text-[#0C1B2E] text-3xl md:text-[38px] leading-tight">
@@ -89,13 +89,15 @@ export default function FAQ() {
 
               {/* Answer */}
               <div
-                className={`overflow-hidden transition-all duration-400 ${
-                  openIndex === i ? 'max-h-[400px] pb-6' : 'max-h-0'
+                className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${
+                  openIndex === i ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
                 }`}
               >
-                <p className="font-sans text-[#1B3A5C] text-[15px] md:text-[16px] leading-relaxed">
-                  {faq.a}
-                </p>
+                <div className="overflow-hidden">
+                  <p className="font-sans text-[#1B3A5C] text-[15px] md:text-[16px] leading-relaxed pb-6">
+                    {faq.a}
+                  </p>
+                </div>
               </div>
             </div>
           ))}

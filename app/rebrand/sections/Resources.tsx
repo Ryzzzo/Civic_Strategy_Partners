@@ -49,7 +49,7 @@ export default function Resources() {
             headerFade.visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          <p className="font-cormorant font-semibold text-brand-gold text-[12px] tracking-[0.35em] uppercase mb-4">
+          <p className="font-cormorant font-semibold text-brand-gold text-[14px] tracking-[0.35em] uppercase mb-4">
             Resource Library
           </p>
           <h2 className="font-playfair font-bold text-[#0C1B2E] text-3xl md:text-[38px] leading-tight mb-2">
@@ -122,7 +122,7 @@ export default function Resources() {
               className="p-6 md:p-8 bg-white border border-[#0C1B2E]/8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
             >
               <div className="flex-1">
-                <p className="font-cormorant font-semibold text-brand-gold text-[10px] tracking-[0.25em] uppercase mb-2">
+                <p className="font-cormorant font-semibold text-brand-gold text-[14px] tracking-[0.25em] uppercase mb-2">
                   {resource.tag}
                 </p>
                 <h4 className="font-playfair font-bold text-[#0C1B2E] text-[16px] md:text-[17px] leading-tight mb-2">

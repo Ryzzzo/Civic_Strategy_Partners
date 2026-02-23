@@ -68,7 +68,7 @@ export default function Testimonials() {
             headerFade.visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          <p className="font-cormorant font-semibold text-brand-gold text-[12px] tracking-[0.35em] uppercase mb-4">
+          <p className="font-cormorant font-semibold text-brand-gold text-[14px] tracking-[0.35em] uppercase mb-4">
             Client Testimonials
           </p>
           <h2 className="font-playfair font-bold text-white text-3xl md:text-[40px] leading-tight">
@@ -93,7 +93,7 @@ export default function Testimonials() {
               style={{ background: 'rgba(21,42,69,0.6)' }}
             >
               {/* Quote Mark */}
-              <div className="font-playfair text-[48px] text-brand-gold/20 leading-none mb-2">
+              <div className="font-playfair text-[48px] text-brand-gold/30 leading-none mb-2">
                 &ldquo;
               </div>
 

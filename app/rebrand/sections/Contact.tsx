@@ -35,7 +35,7 @@ export default function Contact() {
             headerFade.visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          <p className="font-cormorant font-semibold text-brand-gold text-[12px] tracking-[0.35em] uppercase mb-4">
+          <p className="font-cormorant font-semibold text-brand-gold text-[14px] tracking-[0.35em] uppercase mb-4">
             Get in Touch
           </p>
           <h2 className="font-playfair font-bold text-white text-3xl md:text-[40px] leading-tight">
@@ -131,12 +131,12 @@ export default function Contact() {
             <div className="space-y-8">
               {/* CTA Block */}
               <div className="p-6 border-l-[3px] border-l-brand-gold" style={{ background: 'rgba(21,42,69,0.5)' }}>
-                <p className="font-sans text-white/80 text-[15px] leading-relaxed mb-4">
+                <p className="font-sans text-white/90 text-[15px] leading-relaxed mb-4">
                   If your GSA MAS contract exists but is not producing, that is a strategy issue — not a paperwork issue.
                 </p>
                 <a
                   href="#contact"
-                  className="inline-block font-cormorant font-semibold text-brand-gold text-[13px] tracking-[0.15em] uppercase no-underline hover:tracking-[0.2em] transition-all duration-300"
+                  className="inline-block font-cormorant font-semibold text-brand-gold text-[15px] tracking-[0.15em] uppercase no-underline hover:tracking-[0.2em] transition-all duration-300"
                 >
                   Schedule a Consultation →
                 </a>
@@ -145,7 +145,7 @@ export default function Contact() {
               {/* Contact Details */}
               <div className="space-y-6 pt-4">
                 <div>
-                  <p className="font-cormorant font-semibold text-brand-gold text-[10px] tracking-[0.25em] uppercase mb-1">
+                  <p className="font-cormorant font-semibold text-brand-gold text-[14px] tracking-[0.25em] uppercase mb-1">
                     Phone
                   </p>
                   <p className="font-sans text-white/70 text-[15px]">
@@ -154,7 +154,7 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <p className="font-cormorant font-semibold text-brand-gold text-[10px] tracking-[0.25em] uppercase mb-1">
+                  <p className="font-cormorant font-semibold text-brand-gold text-[14px] tracking-[0.25em] uppercase mb-1">
                     Email
                   </p>
                   <a href="mailto:info@civicstrategypartners.com" className="font-sans text-white/70 text-[15px] hover:text-brand-gold transition-colors no-underline">
@@ -163,7 +163,7 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <p className="font-cormorant font-semibold text-brand-gold text-[10px] tracking-[0.25em] uppercase mb-1">
+                  <p className="font-cormorant font-semibold text-brand-gold text-[14px] tracking-[0.25em] uppercase mb-1">
                     Website
                   </p>
                   <p className="font-sans text-white/70 text-[15px]">
@@ -172,7 +172,7 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <p className="font-cormorant font-semibold text-brand-gold text-[10px] tracking-[0.25em] uppercase mb-1">
+                  <p className="font-cormorant font-semibold text-brand-gold text-[14px] tracking-[0.25em] uppercase mb-1">
                     Signal
                   </p>
                   <p className="font-sans text-white/70 text-[15px]">

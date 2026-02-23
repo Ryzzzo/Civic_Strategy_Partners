@@ -14,7 +14,7 @@ export default function Footer() {
             <img
               src="/fy26_update/new_logo_2026_clear.png"
               alt="Civic Strategy Partners"
-              className="h-10"
+              className="h-20"
             />
           </div>
 

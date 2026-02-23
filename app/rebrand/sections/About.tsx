@@ -42,7 +42,7 @@ export default function About() {
             headerFade.visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          <p className="font-cormorant font-semibold text-brand-gold text-[12px] tracking-[0.35em] uppercase mb-4">
+          <p className="font-cormorant font-semibold text-brand-gold text-[14px] tracking-[0.35em] uppercase mb-4">
             About
           </p>
           <h2 className="font-playfair font-bold text-white text-3xl md:text-[40px] leading-tight">
@@ -91,7 +91,7 @@ export default function About() {
           }`}
           style={{ background: 'rgba(21,42,69,0.5)' }}
         >
-          <p className="font-cormorant font-semibold text-brand-gold text-[11px] tracking-[0.3em] uppercase mb-4">
+          <p className="font-cormorant font-semibold text-brand-gold text-[14px] tracking-[0.3em] uppercase mb-4">
             Firm Philosophy
           </p>
           <p className="font-sans text-white/80 text-[17px] md:text-[18px] leading-relaxed">
@@ -109,7 +109,7 @@ export default function About() {
             credentialsFade.visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          <p className="font-cormorant font-semibold text-brand-gold text-[11px] tracking-[0.3em] uppercase mb-6">
+          <p className="font-cormorant font-semibold text-brand-gold text-[14px] tracking-[0.3em] uppercase mb-6">
             Background & Credentials
           </p>
           <div className="space-y-3 mb-8">
@@ -121,7 +121,7 @@ export default function About() {
             ))}
           </div>
 
-          <p className="font-cormorant font-semibold text-white/60 text-[11px] tracking-[0.25em] uppercase mb-4">
+          <p className="font-cormorant font-semibold text-white/60 text-[14px] tracking-[0.25em] uppercase mb-4">
             Currently Pursuing
           </p>
           <div className="space-y-3">
@@ -141,7 +141,7 @@ export default function About() {
             mottoFade.visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          <p className="font-cormorant font-semibold text-brand-gold text-[11px] tracking-[0.3em] uppercase mb-3">
+          <p className="font-cormorant font-semibold text-brand-gold text-[14px] tracking-[0.3em] uppercase mb-3">
             Our Motto
           </p>
           <p className="font-playfair font-bold text-white text-xl md:text-2xl italic mb-3">

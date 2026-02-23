@@ -42,7 +42,7 @@ export default function ValueStrip() {
         {pillars.map((pillar, i) => (
           <div key={i} className="text-center md:text-left">
             {/* Gold label */}
-            <p className="font-cormorant font-semibold text-brand-gold text-[11px] tracking-[0.3em] uppercase mb-3">
+            <p className="font-cormorant font-semibold text-brand-gold text-[14px] tracking-[0.3em] uppercase mb-3">
               {pillar.label}
             </p>
             {/* Title */}

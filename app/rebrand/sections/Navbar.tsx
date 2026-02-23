@@ -23,7 +23,7 @@ export default function Navbar() {
     >
       <div
         className={`max-w-[1200px] mx-auto flex items-center justify-between transition-all duration-400 ${
-          scrolled ? 'h-[72px]' : 'h-24'
+          scrolled ? 'h-20' : 'h-32'
         }`}
       >
         {/* Logo Area */}
@@ -31,7 +31,7 @@ export default function Navbar() {
           <img
             src="/fy26_update/new_logo_2026_clear.png"
             alt="Civic Strategy Partners"
-            className={`transition-all duration-400 ${scrolled ? 'h-12' : 'h-16'}`}
+            className={`transition-all duration-400 ${scrolled ? 'h-16' : 'h-24'}`}
           />
         </a>
 

@@ -37,6 +37,14 @@ export default function Hero() {
         }}
       />
 
+      {/* CSP Seal Watermark */}
+      <img
+        src="/fy26_update/new_logo_2026_clear.png"
+        alt=""
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] md:w-[600px] lg:w-[700px] opacity-[0.04] rotate-[6deg] pointer-events-none select-none"
+        aria-hidden="true"
+      />
+
       {/* Content */}
       <div className="relative z-10 text-center max-w-[800px] px-6 pt-28 pb-20">
         {/* Eyebrow */}
@@ -45,7 +53,7 @@ export default function Hero() {
             loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
           }`}
         >
-          <p className="font-cormorant font-semibold text-brand-gold text-[14px] tracking-[0.3em] uppercase mb-8">
+          <p className="font-cormorant font-semibold text-brand-gold text-[16px] tracking-[0.3em] uppercase mb-8">
             Elite Federal Contract Advisory
           </p>
         </div>

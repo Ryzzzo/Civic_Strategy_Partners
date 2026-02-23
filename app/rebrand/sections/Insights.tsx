@@ -49,7 +49,7 @@ export default function Insights() {
           }`}
         >
           {/* Civic Strategy Briefing logo placeholder */}
-          <p className="font-cormorant font-semibold text-brand-gold text-[12px] tracking-[0.35em] uppercase mb-4">
+          <p className="font-cormorant font-semibold text-brand-gold text-[14px] tracking-[0.35em] uppercase mb-4">
             Civic Strategy Briefing
           </p>
           <h2 className="font-playfair font-bold text-white text-3xl md:text-[40px] leading-tight">
@@ -77,7 +77,7 @@ export default function Insights() {
               style={{ background: 'rgba(21,42,69,0.5)' }}
             >
               {/* Tag */}
-              <p className="font-cormorant font-semibold text-brand-gold/80 text-[11px] tracking-[0.25em] uppercase mb-3">
+              <p className="font-cormorant font-semibold text-brand-gold/80 text-[14px] tracking-[0.25em] uppercase mb-3">
                 {article.tag}
               </p>
 
@@ -99,7 +99,7 @@ export default function Insights() {
               </p>
 
               {/* Read More */}
-              <p className="font-cormorant font-semibold text-brand-gold text-[13px] tracking-[0.15em] uppercase mt-5 group-hover:tracking-[0.2em] transition-all duration-300">
+              <p className="font-cormorant font-semibold text-brand-gold text-[15px] tracking-[0.15em] uppercase mt-5 group-hover:tracking-[0.2em] transition-all duration-300">
                 Read More →
               </p>
             </div>
