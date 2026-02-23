@@ -68,7 +68,7 @@ export default function Testimonials() {
             headerFade.visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          <p className="font-cormorant font-semibold text-brand-gold text-[14px] tracking-[0.35em] uppercase mb-4">
+          <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.35em] uppercase mb-4">
             Client Testimonials
           </p>
           <h2 className="font-playfair font-bold text-white text-3xl md:text-[40px] leading-tight">
@@ -98,7 +98,7 @@ export default function Testimonials() {
               </div>
 
               {/* Quote Text */}
-              <p className="font-cormorant text-white/75 text-[17px] md:text-[18px] leading-relaxed italic mb-6">
+              <p className="font-playfair text-white/75 text-[17px] md:text-[18px] leading-relaxed italic mb-6">
                 {t.text}
               </p>
 
@@ -107,10 +107,10 @@ export default function Testimonials() {
                 <p className="font-playfair font-bold text-white text-[15px]">
                   {t.author}
                 </p>
-                <p className="font-cormorant text-brand-gold text-[13px] mt-1">
+                <p className="font-playfair text-brand-gold text-[13px] mt-1">
                   {t.title}
                 </p>
-                <p className="font-cormorant text-white/35 text-[12px] mt-1">
+                <p className="font-playfair text-white/35 text-[12px] mt-1">
                   {t.context}
                 </p>
               </div>

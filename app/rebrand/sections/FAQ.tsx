@@ -54,7 +54,7 @@ export default function FAQ() {
             headerFade.visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          <p className="font-cormorant font-semibold text-brand-gold text-[14px] tracking-[0.35em] uppercase mb-4">
+          <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.35em] uppercase mb-4">
             FAQ
           </p>
           <h2 className="font-playfair font-bold text-[#0C1B2E] text-3xl md:text-[38px] leading-tight">

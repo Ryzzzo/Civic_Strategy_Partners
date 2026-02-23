@@ -36,10 +36,10 @@ export const type = {
   h1: 'font-playfair font-bold',
   h2: 'font-playfair font-bold',
   h3: 'font-playfair font-semibold',
-  // Accent/Nav/Labels — Cormorant Garamond
-  label: 'font-cormorant font-semibold uppercase tracking-[0.2em]',
-  nav: 'font-cormorant font-semibold uppercase tracking-[0.15em]',
-  accent: 'font-cormorant',
+  // Accent/Nav/Labels — Playfair Display
+  label: 'font-playfair font-semibold uppercase tracking-[0.2em]',
+  nav: 'font-playfair font-semibold uppercase tracking-[0.15em]',
+  accent: 'font-playfair',
   // Body — Inter
   body: 'font-sans',
 } as const;

@@ -120,7 +120,7 @@ function TierCard({
         style={{ background: 'rgba(21,42,69,0.6)' }}
       >
         {/* Tier Label */}
-        <p className="font-cormorant font-semibold text-brand-gold text-[14px] tracking-[0.3em] uppercase mb-3">
+        <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.3em] uppercase mb-3">
           {tierLabel}
         </p>
 
@@ -130,7 +130,7 @@ function TierCard({
         </h3>
 
         {/* Subtitle */}
-        <p className="font-cormorant text-brand-gold/80 text-[15px] tracking-wide mb-6">
+        <p className="font-playfair text-brand-gold/80 text-[15px] tracking-wide mb-6">
           {subtitle}
         </p>
 
@@ -141,7 +141,7 @@ function TierCard({
 
         {/* Scope */}
         {scopeTitle && (
-          <p className="font-cormorant font-semibold text-white/60 text-[14px] tracking-[0.25em] uppercase mb-3">
+          <p className="font-playfair font-semibold text-white/60 text-[14px] tracking-[0.25em] uppercase mb-3">
             {scopeTitle}
           </p>
         )}
@@ -154,7 +154,7 @@ function TierCard({
         {/* Optional Access */}
         {optionalTitle && optionalItems && (
           <>
-            <p className="font-cormorant font-semibold text-white/60 text-[14px] tracking-[0.25em] uppercase mb-3 mt-6">
+            <p className="font-playfair font-semibold text-white/60 text-[14px] tracking-[0.25em] uppercase mb-3 mt-6">
               {optionalTitle}
             </p>
             <div className="mb-6">
@@ -167,7 +167,7 @@ function TierCard({
 
         {/* Footnote */}
         {footnote && (
-          <p className="font-cormorant text-brand-gold/65 text-[14px] italic mt-6 pt-6 border-t border-white/[0.06]">
+          <p className="font-playfair text-brand-gold/65 text-[14px] italic mt-6 pt-6 border-t border-white/[0.06]">
             {footnote}
           </p>
         )}
@@ -201,7 +201,7 @@ export default function Services() {
             headerFade.visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          <p className="font-cormorant font-semibold text-brand-gold text-[14px] tracking-[0.35em] uppercase mb-4">
+          <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.35em] uppercase mb-4">
             Engagement Models
           </p>
           <h2 className="font-playfair font-bold text-white text-3xl md:text-[40px] leading-tight mb-4">
@@ -232,7 +232,7 @@ export default function Services() {
               className="p-6 border border-white/[0.06] hover:border-brand-gold/20 transition-all duration-300"
               style={{ background: 'rgba(21,42,69,0.4)' }}
             >
-              <p className="font-cormorant font-semibold text-brand-gold text-[14px] tracking-[0.3em] uppercase mb-3">
+              <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.3em] uppercase mb-3">
                 {lane.label}
               </p>
               <h4 className="font-playfair font-bold text-white text-[17px] md:text-[18px] leading-tight mb-3">
@@ -247,7 +247,7 @@ export default function Services() {
 
         {/* Standalone options note */}
         <div className="text-center mb-20">
-          <p className="font-cormorant text-white/60 text-[14px] tracking-wide">
+          <p className="font-playfair text-white/60 text-[14px] tracking-wide">
             Standalone options: <span className="text-brand-gold/75">MAS Optimization Roadmaps</span> · <span className="text-brand-gold/75">À la Carte Modification Support</span>
           </p>
         </div>
@@ -298,7 +298,7 @@ export default function Services() {
           }`}
         >
           <div className="p-8 md:p-10 border border-white/[0.06]" style={{ background: 'rgba(21,42,69,0.3)' }}>
-            <p className="font-cormorant font-semibold text-brand-gold text-[14px] tracking-[0.3em] uppercase mb-6">
+            <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.3em] uppercase mb-6">
               Additional Strategic Capabilities
             </p>
             {additionalCapabilities.map((item, i) => (
@@ -314,7 +314,7 @@ export default function Services() {
             philosophyFade.visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          <p className="font-cormorant font-semibold text-brand-gold text-[14px] tracking-[0.35em] uppercase mb-4">
+          <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.35em] uppercase mb-4">
             Investment & Engagement Philosophy
           </p>
           <p className="font-sans text-white/80 text-[16px] md:text-[17px] leading-relaxed max-w-[680px] mx-auto">

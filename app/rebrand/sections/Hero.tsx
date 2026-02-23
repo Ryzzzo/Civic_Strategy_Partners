@@ -41,7 +41,7 @@ export default function Hero() {
       <img
         src="/fy26_update/new_logo_2026_clear.png"
         alt=""
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] md:w-[600px] lg:w-[700px] opacity-[0.04] rotate-[6deg] pointer-events-none select-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] md:w-[900px] lg:w-[1000px] opacity-[0.06] rotate-[6deg] pointer-events-none select-none"
         aria-hidden="true"
       />
 
@@ -53,7 +53,7 @@ export default function Hero() {
             loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
           }`}
         >
-          <p className="font-cormorant font-semibold text-brand-gold text-[16px] tracking-[0.3em] uppercase mb-8">
+          <p className="font-playfair font-semibold text-brand-gold text-[16px] tracking-[0.3em] uppercase mb-8">
             Elite Federal Contract Advisory
           </p>
         </div>
@@ -80,7 +80,7 @@ export default function Hero() {
           <div className="flex justify-center">
             <GoldDivider width={80} />
           </div>
-          <p className="font-cormorant text-white/75 text-xl md:text-[22px] leading-relaxed max-w-[580px] mx-auto mb-10 font-light">
+          <p className="font-playfair text-white/75 text-xl md:text-[22px] leading-relaxed max-w-[580px] mx-auto mb-10 font-normal">
             I embed with companies as their fractional GSA MAS authorized negotiator
             and executive advisor — leading new offers, modifications, pricing strategy,
             and lifecycle compliance without the overhead of a full-time hire.
@@ -93,7 +93,7 @@ export default function Hero() {
             loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
           }`}
         >
-          <p className="font-cormorant text-brand-gold/75 text-[15px] tracking-[0.18em] uppercase mb-10">
+          <p className="font-playfair text-brand-gold/75 text-[15px] tracking-[0.18em] uppercase mb-10">
             Principal-led · Retainer-based · Built for revenue performance
           </p>
         </div>
@@ -106,7 +106,7 @@ export default function Hero() {
         >
           <a
             href="#contact"
-            className="inline-block px-9 py-4 font-cormorant font-bold text-[15px] tracking-[0.18em] uppercase text-brand-navy-deep no-underline transition-all duration-300 hover:opacity-90 hover:-translate-y-px"
+            className="inline-block px-9 py-4 font-playfair font-bold text-[15px] tracking-[0.18em] uppercase text-brand-navy-deep no-underline transition-all duration-300 hover:opacity-90 hover:-translate-y-px"
             style={{
               background: 'linear-gradient(135deg, #C5993A, #D4AA4F)',
               boxShadow: '0 4px 24px rgba(197,153,58,0.2)',
@@ -116,7 +116,7 @@ export default function Hero() {
           </a>
           <a
             href="#services"
-            className="inline-block px-9 py-4 font-cormorant font-semibold text-[15px] tracking-[0.18em] uppercase text-white/80 border border-white/15 hover:border-brand-gold/40 hover:text-brand-gold transition-all duration-300 no-underline"
+            className="inline-block px-9 py-4 font-playfair font-semibold text-[15px] tracking-[0.18em] uppercase text-white/80 border border-white/15 hover:border-brand-gold/40 hover:text-brand-gold transition-all duration-300 no-underline"
           >
             How I Work →
           </a>

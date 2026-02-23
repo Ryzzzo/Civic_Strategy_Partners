@@ -35,7 +35,7 @@ export default function Contact() {
             headerFade.visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          <p className="font-cormorant font-semibold text-brand-gold text-[14px] tracking-[0.35em] uppercase mb-4">
+          <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.35em] uppercase mb-4">
             Get in Touch
           </p>
           <h2 className="font-playfair font-bold text-white text-3xl md:text-[40px] leading-tight">
@@ -110,7 +110,7 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="w-full sm:w-auto px-10 py-4 font-cormorant font-bold text-[14px] tracking-[0.2em] uppercase text-[#0C1B2E] transition-all duration-300 hover:opacity-90 hover:-translate-y-px"
+                className="w-full sm:w-auto px-10 py-4 font-playfair font-bold text-[14px] tracking-[0.2em] uppercase text-[#0C1B2E] transition-all duration-300 hover:opacity-90 hover:-translate-y-px"
                 style={{
                   background: 'linear-gradient(135deg, #C5993A, #D4AA4F)',
                   boxShadow: '0 4px 24px rgba(197,153,58,0.2)',
@@ -136,7 +136,7 @@ export default function Contact() {
                 </p>
                 <a
                   href="#contact"
-                  className="inline-block font-cormorant font-semibold text-brand-gold text-[15px] tracking-[0.15em] uppercase no-underline hover:tracking-[0.2em] transition-all duration-300"
+                  className="inline-block font-playfair font-semibold text-brand-gold text-[15px] tracking-[0.15em] uppercase no-underline hover:tracking-[0.2em] transition-all duration-300"
                 >
                   Schedule a Consultation →
                 </a>
@@ -145,7 +145,7 @@ export default function Contact() {
               {/* Contact Details */}
               <div className="space-y-6 pt-4">
                 <div>
-                  <p className="font-cormorant font-semibold text-brand-gold text-[14px] tracking-[0.25em] uppercase mb-1">
+                  <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.25em] uppercase mb-1">
                     Phone
                   </p>
                   <p className="font-sans text-white/70 text-[15px]">
@@ -154,7 +154,7 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <p className="font-cormorant font-semibold text-brand-gold text-[14px] tracking-[0.25em] uppercase mb-1">
+                  <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.25em] uppercase mb-1">
                     Email
                   </p>
                   <a href="mailto:info@civicstrategypartners.com" className="font-sans text-white/70 text-[15px] hover:text-brand-gold transition-colors no-underline">
@@ -163,7 +163,7 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <p className="font-cormorant font-semibold text-brand-gold text-[14px] tracking-[0.25em] uppercase mb-1">
+                  <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.25em] uppercase mb-1">
                     Website
                   </p>
                   <p className="font-sans text-white/70 text-[15px]">
@@ -172,7 +172,7 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <p className="font-cormorant font-semibold text-brand-gold text-[14px] tracking-[0.25em] uppercase mb-1">
+                  <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.25em] uppercase mb-1">
                     Signal
                   </p>
                   <p className="font-sans text-white/70 text-[15px]">
