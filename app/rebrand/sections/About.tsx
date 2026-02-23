@@ -29,7 +29,7 @@ export default function About() {
         {/* ── Section Header ── */}
         <ScrollReveal>
           <div className="text-center mb-16">
-            <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.35em] uppercase mb-4">
+            <p className="font-playfair font-bold text-brand-gold text-lg md:text-xl tracking-[0.2em] uppercase mb-4">
               About
             </p>
             <h2 className="font-playfair font-bold text-white text-3xl md:text-[40px] leading-tight">
@@ -73,7 +73,7 @@ export default function About() {
           <div
             className="p-8 md:p-10 mb-20 border-l-[3px] border-l-brand-gold bg-white/5 backdrop-blur-md border border-white/10 rounded-xl"
           >
-            <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.3em] uppercase mb-4">
+            <p className="font-playfair font-bold text-brand-gold text-base tracking-[0.15em] uppercase mb-4">
               Firm Philosophy
             </p>
             <p className="font-sans text-white/80 text-[17px] md:text-[18px] leading-relaxed">
@@ -88,7 +88,7 @@ export default function About() {
         {/* ── Background & Credentials ── */}
         <ScrollReveal delay={200}>
           <div className="mb-8">
-            <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.3em] uppercase mb-6">
+            <p className="font-playfair font-bold text-brand-gold text-base tracking-[0.15em] uppercase mb-6">
               Background & Credentials
             </p>
             <div className="space-y-3">
@@ -122,7 +122,7 @@ export default function About() {
         {/* ── Motto ── */}
         <ScrollReveal delay={200}>
           <div className="text-center pt-12 border-t border-white/[0.06]">
-            <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.3em] uppercase mb-3">
+            <p className="font-playfair font-bold text-brand-gold text-base tracking-[0.15em] uppercase mb-3">
               Our Motto
             </p>
             <p className="font-playfair font-bold text-white text-xl md:text-2xl italic mb-3">

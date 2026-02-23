@@ -10,7 +10,7 @@ export default function CorePositioning() {
     >
       <div className="max-w-[720px] mx-auto text-center">
         <ScrollReveal>
-          <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.35em] uppercase mb-6">
+          <p className="font-playfair font-bold text-brand-gold text-lg md:text-xl tracking-[0.2em] uppercase mb-6">
             How I Work
           </p>
 

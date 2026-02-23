@@ -48,7 +48,7 @@ export default function FAQ() {
         {/* Header */}
         <ScrollReveal>
           <div className="text-center mb-12">
-            <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.35em] uppercase mb-4">
+            <p className="font-playfair font-bold text-brand-gold text-lg md:text-xl tracking-[0.2em] uppercase mb-4">
               FAQ
             </p>
             <h2 className="font-playfair font-bold text-white text-3xl md:text-[38px] leading-tight">

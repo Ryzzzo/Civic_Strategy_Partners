@@ -3,28 +3,6 @@
 import GoldDivider from '../components/GoldDivider';
 import { ScrollReveal } from '../components/ScrollReveal';
 
-/* ───── Service Lane Preview Cards (top of section) ───── */
-const serviceLanes = [
-  {
-    label: 'Tier 1 — Flagship',
-    title: 'GSA MAS Offer Strategy & Negotiation',
-    description:
-      'Full offer development and negotiation support for companies entering the Schedule program.',
-  },
-  {
-    label: 'Tier 2 — Retainer',
-    title: 'MAS Optimization & Revenue Performance',
-    description:
-      'Strategic diagnosis, pricing posture correction, modification sequencing, and contract performance engineering for active Schedule holders.',
-  },
-  {
-    label: 'Tier 3 — Project-Based',
-    title: 'White-Glove Retainer Advisory',
-    description:
-      'Fractional authorized negotiator services for companies that treat their GSA MAS contract as a managed revenue channel.',
-  },
-];
-
 /* ───── Tier 1 Scope Items ───── */
 const tier1Scope = [
   'New MAS offer development and negotiation',
@@ -107,7 +85,7 @@ function TierCard({
       className="p-8 md:p-10 border-l-[3px] border-l-brand-gold bg-white/5 backdrop-blur-md border border-white/10 rounded-xl"
     >
       {/* Tier Label */}
-      <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.3em] uppercase mb-3">
+      <p className="font-playfair font-bold text-brand-gold text-lg md:text-xl tracking-[0.15em] uppercase mb-3">
         {tierLabel}
       </p>
 
@@ -117,7 +95,7 @@ function TierCard({
       </h3>
 
       {/* Subtitle */}
-      <p className="font-playfair text-brand-gold/90 text-[15px] tracking-wide mb-6">
+      <p className="font-playfair text-brand-gold/90 text-base tracking-wide mb-6">
         {subtitle}
       </p>
 
@@ -154,7 +132,7 @@ function TierCard({
 
       {/* Footnote */}
       {footnote && (
-        <p className="font-playfair text-brand-gold/90 text-[14px] italic mt-6 pt-6 border-t border-white/[0.06]">
+        <p className="font-playfair text-brand-gold/90 text-base italic mt-6 pt-6 border-t border-white/[0.06]">
           {footnote}
         </p>
       )}
@@ -174,7 +152,7 @@ export default function Services() {
         {/* ── Section Header ── */}
         <ScrollReveal>
           <div className="text-center mb-20">
-            <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.35em] uppercase mb-4">
+            <p className="font-playfair font-bold text-brand-gold text-lg md:text-xl tracking-[0.2em] uppercase mb-4">
               Engagement Models
             </p>
             <h2 className="font-playfair font-bold text-white text-3xl md:text-[40px] leading-tight mb-4">
@@ -192,34 +170,6 @@ export default function Services() {
             </p>
           </div>
         </ScrollReveal>
-
-        {/* ── Service Lane Preview Cards ── */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24">
-          {serviceLanes.map((lane, i) => (
-            <ScrollReveal key={i} delay={i * 200} scale={true}>
-              <div
-                className="p-6 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl hover:border-brand-gold/20 transition-all duration-300"
-              >
-                <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.3em] uppercase mb-3">
-                  {lane.label}
-                </p>
-                <h4 className="font-playfair font-bold text-white text-[17px] md:text-[18px] leading-tight mb-3">
-                  {lane.title}
-                </h4>
-                <p className="font-sans text-white/80 text-[15px] leading-relaxed">
-                  {lane.description}
-                </p>
-              </div>
-            </ScrollReveal>
-          ))}
-        </div>
-
-        {/* Standalone options note */}
-        <div className="text-center mb-20">
-          <p className="font-playfair text-white/60 text-[14px] tracking-wide">
-            Standalone options: <span className="text-brand-gold/90">MAS Optimization Roadmaps</span> · <span className="text-brand-gold/90">À la Carte Modification Support</span>
-          </p>
-        </div>
 
         {/* ── Detailed Tier Cards ── */}
         <div className="space-y-12 mb-24">
@@ -267,7 +217,7 @@ export default function Services() {
         {/* ── Additional Strategic Capabilities ── */}
         <ScrollReveal className="mb-24">
           <div className="p-8 md:p-10 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl">
-            <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.3em] uppercase mb-6">
+            <p className="font-playfair font-bold text-brand-gold text-base tracking-[0.15em] uppercase mb-6">
               Additional Strategic Capabilities
             </p>
             {additionalCapabilities.map((item, i) => (
@@ -278,7 +228,7 @@ export default function Services() {
 
         {/* ── Investment Philosophy ── */}
         <ScrollReveal className="text-center mb-24">
-          <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.35em] uppercase mb-4">
+          <p className="font-playfair font-bold text-brand-gold text-lg md:text-xl tracking-[0.2em] uppercase mb-4">
             Investment & Engagement Philosophy
           </p>
           <p className="font-sans text-white/80 text-[16px] md:text-[17px] leading-relaxed max-w-[680px] mx-auto">

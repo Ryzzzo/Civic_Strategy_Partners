@@ -31,7 +31,7 @@ export default function TestimonialPreview() {
       <div className="max-w-[1100px] mx-auto">
         <ScrollReveal>
           <div className="text-center mb-16">
-            <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.35em] uppercase mb-4">
+            <p className="font-playfair font-bold text-brand-gold text-lg md:text-xl tracking-[0.2em] uppercase mb-4">
               Client Testimonials
             </p>
             <h2 className="font-playfair font-bold text-white text-3xl md:text-[40px] leading-tight">
@@ -57,7 +57,7 @@ export default function TestimonialPreview() {
                   <p className="font-playfair font-bold text-white text-[15px]">
                     {t.author}
                   </p>
-                  <p className="font-playfair text-brand-gold text-[13px] mt-1">
+                  <p className="font-playfair text-brand-gold text-base mt-1">
                     {t.title}
                   </p>
                   <p className="font-playfair text-white/60 text-[12px] mt-1">

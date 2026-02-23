@@ -31,7 +31,7 @@ export default function ServicePreview() {
       <div className="max-w-[1000px] mx-auto">
         <ScrollReveal>
           <div className="text-center mb-16">
-            <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.35em] uppercase mb-4">
+            <p className="font-playfair font-bold text-brand-gold text-lg md:text-xl tracking-[0.2em] uppercase mb-4">
               Engagement Models
             </p>
             <h2 className="font-playfair font-bold text-white text-3xl md:text-[40px] leading-tight">
@@ -49,7 +49,7 @@ export default function ServicePreview() {
           {tiers.map((tier, i) => (
             <ScrollReveal key={i} delay={i * 200} scale={true}>
               <div className="p-6 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl hover:border-brand-gold/20 transition-all duration-300">
-                <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.3em] uppercase mb-3">
+                <p className="font-playfair font-bold text-brand-gold text-base md:text-lg tracking-[0.15em] uppercase mb-3">
                   {tier.label}
                 </p>
                 <h4 className="font-playfair font-bold text-white text-[17px] md:text-[18px] leading-tight mb-3">

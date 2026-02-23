@@ -33,7 +33,7 @@ export default function ValueStrip() {
           <ScrollReveal key={i} delay={i * 200} direction="left" distance="80px">
             <div className="text-center md:text-left">
               {/* Gold label */}
-              <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.3em] uppercase mb-3">
+              <p className="font-playfair font-bold text-brand-gold text-base md:text-lg tracking-[0.15em] uppercase mb-3">
                 {pillar.label}
               </p>
               {/* Title */}

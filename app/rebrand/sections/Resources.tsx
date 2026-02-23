@@ -41,7 +41,7 @@ export default function Resources() {
         {/* Header + Email Form */}
         <ScrollReveal>
           <div className="text-center mb-12">
-            <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.35em] uppercase mb-4">
+            <p className="font-playfair font-bold text-brand-gold text-lg md:text-xl tracking-[0.2em] uppercase mb-4">
               Resource Library
             </p>
             <h2 className="font-playfair font-bold text-white text-3xl md:text-[38px] leading-tight mb-2">
@@ -105,7 +105,7 @@ export default function Resources() {
                 className="p-6 md:p-8 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
               >
                 <div className="flex-1">
-                  <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.25em] uppercase mb-2">
+                  <p className="font-playfair font-bold text-brand-gold text-base tracking-[0.1em] uppercase mb-2">
                     {resource.tag}
                   </p>
                   <h4 className="font-playfair font-bold text-white text-[16px] md:text-[17px] leading-tight mb-2">
@@ -116,7 +116,7 @@ export default function Resources() {
                   </p>
                 </div>
                 <button
-                  className="flex-shrink-0 px-5 py-2.5 font-playfair font-semibold text-[12px] tracking-[0.15em] uppercase border border-white/20 text-white/80 hover:border-brand-gold hover:text-brand-gold transition-all duration-300"
+                  className="flex-shrink-0 px-5 py-2.5 font-playfair font-semibold text-sm tracking-[0.15em] uppercase border border-white/20 text-white/80 hover:border-brand-gold hover:text-brand-gold transition-all duration-300"
                 >
                   Download
                 </button>
