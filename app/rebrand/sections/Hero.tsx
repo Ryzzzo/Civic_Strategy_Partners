@@ -18,7 +18,21 @@ export default function Hero() {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
       {/* Content */}
-      <div className="relative z-10 text-center max-w-[800px] px-5 sm:px-6 md:px-8 pt-20 sm:pt-24 md:pt-28 pb-12 sm:pb-16 md:pb-20">
+      <div className="relative z-10 flex flex-col items-center text-center max-w-[800px] px-5 sm:px-6 md:px-8 pt-8 sm:pt-12 md:pt-20 pb-16 sm:pb-20 md:pb-28">
+
+        {/* CSP Seal — visible on mobile (since watermark is hidden), subtle on md+ */}
+        <div
+          className={`transition-all duration-1000 ease-[cubic-bezier(.22,1,.36,1)] mb-4 sm:mb-6 ${
+            loaded ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
+          }`}
+        >
+          <img
+            src="/fy26_update/new_logo_2026_clear.png"
+            alt="Civic Strategy Partners"
+            className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain mx-auto"
+          />
+        </div>
+
         {/* Eyebrow */}
         <div
           className={`transition-all duration-1000 ease-[cubic-bezier(.22,1,.36,1)] delay-200 ${
@@ -72,7 +86,7 @@ export default function Hero() {
 
         {/* CTAs */}
         <div
-          className={`transition-all duration-1000 ease-[cubic-bezier(.22,1,.36,1)] delay-[1200ms] flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center ${
+          className={`transition-all duration-1000 ease-[cubic-bezier(.22,1,.36,1)] delay-[1200ms] flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center w-full sm:w-auto ${
             loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
           }`}
         >

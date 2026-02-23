@@ -8,16 +8,16 @@ export default function RebrandLayout({ children }: { children: ReactNode }) {
       {/* Layer 1: Solid navy base */}
       <div className="fixed inset-0 bg-[#0a1628]" style={{ zIndex: 0 }} />
 
-      {/* Layer 2: CSP seal watermark — above navy, below content */}
+      {/* Layer 2: CSP seal watermark — hidden on mobile, visible on md+ */}
       <div
-        className="fixed inset-0 flex items-center justify-center pointer-events-none"
+        className="hidden md:flex fixed inset-0 items-center justify-center pointer-events-none"
         style={{ zIndex: 2 }}
         aria-hidden="true"
       >
         <img
           src="/fy26_update/new_logo_2026_clear.png"
           alt=""
-          className="w-[280px] h-[280px] sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px] lg:w-[600px] lg:h-[600px] object-contain opacity-[0.05] select-none"
+          className="w-[500px] h-[500px] lg:w-[600px] lg:h-[600px] object-contain opacity-[0.05] select-none"
         />
       </div>
 
