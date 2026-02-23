@@ -1,10 +1,19 @@
 'use client';
 
+import Link from 'next/link';
 import { ScrollReveal } from '../components/ScrollReveal';
 
-export default function Footer() {
-  const navLinks = ['Home', 'Services', 'About', 'Testimonials', 'FAQ', 'Insights', 'Contact'];
+const navLinks = [
+  { label: 'Home', href: '/rebrand' },
+  { label: 'Services', href: '/rebrand/services' },
+  { label: 'About', href: '/rebrand/about' },
+  { label: 'Testimonials', href: '/rebrand/testimonials' },
+  { label: 'FAQ', href: '/rebrand/faq' },
+  { label: 'Insights', href: '/rebrand/insights' },
+  { label: 'Contact', href: '/rebrand/contact' },
+];
 
+export default function Footer() {
   return (
     <footer className="border-t border-white/[0.06] px-6 py-12">
       <ScrollReveal distance="20px" duration={500}>
@@ -24,13 +33,13 @@ export default function Footer() {
             {/* Footer Nav */}
             <div className="flex flex-wrap justify-center gap-6">
               {navLinks.map((link) => (
-                <a
-                  key={link}
-                  href={`#${link.toLowerCase()}`}
+                <Link
+                  key={link.label}
+                  href={link.href}
                   className="font-playfair font-semibold text-[11px] tracking-[0.15em] uppercase text-white/60 hover:text-brand-gold transition-colors duration-300 no-underline"
                 >
-                  {link}
-                </a>
+                  {link.label}
+                </Link>
               ))}
             </div>
           </div>

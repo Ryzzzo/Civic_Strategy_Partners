@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import GoldDivider from '../components/GoldDivider';
 import { ScrollReveal } from '../components/ScrollReveal';
 
@@ -110,16 +111,16 @@ export default function Contact() {
           <ScrollReveal delay={300} direction="right" distance="100px" className="md:col-span-2">
             <div className="space-y-8">
               {/* CTA Block */}
-              <div className="p-6 border-l-[3px] border-l-brand-gold" style={{ background: 'rgba(21,42,69,0.5)' }}>
+              <div className="p-6 border-l-[3px] border-l-brand-gold bg-white/5 backdrop-blur-md border border-white/10 rounded-xl">
                 <p className="font-sans text-white/90 text-[15px] leading-relaxed mb-4">
                   If your GSA MAS contract exists but is not producing, that is a strategy issue — not a paperwork issue.
                 </p>
-                <a
-                  href="#contact"
+                <Link
+                  href="/rebrand/contact"
                   className="inline-block font-playfair font-semibold text-brand-gold text-[15px] tracking-[0.15em] uppercase no-underline hover:tracking-[0.2em] transition-all duration-300"
                 >
                   Schedule a Consultation →
-                </a>
+                </Link>
               </div>
 
               {/* Contact Details */}

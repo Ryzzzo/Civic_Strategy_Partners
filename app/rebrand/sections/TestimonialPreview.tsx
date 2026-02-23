@@ -1,14 +1,10 @@
 'use client';
 
+import Link from 'next/link';
 import GoldDivider from '../components/GoldDivider';
 import { ScrollReveal } from '../components/ScrollReveal';
 
-/*
- * PLACEHOLDER TESTIMONIALS
- * Kevin's brief references 7 real testimonials from LinkedIn contacts.
- * Replace these with actual client testimonials when Kevin provides them.
- */
-const testimonials = [
+const featured = [
   {
     text: "Kevin helped me navigate a complex GSA Schedule acquisition with precision and insight. His knowledge of the federal procurement landscape is unmatched.",
     author: "Client Testimonial",
@@ -16,28 +12,10 @@ const testimonials = [
     context: "GSA MAS Offer Engagement",
   },
   {
-    text: "What sets Kevin apart is that he's actually been on the other side of the table. He doesn't guess at what contracting officers are looking for — he knows.",
-    author: "Client Testimonial",
-    title: "Government Solutions Director",
-    context: "Strategic Advisory",
-  },
-  {
     text: "We were spinning our wheels with our Schedule contract for two years. Kevin came in, diagnosed the issues within a week, and built a plan that actually moved the needle on revenue.",
     author: "Client Testimonial",
     title: "CEO, Defense Technology Firm",
     context: "MAS Optimization Engagement",
-  },
-  {
-    text: "Kevin's retainer model is worth every dollar. Having a former 1102 on call who actually understands the nuances of pricing and compliance has been a game changer for our team.",
-    author: "Client Testimonial",
-    title: "VP of Federal Sales",
-    context: "Retainer Advisory",
-  },
-  {
-    text: "I've worked with several GovCon consultants before Kevin. The difference is night and day. He doesn't just file paperwork — he engineers your position.",
-    author: "Client Testimonial",
-    title: "Managing Director",
-    context: "Full Lifecycle Support",
   },
   {
     text: "Kevin told us honestly that GSA MAS wasn't the right vehicle for our situation and pointed us in a better direction. That kind of integrity is rare in this space.",
@@ -47,15 +25,10 @@ const testimonials = [
   },
 ];
 
-export default function Testimonials() {
+export default function TestimonialPreview() {
   return (
-    <section
-      id="testimonials"
-      className="relative py-24 md:py-32 px-6"
-    >
+    <section className="relative py-24 md:py-32 px-6">
       <div className="max-w-[1100px] mx-auto">
-
-        {/* ── Header ── */}
         <ScrollReveal>
           <div className="text-center mb-16">
             <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.35em] uppercase mb-4">
@@ -70,24 +43,16 @@ export default function Testimonials() {
           </div>
         </ScrollReveal>
 
-        {/* ── Testimonial Grid ── */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {testimonials.map((t, i) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          {featured.map((t, i) => (
             <ScrollReveal key={i} delay={i * 150} scale={true}>
-              <div
-                className="p-8 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl"
-              >
-                {/* Quote Mark */}
+              <div className="p-8 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl">
                 <div className="font-playfair text-[48px] text-brand-gold/80 leading-none mb-2">
                   &ldquo;
                 </div>
-
-                {/* Quote Text */}
                 <p className="font-playfair text-white/75 text-[17px] md:text-[18px] leading-relaxed italic mb-6">
                   {t.text}
                 </p>
-
-                {/* Attribution */}
                 <div className="border-t border-white/[0.08] pt-4">
                   <p className="font-playfair font-bold text-white text-[15px]">
                     {t.author}
@@ -104,6 +69,16 @@ export default function Testimonials() {
           ))}
         </div>
 
+        <ScrollReveal delay={500}>
+          <div className="text-center">
+            <Link
+              href="/rebrand/testimonials"
+              className="inline-block px-9 py-4 font-playfair font-semibold text-[15px] tracking-[0.18em] uppercase text-white/80 border border-white/15 hover:border-brand-gold/40 hover:text-brand-gold transition-all duration-300 no-underline"
+            >
+              Read All Testimonials →
+            </Link>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );

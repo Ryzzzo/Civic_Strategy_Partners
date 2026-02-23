@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import GoldDivider from '../components/GoldDivider';
 
 export default function Hero() {
@@ -75,8 +76,8 @@ export default function Hero() {
             loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
           }`}
         >
-          <a
-            href="#contact"
+          <Link
+            href="/rebrand/contact"
             className="inline-block px-9 py-4 font-playfair font-bold text-[15px] tracking-[0.18em] uppercase text-brand-navy-deep no-underline transition-all duration-300 hover:opacity-90 hover:-translate-y-px"
             style={{
               background: 'linear-gradient(135deg, #C5993A, #D4AA4F)',
@@ -84,13 +85,13 @@ export default function Hero() {
             }}
           >
             Book a Strategy Call
-          </a>
-          <a
-            href="#services"
+          </Link>
+          <Link
+            href="/rebrand/services"
             className="inline-block px-9 py-4 font-playfair font-semibold text-[15px] tracking-[0.18em] uppercase text-white/80 border border-white/15 hover:border-brand-gold/40 hover:text-brand-gold transition-all duration-300 no-underline"
           >
             How I Work →
-          </a>
+          </Link>
         </div>
       </div>
     </section>

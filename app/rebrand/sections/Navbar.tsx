@@ -1,17 +1,39 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
-const navLinks = ['Home', 'Services', 'About', 'Testimonials', 'FAQ', 'Insights', 'Contact'];
+const navLinks = [
+  { label: 'Home', href: '/rebrand' },
+  { label: 'Services', href: '/rebrand/services' },
+  { label: 'About', href: '/rebrand/about' },
+  { label: 'Testimonials', href: '/rebrand/testimonials' },
+  { label: 'FAQ', href: '/rebrand/faq' },
+  { label: 'Insights', href: '/rebrand/insights' },
+  { label: 'Contact', href: '/rebrand/contact' },
+];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [pathname]);
+
+  const isActive = (href: string) => {
+    if (href === '/rebrand') return pathname === '/rebrand';
+    return pathname.startsWith(href);
+  };
 
   return (
     <nav
@@ -27,36 +49,73 @@ export default function Navbar() {
         }`}
       >
         {/* Logo Area */}
-        <a href="#home" className="flex items-center gap-3 no-underline">
+        <Link href="/rebrand" className="flex items-center gap-3 no-underline">
           <img
             src="/fy26_update/new_logo_2026_clear.png"
             alt="Civic Strategy Partners"
             className={`transition-all duration-400 ${scrolled ? 'h-16' : 'h-24'}`}
           />
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-7">
           {navLinks.map((link) => (
-            <a
-              key={link}
-              href={`#${link.toLowerCase()}`}
-              className="font-playfair font-semibold text-[13px] tracking-[0.12em] uppercase text-white/70 hover:text-brand-gold transition-colors duration-300 no-underline"
+            <Link
+              key={link.label}
+              href={link.href}
+              className={`font-playfair font-semibold text-[13px] tracking-[0.12em] uppercase transition-colors duration-300 no-underline ${
+                isActive(link.href)
+                  ? 'text-brand-gold'
+                  : 'text-white/70 hover:text-brand-gold'
+              }`}
             >
-              {link}
-            </a>
+              {link.label}
+            </Link>
           ))}
         </div>
 
         {/* Mobile Menu Button */}
-        <button className="md:hidden text-white/70 hover:text-brand-gold transition-colors">
+        <button
+          className="md:hidden text-white/70 hover:text-brand-gold transition-colors"
+          onClick={() => setMobileOpen(!mobileOpen)}
+        >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-            <line x1="3" y1="6" x2="21" y2="6" />
-            <line x1="3" y1="12" x2="21" y2="12" />
-            <line x1="3" y1="18" x2="21" y2="18" />
+            {mobileOpen ? (
+              <>
+                <line x1="6" y1="6" x2="18" y2="18" />
+                <line x1="6" y1="18" x2="18" y2="6" />
+              </>
+            ) : (
+              <>
+                <line x1="3" y1="6" x2="21" y2="6" />
+                <line x1="3" y1="12" x2="21" y2="12" />
+                <line x1="3" y1="18" x2="21" y2="18" />
+              </>
+            )}
           </svg>
         </button>
       </div>
+
+      {/* Mobile Menu */}
+      {mobileOpen && (
+        <div className="md:hidden pb-6 border-t border-white/[0.06]">
+          <div className="flex flex-col gap-4 pt-4">
+            {navLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className={`font-playfair font-semibold text-[14px] tracking-[0.12em] uppercase transition-colors duration-300 no-underline px-2 py-1 ${
+                  isActive(link.href)
+                    ? 'text-brand-gold'
+                    : 'text-white/70 hover:text-brand-gold'
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
     </nav>
   );
 }

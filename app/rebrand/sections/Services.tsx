@@ -104,8 +104,7 @@ function TierCard({
 }) {
   return (
     <div
-      className="p-8 md:p-10 border-l-[3px] border-l-brand-gold"
-      style={{ background: 'rgba(21,42,69,0.6)' }}
+      className="p-8 md:p-10 border-l-[3px] border-l-brand-gold bg-white/5 backdrop-blur-md border border-white/10 rounded-xl"
     >
       {/* Tier Label */}
       <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.3em] uppercase mb-3">
@@ -199,8 +198,7 @@ export default function Services() {
           {serviceLanes.map((lane, i) => (
             <ScrollReveal key={i} delay={i * 200} scale={true}>
               <div
-                className="p-6 border border-white/[0.06] hover:border-brand-gold/20 transition-all duration-300"
-                style={{ background: 'rgba(21,42,69,0.4)' }}
+                className="p-6 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl hover:border-brand-gold/20 transition-all duration-300"
               >
                 <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.3em] uppercase mb-3">
                   {lane.label}
@@ -268,7 +266,7 @@ export default function Services() {
 
         {/* ── Additional Strategic Capabilities ── */}
         <ScrollReveal className="mb-24">
-          <div className="p-8 md:p-10 border border-white/[0.06]" style={{ background: 'rgba(21,42,69,0.3)' }}>
+          <div className="p-8 md:p-10 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl">
             <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.3em] uppercase mb-6">
               Additional Strategic Capabilities
             </p>

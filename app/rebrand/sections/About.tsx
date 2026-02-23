@@ -71,8 +71,7 @@ export default function About() {
         {/* ── Firm Philosophy ── */}
         <ScrollReveal delay={300} scale={true}>
           <div
-            className="p-8 md:p-10 mb-20 border-l-[3px] border-l-brand-gold"
-            style={{ background: 'rgba(21,42,69,0.5)' }}
+            className="p-8 md:p-10 mb-20 border-l-[3px] border-l-brand-gold bg-white/5 backdrop-blur-md border border-white/10 rounded-xl"
           >
             <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.3em] uppercase mb-4">
               Firm Philosophy

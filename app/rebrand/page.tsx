@@ -1,5 +1,10 @@
 import { Metadata } from 'next';
-import CSPRebrandLayout from './CSPRebrandLayout';
+import Hero from './sections/Hero';
+import ValueStrip from './sections/ValueStrip';
+import CorePositioning from './sections/CorePositioning';
+import ServicePreview from './sections/ServicePreview';
+import TestimonialPreview from './sections/TestimonialPreview';
+import HomeCTA from './sections/HomeCTA';
 
 export const metadata: Metadata = {
   title: 'Civic Strategy Partners | Elite Federal Contract Advisory',
@@ -7,5 +12,14 @@ export const metadata: Metadata = {
 };
 
 export default function RebrandPage() {
-  return <CSPRebrandLayout />;
+  return (
+    <>
+      <Hero />
+      <ValueStrip />
+      <CorePositioning />
+      <ServicePreview />
+      <TestimonialPreview />
+      <HomeCTA />
+    </>
+  );
 }

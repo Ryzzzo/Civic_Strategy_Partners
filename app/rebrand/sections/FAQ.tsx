@@ -42,17 +42,16 @@ export default function FAQ() {
     <section
       id="faq"
       className="py-24 md:py-32 px-6"
-      style={{ background: '#F5F1EB' }}
     >
       <div className="max-w-[720px] mx-auto">
 
-        {/* ── Header ── */}
+        {/* Header */}
         <ScrollReveal>
           <div className="text-center mb-12">
             <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.35em] uppercase mb-4">
               FAQ
             </p>
-            <h2 className="font-playfair font-bold text-[#0C1B2E] text-3xl md:text-[38px] leading-tight">
+            <h2 className="font-playfair font-bold text-white text-3xl md:text-[38px] leading-tight">
               Frequently Asked Questions
             </h2>
             <div className="flex justify-center">
@@ -61,18 +60,20 @@ export default function FAQ() {
           </div>
         </ScrollReveal>
 
-        {/* ── Accordion ── */}
+        {/* Accordion */}
         <ScrollReveal delay={150}>
-          <div>
+          <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl overflow-hidden">
             {faqs.map((faq, i) => (
               <div
                 key={i}
-                className="border-b border-[#0C1B2E]/10 cursor-pointer"
+                className={`cursor-pointer ${
+                  i < faqs.length - 1 ? 'border-b border-white/[0.08]' : ''
+                }`}
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
               >
                 {/* Question */}
-                <div className="flex justify-between items-center py-6">
-                  <h3 className="font-playfair font-semibold text-[#0C1B2E] text-[16px] md:text-[17px] pr-5 leading-snug">
+                <div className="flex justify-between items-center py-6 px-6 md:px-8">
+                  <h3 className="font-playfair font-semibold text-white/90 text-[16px] md:text-[17px] pr-5 leading-snug">
                     {faq.q}
                   </h3>
                   <span
@@ -91,7 +92,7 @@ export default function FAQ() {
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <p className="font-sans text-[#1B3A5C] text-[15px] md:text-[16px] leading-relaxed pb-6">
+                    <p className="font-sans text-white/70 text-[15px] md:text-[16px] leading-relaxed pb-6 px-6 md:px-8">
                       {faq.a}
                     </p>
                   </div>
