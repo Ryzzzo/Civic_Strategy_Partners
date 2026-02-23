@@ -4,15 +4,36 @@ import Footer from './sections/Footer';
 
 export default function RebrandLayout({ children }: { children: ReactNode }) {
   return (
-    <div
-      className="relative min-h-screen"
-      style={{
-        background: `linear-gradient(180deg, #0d1a2d 0%, #142438 5%, #1a3050 12%, #162a45 20%, #1e3a5f 30%, #1a3352 38%, #213d62 45%, #182e4a 52%, #1e3a5f 60%, #152840 68%, #1b3355 75%, #1e3a5f 82%, #162a45 90%, #0f1f33 100%)`,
-      }}
-    >
-      {/* Fixed watermark — z-[1], above gradient bg, below content */}
+    <div className="relative min-h-screen">
+      {/* Layer 1: Solid navy base */}
+      <div className="fixed inset-0 bg-[#0a1628]" style={{ zIndex: 0 }} />
+
+      {/* Layer 2: Animated wave — above navy, below seal */}
       <div
-        className="fixed inset-0 z-[1] flex items-center justify-center pointer-events-none"
+        className="fixed inset-0 pointer-events-none"
+        style={{ zIndex: 1 }}
+      >
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'radial-gradient(ellipse 80% 60% at 30% 40%, rgba(30, 58, 95, 0.4) 0%, transparent 70%)',
+            animation: 'waveMove 18s ease-in-out infinite',
+          }}
+        />
+        <style>{`
+          @keyframes waveMove {
+            0% { transform: translate(0%, 0%) scale(1); }
+            50% { transform: translate(5%, 5%) scale(1.1); }
+            100% { transform: translate(0%, 0%) scale(1); }
+          }
+        `}</style>
+      </div>
+
+      {/* Layer 3: CSP seal watermark — above wave, below content */}
+      <div
+        className="fixed inset-0 flex items-center justify-center pointer-events-none"
+        style={{ zIndex: 2 }}
         aria-hidden="true"
       >
         <img
@@ -22,8 +43,8 @@ export default function RebrandLayout({ children }: { children: ReactNode }) {
         />
       </div>
 
-      {/* All page content — z-[2], above watermark */}
-      <div className="relative z-[2]">
+      {/* Layer 4: Site content — above everything */}
+      <div className="relative" style={{ zIndex: 10 }}>
         <Navbar />
 
         <main>

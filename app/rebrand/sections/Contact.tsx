@@ -10,17 +10,7 @@ export default function Contact() {
       id="contact"
       className="relative py-24 md:py-32 px-6"
     >
-      {/* Subtle grid pattern */}
-      <div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage:
-            'linear-gradient(#C5993A 1px, transparent 1px), linear-gradient(90deg, #C5993A 1px, transparent 1px)',
-          backgroundSize: '60px 60px',
-        }}
-      />
-
-      <div className="relative z-10 max-w-[900px] mx-auto">
+      <div className="max-w-[900px] mx-auto">
 
         {/* ── Header ── */}
         <ScrollReveal>
