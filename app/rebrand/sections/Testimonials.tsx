@@ -58,7 +58,7 @@ export default function Testimonials() {
         {/* ── Header ── */}
         <ScrollReveal>
           <div className="text-center mb-16">
-            <p className="font-playfair font-bold text-brand-gold text-lg md:text-xl tracking-[0.2em] uppercase mb-4">
+            <p className="font-playfair font-bold text-brand-gold text-xl md:text-2xl tracking-[0.15em] uppercase mb-4">
               Client Testimonials
             </p>
             <h2 className="font-playfair font-bold text-white text-3xl md:text-[40px] leading-tight">

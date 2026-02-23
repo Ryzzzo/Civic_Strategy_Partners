@@ -85,7 +85,7 @@ function TierCard({
       className="p-8 md:p-10 border-l-[3px] border-l-brand-gold bg-white/5 backdrop-blur-md border border-white/10 rounded-xl"
     >
       {/* Tier Label */}
-      <p className="font-playfair font-bold text-brand-gold text-lg md:text-xl tracking-[0.15em] uppercase mb-3">
+      <p className="font-playfair font-bold text-brand-gold text-xl md:text-2xl tracking-[0.15em] uppercase mb-3">
         {tierLabel}
       </p>
 
@@ -95,7 +95,7 @@ function TierCard({
       </h3>
 
       {/* Subtitle */}
-      <p className="font-playfair text-brand-gold/90 text-base tracking-wide mb-6">
+      <p className="font-playfair text-brand-gold/90 text-base md:text-lg tracking-wide mb-6">
         {subtitle}
       </p>
 
@@ -152,7 +152,7 @@ export default function Services() {
         {/* ── Section Header ── */}
         <ScrollReveal>
           <div className="text-center mb-20">
-            <p className="font-playfair font-bold text-brand-gold text-lg md:text-xl tracking-[0.2em] uppercase mb-4">
+            <p className="font-playfair font-bold text-brand-gold text-xl md:text-2xl tracking-[0.15em] uppercase mb-4">
               Engagement Models
             </p>
             <h2 className="font-playfair font-bold text-white text-3xl md:text-[40px] leading-tight mb-4">
@@ -217,7 +217,7 @@ export default function Services() {
         {/* ── Additional Strategic Capabilities ── */}
         <ScrollReveal className="mb-24">
           <div className="p-8 md:p-10 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl">
-            <p className="font-playfair font-bold text-brand-gold text-base tracking-[0.15em] uppercase mb-6">
+            <p className="font-playfair font-bold text-brand-gold text-base md:text-lg tracking-[0.12em] uppercase mb-6">
               Additional Strategic Capabilities
             </p>
             {additionalCapabilities.map((item, i) => (
@@ -228,7 +228,7 @@ export default function Services() {
 
         {/* ── Investment Philosophy ── */}
         <ScrollReveal className="text-center mb-24">
-          <p className="font-playfair font-bold text-brand-gold text-lg md:text-xl tracking-[0.2em] uppercase mb-4">
+          <p className="font-playfair font-bold text-brand-gold text-xl md:text-2xl tracking-[0.15em] uppercase mb-4">
             Investment & Engagement Philosophy
           </p>
           <p className="font-sans text-white/80 text-[16px] md:text-[17px] leading-relaxed max-w-[680px] mx-auto">

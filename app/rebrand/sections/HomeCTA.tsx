@@ -9,7 +9,7 @@ export default function HomeCTA() {
     <section className="relative py-24 md:py-32 px-6">
       <div className="max-w-[800px] mx-auto text-center">
         <ScrollReveal>
-          <p className="font-playfair font-bold text-brand-gold text-lg md:text-xl tracking-[0.2em] uppercase mb-4">
+          <p className="font-playfair font-bold text-brand-gold text-xl md:text-2xl tracking-[0.15em] uppercase mb-4">
             Get Started
           </p>
           <h2 className="font-playfair font-bold text-white text-3xl md:text-[40px] leading-tight">

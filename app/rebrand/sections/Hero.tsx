@@ -25,7 +25,7 @@ export default function Hero() {
             loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
           }`}
         >
-          <p className="font-playfair font-bold text-brand-gold text-lg md:text-xl tracking-[0.2em] uppercase mb-8">
+          <p className="font-playfair font-bold text-brand-gold text-2xl md:text-3xl tracking-[0.15em] uppercase mb-8">
             Elite Federal Contract Advisory
           </p>
         </div>
@@ -65,7 +65,7 @@ export default function Hero() {
             loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
           }`}
         >
-          <p className="font-playfair text-brand-gold/90 text-base tracking-[0.18em] uppercase mb-10">
+          <p className="font-playfair text-brand-gold/90 text-base md:text-lg font-semibold tracking-[0.12em] uppercase mb-10">
             Principal-led · Retainer-based · Built for revenue performance
           </p>
         </div>

@@ -39,7 +39,7 @@ export default function Insights() {
         <ScrollReveal>
           <div className="text-center mb-16">
             {/* Civic Strategy Briefing logo placeholder */}
-            <p className="font-playfair font-bold text-brand-gold text-lg md:text-xl tracking-[0.2em] uppercase mb-4">
+            <p className="font-playfair font-bold text-brand-gold text-xl md:text-2xl tracking-[0.15em] uppercase mb-4">
               Civic Strategy Briefing
             </p>
             <h2 className="font-playfair font-bold text-white text-3xl md:text-[40px] leading-tight">
@@ -62,7 +62,7 @@ export default function Insights() {
                 className="p-8 md:p-10 border-l-[3px] border-l-brand-gold/40 hover:border-l-brand-gold transition-all duration-300 cursor-pointer group bg-white/5 backdrop-blur-md border border-white/10 rounded-xl"
               >
                 {/* Tag */}
-                <p className="font-playfair font-bold text-brand-gold/90 text-base tracking-[0.1em] uppercase mb-3">
+                <p className="font-playfair font-bold text-brand-gold/90 text-base md:text-lg tracking-[0.12em] uppercase mb-3">
                   {article.tag}
                 </p>
 
@@ -84,7 +84,7 @@ export default function Insights() {
                 </p>
 
                 {/* Read More */}
-                <p className="font-playfair font-bold text-brand-gold text-base tracking-[0.15em] uppercase mt-5 group-hover:tracking-[0.2em] transition-all duration-300">
+                <p className="font-playfair font-bold text-brand-gold text-base md:text-lg tracking-[0.12em] uppercase mt-5 group-hover:tracking-[0.15em] transition-all duration-300">
                   Read More →
                 </p>
               </div>

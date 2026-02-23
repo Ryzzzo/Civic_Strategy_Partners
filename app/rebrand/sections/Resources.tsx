@@ -41,7 +41,7 @@ export default function Resources() {
         {/* Header + Email Form */}
         <ScrollReveal>
           <div className="text-center mb-12">
-            <p className="font-playfair font-bold text-brand-gold text-lg md:text-xl tracking-[0.2em] uppercase mb-4">
+            <p className="font-playfair font-bold text-brand-gold text-xl md:text-2xl tracking-[0.15em] uppercase mb-4">
               Resource Library
             </p>
             <h2 className="font-playfair font-bold text-white text-3xl md:text-[38px] leading-tight mb-2">
@@ -105,7 +105,7 @@ export default function Resources() {
                 className="p-6 md:p-8 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
               >
                 <div className="flex-1">
-                  <p className="font-playfair font-bold text-brand-gold text-base tracking-[0.1em] uppercase mb-2">
+                  <p className="font-playfair font-bold text-brand-gold text-base md:text-lg tracking-[0.12em] uppercase mb-2">
                     {resource.tag}
                   </p>
                   <h4 className="font-playfair font-bold text-white text-[16px] md:text-[17px] leading-tight mb-2">

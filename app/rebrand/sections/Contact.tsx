@@ -15,7 +15,7 @@ export default function Contact() {
         {/* ── Header ── */}
         <ScrollReveal>
           <div className="text-center mb-16">
-            <p className="font-playfair font-bold text-brand-gold text-lg md:text-xl tracking-[0.2em] uppercase mb-4">
+            <p className="font-playfair font-bold text-brand-gold text-xl md:text-2xl tracking-[0.15em] uppercase mb-4">
               Get in Touch
             </p>
             <h2 className="font-playfair font-bold text-white text-3xl md:text-[40px] leading-tight">
@@ -107,7 +107,7 @@ export default function Contact() {
                 </p>
                 <Link
                   href="/rebrand/contact"
-                  className="inline-block font-playfair font-semibold text-brand-gold text-base tracking-[0.15em] uppercase no-underline hover:tracking-[0.2em] transition-all duration-300"
+                  className="inline-block font-playfair font-semibold text-brand-gold text-base md:text-lg tracking-[0.12em] uppercase no-underline hover:tracking-[0.15em] transition-all duration-300"
                 >
                   Schedule a Consultation →
                 </Link>
@@ -116,7 +116,7 @@ export default function Contact() {
               {/* Contact Details */}
               <div className="space-y-6 pt-4">
                 <div>
-                  <p className="font-playfair font-bold text-brand-gold text-base tracking-[0.1em] uppercase mb-1">
+                  <p className="font-playfair font-bold text-brand-gold text-base md:text-lg tracking-[0.12em] uppercase mb-1">
                     Phone
                   </p>
                   <p className="font-sans text-white/70 text-[15px]">
@@ -125,7 +125,7 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <p className="font-playfair font-bold text-brand-gold text-base tracking-[0.1em] uppercase mb-1">
+                  <p className="font-playfair font-bold text-brand-gold text-base md:text-lg tracking-[0.12em] uppercase mb-1">
                     Email
                   </p>
                   <a href="mailto:info@civicstrategypartners.com" className="font-sans text-white/70 text-[15px] hover:text-brand-gold transition-colors no-underline">
@@ -134,7 +134,7 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <p className="font-playfair font-bold text-brand-gold text-base tracking-[0.1em] uppercase mb-1">
+                  <p className="font-playfair font-bold text-brand-gold text-base md:text-lg tracking-[0.12em] uppercase mb-1">
                     Website
                   </p>
                   <p className="font-sans text-white/70 text-[15px]">
@@ -143,7 +143,7 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <p className="font-playfair font-bold text-brand-gold text-base tracking-[0.1em] uppercase mb-1">
+                  <p className="font-playfair font-bold text-brand-gold text-base md:text-lg tracking-[0.12em] uppercase mb-1">
                     Signal
                   </p>
                   <p className="font-sans text-white/70 text-[15px]">
