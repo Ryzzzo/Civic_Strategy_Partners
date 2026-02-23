@@ -169,9 +169,6 @@ export default function Services() {
     <section
       id="services"
       className="relative py-24 md:py-32 px-6"
-      style={{
-        background: 'linear-gradient(165deg, #0C1B2E 0%, #152A45 50%, #0C1B2E 100%)',
-      }}
     >
       <div className="max-w-[1000px] mx-auto">
 
@@ -200,7 +197,7 @@ export default function Services() {
         {/* ── Service Lane Preview Cards ── */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24">
           {serviceLanes.map((lane, i) => (
-            <ScrollReveal key={i} delay={i * 150}>
+            <ScrollReveal key={i} delay={i * 200} scale={true}>
               <div
                 className="p-6 border border-white/[0.06] hover:border-brand-gold/20 transition-all duration-300"
                 style={{ background: 'rgba(21,42,69,0.4)' }}
@@ -230,7 +227,7 @@ export default function Services() {
         <div className="space-y-12 mb-24">
 
           {/* Tier 1 */}
-          <ScrollReveal>
+          <ScrollReveal direction="left" distance="80px">
             <TierCard
               tierLabel="Tier 1 — Fractional Authorized Negotiator"
               title="Embedded Executive Advisory"
@@ -243,7 +240,7 @@ export default function Services() {
           </ScrollReveal>
 
           {/* Tier 2 */}
-          <ScrollReveal>
+          <ScrollReveal direction="right" distance="80px">
             <TierCard
               tierLabel="Tier 2 — Strategic Retainer Advisory"
               title="Executive Coaching & Oversight"
@@ -257,7 +254,7 @@ export default function Services() {
           </ScrollReveal>
 
           {/* Tier 3 */}
-          <ScrollReveal>
+          <ScrollReveal direction="left" distance="80px">
             <TierCard
               tierLabel="Tier 3 — Project-Based Support"
               title="Defined Scope. Clear Outcome."

@@ -52,9 +52,6 @@ export default function Testimonials() {
     <section
       id="testimonials"
       className="relative py-24 md:py-32 px-6"
-      style={{
-        background: 'linear-gradient(165deg, #0C1B2E 0%, #152A45 50%, #0C1B2E 100%)',
-      }}
     >
       <div className="max-w-[1100px] mx-auto">
 
@@ -76,7 +73,7 @@ export default function Testimonials() {
         {/* ── Testimonial Grid ── */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((t, i) => (
-            <ScrollReveal key={i} delay={i * 100}>
+            <ScrollReveal key={i} delay={i * 150} scale={true}>
               <div
                 className="p-8 border-l-[3px] border-l-brand-gold"
                 style={{ background: 'rgba(21,42,69,0.6)' }}

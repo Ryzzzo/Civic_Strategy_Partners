@@ -7,9 +7,6 @@ export default function CorePositioning() {
   return (
     <section
       className="relative py-24 md:py-32 px-6"
-      style={{
-        background: 'linear-gradient(165deg, #0C1B2E 0%, #152A45 100%)',
-      }}
     >
       <div className="max-w-[720px] mx-auto text-center">
         <ScrollReveal>

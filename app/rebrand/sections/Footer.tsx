@@ -6,7 +6,7 @@ export default function Footer() {
   const navLinks = ['Home', 'Services', 'About', 'Testimonials', 'FAQ', 'Insights', 'Contact'];
 
   return (
-    <footer className="border-t border-white/[0.06] px-6 py-12" style={{ background: '#0C1B2E' }}>
+    <footer className="border-t border-white/[0.06] px-6 py-12">
       <ScrollReveal distance="20px" duration={500}>
         <div className="max-w-[1100px] mx-auto">
 

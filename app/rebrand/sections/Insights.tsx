@@ -32,9 +32,6 @@ export default function Insights() {
     <section
       id="insights"
       className="relative py-24 md:py-32 px-6"
-      style={{
-        background: 'linear-gradient(165deg, #0C1B2E 0%, #152A45 50%, #0C1B2E 100%)',
-      }}
     >
       <div className="max-w-[1000px] mx-auto">
 
@@ -60,7 +57,7 @@ export default function Insights() {
         {/* ── Article Cards ── */}
         <div className="space-y-6">
           {articles.map((article, i) => (
-            <ScrollReveal key={i} delay={i * 150}>
+            <ScrollReveal key={i} delay={i * 200} direction="right" distance="60px">
               <div
                 className="p-8 md:p-10 border-l-[3px] border-l-brand-gold/40 hover:border-l-brand-gold transition-all duration-300 cursor-pointer group"
                 style={{ background: 'rgba(21,42,69,0.5)' }}

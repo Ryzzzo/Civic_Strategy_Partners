@@ -23,9 +23,6 @@ export default function About() {
     <section
       id="about"
       className="relative py-24 md:py-32 px-6"
-      style={{
-        background: 'linear-gradient(180deg, #152A45 0%, #0C1B2E 50%, #152A45 100%)',
-      }}
     >
       <div className="max-w-[800px] mx-auto">
 
@@ -72,7 +69,7 @@ export default function About() {
         </ScrollReveal>
 
         {/* ── Firm Philosophy ── */}
-        <ScrollReveal delay={300}>
+        <ScrollReveal delay={300} scale={true}>
           <div
             className="p-8 md:p-10 mb-20 border-l-[3px] border-l-brand-gold"
             style={{ background: 'rgba(21,42,69,0.5)' }}

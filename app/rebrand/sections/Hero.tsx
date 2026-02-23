@@ -5,26 +5,16 @@ import GoldDivider from '../components/GoldDivider';
 
 export default function Hero() {
   const [loaded, setLoaded] = useState(false);
-  const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
     const timer = setTimeout(() => setLoaded(true), 200);
     return () => clearTimeout(timer);
   }, []);
 
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
     <section
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
-      style={{
-        background: 'linear-gradient(165deg, #0C1B2E 0%, #152A45 50%, #0C1B2E 100%)',
-      }}
     >
       {/* Subtle grid pattern overlay */}
       <div
@@ -42,17 +32,6 @@ export default function Hero() {
         style={{
           background: 'radial-gradient(circle, rgba(197,153,58,0.024), transparent 70%)',
         }}
-      />
-
-      {/* CSP Seal Watermark */}
-      <img
-        src="/fy26_update/new_logo_2026_clear.png"
-        alt=""
-        className="absolute left-1/2 top-1/2 w-[900px] md:w-[1100px] lg:w-[1300px] opacity-[0.08] pointer-events-none select-none"
-        style={{
-          transform: `translate(-50%, calc(-50% + ${scrollY * 0.15}px))`,
-        }}
-        aria-hidden="true"
       />
 
       {/* Content */}

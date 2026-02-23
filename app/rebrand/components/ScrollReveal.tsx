@@ -10,6 +10,7 @@ interface ScrollRevealProps {
   distance?: string
   duration?: number
   threshold?: number
+  scale?: boolean
 }
 
 export function ScrollReveal({
@@ -17,19 +18,21 @@ export function ScrollReveal({
   className = '',
   delay = 0,
   direction = 'up',
-  distance = '40px',
-  duration = 700,
-  threshold = 0.15,
+  distance = '60px',
+  duration = 800,
+  threshold = 0.1,
+  scale = false,
 }: ScrollRevealProps) {
   const { ref, isVisible } = useScrollReveal({ threshold })
 
   const getTransform = () => {
-    if (direction === 'none') return 'translate(0, 0)'
+    const scaleVal = scale ? ' scale(0.95)' : ''
+    if (direction === 'none') return `translate(0, 0)${scaleVal}`
     const transforms = {
-      up: `translateY(${distance})`,
-      down: `translateY(-${distance})`,
-      left: `translateX(${distance})`,
-      right: `translateX(-${distance})`,
+      up: `translateY(${distance})${scaleVal}`,
+      down: `translateY(-${distance})${scaleVal}`,
+      left: `translateX(${distance})${scaleVal}`,
+      right: `translateX(-${distance})${scaleVal}`,
     }
     return transforms[direction]
   }
@@ -40,8 +43,8 @@ export function ScrollReveal({
       className={className}
       style={{
         opacity: isVisible ? 1 : 0,
-        transform: isVisible ? 'translate(0, 0)' : getTransform(),
-        transition: `opacity ${duration}ms ease-out ${delay}ms, transform ${duration}ms ease-out ${delay}ms`,
+        transform: isVisible ? 'translate(0, 0) scale(1)' : getTransform(),
+        transition: `opacity ${duration}ms cubic-bezier(0.25, 0.46, 0.45, 0.94) ${delay}ms, transform ${duration}ms cubic-bezier(0.25, 0.46, 0.45, 0.94) ${delay}ms`,
       }}
     >
       {children}

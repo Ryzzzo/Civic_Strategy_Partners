@@ -8,9 +8,6 @@ export default function Contact() {
     <section
       id="contact"
       className="relative py-24 md:py-32 px-6"
-      style={{
-        background: 'linear-gradient(165deg, #0C1B2E 0%, #152A45 50%, #0C1B2E 100%)',
-      }}
     >
       {/* Subtle grid pattern */}
       <div
@@ -110,7 +107,7 @@ export default function Contact() {
           </ScrollReveal>
 
           {/* ── Contact Info (2 cols) ── */}
-          <ScrollReveal delay={300} direction="right" className="md:col-span-2">
+          <ScrollReveal delay={300} direction="right" distance="100px" className="md:col-span-2">
             <div className="space-y-8">
               {/* CTA Block */}
               <div className="p-6 border-l-[3px] border-l-brand-gold" style={{ background: 'rgba(21,42,69,0.5)' }}>

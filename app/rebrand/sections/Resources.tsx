@@ -101,7 +101,7 @@ export default function Resources() {
         {/* ── Resource Cards ── */}
         <div className="space-y-4">
           {resources.map((resource, i) => (
-            <ScrollReveal key={i} delay={i * 150}>
+            <ScrollReveal key={i} delay={i * 200} scale={true}>
               <div
                 className="p-6 md:p-8 bg-white border border-[#0C1B2E]/8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
               >
