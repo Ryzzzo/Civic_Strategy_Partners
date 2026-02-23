@@ -46,33 +46,33 @@ export default function Contact() {
                   type="text"
                   placeholder="First Name"
                   required
-                  className="w-full px-4 py-3.5 font-sans text-[15px] text-white bg-white/[0.06] border border-white/10 focus:border-brand-gold/50 focus:outline-none transition-colors placeholder:text-white/30"
+                  className="w-full px-4 py-3.5 font-sans text-[15px] text-white bg-white/[0.06] border border-white/10 focus:border-brand-gold/50 focus:outline-none transition-colors placeholder:text-white/55"
                 />
                 <input
                   type="text"
                   placeholder="Last Name"
                   required
-                  className="w-full px-4 py-3.5 font-sans text-[15px] text-white bg-white/[0.06] border border-white/10 focus:border-brand-gold/50 focus:outline-none transition-colors placeholder:text-white/30"
+                  className="w-full px-4 py-3.5 font-sans text-[15px] text-white bg-white/[0.06] border border-white/10 focus:border-brand-gold/50 focus:outline-none transition-colors placeholder:text-white/55"
                 />
               </div>
 
               <input
                 type="text"
                 placeholder="Company Name"
-                className="w-full px-4 py-3.5 font-sans text-[15px] text-white bg-white/[0.06] border border-white/10 focus:border-brand-gold/50 focus:outline-none transition-colors placeholder:text-white/30"
+                className="w-full px-4 py-3.5 font-sans text-[15px] text-white bg-white/[0.06] border border-white/10 focus:border-brand-gold/50 focus:outline-none transition-colors placeholder:text-white/55"
               />
 
               <input
                 type="email"
                 placeholder="Email Address"
                 required
-                className="w-full px-4 py-3.5 font-sans text-[15px] text-white bg-white/[0.06] border border-white/10 focus:border-brand-gold/50 focus:outline-none transition-colors placeholder:text-white/30"
+                className="w-full px-4 py-3.5 font-sans text-[15px] text-white bg-white/[0.06] border border-white/10 focus:border-brand-gold/50 focus:outline-none transition-colors placeholder:text-white/55"
               />
 
               <input
                 type="tel"
                 placeholder="Phone (optional)"
-                className="w-full px-4 py-3.5 font-sans text-[15px] text-white bg-white/[0.06] border border-white/10 focus:border-brand-gold/50 focus:outline-none transition-colors placeholder:text-white/30"
+                className="w-full px-4 py-3.5 font-sans text-[15px] text-white bg-white/[0.06] border border-white/10 focus:border-brand-gold/50 focus:outline-none transition-colors placeholder:text-white/55"
               />
 
               <select
@@ -90,7 +90,7 @@ export default function Contact() {
               <textarea
                 placeholder="Brief description of your situation"
                 rows={4}
-                className="w-full px-4 py-3.5 font-sans text-[15px] text-white bg-white/[0.06] border border-white/10 focus:border-brand-gold/50 focus:outline-none transition-colors resize-none placeholder:text-white/30"
+                className="w-full px-4 py-3.5 font-sans text-[15px] text-white bg-white/[0.06] border border-white/10 focus:border-brand-gold/50 focus:outline-none transition-colors resize-none placeholder:text-white/55"
               />
 
               <button

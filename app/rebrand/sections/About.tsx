@@ -112,7 +112,7 @@ export default function About() {
             <div className="space-y-3">
               {pursuing.map((cert, i) => (
                 <div key={i} className="flex items-start gap-3">
-                  <span className="text-brand-gold/65 mt-1.5 text-[10px]">◆</span>
+                  <span className="text-brand-gold/80 mt-1.5 text-[10px]">◆</span>
                   <span className="font-sans text-white/60 text-[15px] leading-relaxed">{cert}</span>
                 </div>
               ))}

@@ -15,42 +15,39 @@ import Footer from './sections/Footer';
 
 export default function CSPRebrandLayout() {
   return (
-    <main className="relative min-h-screen" style={{ background: '#0C1B2E' }}>
-      {/* Fixed watermark — stays centered in viewport behind all content */}
+    <main
+      className="relative min-h-screen"
+      style={{
+        background: `linear-gradient(180deg, #0d1a2d 0%, #142438 5%, #1a3050 12%, #162a45 20%, #1e3a5f 30%, #1a3352 38%, #213d62 45%, #182e4a 52%, #1e3a5f 60%, #152840 68%, #1b3355 75%, #1e3a5f 82%, #162a45 90%, #0f1f33 100%)`,
+      }}
+    >
+      {/* Fixed watermark — z-[1], above gradient bg, below content */}
       <div
-        className="fixed inset-0 flex items-center justify-center z-0 pointer-events-none"
+        className="fixed inset-0 z-[1] flex items-center justify-center pointer-events-none"
         aria-hidden="true"
       >
         <img
           src="/fy26_update/new_logo_2026_clear.png"
           alt=""
-          className="w-[90vw] max-w-[1400px] opacity-[0.04] select-none"
+          className="w-[90vw] max-w-[1400px] opacity-[0.05] select-none"
         />
       </div>
 
-      {/* All page content — above watermark */}
-      <div className="relative z-[1]">
+      {/* All page content — z-[2], above watermark */}
+      <div className="relative z-[2]">
         <Navbar />
 
-        {/* Unified dark gradient — Hero through Testimonials */}
-        <div
-          style={{
-            background:
-              'linear-gradient(180deg, #0C1B2E 0%, #132238 15%, #162a45 35%, #1a3050 50%, #162a45 65%, #132238 85%, #0C1B2E 100%)',
-          }}
-        >
-          <Hero />
-          <ValueStrip />
-          <CorePositioning />
-          <Services />
-          <About />
-          <Testimonials />
-        </div>
+        <Hero />
+        <ValueStrip />
+        <CorePositioning />
+        <Services />
+        <About />
+        <Testimonials />
 
         {/* Dark-to-cream transition */}
         <div
           className="h-24"
-          style={{ background: 'linear-gradient(180deg, #0C1B2E, #F5F1EB)' }}
+          style={{ background: 'linear-gradient(180deg, #1a3050, #F5F1EB)' }}
         />
 
         <FAQ />
@@ -58,7 +55,7 @@ export default function CSPRebrandLayout() {
         {/* Cream-to-dark transition */}
         <div
           className="h-24"
-          style={{ background: 'linear-gradient(180deg, #F5F1EB, #0C1B2E)' }}
+          style={{ background: 'linear-gradient(180deg, #F5F1EB, #1a3050)' }}
         />
 
         <Insights />
@@ -66,7 +63,7 @@ export default function CSPRebrandLayout() {
         {/* Dark-to-cream transition */}
         <div
           className="h-24"
-          style={{ background: 'linear-gradient(180deg, #0C1B2E, #F5F1EB)' }}
+          style={{ background: 'linear-gradient(180deg, #1a3050, #F5F1EB)' }}
         />
 
         <Resources />
@@ -74,7 +71,7 @@ export default function CSPRebrandLayout() {
         {/* Cream-to-dark transition */}
         <div
           className="h-24"
-          style={{ background: 'linear-gradient(180deg, #F5F1EB, #0C1B2E)' }}
+          style={{ background: 'linear-gradient(180deg, #F5F1EB, #1a3050)' }}
         />
 
         <Contact />

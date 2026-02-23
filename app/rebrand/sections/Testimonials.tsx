@@ -79,7 +79,7 @@ export default function Testimonials() {
                 style={{ background: 'rgba(21,42,69,0.6)' }}
               >
                 {/* Quote Mark */}
-                <div className="font-playfair text-[48px] text-brand-gold/30 leading-none mb-2">
+                <div className="font-playfair text-[48px] text-brand-gold/80 leading-none mb-2">
                   &ldquo;
                 </div>
 
@@ -96,7 +96,7 @@ export default function Testimonials() {
                   <p className="font-playfair text-brand-gold text-[13px] mt-1">
                     {t.title}
                   </p>
-                  <p className="font-playfair text-white/35 text-[12px] mt-1">
+                  <p className="font-playfair text-white/60 text-[12px] mt-1">
                     {t.context}
                   </p>
                 </div>

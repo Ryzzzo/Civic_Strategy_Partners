@@ -118,7 +118,7 @@ function TierCard({
       </h3>
 
       {/* Subtitle */}
-      <p className="font-playfair text-brand-gold/80 text-[15px] tracking-wide mb-6">
+      <p className="font-playfair text-brand-gold/90 text-[15px] tracking-wide mb-6">
         {subtitle}
       </p>
 
@@ -155,7 +155,7 @@ function TierCard({
 
       {/* Footnote */}
       {footnote && (
-        <p className="font-playfair text-brand-gold/65 text-[14px] italic mt-6 pt-6 border-t border-white/[0.06]">
+        <p className="font-playfair text-brand-gold/90 text-[14px] italic mt-6 pt-6 border-t border-white/[0.06]">
           {footnote}
         </p>
       )}
@@ -219,7 +219,7 @@ export default function Services() {
         {/* Standalone options note */}
         <div className="text-center mb-20">
           <p className="font-playfair text-white/60 text-[14px] tracking-wide">
-            Standalone options: <span className="text-brand-gold/75">MAS Optimization Roadmaps</span> · <span className="text-brand-gold/75">À la Carte Modification Support</span>
+            Standalone options: <span className="text-brand-gold/90">MAS Optimization Roadmaps</span> · <span className="text-brand-gold/90">À la Carte Modification Support</span>
           </p>
         </div>
 

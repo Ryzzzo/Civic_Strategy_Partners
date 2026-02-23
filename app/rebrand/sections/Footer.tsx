@@ -44,11 +44,11 @@ export default function Footer() {
               <p className="font-playfair text-white/60 text-[13px]">
                 &copy; 2026 Civic Strategy Partners. All rights reserved.
               </p>
-              <p className="font-playfair text-white/20 text-[11px] italic mt-1">
+              <p className="font-playfair text-white/60 text-[11px] italic mt-1">
                 Virtuum Civium Ductus
               </p>
             </div>
-            <p className="font-playfair text-white/25 text-[12px] tracking-[0.15em] uppercase">
+            <p className="font-playfair text-white/60 text-[12px] tracking-[0.15em] uppercase">
               civicstrategypartners.com
             </p>
           </div>

@@ -16,24 +16,6 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Subtle grid pattern overlay */}
-      <div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage:
-            'linear-gradient(#C5993A 1px, transparent 1px), linear-gradient(90deg, #C5993A 1px, transparent 1px)',
-          backgroundSize: '60px 60px',
-        }}
-      />
-
-      {/* Radial gold glow */}
-      <div
-        className="absolute top-[20%] left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full"
-        style={{
-          background: 'radial-gradient(circle, rgba(197,153,58,0.024), transparent 70%)',
-        }}
-      />
-
       {/* Content */}
       <div className="relative z-10 text-center max-w-[800px] px-6 pt-28 pb-20">
         {/* Eyebrow */}
@@ -82,7 +64,7 @@ export default function Hero() {
             loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
           }`}
         >
-          <p className="font-playfair text-brand-gold/75 text-[15px] tracking-[0.18em] uppercase mb-10">
+          <p className="font-playfair text-brand-gold/90 text-[15px] tracking-[0.18em] uppercase mb-10">
             Principal-led · Retainer-based · Built for revenue performance
           </p>
         </div>

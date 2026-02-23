@@ -63,7 +63,7 @@ export default function Insights() {
                 style={{ background: 'rgba(21,42,69,0.5)' }}
               >
                 {/* Tag */}
-                <p className="font-playfair font-semibold text-brand-gold/80 text-[14px] tracking-[0.25em] uppercase mb-3">
+                <p className="font-playfair font-semibold text-brand-gold/90 text-[14px] tracking-[0.25em] uppercase mb-3">
                   {article.tag}
                 </p>
 
