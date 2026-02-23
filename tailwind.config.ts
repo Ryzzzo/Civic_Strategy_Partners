@@ -12,7 +12,6 @@ const config: Config = {
       fontFamily: {
         sans: ['var(--font-inter)', 'sans-serif'],
         playfair: ['var(--font-playfair)', 'serif'],
-        cormorant: ['var(--font-cormorant)', 'Georgia', 'serif'],
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

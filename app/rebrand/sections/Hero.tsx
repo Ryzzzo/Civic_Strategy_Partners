@@ -41,7 +41,7 @@ export default function Hero() {
       <img
         src="/fy26_update/new_logo_2026_clear.png"
         alt=""
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] md:w-[900px] lg:w-[1000px] opacity-[0.06] rotate-[6deg] pointer-events-none select-none"
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] md:w-[850px] lg:w-[1000px] opacity-[0.08] pointer-events-none select-none"
         aria-hidden="true"
       />
 
