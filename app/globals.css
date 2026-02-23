@@ -387,24 +387,6 @@ body > * {
   }
 }
 
-/* Animated gradient wave background — uses background-position for smooth interpolation */
-.gradient-wave-bg {
-  background:
-    radial-gradient(circle at 30% 40%, rgba(127, 179, 213, 0.09), transparent 50%),
-    radial-gradient(circle at 70% 60%, rgba(192, 200, 212, 0.07), transparent 50%);
-  background-size: 200% 200%;
-  animation: gradient-drift 18s linear infinite;
-}
-
-@keyframes gradient-drift {
-  0% {
-    background-position: 0% 0%;
-  }
-  100% {
-    background-position: 100% 100%;
-  }
-}
-
 /* Desktop HubSpot form fix */
 @media (min-width: 769px) {
   .hs-form-frame,

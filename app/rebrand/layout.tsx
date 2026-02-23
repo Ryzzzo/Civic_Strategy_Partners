@@ -8,15 +8,7 @@ export default function RebrandLayout({ children }: { children: ReactNode }) {
       {/* Layer 1: Solid navy base */}
       <div className="fixed inset-0 bg-[#0a1628]" style={{ zIndex: 0 }} />
 
-      {/* Layer 2: Animated gradient wave — above navy, below seal */}
-      <div
-        className="fixed inset-0 pointer-events-none"
-        style={{ zIndex: 1 }}
-      >
-        <div className="absolute inset-0 gradient-wave-bg" />
-      </div>
-
-      {/* Layer 3: CSP seal watermark — above wave, below content */}
+      {/* Layer 2: CSP seal watermark — above navy, below content */}
       <div
         className="fixed inset-0 flex items-center justify-center pointer-events-none"
         style={{ zIndex: 2 }}
