@@ -6,13 +6,13 @@ import { ScrollReveal } from '../components/ScrollReveal';
 
 export default function HomeCTA() {
   return (
-    <section className="relative py-24 md:py-32 px-6">
+    <section className="relative py-12 sm:py-16 md:py-24 lg:py-32 px-4 sm:px-6">
       <div className="max-w-[800px] mx-auto text-center">
         <ScrollReveal>
-          <p className="font-playfair font-bold text-brand-gold text-xl md:text-2xl tracking-[0.15em] uppercase mb-4">
+          <p className="font-playfair font-bold text-brand-gold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-[0.15em] uppercase mb-4">
             Get Started
           </p>
-          <h2 className="font-playfair font-bold text-white text-3xl md:text-[40px] leading-tight">
+          <h2 className="font-playfair font-bold text-white text-xl sm:text-2xl md:text-3xl lg:text-[40px] leading-tight">
             Ready to Engineer Your
             <br />
             Contract Position?
@@ -27,10 +27,10 @@ export default function HomeCTA() {
         </ScrollReveal>
 
         <ScrollReveal delay={200}>
-          <div className="flex gap-4 justify-center flex-wrap">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
             <Link
               href="/rebrand/contact"
-              className="inline-block px-9 py-4 font-playfair font-bold text-[15px] tracking-[0.18em] uppercase text-brand-navy-deep no-underline transition-all duration-300 hover:opacity-90 hover:-translate-y-px"
+              className="w-full sm:w-auto text-center px-9 py-4 font-playfair font-bold text-[14px] sm:text-[15px] tracking-[0.18em] uppercase text-brand-navy-deep no-underline transition-all duration-300 hover:opacity-90 hover:-translate-y-px"
               style={{
                 background: 'linear-gradient(135deg, #C5993A, #D4AA4F)',
                 boxShadow: '0 4px 24px rgba(197,153,58,0.2)',
@@ -40,9 +40,9 @@ export default function HomeCTA() {
             </Link>
             <Link
               href="/rebrand/services"
-              className="inline-block px-9 py-4 font-playfair font-semibold text-[15px] tracking-[0.18em] uppercase text-white/80 border border-white/15 hover:border-brand-gold/40 hover:text-brand-gold transition-all duration-300 no-underline"
+              className="w-full sm:w-auto text-center px-9 py-4 font-playfair font-semibold text-[14px] sm:text-[15px] tracking-[0.18em] uppercase text-white/80 border border-white/15 hover:border-brand-gold/40 hover:text-brand-gold transition-all duration-300 no-underline"
             >
-              View Services →
+              View Services &rarr;
             </Link>
           </div>
         </ScrollReveal>

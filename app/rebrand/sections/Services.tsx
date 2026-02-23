@@ -53,7 +53,7 @@ function ScopeItem({ text }: { text: string }) {
   return (
     <div className="flex items-start gap-3 py-2">
       <span className="text-brand-gold mt-1.5 text-[10px]">◆</span>
-      <span className="font-sans text-white/80 text-[16px] md:text-[17px] leading-relaxed">{text}</span>
+      <span className="font-sans text-white/80 text-[15px] sm:text-[16px] md:text-[17px] leading-relaxed">{text}</span>
     </div>
   );
 }
@@ -82,31 +82,31 @@ function TierCard({
 }) {
   return (
     <div
-      className="p-8 md:p-10 border-l-[3px] border-l-brand-gold bg-white/5 backdrop-blur-md border border-white/10 rounded-xl"
+      className="p-5 sm:p-6 md:p-8 lg:p-10 border-l-[3px] border-l-brand-gold bg-white/5 backdrop-blur-md border border-white/10 rounded-xl"
     >
       {/* Tier Label */}
-      <p className="font-playfair font-bold text-brand-gold text-xl md:text-2xl tracking-[0.15em] uppercase mb-3">
+      <p className="font-playfair font-bold text-brand-gold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-[0.15em] uppercase mb-3">
         {tierLabel}
       </p>
 
       {/* Title */}
-      <h3 className="font-playfair font-bold text-white text-[26px] md:text-[30px] leading-tight mb-1">
+      <h3 className="font-playfair font-bold text-white text-lg sm:text-xl md:text-[26px] lg:text-[30px] leading-tight mb-1">
         {title}
       </h3>
 
       {/* Subtitle */}
-      <p className="font-playfair text-brand-gold/90 text-base md:text-lg tracking-wide mb-6">
+      <p className="font-playfair text-brand-gold/90 text-sm sm:text-base md:text-lg tracking-wide mb-4 sm:mb-6">
         {subtitle}
       </p>
 
       {/* Description */}
-      <p className="font-sans text-white/80 text-[16px] md:text-[17px] leading-relaxed mb-8">
+      <p className="font-sans text-white/80 text-[15px] sm:text-[16px] md:text-[17px] leading-relaxed mb-6 sm:mb-8">
         {description}
       </p>
 
       {/* Scope */}
       {scopeTitle && (
-        <p className="font-playfair font-semibold text-white/60 text-[14px] tracking-[0.25em] uppercase mb-3">
+        <p className="font-playfair font-semibold text-white/60 text-[13px] sm:text-[14px] tracking-[0.25em] uppercase mb-3">
           {scopeTitle}
         </p>
       )}
@@ -119,7 +119,7 @@ function TierCard({
       {/* Optional Access */}
       {optionalTitle && optionalItems && (
         <>
-          <p className="font-playfair font-semibold text-white/60 text-[14px] tracking-[0.25em] uppercase mb-3 mt-6">
+          <p className="font-playfair font-semibold text-white/60 text-[13px] sm:text-[14px] tracking-[0.25em] uppercase mb-3 mt-6">
             {optionalTitle}
           </p>
           <div className="mb-6">
@@ -132,7 +132,7 @@ function TierCard({
 
       {/* Footnote */}
       {footnote && (
-        <p className="font-playfair text-brand-gold/90 text-base italic mt-6 pt-6 border-t border-white/[0.06]">
+        <p className="font-playfair text-brand-gold/90 text-sm sm:text-base italic mt-6 pt-6 border-t border-white/[0.06]">
           {footnote}
         </p>
       )}
@@ -145,17 +145,17 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="relative py-24 md:py-32 px-6"
+      className="relative py-12 sm:py-16 md:py-24 lg:py-32 px-4 sm:px-6"
     >
       <div className="max-w-[1000px] mx-auto">
 
         {/* ── Section Header ── */}
         <ScrollReveal>
-          <div className="text-center mb-20">
-            <p className="font-playfair font-bold text-brand-gold text-xl md:text-2xl tracking-[0.15em] uppercase mb-4">
+          <div className="text-center mb-12 sm:mb-16 md:mb-20">
+            <p className="font-playfair font-bold text-brand-gold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-[0.15em] uppercase mb-4">
               Engagement Models
             </p>
-            <h2 className="font-playfair font-bold text-white text-3xl md:text-[40px] leading-tight mb-4">
+            <h2 className="font-playfair font-bold text-white text-xl sm:text-2xl md:text-3xl lg:text-[40px] leading-tight mb-4">
               Strategic Advisory for
               <br />
               GSA MAS Contracts
@@ -163,7 +163,7 @@ export default function Services() {
             <div className="flex justify-center">
               <GoldDivider width={60} />
             </div>
-            <p className="font-sans text-white/80 text-[16px] md:text-[17px] leading-relaxed max-w-[600px] mx-auto">
+            <p className="font-sans text-white/80 text-[15px] sm:text-[16px] md:text-[17px] leading-relaxed max-w-[600px] mx-auto">
               Civic Strategy Partners operates across three engagement tiers plus standalone
               project-based options. Scope and structure are tailored to where you are and
               what your contract requires.
@@ -172,7 +172,7 @@ export default function Services() {
         </ScrollReveal>
 
         {/* ── Detailed Tier Cards ── */}
-        <div className="space-y-12 mb-24">
+        <div className="space-y-8 sm:space-y-12 mb-16 sm:mb-24">
 
           {/* Tier 1 */}
           <ScrollReveal direction="left" distance="80px">
@@ -215,9 +215,9 @@ export default function Services() {
         </div>
 
         {/* ── Additional Strategic Capabilities ── */}
-        <ScrollReveal className="mb-24">
-          <div className="p-8 md:p-10 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl">
-            <p className="font-playfair font-bold text-brand-gold text-base md:text-lg tracking-[0.12em] uppercase mb-6">
+        <ScrollReveal className="mb-16 sm:mb-24">
+          <div className="p-5 sm:p-6 md:p-8 lg:p-10 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl">
+            <p className="font-playfair font-bold text-brand-gold text-sm sm:text-base md:text-lg tracking-[0.12em] uppercase mb-6">
               Additional Strategic Capabilities
             </p>
             {additionalCapabilities.map((item, i) => (
@@ -227,11 +227,11 @@ export default function Services() {
         </ScrollReveal>
 
         {/* ── Investment Philosophy ── */}
-        <ScrollReveal className="text-center mb-24">
-          <p className="font-playfair font-bold text-brand-gold text-xl md:text-2xl tracking-[0.15em] uppercase mb-4">
+        <ScrollReveal className="text-center mb-16 sm:mb-24">
+          <p className="font-playfair font-bold text-brand-gold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-[0.15em] uppercase mb-4">
             Investment & Engagement Philosophy
           </p>
-          <p className="font-sans text-white/80 text-[16px] md:text-[17px] leading-relaxed max-w-[680px] mx-auto">
+          <p className="font-sans text-white/80 text-[15px] sm:text-[16px] md:text-[17px] leading-relaxed max-w-[680px] mx-auto">
             Engagements are structured as retainers or defined strategic projects — not
             transactional filing services. Pricing reflects direct access to a former GSA 1102,
             fractional authorized negotiator authority, embedded contract leadership, and limited
@@ -241,13 +241,13 @@ export default function Services() {
 
         {/* ── Who This Is For / Not For ── */}
         <ScrollReveal delay={150}>
-          <div className="p-8 md:p-12 text-center border-t border-b border-brand-gold/20">
-            <h3 className="font-playfair font-bold text-white text-2xl md:text-[30px] leading-tight mb-6">
+          <div className="p-5 sm:p-6 md:p-8 lg:p-12 text-center border-t border-b border-brand-gold/20">
+            <h3 className="font-playfair font-bold text-white text-lg sm:text-xl md:text-2xl lg:text-[30px] leading-tight mb-4 sm:mb-6">
               Not Every Company Needs This Level
               <br />
               of Contract Leadership.
             </h3>
-            <p className="font-sans text-white/80 text-[17px] md:text-[18px] leading-relaxed max-w-[600px] mx-auto">
+            <p className="font-sans text-white/80 text-[15px] sm:text-[16px] md:text-[17px] lg:text-[18px] leading-relaxed max-w-[600px] mx-auto">
               If your goal is simply to &ldquo;get on schedule&rdquo; as cheaply as possible, there are
               providers built for that. That is not this firm.
             </p>

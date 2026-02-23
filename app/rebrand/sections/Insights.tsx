@@ -31,24 +31,24 @@ export default function Insights() {
   return (
     <section
       id="insights"
-      className="relative py-24 md:py-32 px-6"
+      className="relative py-12 sm:py-16 md:py-24 lg:py-32 px-4 sm:px-6"
     >
       <div className="max-w-[1000px] mx-auto">
 
         {/* ── Header ── */}
         <ScrollReveal>
-          <div className="text-center mb-16">
+          <div className="text-center mb-10 sm:mb-16">
             {/* Civic Strategy Briefing logo placeholder */}
-            <p className="font-playfair font-bold text-brand-gold text-xl md:text-2xl tracking-[0.15em] uppercase mb-4">
+            <p className="font-playfair font-bold text-brand-gold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-[0.15em] uppercase mb-4">
               Civic Strategy Briefing
             </p>
-            <h2 className="font-playfair font-bold text-white text-3xl md:text-[40px] leading-tight">
+            <h2 className="font-playfair font-bold text-white text-xl sm:text-2xl md:text-3xl lg:text-[40px] leading-tight">
               Insights
             </h2>
             <div className="flex justify-center">
               <GoldDivider width={60} />
             </div>
-            <p className="font-sans text-white/80 text-[16px] leading-relaxed max-w-[500px] mx-auto">
+            <p className="font-sans text-white/80 text-[15px] sm:text-[16px] leading-relaxed max-w-[500px] mx-auto">
               Analysis and perspective from a former GSA Contract Specialist.
             </p>
           </div>
@@ -59,15 +59,15 @@ export default function Insights() {
           {articles.map((article, i) => (
             <ScrollReveal key={i} delay={i * 200} direction="right" distance="60px">
               <div
-                className="p-8 md:p-10 border-l-[3px] border-l-brand-gold/40 hover:border-l-brand-gold transition-all duration-300 cursor-pointer group bg-white/5 backdrop-blur-md border border-white/10 rounded-xl"
+                className="p-5 sm:p-6 md:p-8 lg:p-10 border-l-[3px] border-l-brand-gold/40 hover:border-l-brand-gold transition-all duration-300 cursor-pointer group bg-white/5 backdrop-blur-md border border-white/10 rounded-xl"
               >
                 {/* Tag */}
-                <p className="font-playfair font-bold text-brand-gold/90 text-base md:text-lg tracking-[0.12em] uppercase mb-3">
+                <p className="font-playfair font-bold text-brand-gold/90 text-xs sm:text-sm md:text-base lg:text-lg tracking-[0.12em] uppercase mb-3">
                   {article.tag}
                 </p>
 
                 {/* Title */}
-                <h3 className="font-playfair font-bold text-white text-xl md:text-[22px] leading-tight mb-2 group-hover:text-brand-gold transition-colors duration-300">
+                <h3 className="font-playfair font-bold text-white text-lg sm:text-xl md:text-[22px] leading-tight mb-2 group-hover:text-brand-gold transition-colors duration-300">
                   {article.title}
                 </h3>
 
@@ -79,12 +79,12 @@ export default function Insights() {
                 )}
 
                 {/* Synopsis */}
-                <p className="font-sans text-white/80 text-[16px] leading-relaxed">
+                <p className="font-sans text-white/80 text-[15px] sm:text-[16px] leading-relaxed">
                   {article.synopsis}
                 </p>
 
                 {/* Read More */}
-                <p className="font-playfair font-bold text-brand-gold text-base md:text-lg tracking-[0.12em] uppercase mt-5 group-hover:tracking-[0.15em] transition-all duration-300">
+                <p className="font-playfair font-bold text-brand-gold text-sm sm:text-base md:text-lg tracking-[0.12em] uppercase mt-5 group-hover:tracking-[0.15em] transition-all duration-300">
                   Read More →
                 </p>
               </div>

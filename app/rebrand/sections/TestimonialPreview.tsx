@@ -7,14 +7,14 @@ import TestimonialCarousel from '../components/TestimonialCarousel';
 
 export default function TestimonialPreview() {
   return (
-    <section className="relative py-24 md:py-32 px-6">
+    <section className="relative py-12 sm:py-16 md:py-24 lg:py-32 px-4 sm:px-6">
       <div className="max-w-[1100px] mx-auto">
         <ScrollReveal>
-          <div className="text-center mb-16">
-            <p className="font-playfair font-bold text-brand-gold text-xl md:text-2xl tracking-[0.15em] uppercase mb-4">
+          <div className="text-center mb-10 sm:mb-16">
+            <p className="font-playfair font-bold text-brand-gold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-[0.15em] uppercase mb-4">
               Client Testimonials
             </p>
-            <h2 className="font-playfair font-bold text-white text-3xl md:text-[40px] leading-tight">
+            <h2 className="font-playfair font-bold text-white text-xl sm:text-2xl md:text-3xl lg:text-[40px] leading-tight">
               Results That Speak
             </h2>
             <div className="flex justify-center">

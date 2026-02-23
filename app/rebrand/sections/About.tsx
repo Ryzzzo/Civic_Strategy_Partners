@@ -22,17 +22,17 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative py-24 md:py-32 px-6"
+      className="relative py-12 sm:py-16 md:py-24 lg:py-32 px-4 sm:px-6"
     >
       <div className="max-w-[800px] mx-auto">
 
         {/* ── Section Header ── */}
         <ScrollReveal>
-          <div className="text-center mb-16">
-            <p className="font-playfair font-bold text-brand-gold text-xl md:text-2xl tracking-[0.15em] uppercase mb-4">
+          <div className="text-center mb-10 sm:mb-16">
+            <p className="font-playfair font-bold text-brand-gold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-[0.15em] uppercase mb-4">
               About
             </p>
-            <h2 className="font-playfair font-bold text-white text-3xl md:text-[40px] leading-tight">
+            <h2 className="font-playfair font-bold text-white text-xl sm:text-2xl md:text-3xl lg:text-[40px] leading-tight">
               Built From the Government
               <br />
               Side of the Table.
@@ -46,21 +46,21 @@ export default function About() {
         {/* ── Origin Story ── */}
         <ScrollReveal delay={150}>
           <div className="space-y-6 mb-20">
-            <p className="font-sans text-white/70 text-[17px] md:text-[18px] leading-relaxed">
+            <p className="font-sans text-white/70 text-[15px] sm:text-[16px] md:text-[18px] leading-relaxed">
               Before founding Civic Strategy Partners, I served as a Contract Specialist (1102)
               inside GSA&rsquo;s Multiple Award Schedule program.
             </p>
-            <p className="font-sans text-white/70 text-[17px] md:text-[18px] leading-relaxed">
+            <p className="font-sans text-white/70 text-[15px] sm:text-[16px] md:text-[18px] leading-relaxed">
               I reviewed and evaluated offers. I negotiated pricing. I audited contract files.
               I assessed compliance posture. I saw exactly where companies strengthened their
               position — and where they quietly lost leverage.
             </p>
-            <p className="font-playfair font-bold text-white text-xl md:text-2xl leading-snug mt-8 mb-8">
+            <p className="font-playfair font-bold text-white text-lg sm:text-xl md:text-2xl leading-snug mt-8 mb-8">
               I&rsquo;ve sat in the contracting officer&rsquo;s chair.
               <br />
               <span className="text-brand-gold">Now I sit in yours.</span>
             </p>
-            <p className="font-sans text-white/70 text-[17px] md:text-[18px] leading-relaxed">
+            <p className="font-sans text-white/70 text-[15px] sm:text-[16px] md:text-[18px] leading-relaxed">
               Civic Strategy Partners was built around a simple premise: if you understand how
               government evaluators think, how negotiations unfold, and where scrutiny actually
               lands — you can engineer contract position, not just file paperwork.
@@ -76,7 +76,7 @@ export default function About() {
             <p className="font-playfair font-bold text-brand-gold text-base md:text-lg tracking-[0.12em] uppercase mb-4">
               Firm Philosophy
             </p>
-            <p className="font-sans text-white/80 text-[17px] md:text-[18px] leading-relaxed">
+            <p className="font-sans text-white/80 text-[15px] sm:text-[16px] md:text-[18px] leading-relaxed">
               This firm is intentionally structured as an elite boutique advisory. Limited client
               load. Direct Principal access. Embedded execution when necessary. No junior layers.
               No outsourced drafting teams. No volume-based template business. One contract vehicle.

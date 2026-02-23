@@ -41,17 +41,17 @@ export default function FAQ() {
   return (
     <section
       id="faq"
-      className="py-24 md:py-32 px-6"
+      className="py-12 sm:py-16 md:py-24 lg:py-32 px-4 sm:px-6"
     >
       <div className="max-w-[720px] mx-auto">
 
         {/* Header */}
         <ScrollReveal>
-          <div className="text-center mb-12">
-            <p className="font-playfair font-bold text-brand-gold text-xl md:text-2xl tracking-[0.15em] uppercase mb-4">
+          <div className="text-center mb-10 sm:mb-12">
+            <p className="font-playfair font-bold text-brand-gold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-[0.15em] uppercase mb-4">
               FAQ
             </p>
-            <h2 className="font-playfair font-bold text-white text-3xl md:text-[38px] leading-tight">
+            <h2 className="font-playfair font-bold text-white text-xl sm:text-2xl md:text-3xl lg:text-[38px] leading-tight">
               Frequently Asked Questions
             </h2>
             <div className="flex justify-center">
@@ -72,8 +72,8 @@ export default function FAQ() {
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
               >
                 {/* Question */}
-                <div className="flex justify-between items-center py-6 px-6 md:px-8">
-                  <h3 className="font-playfair font-semibold text-white/90 text-[16px] md:text-[17px] pr-5 leading-snug">
+                <div className="flex justify-between items-center py-4 sm:py-6 px-4 sm:px-6 md:px-8 min-h-[44px]">
+                  <h3 className="font-playfair font-semibold text-white/90 text-base sm:text-[16px] md:text-[17px] pr-5 leading-snug">
                     {faq.q}
                   </h3>
                   <span
@@ -92,7 +92,7 @@ export default function FAQ() {
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <p className="font-sans text-white/70 text-[15px] md:text-[16px] leading-relaxed pb-6 px-6 md:px-8">
+                    <p className="font-sans text-white/70 text-sm sm:text-[15px] md:text-[16px] leading-relaxed pb-4 sm:pb-6 px-4 sm:px-6 md:px-8">
                       {faq.a}
                     </p>
                   </div>

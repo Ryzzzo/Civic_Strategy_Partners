@@ -37,7 +37,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 px-6 md:px-10 transition-all duration-400 ${
+      className={`fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 md:px-10 transition-all duration-400 ${
         scrolled
           ? 'bg-brand-navy-deep/95 backdrop-blur-md border-b border-brand-gold/10'
           : 'bg-transparent border-b border-transparent'
@@ -53,7 +53,7 @@ export default function Navbar() {
           <img
             src="/fy26_update/new_logo_2026_clear.png"
             alt="Civic Strategy Partners"
-            className={`transition-all duration-400 ${scrolled ? 'h-16' : 'h-24'}`}
+            className={`transition-all duration-400 ${scrolled ? 'h-12 sm:h-16' : 'h-16 sm:h-20 md:h-24'}`}
           />
         </Link>
 
@@ -76,7 +76,7 @@ export default function Navbar() {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-white/70 hover:text-brand-gold transition-colors"
+          className="md:hidden text-white/70 hover:text-brand-gold transition-colors p-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
           onClick={() => setMobileOpen(!mobileOpen)}
         >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -104,7 +104,7 @@ export default function Navbar() {
               <Link
                 key={link.label}
                 href={link.href}
-                className={`font-playfair font-semibold text-[14px] tracking-[0.12em] uppercase transition-colors duration-300 no-underline px-2 py-1 ${
+                className={`font-playfair font-semibold text-[14px] tracking-[0.12em] uppercase transition-colors duration-300 no-underline px-2 py-2.5 min-h-[44px] flex items-center ${
                   isActive(link.href)
                     ? 'text-brand-gold'
                     : 'text-white/70 hover:text-brand-gold'

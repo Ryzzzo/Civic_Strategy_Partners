@@ -27,14 +27,14 @@ const tiers = [
 
 export default function ServicePreview() {
   return (
-    <section className="relative py-24 md:py-32 px-6">
+    <section className="relative py-12 sm:py-16 md:py-24 lg:py-32 px-4 sm:px-6">
       <div className="max-w-[1000px] mx-auto">
         <ScrollReveal>
-          <div className="text-center mb-16">
-            <p className="font-playfair font-bold text-brand-gold text-xl md:text-2xl tracking-[0.15em] uppercase mb-4">
+          <div className="text-center mb-10 sm:mb-16">
+            <p className="font-playfair font-bold text-brand-gold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-[0.15em] uppercase mb-4">
               Engagement Models
             </p>
-            <h2 className="font-playfair font-bold text-white text-3xl md:text-[40px] leading-tight">
+            <h2 className="font-playfair font-bold text-white text-xl sm:text-2xl md:text-3xl lg:text-[40px] leading-tight">
               Strategic Advisory for
               <br />
               GSA MAS Contracts
@@ -45,7 +45,7 @@ export default function ServicePreview() {
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-12">
           {tiers.map((tier, i) => (
             <ScrollReveal key={i} delay={i * 200} scale={true} className="flex">
               <div className="flex flex-col h-full p-6 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl hover:border-brand-gold/20 transition-all duration-300">

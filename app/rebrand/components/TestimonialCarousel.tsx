@@ -74,30 +74,44 @@ export default function TestimonialCarousel() {
 
   return (
     <div className="relative max-w-4xl mx-auto px-4">
+      {/* Dot indicators — above carousel so always visible */}
+      <div className="flex justify-center gap-2 mb-5">
+        {testimonials.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => scrollTo(i)}
+            className={`w-2 h-2 rounded-full transition-colors ${
+              i === selectedIndex ? 'bg-brand-gold' : 'bg-white/30'
+            }`}
+            aria-label={`Go to testimonial ${i + 1}`}
+          />
+        ))}
+      </div>
+
       {/* Carousel viewport */}
       <div className="overflow-hidden" ref={emblaRef}>
         <div className="flex">
           {testimonials.map((t, i) => (
-            <div key={i} className="flex-[0_0_100%] min-w-0 px-4">
-              <div className="bg-white/[0.06] backdrop-blur-md border border-white/10 rounded-2xl p-8 md:p-10">
+            <div key={i} className="flex-[0_0_100%] min-w-0 px-2 sm:px-4">
+              <div className="bg-white/[0.06] backdrop-blur-md border border-white/10 rounded-2xl p-5 sm:p-6 md:p-8 lg:p-10">
                 {/* Gold quotation mark */}
-                <span className="font-playfair text-[48px] text-brand-gold/80 leading-none block mb-2">
+                <span className="font-playfair text-3xl sm:text-4xl md:text-[48px] text-brand-gold/80 leading-none block mb-2">
                   &ldquo;
                 </span>
 
                 {/* Quote */}
-                <p className="font-playfair text-white/75 text-[17px] md:text-[18px] leading-relaxed italic mb-6">
+                <p className="font-playfair text-white/75 text-base sm:text-[17px] md:text-[18px] leading-relaxed italic mb-4 sm:mb-6">
                   {t.quote}
                 </p>
 
                 {/* Divider */}
-                <div className="w-16 h-px bg-brand-gold/40 mb-4" />
+                <div className="w-16 h-px bg-brand-gold/40 mb-3 sm:mb-4" />
 
                 {/* Attribution */}
-                <p className="font-playfair font-bold text-white text-[15px]">
+                <p className="font-playfair font-bold text-white text-sm sm:text-[15px]">
                   {t.name}
                 </p>
-                <p className="font-playfair text-brand-gold text-base mt-1">
+                <p className="font-playfair text-brand-gold text-xs sm:text-sm md:text-base mt-1">
                   {t.title}
                 </p>
               </div>
@@ -149,20 +163,6 @@ export default function TestimonialCarousel() {
           />
         </svg>
       </button>
-
-      {/* Dot indicators */}
-      <div className="flex justify-center gap-2 mt-6">
-        {testimonials.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => scrollTo(i)}
-            className={`w-2 h-2 rounded-full transition-colors ${
-              i === selectedIndex ? 'bg-brand-gold' : 'bg-white/30'
-            }`}
-            aria-label={`Go to testimonial ${i + 1}`}
-          />
-        ))}
-      </div>
     </div>
   );
 }

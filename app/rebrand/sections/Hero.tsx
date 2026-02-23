@@ -18,14 +18,14 @@ export default function Hero() {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
       {/* Content */}
-      <div className="relative z-10 text-center max-w-[800px] px-6 pt-28 pb-20">
+      <div className="relative z-10 text-center max-w-[800px] px-5 sm:px-6 md:px-8 pt-20 sm:pt-24 md:pt-28 pb-12 sm:pb-16 md:pb-20">
         {/* Eyebrow */}
         <div
           className={`transition-all duration-1000 ease-[cubic-bezier(.22,1,.36,1)] delay-200 ${
             loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
           }`}
         >
-          <p className="font-playfair font-bold text-brand-gold text-2xl md:text-3xl tracking-[0.15em] uppercase mb-8">
+          <p className="font-playfair font-bold text-brand-gold text-sm sm:text-base md:text-xl lg:text-2xl xl:text-3xl tracking-[0.15em] uppercase mb-6 sm:mb-8">
             Elite Federal Contract Advisory
           </p>
         </div>
@@ -36,7 +36,7 @@ export default function Hero() {
             loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
           }`}
         >
-          <h1 className="font-playfair font-bold text-white text-[42px] md:text-[58px] leading-[1.15] mb-2">
+          <h1 className="font-playfair font-bold text-white text-3xl sm:text-4xl md:text-5xl lg:text-[58px] leading-[1.15] mb-2">
             Fractional GSA MAS
             <br />
             <span className="text-brand-gold">Authorized Negotiator</span>
@@ -52,7 +52,7 @@ export default function Hero() {
           <div className="flex justify-center">
             <GoldDivider width={80} />
           </div>
-          <p className="font-playfair text-white/75 text-xl md:text-[22px] leading-relaxed max-w-[580px] mx-auto mb-10 font-normal">
+          <p className="font-playfair text-white/75 text-base sm:text-lg md:text-xl lg:text-[22px] leading-relaxed max-w-[580px] mx-auto mb-8 sm:mb-10 font-normal">
             I embed with companies as their fractional GSA MAS authorized negotiator
             and executive advisor — leading new offers, modifications, pricing strategy,
             and lifecycle compliance without the overhead of a full-time hire.
@@ -65,20 +65,20 @@ export default function Hero() {
             loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
           }`}
         >
-          <p className="font-playfair text-brand-gold/90 text-base md:text-lg font-semibold tracking-[0.12em] uppercase mb-10">
+          <p className="font-playfair text-brand-gold/90 text-xs sm:text-sm md:text-base lg:text-lg font-semibold tracking-[0.12em] uppercase mb-8 sm:mb-10">
             Principal-led · Retainer-based · Built for revenue performance
           </p>
         </div>
 
         {/* CTAs */}
         <div
-          className={`transition-all duration-1000 ease-[cubic-bezier(.22,1,.36,1)] delay-[1200ms] flex gap-4 justify-center flex-wrap ${
+          className={`transition-all duration-1000 ease-[cubic-bezier(.22,1,.36,1)] delay-[1200ms] flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center ${
             loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
           }`}
         >
           <Link
             href="/rebrand/contact"
-            className="inline-block px-9 py-4 font-playfair font-bold text-[15px] tracking-[0.18em] uppercase text-brand-navy-deep no-underline transition-all duration-300 hover:opacity-90 hover:-translate-y-px"
+            className="w-full sm:w-auto text-center px-9 py-4 font-playfair font-bold text-[14px] sm:text-[15px] tracking-[0.18em] uppercase text-brand-navy-deep no-underline transition-all duration-300 hover:opacity-90 hover:-translate-y-px"
             style={{
               background: 'linear-gradient(135deg, #C5993A, #D4AA4F)',
               boxShadow: '0 4px 24px rgba(197,153,58,0.2)',
@@ -88,9 +88,9 @@ export default function Hero() {
           </Link>
           <Link
             href="/rebrand/services"
-            className="inline-block px-9 py-4 font-playfair font-semibold text-[15px] tracking-[0.18em] uppercase text-white/80 border border-white/15 hover:border-brand-gold/40 hover:text-brand-gold transition-all duration-300 no-underline"
+            className="w-full sm:w-auto text-center px-9 py-4 font-playfair font-semibold text-[14px] sm:text-[15px] tracking-[0.18em] uppercase text-white/80 border border-white/15 hover:border-brand-gold/40 hover:text-brand-gold transition-all duration-300 no-underline"
           >
-            How I Work →
+            How I Work &rarr;
           </Link>
         </div>
       </div>
