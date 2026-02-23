@@ -1,7 +1,7 @@
 'use client';
 
-import { useFadeIn } from '../hooks/useFadeIn';
 import GoldDivider from '../components/GoldDivider';
+import { ScrollReveal } from '../components/ScrollReveal';
 
 const credentials = [
   'Former GSA Contract Specialist (GS-1102) — MAS program',
@@ -19,12 +19,6 @@ const pursuing = [
 ];
 
 export default function About() {
-  const headerFade = useFadeIn();
-  const storyFade = useFadeIn();
-  const philosophyFade = useFadeIn();
-  const credentialsFade = useFadeIn();
-  const mottoFade = useFadeIn();
-
   return (
     <section
       id="about"
@@ -36,123 +30,115 @@ export default function About() {
       <div className="max-w-[800px] mx-auto">
 
         {/* ── Section Header ── */}
-        <div
-          ref={headerFade.ref}
-          className={`text-center mb-16 transition-all duration-1000 ease-[cubic-bezier(.22,1,.36,1)] ${
-            headerFade.visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
-        >
-          <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.35em] uppercase mb-4">
-            About
-          </p>
-          <h2 className="font-playfair font-bold text-white text-3xl md:text-[40px] leading-tight">
-            Built From the Government
-            <br />
-            Side of the Table.
-          </h2>
-          <div className="flex justify-center">
-            <GoldDivider width={60} />
+        <ScrollReveal>
+          <div className="text-center mb-16">
+            <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.35em] uppercase mb-4">
+              About
+            </p>
+            <h2 className="font-playfair font-bold text-white text-3xl md:text-[40px] leading-tight">
+              Built From the Government
+              <br />
+              Side of the Table.
+            </h2>
+            <div className="flex justify-center">
+              <GoldDivider width={60} />
+            </div>
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* ── Origin Story ── */}
-        <div
-          ref={storyFade.ref}
-          className={`space-y-6 mb-20 transition-all duration-1000 ease-[cubic-bezier(.22,1,.36,1)] ${
-            storyFade.visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
-        >
-          <p className="font-sans text-white/70 text-[17px] md:text-[18px] leading-relaxed">
-            Before founding Civic Strategy Partners, I served as a Contract Specialist (1102)
-            inside GSA&rsquo;s Multiple Award Schedule program.
-          </p>
-          <p className="font-sans text-white/70 text-[17px] md:text-[18px] leading-relaxed">
-            I reviewed and evaluated offers. I negotiated pricing. I audited contract files.
-            I assessed compliance posture. I saw exactly where companies strengthened their
-            position — and where they quietly lost leverage.
-          </p>
-          <p className="font-playfair font-bold text-white text-xl md:text-2xl leading-snug mt-8 mb-8">
-            I&rsquo;ve sat in the contracting officer&rsquo;s chair.
-            <br />
-            <span className="text-brand-gold">Now I sit in yours.</span>
-          </p>
-          <p className="font-sans text-white/70 text-[17px] md:text-[18px] leading-relaxed">
-            Civic Strategy Partners was built around a simple premise: if you understand how
-            government evaluators think, how negotiations unfold, and where scrutiny actually
-            lands — you can engineer contract position, not just file paperwork.
-          </p>
-        </div>
+        <ScrollReveal delay={150}>
+          <div className="space-y-6 mb-20">
+            <p className="font-sans text-white/70 text-[17px] md:text-[18px] leading-relaxed">
+              Before founding Civic Strategy Partners, I served as a Contract Specialist (1102)
+              inside GSA&rsquo;s Multiple Award Schedule program.
+            </p>
+            <p className="font-sans text-white/70 text-[17px] md:text-[18px] leading-relaxed">
+              I reviewed and evaluated offers. I negotiated pricing. I audited contract files.
+              I assessed compliance posture. I saw exactly where companies strengthened their
+              position — and where they quietly lost leverage.
+            </p>
+            <p className="font-playfair font-bold text-white text-xl md:text-2xl leading-snug mt-8 mb-8">
+              I&rsquo;ve sat in the contracting officer&rsquo;s chair.
+              <br />
+              <span className="text-brand-gold">Now I sit in yours.</span>
+            </p>
+            <p className="font-sans text-white/70 text-[17px] md:text-[18px] leading-relaxed">
+              Civic Strategy Partners was built around a simple premise: if you understand how
+              government evaluators think, how negotiations unfold, and where scrutiny actually
+              lands — you can engineer contract position, not just file paperwork.
+            </p>
+          </div>
+        </ScrollReveal>
 
         {/* ── Firm Philosophy ── */}
-        <div
-          ref={philosophyFade.ref}
-          className={`p-8 md:p-10 mb-20 border-l-[3px] border-l-brand-gold transition-all duration-1000 ease-[cubic-bezier(.22,1,.36,1)] ${
-            philosophyFade.visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
-          style={{ background: 'rgba(21,42,69,0.5)' }}
-        >
-          <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.3em] uppercase mb-4">
-            Firm Philosophy
-          </p>
-          <p className="font-sans text-white/80 text-[17px] md:text-[18px] leading-relaxed">
-            This firm is intentionally structured as an elite boutique advisory. Limited client
-            load. Direct Principal access. Embedded execution when necessary. No junior layers.
-            No outsourced drafting teams. No volume-based template business. One contract vehicle.
-            One expert.
-          </p>
-        </div>
-
-        {/* ── Credentials ── */}
-        <div
-          ref={credentialsFade.ref}
-          className={`mb-20 transition-all duration-1000 ease-[cubic-bezier(.22,1,.36,1)] ${
-            credentialsFade.visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
-        >
-          <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.3em] uppercase mb-6">
-            Background & Credentials
-          </p>
-          <div className="space-y-3 mb-8">
-            {credentials.map((cred, i) => (
-              <div key={i} className="flex items-start gap-3">
-                <span className="text-brand-gold mt-1.5 text-[10px]">◆</span>
-                <span className="font-sans text-white/80 text-[16px] md:text-[17px] leading-relaxed">{cred}</span>
-              </div>
-            ))}
+        <ScrollReveal delay={300}>
+          <div
+            className="p-8 md:p-10 mb-20 border-l-[3px] border-l-brand-gold"
+            style={{ background: 'rgba(21,42,69,0.5)' }}
+          >
+            <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.3em] uppercase mb-4">
+              Firm Philosophy
+            </p>
+            <p className="font-sans text-white/80 text-[17px] md:text-[18px] leading-relaxed">
+              This firm is intentionally structured as an elite boutique advisory. Limited client
+              load. Direct Principal access. Embedded execution when necessary. No junior layers.
+              No outsourced drafting teams. No volume-based template business. One contract vehicle.
+              One expert.
+            </p>
           </div>
+        </ScrollReveal>
 
-          <p className="font-playfair font-semibold text-white/60 text-[14px] tracking-[0.25em] uppercase mb-4">
-            Currently Pursuing
-          </p>
-          <div className="space-y-3">
-            {pursuing.map((cert, i) => (
-              <div key={i} className="flex items-start gap-3">
-                <span className="text-brand-gold/65 mt-1.5 text-[10px]">◆</span>
-                <span className="font-sans text-white/60 text-[15px] leading-relaxed">{cert}</span>
-              </div>
-            ))}
+        {/* ── Background & Credentials ── */}
+        <ScrollReveal delay={200}>
+          <div className="mb-8">
+            <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.3em] uppercase mb-6">
+              Background & Credentials
+            </p>
+            <div className="space-y-3">
+              {credentials.map((cred, i) => (
+                <div key={i} className="flex items-start gap-3">
+                  <span className="text-brand-gold mt-1.5 text-[10px]">◆</span>
+                  <span className="font-sans text-white/80 text-[16px] md:text-[17px] leading-relaxed">{cred}</span>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
+        </ScrollReveal>
+
+        {/* ── Currently Pursuing ── */}
+        <ScrollReveal delay={250}>
+          <div className="mb-20">
+            <p className="font-playfair font-semibold text-white/60 text-[14px] tracking-[0.25em] uppercase mb-4">
+              Currently Pursuing
+            </p>
+            <div className="space-y-3">
+              {pursuing.map((cert, i) => (
+                <div key={i} className="flex items-start gap-3">
+                  <span className="text-brand-gold/65 mt-1.5 text-[10px]">◆</span>
+                  <span className="font-sans text-white/60 text-[15px] leading-relaxed">{cert}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </ScrollReveal>
 
         {/* ── Motto ── */}
-        <div
-          ref={mottoFade.ref}
-          className={`text-center pt-12 border-t border-white/[0.06] transition-all duration-1000 ease-[cubic-bezier(.22,1,.36,1)] ${
-            mottoFade.visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
-        >
-          <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.3em] uppercase mb-3">
-            Our Motto
-          </p>
-          <p className="font-playfair font-bold text-white text-xl md:text-2xl italic mb-3">
-            Virtuum Civium Ductus
-          </p>
-          <p className="font-sans text-white/60 text-[15px] leading-relaxed max-w-[550px] mx-auto">
-            &ldquo;The Leadership of the Citizens&rsquo; Virtues.&rdquo; The government runs on the
-            capabilities of its contractors. This motto signifies our role in mobilizing the best
-            of the commercial world for public service.
-          </p>
-        </div>
+        <ScrollReveal delay={200}>
+          <div className="text-center pt-12 border-t border-white/[0.06]">
+            <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.3em] uppercase mb-3">
+              Our Motto
+            </p>
+            <p className="font-playfair font-bold text-white text-xl md:text-2xl italic mb-3">
+              Virtuum Civium Ductus
+            </p>
+            <p className="font-sans text-white/60 text-[15px] leading-relaxed max-w-[550px] mx-auto">
+              &ldquo;The Leadership of the Citizens&rsquo; Virtues.&rdquo; The government runs on the
+              capabilities of its contractors. This motto signifies our role in mobilizing the best
+              of the commercial world for public service.
+            </p>
+          </div>
+        </ScrollReveal>
 
       </div>
     </section>

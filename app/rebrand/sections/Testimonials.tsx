@@ -1,7 +1,7 @@
 'use client';
 
-import { useFadeIn } from '../hooks/useFadeIn';
 import GoldDivider from '../components/GoldDivider';
+import { ScrollReveal } from '../components/ScrollReveal';
 
 /*
  * PLACEHOLDER TESTIMONIALS
@@ -48,9 +48,6 @@ const testimonials = [
 ];
 
 export default function Testimonials() {
-  const headerFade = useFadeIn();
-  const gridFade = useFadeIn();
-
   return (
     <section
       id="testimonials"
@@ -62,59 +59,52 @@ export default function Testimonials() {
       <div className="max-w-[1100px] mx-auto">
 
         {/* ── Header ── */}
-        <div
-          ref={headerFade.ref}
-          className={`text-center mb-16 transition-all duration-1000 ease-[cubic-bezier(.22,1,.36,1)] ${
-            headerFade.visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
-        >
-          <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.35em] uppercase mb-4">
-            Client Testimonials
-          </p>
-          <h2 className="font-playfair font-bold text-white text-3xl md:text-[40px] leading-tight">
-            Results That Speak
-          </h2>
-          <div className="flex justify-center">
-            <GoldDivider width={60} />
+        <ScrollReveal>
+          <div className="text-center mb-16">
+            <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.35em] uppercase mb-4">
+              Client Testimonials
+            </p>
+            <h2 className="font-playfair font-bold text-white text-3xl md:text-[40px] leading-tight">
+              Results That Speak
+            </h2>
+            <div className="flex justify-center">
+              <GoldDivider width={60} />
+            </div>
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* ── Testimonial Grid ── */}
-        <div
-          ref={gridFade.ref}
-          className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-1000 ease-[cubic-bezier(.22,1,.36,1)] ${
-            gridFade.visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((t, i) => (
-            <div
-              key={i}
-              className="p-8 border-l-[3px] border-l-brand-gold"
-              style={{ background: 'rgba(21,42,69,0.6)' }}
-            >
-              {/* Quote Mark */}
-              <div className="font-playfair text-[48px] text-brand-gold/30 leading-none mb-2">
-                &ldquo;
-              </div>
+            <ScrollReveal key={i} delay={i * 100}>
+              <div
+                className="p-8 border-l-[3px] border-l-brand-gold"
+                style={{ background: 'rgba(21,42,69,0.6)' }}
+              >
+                {/* Quote Mark */}
+                <div className="font-playfair text-[48px] text-brand-gold/30 leading-none mb-2">
+                  &ldquo;
+                </div>
 
-              {/* Quote Text */}
-              <p className="font-playfair text-white/75 text-[17px] md:text-[18px] leading-relaxed italic mb-6">
-                {t.text}
-              </p>
+                {/* Quote Text */}
+                <p className="font-playfair text-white/75 text-[17px] md:text-[18px] leading-relaxed italic mb-6">
+                  {t.text}
+                </p>
 
-              {/* Attribution */}
-              <div className="border-t border-white/[0.08] pt-4">
-                <p className="font-playfair font-bold text-white text-[15px]">
-                  {t.author}
-                </p>
-                <p className="font-playfair text-brand-gold text-[13px] mt-1">
-                  {t.title}
-                </p>
-                <p className="font-playfair text-white/35 text-[12px] mt-1">
-                  {t.context}
-                </p>
+                {/* Attribution */}
+                <div className="border-t border-white/[0.08] pt-4">
+                  <p className="font-playfair font-bold text-white text-[15px]">
+                    {t.author}
+                  </p>
+                  <p className="font-playfair text-brand-gold text-[13px] mt-1">
+                    {t.title}
+                  </p>
+                  <p className="font-playfair text-white/35 text-[12px] mt-1">
+                    {t.context}
+                  </p>
+                </div>
               </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
 

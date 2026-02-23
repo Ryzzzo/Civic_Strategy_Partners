@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { useFadeIn } from '../hooks/useFadeIn';
 import GoldDivider from '../components/GoldDivider';
+import { ScrollReveal } from '../components/ScrollReveal';
 
 const faqs = [
   {
@@ -36,7 +36,6 @@ const faqs = [
 ];
 
 export default function FAQ() {
-  const headerFade = useFadeIn();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
@@ -48,60 +47,59 @@ export default function FAQ() {
       <div className="max-w-[720px] mx-auto">
 
         {/* ── Header ── */}
-        <div
-          ref={headerFade.ref}
-          className={`text-center mb-12 transition-all duration-1000 ease-[cubic-bezier(.22,1,.36,1)] ${
-            headerFade.visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
-        >
-          <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.35em] uppercase mb-4">
-            FAQ
-          </p>
-          <h2 className="font-playfair font-bold text-[#0C1B2E] text-3xl md:text-[38px] leading-tight">
-            Frequently Asked Questions
-          </h2>
-          <div className="flex justify-center">
-            <GoldDivider width={60} />
+        <ScrollReveal>
+          <div className="text-center mb-12">
+            <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.35em] uppercase mb-4">
+              FAQ
+            </p>
+            <h2 className="font-playfair font-bold text-[#0C1B2E] text-3xl md:text-[38px] leading-tight">
+              Frequently Asked Questions
+            </h2>
+            <div className="flex justify-center">
+              <GoldDivider width={60} />
+            </div>
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* ── Accordion ── */}
-        <div>
-          {faqs.map((faq, i) => (
-            <div
-              key={i}
-              className="border-b border-[#0C1B2E]/10 cursor-pointer"
-              onClick={() => setOpenIndex(openIndex === i ? null : i)}
-            >
-              {/* Question */}
-              <div className="flex justify-between items-center py-6">
-                <h3 className="font-playfair font-semibold text-[#0C1B2E] text-[16px] md:text-[17px] pr-5 leading-snug">
-                  {faq.q}
-                </h3>
-                <span
-                  className={`text-brand-gold text-2xl font-light flex-shrink-0 transition-transform duration-300 ${
-                    openIndex === i ? 'rotate-45' : 'rotate-0'
+        <ScrollReveal delay={150}>
+          <div>
+            {faqs.map((faq, i) => (
+              <div
+                key={i}
+                className="border-b border-[#0C1B2E]/10 cursor-pointer"
+                onClick={() => setOpenIndex(openIndex === i ? null : i)}
+              >
+                {/* Question */}
+                <div className="flex justify-between items-center py-6">
+                  <h3 className="font-playfair font-semibold text-[#0C1B2E] text-[16px] md:text-[17px] pr-5 leading-snug">
+                    {faq.q}
+                  </h3>
+                  <span
+                    className={`text-brand-gold text-2xl font-light flex-shrink-0 transition-transform duration-300 ${
+                      openIndex === i ? 'rotate-45' : 'rotate-0'
+                    }`}
+                  >
+                    +
+                  </span>
+                </div>
+
+                {/* Answer */}
+                <div
+                  className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${
+                    openIndex === i ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
                   }`}
                 >
-                  +
-                </span>
-              </div>
-
-              {/* Answer */}
-              <div
-                className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${
-                  openIndex === i ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
-                }`}
-              >
-                <div className="overflow-hidden">
-                  <p className="font-sans text-[#1B3A5C] text-[15px] md:text-[16px] leading-relaxed pb-6">
-                    {faq.a}
-                  </p>
+                  <div className="overflow-hidden">
+                    <p className="font-sans text-[#1B3A5C] text-[15px] md:text-[16px] leading-relaxed pb-6">
+                      {faq.a}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        </ScrollReveal>
 
       </div>
     </section>

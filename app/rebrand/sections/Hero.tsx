@@ -5,10 +5,17 @@ import GoldDivider from '../components/GoldDivider';
 
 export default function Hero() {
   const [loaded, setLoaded] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
     const timer = setTimeout(() => setLoaded(true), 200);
     return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
@@ -41,7 +48,10 @@ export default function Hero() {
       <img
         src="/fy26_update/new_logo_2026_clear.png"
         alt=""
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] md:w-[850px] lg:w-[1000px] opacity-[0.08] pointer-events-none select-none"
+        className="absolute left-1/2 top-1/2 w-[900px] md:w-[1100px] lg:w-[1300px] opacity-[0.08] pointer-events-none select-none"
+        style={{
+          transform: `translate(-50%, calc(-50% + ${scrollY * 0.15}px))`,
+        }}
         aria-hidden="true"
       />
 

@@ -1,7 +1,7 @@
 'use client';
 
-import { useFadeIn } from '../hooks/useFadeIn';
 import GoldDivider from '../components/GoldDivider';
+import { ScrollReveal } from '../components/ScrollReveal';
 
 const articles = [
   {
@@ -28,9 +28,6 @@ const articles = [
 ];
 
 export default function Insights() {
-  const headerFade = useFadeIn();
-  const articlesFade = useFadeIn();
-
   return (
     <section
       id="insights"
@@ -42,67 +39,60 @@ export default function Insights() {
       <div className="max-w-[1000px] mx-auto">
 
         {/* ── Header ── */}
-        <div
-          ref={headerFade.ref}
-          className={`text-center mb-16 transition-all duration-1000 ease-[cubic-bezier(.22,1,.36,1)] ${
-            headerFade.visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
-        >
-          {/* Civic Strategy Briefing logo placeholder */}
-          <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.35em] uppercase mb-4">
-            Civic Strategy Briefing
-          </p>
-          <h2 className="font-playfair font-bold text-white text-3xl md:text-[40px] leading-tight">
-            Insights
-          </h2>
-          <div className="flex justify-center">
-            <GoldDivider width={60} />
+        <ScrollReveal>
+          <div className="text-center mb-16">
+            {/* Civic Strategy Briefing logo placeholder */}
+            <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.35em] uppercase mb-4">
+              Civic Strategy Briefing
+            </p>
+            <h2 className="font-playfair font-bold text-white text-3xl md:text-[40px] leading-tight">
+              Insights
+            </h2>
+            <div className="flex justify-center">
+              <GoldDivider width={60} />
+            </div>
+            <p className="font-sans text-white/80 text-[16px] leading-relaxed max-w-[500px] mx-auto">
+              Analysis and perspective from a former GSA Contract Specialist.
+            </p>
           </div>
-          <p className="font-sans text-white/80 text-[16px] leading-relaxed max-w-[500px] mx-auto">
-            Analysis and perspective from a former GSA Contract Specialist.
-          </p>
-        </div>
+        </ScrollReveal>
 
         {/* ── Article Cards ── */}
-        <div
-          ref={articlesFade.ref}
-          className={`space-y-6 transition-all duration-1000 ease-[cubic-bezier(.22,1,.36,1)] ${
-            articlesFade.visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
-        >
+        <div className="space-y-6">
           {articles.map((article, i) => (
-            <div
-              key={i}
-              className="p-8 md:p-10 border-l-[3px] border-l-brand-gold/40 hover:border-l-brand-gold transition-all duration-300 cursor-pointer group"
-              style={{ background: 'rgba(21,42,69,0.5)' }}
-            >
-              {/* Tag */}
-              <p className="font-playfair font-semibold text-brand-gold/80 text-[14px] tracking-[0.25em] uppercase mb-3">
-                {article.tag}
-              </p>
-
-              {/* Title */}
-              <h3 className="font-playfair font-bold text-white text-xl md:text-[22px] leading-tight mb-2 group-hover:text-brand-gold transition-colors duration-300">
-                {article.title}
-              </h3>
-
-              {/* Byline */}
-              {article.byline && (
-                <p className="font-playfair text-white/60 text-[14px] italic mb-4">
-                  {article.byline}
+            <ScrollReveal key={i} delay={i * 150}>
+              <div
+                className="p-8 md:p-10 border-l-[3px] border-l-brand-gold/40 hover:border-l-brand-gold transition-all duration-300 cursor-pointer group"
+                style={{ background: 'rgba(21,42,69,0.5)' }}
+              >
+                {/* Tag */}
+                <p className="font-playfair font-semibold text-brand-gold/80 text-[14px] tracking-[0.25em] uppercase mb-3">
+                  {article.tag}
                 </p>
-              )}
 
-              {/* Synopsis */}
-              <p className="font-sans text-white/80 text-[16px] leading-relaxed">
-                {article.synopsis}
-              </p>
+                {/* Title */}
+                <h3 className="font-playfair font-bold text-white text-xl md:text-[22px] leading-tight mb-2 group-hover:text-brand-gold transition-colors duration-300">
+                  {article.title}
+                </h3>
 
-              {/* Read More */}
-              <p className="font-playfair font-semibold text-brand-gold text-[15px] tracking-[0.15em] uppercase mt-5 group-hover:tracking-[0.2em] transition-all duration-300">
-                Read More →
-              </p>
-            </div>
+                {/* Byline */}
+                {article.byline && (
+                  <p className="font-playfair text-white/60 text-[14px] italic mb-4">
+                    {article.byline}
+                  </p>
+                )}
+
+                {/* Synopsis */}
+                <p className="font-sans text-white/80 text-[16px] leading-relaxed">
+                  {article.synopsis}
+                </p>
+
+                {/* Read More */}
+                <p className="font-playfair font-semibold text-brand-gold text-[15px] tracking-[0.15em] uppercase mt-5 group-hover:tracking-[0.2em] transition-all duration-300">
+                  Read More →
+                </p>
+              </div>
+            </ScrollReveal>
           ))}
         </div>
 

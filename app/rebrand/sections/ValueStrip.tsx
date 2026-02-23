@@ -1,6 +1,6 @@
 'use client';
 
-import { useFadeIn } from '../hooks/useFadeIn';
+import { ScrollReveal } from '../components/ScrollReveal';
 
 const pillars = [
   {
@@ -24,8 +24,6 @@ const pillars = [
 ];
 
 export default function ValueStrip() {
-  const { ref, visible } = useFadeIn();
-
   return (
     <section
       className="relative py-20 md:py-24 px-6 border-t border-white/[0.06] border-b border-b-white/[0.06]"
@@ -33,27 +31,24 @@ export default function ValueStrip() {
         background: 'linear-gradient(180deg, #152A45 0%, #0C1B2E 100%)',
       }}
     >
-      <div
-        ref={ref}
-        className={`max-w-[1100px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 transition-all duration-1000 ease-[cubic-bezier(.22,1,.36,1)] ${
-          visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-        }`}
-      >
+      <div className="max-w-[1100px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
         {pillars.map((pillar, i) => (
-          <div key={i} className="text-center md:text-left">
-            {/* Gold label */}
-            <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.3em] uppercase mb-3">
-              {pillar.label}
-            </p>
-            {/* Title */}
-            <h3 className="font-playfair font-bold text-white text-[22px] md:text-[24px] mb-4 leading-tight">
-              {pillar.title}
-            </h3>
-            {/* Description */}
-            <p className="font-sans text-white/80 text-[16px] leading-relaxed">
-              {pillar.description}
-            </p>
-          </div>
+          <ScrollReveal key={i} delay={i * 150}>
+            <div className="text-center md:text-left">
+              {/* Gold label */}
+              <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.3em] uppercase mb-3">
+                {pillar.label}
+              </p>
+              {/* Title */}
+              <h3 className="font-playfair font-bold text-white text-[22px] md:text-[24px] mb-4 leading-tight">
+                {pillar.title}
+              </h3>
+              {/* Description */}
+              <p className="font-sans text-white/80 text-[16px] leading-relaxed">
+                {pillar.description}
+              </p>
+            </div>
+          </ScrollReveal>
         ))}
       </div>
     </section>

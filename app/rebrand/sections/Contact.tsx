@@ -1,13 +1,9 @@
 'use client';
 
-import { useFadeIn } from '../hooks/useFadeIn';
 import GoldDivider from '../components/GoldDivider';
+import { ScrollReveal } from '../components/ScrollReveal';
 
 export default function Contact() {
-  const headerFade = useFadeIn();
-  const formFade = useFadeIn();
-  const infoFade = useFadeIn();
-
   return (
     <section
       id="contact"
@@ -29,32 +25,24 @@ export default function Contact() {
       <div className="relative z-10 max-w-[900px] mx-auto">
 
         {/* ── Header ── */}
-        <div
-          ref={headerFade.ref}
-          className={`text-center mb-16 transition-all duration-1000 ease-[cubic-bezier(.22,1,.36,1)] ${
-            headerFade.visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
-        >
-          <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.35em] uppercase mb-4">
-            Get in Touch
-          </p>
-          <h2 className="font-playfair font-bold text-white text-3xl md:text-[40px] leading-tight">
-            Let&rsquo;s Talk About Your Contract.
-          </h2>
-          <div className="flex justify-center">
-            <GoldDivider width={60} />
+        <ScrollReveal>
+          <div className="text-center mb-16">
+            <p className="font-playfair font-semibold text-brand-gold text-[14px] tracking-[0.35em] uppercase mb-4">
+              Get in Touch
+            </p>
+            <h2 className="font-playfair font-bold text-white text-3xl md:text-[40px] leading-tight">
+              Let&rsquo;s Talk About Your Contract.
+            </h2>
+            <div className="flex justify-center">
+              <GoldDivider width={60} />
+            </div>
           </div>
-        </div>
+        </ScrollReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-16">
 
           {/* ── Contact Form (3 cols) ── */}
-          <div
-            ref={formFade.ref}
-            className={`md:col-span-3 transition-all duration-1000 ease-[cubic-bezier(.22,1,.36,1)] ${
-              formFade.visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}
-          >
+          <ScrollReveal delay={150} className="md:col-span-3">
             <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <input
@@ -119,15 +107,10 @@ export default function Contact() {
                 Request a Consultation
               </button>
             </form>
-          </div>
+          </ScrollReveal>
 
           {/* ── Contact Info (2 cols) ── */}
-          <div
-            ref={infoFade.ref}
-            className={`md:col-span-2 transition-all duration-1000 ease-[cubic-bezier(.22,1,.36,1)] ${
-              infoFade.visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}
-          >
+          <ScrollReveal delay={300} direction="right" className="md:col-span-2">
             <div className="space-y-8">
               {/* CTA Block */}
               <div className="p-6 border-l-[3px] border-l-brand-gold" style={{ background: 'rgba(21,42,69,0.5)' }}>
@@ -184,7 +167,7 @@ export default function Contact() {
               {/* DEV NOTE: Kevin to provide Calendly or booking link for embedded scheduling widget.
                  Kevin to confirm LinkedIn profile URL for link. */}
             </div>
-          </div>
+          </ScrollReveal>
 
         </div>
       </div>
