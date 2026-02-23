@@ -387,32 +387,22 @@ body > * {
   }
 }
 
-/* Animated gradient wave background */
-@keyframes gradient-wave {
-  0% {
-    background:
-      radial-gradient(ellipse 80% 60% at 20% 40%, rgba(127, 179, 213, 0.08), transparent 60%),
-      radial-gradient(ellipse 60% 80% at 80% 60%, rgba(192, 200, 212, 0.06), transparent 60%);
-  }
-  33% {
-    background:
-      radial-gradient(ellipse 80% 60% at 50% 30%, rgba(127, 179, 213, 0.10), transparent 60%),
-      radial-gradient(ellipse 60% 80% at 30% 70%, rgba(192, 200, 212, 0.07), transparent 60%);
-  }
-  66% {
-    background:
-      radial-gradient(ellipse 80% 60% at 80% 50%, rgba(127, 179, 213, 0.08), transparent 60%),
-      radial-gradient(ellipse 60% 80% at 50% 40%, rgba(192, 200, 212, 0.06), transparent 60%);
-  }
-  100% {
-    background:
-      radial-gradient(ellipse 80% 60% at 20% 40%, rgba(127, 179, 213, 0.08), transparent 60%),
-      radial-gradient(ellipse 60% 80% at 80% 60%, rgba(192, 200, 212, 0.06), transparent 60%);
-  }
+/* Animated gradient wave background — uses background-position for smooth interpolation */
+.gradient-wave-bg {
+  background:
+    radial-gradient(circle at 30% 40%, rgba(127, 179, 213, 0.09), transparent 50%),
+    radial-gradient(circle at 70% 60%, rgba(192, 200, 212, 0.07), transparent 50%);
+  background-size: 200% 200%;
+  animation: gradient-drift 18s linear infinite;
 }
 
-.animate-gradient-wave {
-  animation: gradient-wave 18s ease-in-out infinite;
+@keyframes gradient-drift {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
 }
 
 /* Desktop HubSpot form fix */
