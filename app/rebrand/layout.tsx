@@ -17,7 +17,7 @@ export default function RebrandLayout({ children }: { children: ReactNode }) {
         <img
           src="/fy26_update/new_logo_2026_clear.png"
           alt=""
-          className="w-[280px] h-[280px] sm:w-[400px] sm:h-[400px] md:w-[600px] md:h-[600px] lg:w-[90vw] lg:h-auto lg:max-w-[1400px] opacity-[0.05] select-none"
+          className="w-[280px] h-[280px] sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px] lg:w-[600px] lg:h-[600px] object-contain opacity-[0.05] select-none"
         />
       </div>
 

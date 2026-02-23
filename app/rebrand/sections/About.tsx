@@ -71,9 +71,9 @@ export default function About() {
         {/* ── Firm Philosophy ── */}
         <ScrollReveal delay={300} scale={true}>
           <div
-            className="p-8 md:p-10 mb-20 border-l-[3px] border-l-brand-gold bg-white/5 backdrop-blur-md border border-white/10 rounded-xl"
+            className="p-5 sm:p-6 md:p-8 lg:p-10 mb-20 border-l-[3px] border-l-brand-gold bg-white/5 backdrop-blur-md border border-white/10 rounded-xl"
           >
-            <p className="font-playfair font-bold text-brand-gold text-base md:text-lg tracking-[0.12em] uppercase mb-4">
+            <p className="font-playfair font-bold text-brand-gold text-sm sm:text-base md:text-lg tracking-[0.12em] uppercase mb-4">
               Firm Philosophy
             </p>
             <p className="font-sans text-white/80 text-[15px] sm:text-[16px] md:text-[18px] leading-relaxed">
@@ -88,14 +88,14 @@ export default function About() {
         {/* ── Background & Credentials ── */}
         <ScrollReveal delay={200}>
           <div className="mb-8">
-            <p className="font-playfair font-bold text-brand-gold text-base md:text-lg tracking-[0.12em] uppercase mb-6">
+            <p className="font-playfair font-bold text-brand-gold text-sm sm:text-base md:text-lg tracking-[0.12em] uppercase mb-6">
               Background & Credentials
             </p>
             <div className="space-y-3">
               {credentials.map((cred, i) => (
                 <div key={i} className="flex items-start gap-3">
                   <span className="text-brand-gold mt-1.5 text-[10px]">◆</span>
-                  <span className="font-sans text-white/80 text-[16px] md:text-[17px] leading-relaxed">{cred}</span>
+                  <span className="font-sans text-white/80 text-[15px] sm:text-[16px] md:text-[17px] leading-relaxed">{cred}</span>
                 </div>
               ))}
             </div>
@@ -122,7 +122,7 @@ export default function About() {
         {/* ── Motto ── */}
         <ScrollReveal delay={200}>
           <div className="text-center pt-12 border-t border-white/[0.06]">
-            <p className="font-playfair font-bold text-brand-gold text-base md:text-lg tracking-[0.12em] uppercase mb-3">
+            <p className="font-playfair font-bold text-brand-gold text-sm sm:text-base md:text-lg tracking-[0.12em] uppercase mb-3">
               Our Motto
             </p>
             <p className="font-playfair font-bold text-white text-xl md:text-2xl italic mb-3">

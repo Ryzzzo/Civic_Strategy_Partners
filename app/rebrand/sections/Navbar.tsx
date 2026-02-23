@@ -38,14 +38,14 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 md:px-10 transition-all duration-400 ${
-        scrolled
+        scrolled || mobileOpen
           ? 'bg-brand-navy-deep/95 backdrop-blur-md border-b border-brand-gold/10'
-          : 'bg-transparent border-b border-transparent'
+          : 'bg-transparent md:bg-transparent bg-brand-navy-deep/80 backdrop-blur-sm md:backdrop-blur-none border-b border-transparent'
       }`}
     >
       <div
         className={`max-w-[1200px] mx-auto flex items-center justify-between transition-all duration-400 ${
-          scrolled ? 'h-20' : 'h-32'
+          scrolled ? 'h-16 sm:h-20' : 'h-16 sm:h-20 md:h-28 lg:h-32'
         }`}
       >
         {/* Logo Area */}
@@ -53,7 +53,7 @@ export default function Navbar() {
           <img
             src="/fy26_update/new_logo_2026_clear.png"
             alt="Civic Strategy Partners"
-            className={`transition-all duration-400 ${scrolled ? 'h-12 sm:h-16' : 'h-16 sm:h-20 md:h-24'}`}
+            className={`transition-all duration-400 ${scrolled ? 'h-10 sm:h-12 md:h-16' : 'h-10 sm:h-14 md:h-20 lg:h-24'}`}
           />
         </Link>
 
@@ -74,46 +74,43 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Menu Button — ALWAYS visible on mobile, no scroll dependency */}
         <button
-          className="md:hidden text-white/70 hover:text-brand-gold transition-colors p-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
+          className="md:hidden flex items-center justify-center w-10 h-10 min-w-[44px] min-h-[44px] text-white/90 hover:text-brand-gold transition-colors"
           onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label="Toggle menu"
         >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-            {mobileOpen ? (
-              <>
-                <line x1="6" y1="6" x2="18" y2="18" />
-                <line x1="6" y1="18" x2="18" y2="6" />
-              </>
-            ) : (
-              <>
-                <line x1="3" y1="6" x2="21" y2="6" />
-                <line x1="3" y1="12" x2="21" y2="12" />
-                <line x1="3" y1="18" x2="21" y2="18" />
-              </>
-            )}
-          </svg>
+          {mobileOpen ? (
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          ) : (
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          )}
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu — absolute dropdown */}
       {mobileOpen && (
-        <div className="md:hidden pb-6 border-t border-white/[0.06]">
-          <div className="flex flex-col gap-4 pt-4">
+        <div className="md:hidden absolute top-full left-0 right-0 bg-brand-navy-deep/95 backdrop-blur-md border-t border-white/10">
+          <nav className="flex flex-col py-4">
             {navLinks.map((link) => (
               <Link
                 key={link.label}
                 href={link.href}
-                className={`font-playfair font-semibold text-[14px] tracking-[0.12em] uppercase transition-colors duration-300 no-underline px-2 py-2.5 min-h-[44px] flex items-center ${
+                onClick={() => setMobileOpen(false)}
+                className={`px-6 py-3 min-h-[44px] flex items-center font-playfair font-semibold text-sm tracking-[0.12em] uppercase transition-colors duration-300 no-underline ${
                   isActive(link.href)
                     ? 'text-brand-gold'
-                    : 'text-white/70 hover:text-brand-gold'
+                    : 'text-white/80 hover:text-white hover:bg-white/5'
                 }`}
               >
                 {link.label}
               </Link>
             ))}
-          </div>
+          </nav>
         </div>
       )}
     </nav>
