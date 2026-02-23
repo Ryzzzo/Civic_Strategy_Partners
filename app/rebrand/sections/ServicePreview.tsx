@@ -47,15 +47,15 @@ export default function ServicePreview() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           {tiers.map((tier, i) => (
-            <ScrollReveal key={i} delay={i * 200} scale={true}>
-              <div className="p-6 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl hover:border-brand-gold/20 transition-all duration-300">
+            <ScrollReveal key={i} delay={i * 200} scale={true} className="flex">
+              <div className="flex flex-col h-full p-6 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl hover:border-brand-gold/20 transition-all duration-300">
                 <p className="font-playfair font-bold text-brand-gold text-base md:text-lg tracking-[0.12em] uppercase mb-3">
                   {tier.label}
                 </p>
                 <h4 className="font-playfair font-bold text-white text-[17px] md:text-[18px] leading-tight mb-3">
                   {tier.title}
                 </h4>
-                <p className="font-sans text-white/80 text-[15px] leading-relaxed">
+                <p className="flex-1 font-sans text-white/80 text-[15px] leading-relaxed">
                   {tier.description}
                 </p>
               </div>
