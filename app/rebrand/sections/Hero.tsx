@@ -22,14 +22,14 @@ export default function Hero() {
 
         {/* CSP Seal — mobile only (replaces watermark which is hidden on mobile) */}
         <div
-          className={`md:hidden transition-all duration-1000 ease-[cubic-bezier(.22,1,.36,1)] mb-4 sm:mb-6 ${
+          className={`md:hidden transition-all duration-1000 ease-[cubic-bezier(.22,1,.36,1)] mb-6 ${
             loaded ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
           }`}
         >
           <img
             src="/fy26_update/new_logo_2026_clear.png"
             alt="Civic Strategy Partners"
-            className="w-16 h-16 sm:w-20 sm:h-20 object-contain mx-auto"
+            className="w-48 h-48 sm:w-56 sm:h-56 object-contain mx-auto"
           />
         </div>
 

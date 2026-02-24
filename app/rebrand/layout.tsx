@@ -18,7 +18,7 @@ export default function RebrandLayout({ children }: { children: ReactNode }) {
           src="/fy26_update/new_logo_2026_clear.png"
           alt=""
           className="object-contain opacity-[0.05] select-none"
-          style={{ width: '60vmin', height: '60vmin' }}
+          style={{ width: '80vmin', height: '80vmin' }}
         />
       </div>
 
