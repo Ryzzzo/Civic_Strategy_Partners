@@ -34,7 +34,7 @@ export default function ServicePreview() {
             <p className="font-playfair font-bold text-brand-gold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-[0.15em] uppercase mb-4">
               Engagement Models
             </p>
-            <h2 className="font-playfair font-bold text-white text-xl sm:text-2xl md:text-3xl lg:text-[40px] leading-tight">
+            <h2 className="font-playfair font-bold text-white text-xl sm:text-2xl md:text-3xl lg:text-[40px] leading-[1.3]">
               Strategic Advisory for
               <br />
               GSA MAS Contracts
@@ -52,7 +52,7 @@ export default function ServicePreview() {
                 <p className="font-playfair font-bold text-brand-gold text-base md:text-lg tracking-[0.12em] uppercase mb-3">
                   {tier.label}
                 </p>
-                <h4 className="font-playfair font-bold text-white text-[17px] md:text-[18px] leading-tight mb-3">
+                <h4 className="font-playfair font-bold text-white text-[17px] md:text-[18px] leading-[1.3] mb-3">
                   {tier.title}
                 </h4>
                 <p className="flex-1 font-sans text-white/80 text-[15px] leading-relaxed">

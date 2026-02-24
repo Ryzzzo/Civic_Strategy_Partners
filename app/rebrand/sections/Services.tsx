@@ -90,7 +90,7 @@ function TierCard({
       </p>
 
       {/* Title */}
-      <h3 className="font-playfair font-bold text-white text-lg sm:text-xl md:text-[26px] lg:text-[30px] leading-tight mb-1">
+      <h3 className="font-playfair font-bold text-white text-lg sm:text-xl md:text-[26px] lg:text-[30px] leading-[1.3] mb-1">
         {title}
       </h3>
 
@@ -155,7 +155,7 @@ export default function Services() {
             <p className="font-playfair font-bold text-brand-gold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-[0.15em] uppercase mb-4">
               Engagement Models
             </p>
-            <h2 className="font-playfair font-bold text-white text-xl sm:text-2xl md:text-3xl lg:text-[40px] leading-tight mb-4">
+            <h2 className="font-playfair font-bold text-white text-xl sm:text-2xl md:text-3xl lg:text-[40px] leading-[1.3] mb-4">
               Strategic Advisory for
               <br />
               GSA MAS Contracts
@@ -242,7 +242,7 @@ export default function Services() {
         {/* ── Who This Is For / Not For ── */}
         <ScrollReveal delay={150}>
           <div className="p-5 sm:p-6 md:p-8 lg:p-12 text-center border-t border-b border-brand-gold/20">
-            <h3 className="font-playfair font-bold text-white text-lg sm:text-xl md:text-2xl lg:text-[30px] leading-tight mb-4 sm:mb-6">
+            <h3 className="font-playfair font-bold text-white text-lg sm:text-xl md:text-2xl lg:text-[30px] leading-[1.3] mb-4 sm:mb-6">
               Not Every Company Needs This Level
               <br />
               of Contract Leadership.

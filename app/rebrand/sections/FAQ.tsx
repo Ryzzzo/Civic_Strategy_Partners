@@ -51,7 +51,7 @@ export default function FAQ() {
             <p className="font-playfair font-bold text-brand-gold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-[0.15em] uppercase mb-4">
               FAQ
             </p>
-            <h2 className="font-playfair font-bold text-white text-xl sm:text-2xl md:text-3xl lg:text-[38px] leading-tight">
+            <h2 className="font-playfair font-bold text-white text-xl sm:text-2xl md:text-3xl lg:text-[38px] leading-[1.3]">
               Frequently Asked Questions
             </h2>
             <div className="flex justify-center">
@@ -73,7 +73,7 @@ export default function FAQ() {
               >
                 {/* Question */}
                 <div className="flex justify-between items-center py-4 sm:py-6 px-4 sm:px-6 md:px-8 min-h-[44px]">
-                  <h3 className="font-playfair font-semibold text-white/90 text-base sm:text-[16px] md:text-[17px] pr-5 leading-snug">
+                  <h3 className="font-playfair font-semibold text-white/90 text-base sm:text-[16px] md:text-[17px] pr-5 leading-[1.3]">
                     {faq.q}
                   </h3>
                   <span

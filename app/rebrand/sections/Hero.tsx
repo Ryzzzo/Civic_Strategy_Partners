@@ -50,7 +50,7 @@ export default function Hero() {
             loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
           }`}
         >
-          <h1 className="font-playfair font-bold text-white text-3xl sm:text-4xl md:text-5xl lg:text-[58px] leading-tight mb-2">
+          <h1 className="font-playfair font-bold text-white text-3xl sm:text-4xl md:text-5xl lg:text-[58px] leading-[1.3] mb-2">
             Fractional GSA MAS
             <br />
             <span className="text-brand-gold">Authorized Negotiator</span>
