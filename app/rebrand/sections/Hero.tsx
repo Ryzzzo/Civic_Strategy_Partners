@@ -20,16 +20,16 @@ export default function Hero() {
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center text-center max-w-[800px] px-5 sm:px-6 md:px-8 pt-8 sm:pt-12 md:pt-20 pb-16 sm:pb-20 md:pb-28">
 
-        {/* CSP Seal — visible on mobile (since watermark is hidden), subtle on md+ */}
+        {/* CSP Seal — mobile only (replaces watermark which is hidden on mobile) */}
         <div
-          className={`transition-all duration-1000 ease-[cubic-bezier(.22,1,.36,1)] mb-4 sm:mb-6 ${
+          className={`md:hidden transition-all duration-1000 ease-[cubic-bezier(.22,1,.36,1)] mb-4 sm:mb-6 ${
             loaded ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
           }`}
         >
           <img
             src="/fy26_update/new_logo_2026_clear.png"
             alt="Civic Strategy Partners"
-            className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain mx-auto"
+            className="w-16 h-16 sm:w-20 sm:h-20 object-contain mx-auto"
           />
         </div>
 
