@@ -4,7 +4,7 @@ import Footer from './sections/Footer';
 
 export default function RebrandLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="relative min-h-screen">
+    <div className="relative min-h-screen overflow-x-hidden">
       {/* Layer 1: Solid navy base */}
       <div className="fixed inset-0 bg-[#0a1628]" style={{ zIndex: 0 }} />
 
@@ -17,8 +17,8 @@ export default function RebrandLayout({ children }: { children: ReactNode }) {
         <img
           src="/fy26_update/new_logo_2026_clear.png"
           alt=""
-          className="object-contain opacity-[0.05] select-none"
-          style={{ width: '80vmin', height: '80vmin' }}
+          className="object-contain"
+          style={{ width: '90vmin', height: '90vmin', opacity: 0.07 }}
         />
       </div>
 

@@ -84,6 +84,8 @@
 /* Prevent FOUC - Critical styles for immediate render */
 html {
   background: #0F172A;
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 body {
@@ -91,6 +93,8 @@ body {
   min-height: 100vh;
   opacity: 1 !important;
   visibility: visible !important;
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 /* Prevent flash of invisible content */
