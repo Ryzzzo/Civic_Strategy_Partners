@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function TestimonialsPage() {
   return (
-    <div className="pt-32 md:pt-36 lg:pt-40">
+    <div className="pt-36 sm:pt-40 md:pt-44 lg:pt-48">
       <Testimonials />
     </div>
   );

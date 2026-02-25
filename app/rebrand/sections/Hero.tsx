@@ -18,7 +18,7 @@ export default function Hero() {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-center text-center max-w-[800px] px-6 sm:px-8 md:px-12 lg:px-16 pt-8 sm:pt-12 md:pt-20 pb-16 sm:pb-20 md:pb-28">
+      <div className="relative z-10 flex flex-col items-center text-center max-w-[800px] px-6 sm:px-8 md:px-12 lg:px-16 pt-36 sm:pt-40 md:pt-44 lg:pt-48 pb-16 sm:pb-20 md:pb-28">
 
         {/* CSP Seal — mobile only (replaces watermark which is hidden on mobile) */}
         <div
