@@ -18,7 +18,7 @@ export default function Contact() {
             <p className="font-playfair font-bold text-brand-gold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-[0.15em] uppercase mb-4">
               Get in Touch
             </p>
-            <h2 className="font-playfair font-bold text-white text-xl sm:text-2xl md:text-3xl lg:text-[40px] leading-normal">
+            <h2 className="font-playfair font-bold text-white text-xl sm:text-2xl md:text-3xl lg:text-[40px]" style={{ lineHeight: 1.5 }}>
               Let&rsquo;s Talk About Your Contract.
             </h2>
             <div className="flex justify-center">

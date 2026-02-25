@@ -37,7 +37,7 @@ export default function ValueStrip() {
                 {pillar.label}
               </p>
               {/* Title */}
-              <h3 className="font-playfair font-bold text-white text-lg sm:text-xl md:text-[24px] mb-4 leading-normal">
+              <h3 className="font-playfair font-bold text-white text-lg sm:text-xl md:text-[24px] mb-4" style={{ lineHeight: 1.5 }}>
                 {pillar.title}
               </h3>
               {/* Description */}

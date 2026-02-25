@@ -42,7 +42,7 @@ export default function Insights() {
             <p className="font-playfair font-bold text-brand-gold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-[0.15em] uppercase mb-4">
               Civic Strategy Briefing
             </p>
-            <h2 className="font-playfair font-bold text-white text-xl sm:text-2xl md:text-3xl lg:text-[40px] leading-normal">
+            <h2 className="font-playfair font-bold text-white text-xl sm:text-2xl md:text-3xl lg:text-[40px]" style={{ lineHeight: 1.5 }}>
               Insights
             </h2>
             <div className="flex justify-center">
@@ -67,7 +67,7 @@ export default function Insights() {
                 </p>
 
                 {/* Title */}
-                <h3 className="font-playfair font-bold text-white text-lg sm:text-xl md:text-[22px] leading-normal mb-2 group-hover:text-brand-gold transition-colors duration-300">
+                <h3 className="font-playfair font-bold text-white text-lg sm:text-xl md:text-[22px] mb-2 group-hover:text-brand-gold transition-colors duration-300" style={{ lineHeight: 1.5 }}>
                   {article.title}
                 </h3>
 

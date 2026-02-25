@@ -32,7 +32,7 @@ export default function About() {
             <p className="font-playfair font-bold text-brand-gold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-[0.15em] uppercase mb-4">
               About
             </p>
-            <h2 className="font-playfair font-bold text-white text-xl sm:text-2xl md:text-3xl lg:text-[40px] leading-normal">
+            <h2 className="font-playfair font-bold text-white text-xl sm:text-2xl md:text-3xl lg:text-[40px]" style={{ lineHeight: 1.5 }}>
               Built From the Government
               <br />
               Side of the Table.
@@ -55,7 +55,7 @@ export default function About() {
               I assessed compliance posture. I saw exactly where companies strengthened their
               position — and where they quietly lost leverage.
             </p>
-            <p className="font-playfair font-bold text-white text-lg sm:text-xl md:text-2xl leading-normal mt-8 mb-8">
+            <p className="font-playfair font-bold text-white text-lg sm:text-xl md:text-2xl mt-8 mb-8" style={{ lineHeight: 1.5 }}>
               I&rsquo;ve sat in the contracting officer&rsquo;s chair.
               <br />
               <span className="text-brand-gold">Now I sit in yours.</span>
