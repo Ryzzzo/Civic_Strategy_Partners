@@ -60,49 +60,47 @@ export default function FAQ() {
           </div>
         </ScrollReveal>
 
-        {/* Accordion */}
-        <ScrollReveal delay={150}>
-          <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl overflow-hidden">
-            {faqs.map((faq, i) => (
-              <div
-                key={i}
-                className={`cursor-pointer ${
-                  i < faqs.length - 1 ? 'border-b border-white/[0.08]' : ''
-                }`}
-                onClick={() => setOpenIndex(openIndex === i ? null : i)}
-              >
-                {/* Question */}
-                <div className="flex justify-between items-center py-4 sm:py-6 px-4 sm:px-6 md:px-8 min-h-[44px]">
-                  <h3 className="font-playfair font-semibold text-white/90 text-base sm:text-[16px] md:text-[17px] pr-5" style={{ lineHeight: 1.35 }}>
-                    {faq.q}
-                  </h3>
-                  <span
-                    className={`text-brand-gold flex-shrink-0 transition-transform duration-300 ${
-                      openIndex === i ? 'rotate-180' : 'rotate-0'
-                    }`}
-                  >
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </span>
-                </div>
-
-                {/* Answer */}
-                <div
-                  className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${
-                    openIndex === i ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
+        {/* Accordion — no animation wrapper to preserve instant backdrop-filter */}
+        <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl overflow-hidden">
+          {faqs.map((faq, i) => (
+            <div
+              key={i}
+              className={`cursor-pointer ${
+                i < faqs.length - 1 ? 'border-b border-white/[0.08]' : ''
+              }`}
+              onClick={() => setOpenIndex(openIndex === i ? null : i)}
+            >
+              {/* Question */}
+              <div className="flex justify-between items-center py-4 sm:py-6 px-4 sm:px-6 md:px-8 min-h-[44px]">
+                <h3 className="font-playfair font-semibold text-white/90 text-base sm:text-[16px] md:text-[17px] pr-5" style={{ lineHeight: 1.35 }}>
+                  {faq.q}
+                </h3>
+                <span
+                  className={`text-brand-gold flex-shrink-0 transition-transform duration-300 ${
+                    openIndex === i ? 'rotate-180' : 'rotate-0'
                   }`}
                 >
-                  <div className="overflow-hidden">
-                    <p className="font-sans text-white/70 text-sm sm:text-[15px] md:text-[16px] leading-relaxed pb-4 sm:pb-6 px-4 sm:px-6 md:px-8">
-                      {faq.a}
-                    </p>
-                  </div>
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </span>
+              </div>
+
+              {/* Answer */}
+              <div
+                className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${
+                  openIndex === i ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
+                }`}
+              >
+                <div className="overflow-hidden">
+                  <p className="font-sans text-sm sm:text-[15px] md:text-[16px] leading-relaxed pb-4 sm:pb-6 px-4 sm:px-6 md:px-8" style={{ color: 'rgba(255, 255, 255, 0.70)' }}>
+                    {faq.a}
+                  </p>
                 </div>
               </div>
-            ))}
-          </div>
-        </ScrollReveal>
+            </div>
+          ))}
+        </div>
 
       </div>
     </section>

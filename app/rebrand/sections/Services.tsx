@@ -69,10 +69,10 @@ const additionalCapabilities = [
 /* ───── Scope Item Component ───── */
 function ScopeItem({ text }: { text: string }) {
   return (
-    <div className="flex items-start gap-3 py-2">
-      <span className="text-brand-gold mt-1.5 text-[10px]">◆</span>
-      <span className="font-sans text-white/80 text-[15px] sm:text-[16px] md:text-[17px] leading-relaxed">{text}</span>
-    </div>
+    <li className="flex items-start gap-2">
+      <span className="text-brand-gold mt-1 flex-shrink-0 text-xs">•</span>
+      <span className="font-sans text-[14px] leading-snug" style={{ color: 'rgba(255, 255, 255, 0.70)' }}>{text}</span>
+    </li>
   );
 }
 
@@ -100,57 +100,57 @@ function TierCard({
 }) {
   return (
     <div
-      className="p-5 sm:p-6 md:p-8 lg:p-10 border-l-[3px] border-l-brand-gold bg-white/5 backdrop-blur-md border border-white/10 rounded-xl hover:border-brand-gold/20 hover:shadow-[0_0_24px_rgba(197,153,58,0.08)] transition-all duration-300"
+      className="p-5 sm:p-6 md:p-8 border-l-[3px] border-l-brand-gold bg-white/5 backdrop-blur-md border border-white/10 rounded-xl hover:border-brand-gold/20 hover:shadow-[0_0_24px_rgba(197,153,58,0.08)] transition-all duration-300"
     >
       {/* Tier Label */}
-      <p className="font-playfair font-bold text-brand-gold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-[0.15em] uppercase mb-3">
+      <p className="font-playfair font-bold text-brand-gold text-xs sm:text-sm tracking-widest uppercase mb-1">
         {tierLabel}
       </p>
 
       {/* Title */}
-      <h3 className="font-playfair font-bold text-white text-lg sm:text-xl md:text-[26px] lg:text-[30px] mb-1" style={{ lineHeight: 1.35 }}>
+      <h3 className="font-playfair font-bold text-white text-lg md:text-xl mb-1" style={{ lineHeight: 1.35 }}>
         {title}
       </h3>
 
       {/* Subtitle */}
-      <p className="font-playfair text-brand-gold/90 text-sm sm:text-base md:text-lg tracking-wide mb-4 sm:mb-6">
+      <p className="font-playfair text-brand-gold/90 text-sm sm:text-base tracking-wide mb-3">
         {subtitle}
       </p>
 
       {/* Description */}
-      <p className="font-sans text-white/80 text-[15px] sm:text-[16px] md:text-[17px] leading-relaxed mb-6 sm:mb-8">
+      <p className="font-sans text-[14px] sm:text-[15px] leading-relaxed mb-4" style={{ color: 'rgba(255, 255, 255, 0.75)' }}>
         {description}
       </p>
 
       {/* Scope */}
       {scopeTitle && (
-        <p className="font-playfair font-semibold text-white/60 text-[13px] sm:text-[14px] tracking-[0.25em] uppercase mb-3">
+        <p className="font-playfair font-semibold text-[12px] sm:text-[13px] tracking-[0.25em] uppercase mb-2" style={{ color: 'rgba(255, 255, 255, 0.55)' }}>
           {scopeTitle}
         </p>
       )}
-      <div className="mb-6">
+      <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2 mb-4">
         {scopeItems.map((item, i) => (
           <ScopeItem key={i} text={item} />
         ))}
-      </div>
+      </ul>
 
       {/* Optional Access */}
       {optionalTitle && optionalItems && (
         <>
-          <p className="font-playfair font-semibold text-white/60 text-[13px] sm:text-[14px] tracking-[0.25em] uppercase mb-3 mt-6">
+          <p className="font-playfair font-semibold text-[12px] sm:text-[13px] tracking-[0.25em] uppercase mb-2 mt-4" style={{ color: 'rgba(255, 255, 255, 0.55)' }}>
             {optionalTitle}
           </p>
-          <div className="mb-6">
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2 mb-4">
             {optionalItems.map((item, i) => (
               <ScopeItem key={i} text={item} />
             ))}
-          </div>
+          </ul>
         </>
       )}
 
       {/* Footnote */}
       {footnote && (
-        <p className="font-playfair text-brand-gold/90 text-sm sm:text-base italic mt-6 pt-6 border-t border-white/[0.06]">
+        <p className="font-playfair text-brand-gold/90 text-sm italic mt-4 pt-4 border-t border-white/[0.06]">
           {footnote}
         </p>
       )}
@@ -190,7 +190,7 @@ export default function Services() {
         </ScrollReveal>
 
         {/* ── Detailed Tier Cards ── */}
-        <div className="space-y-8 sm:space-y-12 mb-16 sm:mb-24 max-w-4xl mx-auto">
+        <div className="space-y-8 sm:space-y-12 mb-16 sm:mb-24 max-w-3xl mx-auto">
 
           {/* Tier 1 */}
           <ScrollReveal direction="left" distance="80px">
@@ -236,14 +236,16 @@ export default function Services() {
         <TierComparison />
 
         {/* ── Additional Strategic Capabilities ── */}
-        <ScrollReveal className="mb-16 sm:mb-24 max-w-4xl mx-auto">
-          <div className="p-5 sm:p-6 md:p-8 lg:p-10 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl">
-            <p className="font-playfair font-bold text-brand-gold text-sm sm:text-base md:text-lg tracking-[0.12em] uppercase mb-6">
+        <ScrollReveal className="mb-16 sm:mb-24 max-w-3xl mx-auto">
+          <div className="p-5 sm:p-6 md:p-8 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl">
+            <p className="font-playfair font-bold text-brand-gold text-xs sm:text-sm tracking-widest uppercase mb-4">
               Additional Strategic Capabilities
             </p>
-            {additionalCapabilities.map((item, i) => (
-              <ScopeItem key={i} text={item} />
-            ))}
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2">
+              {additionalCapabilities.map((item, i) => (
+                <ScopeItem key={i} text={item} />
+              ))}
+            </ul>
           </div>
         </ScrollReveal>
 
@@ -261,6 +263,7 @@ export default function Services() {
         </ScrollReveal>
 
         {/* ── Who This Is For / Not For ── */}
+        <div className="max-w-3xl mx-auto">
         <ScrollReveal delay={150}>
           <div className="text-center mb-8 sm:mb-10">
             <h3 className="font-playfair font-bold text-white text-lg sm:text-xl md:text-2xl lg:text-[30px] mb-4" style={{ lineHeight: 1.35 }}>
@@ -309,6 +312,7 @@ export default function Services() {
               </ul>
             </div>
           </ScrollReveal>
+        </div>
         </div>
 
       </div>
