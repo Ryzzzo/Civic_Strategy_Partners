@@ -3,6 +3,7 @@
 import GoldDivider from '../components/GoldDivider';
 import { ScrollReveal } from '../components/ScrollReveal';
 import StatsBar from '../components/StatsBar';
+import CredentialTimeline from '../components/CredentialTimeline';
 
 const credentials = [
   'Former GSA Contract Specialist (GS-1102) — MAS program',
@@ -89,22 +90,13 @@ export default function About() {
         {/* ── Stats Bar ── */}
         <StatsBar />
 
-        {/* ── Background & Credentials ── */}
+        {/* ── Career Timeline ── */}
         <ScrollReveal delay={200}>
-          <div className="mb-8">
-            <p className="font-playfair font-bold text-brand-gold text-sm sm:text-base md:text-lg tracking-[0.12em] uppercase mb-6">
-              Background & Credentials
-            </p>
-            <div className="space-y-3">
-              {credentials.map((cred, i) => (
-                <div key={i} className="flex items-start gap-3">
-                  <span className="text-brand-gold mt-1.5 text-[10px]">◆</span>
-                  <span className="font-sans text-white/80 text-[15px] sm:text-[16px] md:text-[17px] leading-relaxed">{cred}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+          <p className="font-playfair font-bold text-brand-gold text-sm sm:text-base md:text-lg tracking-[0.12em] uppercase mb-6">
+            Background & Credentials
+          </p>
         </ScrollReveal>
+        <CredentialTimeline />
 
         {/* ── Currently Pursuing ── */}
         <ScrollReveal delay={250}>

@@ -2,6 +2,7 @@
 
 import GoldDivider from '../components/GoldDivider';
 import { ScrollReveal } from '../components/ScrollReveal';
+import StaggeredReveal from '../components/StaggeredReveal';
 
 const articles = [
   {
@@ -27,7 +28,15 @@ const articles = [
   },
 ];
 
+function readingTime(text: string) {
+  const words = text.split(/\s+/).length;
+  const minutes = Math.max(1, Math.ceil(words / 200));
+  return `${minutes} min read`;
+}
+
 export default function Insights() {
+  const [featured, ...remaining] = articles;
+
   return (
     <section
       id="insights"
@@ -38,12 +47,11 @@ export default function Insights() {
         {/* ── Header ── */}
         <ScrollReveal>
           <div className="text-center mb-10 sm:mb-16">
-            {/* Civic Strategy Briefing logo placeholder */}
             <p className="font-playfair font-bold text-brand-gold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-[0.15em] uppercase mb-4">
               Civic Strategy Briefing
             </p>
             <h2 className="font-playfair font-bold text-white text-xl sm:text-2xl md:text-3xl lg:text-[40px]" style={{ lineHeight: 1.35 }}>
-              Insights
+              Strategic Intelligence
             </h2>
             <div className="flex justify-center">
               <GoldDivider width={60} />
@@ -54,41 +62,63 @@ export default function Insights() {
           </div>
         </ScrollReveal>
 
-        {/* ── Article Cards ── */}
-        <div className="space-y-6">
-          {articles.map((article, i) => (
-            <ScrollReveal key={i} delay={i * 200} direction="right" distance="60px">
-              <div
-                className="p-5 sm:p-6 md:p-8 lg:p-10 border-l-[3px] border-l-brand-gold/40 hover:border-l-brand-gold hover:shadow-[0_0_24px_rgba(197,153,58,0.08)] transition-all duration-300 cursor-pointer group bg-white/5 backdrop-blur-md border border-white/10 rounded-xl"
-              >
-                {/* Tag */}
-                <p className="font-playfair font-bold text-brand-gold/90 text-xs sm:text-sm md:text-base lg:text-lg tracking-[0.12em] uppercase mb-3">
-                  {article.tag}
-                </p>
+        {/* ── Featured Briefing ── */}
+        <ScrollReveal delay={150}>
+          <article className="bg-white/[0.06] backdrop-blur-md border border-brand-gold/15 rounded-2xl p-6 sm:p-8 md:p-10 mb-8 group cursor-pointer transition-all duration-300 hover:shadow-[0_0_30px_rgba(197,153,58,0.06)] hover:border-brand-gold/25">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="text-brand-gold/70 text-xs font-sans uppercase tracking-widest">Featured Briefing</span>
+              <span className="h-px flex-1 bg-brand-gold/20" />
+              <span className="text-white/40 text-xs font-sans">{readingTime(featured.synopsis)}</span>
+            </div>
+            <h3
+              className="font-playfair font-bold text-white text-xl sm:text-2xl md:text-3xl mb-4 group-hover:text-brand-gold/90 transition-colors duration-300"
+              style={{ lineHeight: 1.35 }}
+            >
+              {featured.title}
+            </h3>
+            {featured.byline && (
+              <p className="font-playfair text-white/50 text-[14px] italic mb-4">
+                {featured.byline}
+              </p>
+            )}
+            <p className="font-sans text-white/60 text-[15px] leading-relaxed mb-6 max-w-3xl">
+              {featured.synopsis}
+            </p>
+            <div className="flex items-center justify-between">
+              <span className="text-brand-gold/60 text-xs font-sans uppercase tracking-widest">{featured.tag}</span>
+              <span className="text-brand-gold text-sm font-sans group-hover:translate-x-1 transition-transform duration-300 inline-flex items-center gap-1">
+                Read Briefing <span aria-hidden="true">&rarr;</span>
+              </span>
+            </div>
+          </article>
+        </ScrollReveal>
 
-                {/* Title */}
-                <h3 className="font-playfair font-bold text-white text-lg sm:text-xl md:text-[22px] mb-2 group-hover:text-brand-gold transition-colors duration-300" style={{ lineHeight: 1.35 }}>
+        {/* ── Remaining Briefings — 2 column grid ── */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {remaining.map((article, i) => (
+            <StaggeredReveal key={i} index={i} direction="up" delay={120} className="flex">
+              <article className="flex flex-col h-full bg-white/[0.04] backdrop-blur-md border border-white/10 rounded-2xl p-6 group cursor-pointer transition-all duration-300 hover:shadow-[0_0_30px_rgba(197,153,58,0.06)] hover:border-brand-gold/20">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="text-brand-gold/60 text-xs font-sans uppercase tracking-widest">{article.tag}</span>
+                  <span className="h-px flex-1 bg-white/10" />
+                  <span className="text-white/30 text-xs font-sans">{readingTime(article.synopsis)}</span>
+                </div>
+                <h3
+                  className="font-playfair font-bold text-white text-lg sm:text-xl mb-3 group-hover:text-brand-gold/90 transition-colors duration-300"
+                  style={{ lineHeight: 1.35 }}
+                >
                   {article.title}
                 </h3>
-
-                {/* Byline */}
-                {article.byline && (
-                  <p className="font-playfair text-white/60 text-[14px] italic mb-4">
-                    {article.byline}
-                  </p>
-                )}
-
-                {/* Synopsis */}
-                <p className="font-sans text-white/80 text-[15px] sm:text-[16px] leading-relaxed">
+                <p className="flex-1 font-sans text-white/55 text-[14px] leading-relaxed mb-5">
                   {article.synopsis}
                 </p>
-
-                {/* Read More */}
-                <p className="font-playfair font-bold text-brand-gold text-sm sm:text-base md:text-lg tracking-[0.12em] uppercase mt-5 group-hover:tracking-[0.15em] transition-all duration-300">
-                  Read More →
-                </p>
-              </div>
-            </ScrollReveal>
+                <div className="flex items-center justify-end pt-4 border-t border-white/[0.06]">
+                  <span className="text-brand-gold text-sm font-sans group-hover:translate-x-1 transition-transform duration-300 inline-flex items-center gap-1">
+                    Read Briefing <span aria-hidden="true">&rarr;</span>
+                  </span>
+                </div>
+              </article>
+            </StaggeredReveal>
           ))}
         </div>
 

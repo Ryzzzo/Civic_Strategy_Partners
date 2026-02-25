@@ -2,6 +2,7 @@
 
 import GoldDivider from '../components/GoldDivider';
 import { ScrollReveal } from '../components/ScrollReveal';
+import StaggeredReveal from '../components/StaggeredReveal';
 import { testimonials } from '../components/TestimonialCarousel';
 
 export default function Testimonials() {
@@ -30,7 +31,7 @@ export default function Testimonials() {
         {/* Testimonial Grid — equal height cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {testimonials.map((t, i) => (
-            <ScrollReveal key={i} delay={i * 150} scale={true} className="flex">
+            <StaggeredReveal key={i} index={i} direction="alternate" delay={100} className="flex">
               <div className="flex flex-col h-full p-5 sm:p-6 md:p-8 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl hover:border-brand-gold/20 hover:shadow-[0_0_24px_rgba(197,153,58,0.08)] transition-all duration-300">
                 {/* Quote Mark */}
                 <div
@@ -55,7 +56,7 @@ export default function Testimonials() {
                   </p>
                 </div>
               </div>
-            </ScrollReveal>
+            </StaggeredReveal>
           ))}
         </div>
 

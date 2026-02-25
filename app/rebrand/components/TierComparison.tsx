@@ -31,7 +31,7 @@ const features: { label: string; tiers: (boolean | string)[] }[] = [
 
 export default function TierComparison() {
   return (
-    <div className="mt-16 sm:mt-24">
+    <div className="mt-16 sm:mt-24 mb-16 md:mb-20">
       <ScrollReveal>
         <div className="text-center mb-10 sm:mb-14">
           <p className="font-playfair font-bold text-brand-gold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-[0.15em] uppercase mb-4">

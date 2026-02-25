@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import GoldDivider from '../components/GoldDivider';
 import { ScrollReveal } from '../components/ScrollReveal';
+import StaggeredReveal from '../components/StaggeredReveal';
 
 const resources = [
   {
@@ -103,7 +104,7 @@ export default function Resources() {
         {/* Resource Cards */}
         <div className="space-y-4">
           {resources.map((resource, i) => (
-            <ScrollReveal key={i} delay={i * 200} scale={true}>
+            <StaggeredReveal key={i} index={i} direction="up" delay={100}>
               <div
                 className="p-6 md:p-8 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl hover:border-brand-gold/20 hover:shadow-[0_0_24px_rgba(197,153,58,0.08)] transition-all duration-300 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
               >
@@ -124,7 +125,7 @@ export default function Resources() {
                   Download
                 </button>
               </div>
-            </ScrollReveal>
+            </StaggeredReveal>
           ))}
         </div>
 
