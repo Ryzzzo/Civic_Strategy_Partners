@@ -7,7 +7,10 @@ export default function ParallaxWatermark() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setOffset(window.scrollY * 0.2);
+      // Cap the offset so the watermark never drifts too far
+      const maxOffset = window.innerHeight * 0.15;
+      const rawOffset = window.scrollY * 0.12;
+      setOffset(Math.min(rawOffset, maxOffset));
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
@@ -28,6 +31,7 @@ export default function ParallaxWatermark() {
           height: 'min(95vmin, 800px)',
           opacity: 0.10,
           transform: `translateY(${offset}px)`,
+          transition: 'transform 0.1s linear',
         }}
       />
     </div>

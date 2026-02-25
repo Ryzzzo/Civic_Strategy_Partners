@@ -1,17 +1,17 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 
 export default function LoadingScreen() {
   const [isLoading, setIsLoading] = useState(true);
   const [progress, setProgress] = useState(0);
+  const [shouldRender, setShouldRender] = useState(true);
 
   useEffect(() => {
     // Skip loading on subsequent navigations within the same session
-    if (typeof window !== 'undefined' && sessionStorage.getItem('csp-loaded')) {
+    if (sessionStorage.getItem('csp-loaded')) {
       setIsLoading(false);
-      setProgress(100);
+      setShouldRender(false);
       return;
     }
 
@@ -30,9 +30,7 @@ export default function LoadingScreen() {
     // Minimum display time
     const minTimer = setTimeout(() => {
       setProgress(100);
-      if (typeof window !== 'undefined') {
-        sessionStorage.setItem('csp-loaded', 'true');
-      }
+      sessionStorage.setItem('csp-loaded', 'true');
     }, 1800);
 
     return () => {
@@ -41,6 +39,7 @@ export default function LoadingScreen() {
     };
   }, []);
 
+  // Trigger exit when progress reaches 100
   useEffect(() => {
     if (progress >= 100 && isLoading) {
       const exitTimer = setTimeout(() => setIsLoading(false), 400);
@@ -48,67 +47,65 @@ export default function LoadingScreen() {
     }
   }, [progress, isLoading]);
 
+  // Remove from DOM after fade-out completes
+  useEffect(() => {
+    if (!isLoading && shouldRender) {
+      const timer = setTimeout(() => setShouldRender(false), 700);
+      return () => clearTimeout(timer);
+    }
+  }, [isLoading, shouldRender]);
+
+  if (!shouldRender) return null;
+
   return (
-    <AnimatePresence>
-      {isLoading && (
-        <motion.div
-          className="fixed inset-0 flex flex-col items-center justify-center bg-[#0a1628]"
-          style={{ zIndex: 100 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-        >
-          {/* CSP Seal */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{
-              opacity: progress > 10 ? 0.9 : 0,
-              scale: progress >= 100 ? 0.9 : 1,
-            }}
-            transition={{ duration: 0.5, ease: 'easeOut' }}
-            className="mb-8"
-          >
-            <img
-              src="/fy26_update/new_logo_2026_clear.png"
-              alt="Civic Strategy Partners"
-              className="w-24 h-24 sm:w-32 sm:h-32 object-contain"
-            />
-          </motion.div>
+    <div
+      className={`fixed inset-0 flex flex-col items-center justify-center bg-[#0a1628] transition-opacity duration-[600ms] ease-out ${
+        isLoading ? 'opacity-100' : 'opacity-0 pointer-events-none'
+      }`}
+      style={{ zIndex: 100 }}
+    >
+      {/* CSP Seal */}
+      <div
+        className={`mb-8 transition-all duration-500 ease-out ${
+          progress > 10 ? 'opacity-90 scale-100' : 'opacity-0 scale-[0.8]'
+        } ${progress >= 100 ? 'scale-[0.9]' : ''}`}
+      >
+        <img
+          src="/fy26_update/new_logo_2026_clear.png"
+          alt="Civic Strategy Partners"
+          className="w-24 h-24 sm:w-32 sm:h-32 object-contain"
+        />
+      </div>
 
-          {/* Company Name */}
-          <motion.h1
-            initial={{ opacity: 0, y: 10 }}
-            animate={{
-              opacity: progress > 20 ? 1 : 0,
-              y: progress > 20 ? 0 : 10,
-            }}
-            transition={{ duration: 0.4, delay: 0.2 }}
-            className="font-playfair font-bold text-white text-lg sm:text-xl tracking-wider mb-8"
-            style={{ lineHeight: 1.35 }}
-          >
-            CIVIC STRATEGY PARTNERS
-          </motion.h1>
+      {/* Company Name */}
+      <h1
+        className={`font-playfair font-bold text-white text-lg sm:text-xl tracking-wider mb-8 transition-all duration-400 ease-out ${
+          progress > 20 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2.5'
+        }`}
+        style={{ lineHeight: 1.35 }}
+      >
+        CIVIC STRATEGY PARTNERS
+      </h1>
 
-          {/* Gold Progress Bar */}
-          <div className="w-48 sm:w-64 h-[2px] bg-white/10 rounded-full overflow-hidden">
-            <motion.div
-              className="h-full bg-brand-gold rounded-full"
-              initial={{ width: '0%' }}
-              animate={{ width: `${progress}%` }}
-              transition={{ duration: 0.1, ease: 'linear' }}
-            />
-          </div>
+      {/* Gold Progress Bar */}
+      <div className="w-48 sm:w-64 h-[2px] bg-white/10 rounded-full overflow-hidden">
+        <div
+          className="h-full bg-brand-gold rounded-full"
+          style={{
+            width: `${progress}%`,
+            transition: 'width 0.1s linear',
+          }}
+        />
+      </div>
 
-          {/* Tagline */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: progress > 60 ? 0.5 : 0 }}
-            transition={{ duration: 0.4 }}
-            className="font-sans text-white/40 text-xs tracking-widest uppercase mt-6"
-          >
-            Federal Market Excellence
-          </motion.p>
-        </motion.div>
-      )}
-    </AnimatePresence>
+      {/* Tagline */}
+      <p
+        className={`font-sans text-white/40 text-xs tracking-widest uppercase mt-6 transition-opacity duration-400 ${
+          progress > 60 ? 'opacity-50' : 'opacity-0'
+        }`}
+      >
+        Federal Market Excellence
+      </p>
+    </div>
   );
 }
