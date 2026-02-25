@@ -25,7 +25,7 @@ export default function Footer() {
             <img
               src="/fy26_update/new_logo_2026_clear.png"
               alt="CSP"
-              className="h-10 w-10 opacity-80"
+              className="h-10 w-auto opacity-80 object-contain aspect-square"
             />
           </Link>
           <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2">
