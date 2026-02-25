@@ -3,10 +3,13 @@ import Navbar from './sections/Navbar';
 import Footer from './sections/Footer';
 import ScrollProgress from './components/ScrollProgress';
 import ParallaxWatermark from './components/ParallaxWatermark';
+import PageTransition from './components/PageTransition';
+import LoadingScreen from './components/LoadingScreen';
 
 export default function RebrandLayout({ children }: { children: ReactNode }) {
   return (
     <div className="relative min-h-screen overflow-x-hidden">
+      <LoadingScreen />
       <ScrollProgress />
 
       {/* Layer 1: Solid navy base */}
@@ -20,7 +23,9 @@ export default function RebrandLayout({ children }: { children: ReactNode }) {
         <Navbar />
 
         <main>
-          {children}
+          <PageTransition>
+            {children}
+          </PageTransition>
         </main>
 
         <Footer />
