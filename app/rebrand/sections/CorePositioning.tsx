@@ -14,7 +14,7 @@ export default function CorePositioning() {
             How I Work
           </p>
 
-          <h2 className="font-playfair font-bold text-white text-xl sm:text-2xl md:text-[32px] lg:text-[42px] mb-4" style={{ lineHeight: 1.5 }}>
+          <h2 className="font-playfair font-bold text-white text-xl sm:text-2xl md:text-[32px] lg:text-[42px] mb-4" style={{ lineHeight: 1.35 }}>
             I embed with companies as their fractional
             <span className="text-brand-gold"> GSA MAS authorized negotiator.</span>
           </h2>
