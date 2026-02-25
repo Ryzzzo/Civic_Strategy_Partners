@@ -82,7 +82,7 @@ function TierCard({
 }) {
   return (
     <div
-      className="p-5 sm:p-6 md:p-8 lg:p-10 border-l-[3px] border-l-brand-gold bg-white/5 backdrop-blur-md border border-white/10 rounded-xl"
+      className="p-5 sm:p-6 md:p-8 lg:p-10 border-l-[3px] border-l-brand-gold bg-white/5 backdrop-blur-md border border-white/10 rounded-xl hover:border-brand-gold/20 hover:shadow-[0_0_24px_rgba(197,153,58,0.08)] transition-all duration-300"
     >
       {/* Tier Label */}
       <p className="font-playfair font-bold text-brand-gold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-[0.15em] uppercase mb-3">

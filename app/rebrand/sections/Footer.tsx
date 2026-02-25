@@ -15,7 +15,9 @@ const navLinks = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/[0.06] px-4 sm:px-6 py-8 sm:py-10 md:py-12">
+    <footer className="relative border-t border-white/[0.06] px-4 sm:px-6 py-8 sm:py-10 md:py-12">
+      {/* Gold gradient top border */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-gold/40 to-transparent" />
       <ScrollReveal distance="20px" duration={500}>
         <div className="max-w-[1100px] mx-auto">
 

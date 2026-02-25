@@ -31,9 +31,12 @@ export default function Testimonials() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {testimonials.map((t, i) => (
             <ScrollReveal key={i} delay={i * 150} scale={true} className="flex">
-              <div className="flex flex-col h-full p-5 sm:p-6 md:p-8 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl">
+              <div className="flex flex-col h-full p-5 sm:p-6 md:p-8 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl hover:border-brand-gold/20 hover:shadow-[0_0_24px_rgba(197,153,58,0.08)] transition-all duration-300">
                 {/* Quote Mark */}
-                <div className="font-playfair text-3xl sm:text-4xl md:text-[48px] text-brand-gold/80 leading-none mb-2">
+                <div
+                  className="font-playfair text-3xl sm:text-4xl md:text-[48px] text-brand-gold/80 leading-none mb-2"
+                  style={{ animation: 'quote-fade-in 0.6s ease-out both' }}
+                >
                   &ldquo;
                 </div>
 

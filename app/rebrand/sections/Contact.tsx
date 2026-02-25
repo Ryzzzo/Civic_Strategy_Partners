@@ -37,37 +37,37 @@ export default function Contact() {
                   type="text"
                   placeholder="First Name"
                   required
-                  className="w-full px-4 py-3.5 font-sans text-[15px] text-white bg-white/[0.06] border border-white/10 focus:border-brand-gold/50 focus:outline-none transition-colors placeholder:text-white/55"
+                  className="w-full px-4 py-3.5 font-sans text-[15px] text-white bg-white/[0.06] border border-white/10 csp-input-glow focus:outline-none transition-all duration-300 placeholder:text-white/55"
                 />
                 <input
                   type="text"
                   placeholder="Last Name"
                   required
-                  className="w-full px-4 py-3.5 font-sans text-[15px] text-white bg-white/[0.06] border border-white/10 focus:border-brand-gold/50 focus:outline-none transition-colors placeholder:text-white/55"
+                  className="w-full px-4 py-3.5 font-sans text-[15px] text-white bg-white/[0.06] border border-white/10 csp-input-glow focus:outline-none transition-all duration-300 placeholder:text-white/55"
                 />
               </div>
 
               <input
                 type="text"
                 placeholder="Company Name"
-                className="w-full px-4 py-3.5 font-sans text-[15px] text-white bg-white/[0.06] border border-white/10 focus:border-brand-gold/50 focus:outline-none transition-colors placeholder:text-white/55"
+                className="w-full px-4 py-3.5 font-sans text-[15px] text-white bg-white/[0.06] border border-white/10 csp-input-glow focus:outline-none transition-all duration-300 placeholder:text-white/55"
               />
 
               <input
                 type="email"
                 placeholder="Email Address"
                 required
-                className="w-full px-4 py-3.5 font-sans text-[15px] text-white bg-white/[0.06] border border-white/10 focus:border-brand-gold/50 focus:outline-none transition-colors placeholder:text-white/55"
+                className="w-full px-4 py-3.5 font-sans text-[15px] text-white bg-white/[0.06] border border-white/10 csp-input-glow focus:outline-none transition-all duration-300 placeholder:text-white/55"
               />
 
               <input
                 type="tel"
                 placeholder="Phone (optional)"
-                className="w-full px-4 py-3.5 font-sans text-[15px] text-white bg-white/[0.06] border border-white/10 focus:border-brand-gold/50 focus:outline-none transition-colors placeholder:text-white/55"
+                className="w-full px-4 py-3.5 font-sans text-[15px] text-white bg-white/[0.06] border border-white/10 csp-input-glow focus:outline-none transition-all duration-300 placeholder:text-white/55"
               />
 
               <select
-                className="w-full px-4 py-3.5 font-sans text-[15px] text-white/60 bg-white/[0.06] border border-white/10 focus:border-brand-gold/50 focus:outline-none transition-colors appearance-none"
+                className="w-full px-4 py-3.5 font-sans text-[15px] text-white/60 bg-white/[0.06] border border-white/10 csp-input-glow focus:outline-none transition-all duration-300 appearance-none"
                 defaultValue=""
               >
                 <option value="" disabled>What are you looking for help with?</option>
@@ -81,16 +81,18 @@ export default function Contact() {
               <textarea
                 placeholder="Brief description of your situation"
                 rows={4}
-                className="w-full px-4 py-3.5 font-sans text-[15px] text-white bg-white/[0.06] border border-white/10 focus:border-brand-gold/50 focus:outline-none transition-colors resize-none placeholder:text-white/55"
+                className="w-full px-4 py-3.5 font-sans text-[15px] text-white bg-white/[0.06] border border-white/10 csp-input-glow focus:outline-none transition-all duration-300 resize-none placeholder:text-white/55"
               />
 
               <button
                 type="submit"
-                className="w-full sm:w-auto px-10 py-4 font-playfair font-bold text-[14px] tracking-[0.2em] uppercase text-[#0C1B2E] transition-all duration-300 hover:opacity-90 hover:-translate-y-px"
+                className="w-full sm:w-auto px-10 py-4 font-playfair font-bold text-[14px] tracking-[0.2em] uppercase text-[#0C1B2E] transition-all duration-300 hover:-translate-y-[2px] active:translate-y-0"
                 style={{
                   background: 'linear-gradient(135deg, #C5993A, #D4AA4F)',
                   boxShadow: '0 4px 24px rgba(197,153,58,0.2)',
                 }}
+                onMouseEnter={(e) => { e.currentTarget.style.boxShadow = '0 8px 32px rgba(197,153,58,0.35)'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.boxShadow = '0 4px 24px rgba(197,153,58,0.2)'; }}
               >
                 Request a Consultation
               </button>

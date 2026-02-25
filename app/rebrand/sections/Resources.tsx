@@ -66,20 +66,23 @@ export default function Resources() {
                   type="text"
                   placeholder="First Name"
                   required
-                  className="flex-1 px-4 py-3.5 font-sans text-[15px] text-white bg-white/[0.06] border border-white/10 focus:border-brand-gold/50 focus:outline-none transition-colors placeholder:text-white/55"
+                  className="flex-1 px-4 py-3.5 font-sans text-[15px] text-white bg-white/[0.06] border border-white/10 csp-input-glow focus:outline-none transition-all duration-300 placeholder:text-white/55"
                 />
                 <input
                   type="email"
                   placeholder="Email Address"
                   required
-                  className="flex-1 px-4 py-3.5 font-sans text-[15px] text-white bg-white/[0.06] border border-white/10 focus:border-brand-gold/50 focus:outline-none transition-colors placeholder:text-white/55"
+                  className="flex-1 px-4 py-3.5 font-sans text-[15px] text-white bg-white/[0.06] border border-white/10 csp-input-glow focus:outline-none transition-all duration-300 placeholder:text-white/55"
                 />
                 <button
                   type="submit"
-                  className="px-6 py-3.5 font-playfair font-bold text-[13px] tracking-[0.2em] uppercase text-brand-navy-deep transition-all duration-300 hover:opacity-90"
+                  className="px-6 py-3.5 font-playfair font-bold text-[13px] tracking-[0.2em] uppercase text-brand-navy-deep transition-all duration-300 hover:-translate-y-[2px] active:translate-y-0"
                   style={{
                     background: 'linear-gradient(135deg, #C5993A, #D4AA4F)',
+                    boxShadow: '0 4px 24px rgba(197,153,58,0.2)',
                   }}
+                  onMouseEnter={(e) => { e.currentTarget.style.boxShadow = '0 8px 32px rgba(197,153,58,0.35)'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.boxShadow = '0 4px 24px rgba(197,153,58,0.2)'; }}
                 >
                   Access Resources
                 </button>
@@ -102,7 +105,7 @@ export default function Resources() {
           {resources.map((resource, i) => (
             <ScrollReveal key={i} delay={i * 200} scale={true}>
               <div
-                className="p-6 md:p-8 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
+                className="p-6 md:p-8 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl hover:border-brand-gold/20 hover:shadow-[0_0_24px_rgba(197,153,58,0.08)] transition-all duration-300 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
               >
                 <div className="flex-1">
                   <p className="font-playfair font-bold text-brand-gold text-base md:text-lg tracking-[0.12em] uppercase mb-2">

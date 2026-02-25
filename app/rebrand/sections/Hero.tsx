@@ -92,17 +92,19 @@ export default function Hero() {
         >
           <Link
             href="/rebrand/contact"
-            className="w-full sm:w-auto text-center px-9 py-4 font-playfair font-bold text-[14px] sm:text-[15px] tracking-[0.18em] uppercase text-brand-navy-deep no-underline transition-all duration-300 hover:opacity-90 hover:-translate-y-px"
+            className="w-full sm:w-auto text-center px-9 py-4 font-playfair font-bold text-[14px] sm:text-[15px] tracking-[0.18em] uppercase text-brand-navy-deep no-underline transition-all duration-300 hover:-translate-y-[2px] active:translate-y-0"
             style={{
               background: 'linear-gradient(135deg, #C5993A, #D4AA4F)',
               boxShadow: '0 4px 24px rgba(197,153,58,0.2)',
             }}
+            onMouseEnter={(e) => { e.currentTarget.style.boxShadow = '0 8px 32px rgba(197,153,58,0.35)'; }}
+            onMouseLeave={(e) => { e.currentTarget.style.boxShadow = '0 4px 24px rgba(197,153,58,0.2)'; }}
           >
             Book a Strategy Call
           </Link>
           <Link
             href="/rebrand/services"
-            className="w-full sm:w-auto text-center px-9 py-4 font-playfair font-semibold text-[14px] sm:text-[15px] tracking-[0.18em] uppercase text-white/80 border border-white/15 hover:border-brand-gold/40 hover:text-brand-gold transition-all duration-300 no-underline"
+            className="w-full sm:w-auto text-center px-9 py-4 font-playfair font-semibold text-[14px] sm:text-[15px] tracking-[0.18em] uppercase text-white/80 border border-white/15 hover:border-brand-gold/40 hover:text-brand-gold hover:-translate-y-[2px] active:translate-y-0 transition-all duration-300 no-underline"
           >
             How I Work &rarr;
           </Link>

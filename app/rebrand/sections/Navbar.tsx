@@ -63,13 +63,16 @@ export default function Navbar() {
             <Link
               key={link.label}
               href={link.href}
-              className={`font-playfair font-semibold text-[12px] lg:text-[13px] tracking-[0.12em] uppercase transition-colors duration-300 no-underline ${
+              className={`relative font-playfair font-semibold text-[12px] lg:text-[13px] tracking-[0.12em] uppercase transition-colors duration-300 no-underline pb-1 ${
                 isActive(link.href)
                   ? 'text-brand-gold'
                   : 'text-white/70 hover:text-brand-gold'
               }`}
             >
               {link.label}
+              {isActive(link.href) && (
+                <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-brand-gold rounded-full" />
+              )}
             </Link>
           ))}
         </div>

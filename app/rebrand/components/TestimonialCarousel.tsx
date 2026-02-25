@@ -93,9 +93,12 @@ export default function TestimonialCarousel() {
         <div className="flex">
           {testimonials.map((t, i) => (
             <div key={i} className="flex-[0_0_100%] min-w-0 px-2 sm:px-4">
-              <div className="bg-white/[0.06] backdrop-blur-md border border-white/10 rounded-2xl p-5 sm:p-6 md:p-8 lg:p-10">
+              <div className="bg-white/[0.06] backdrop-blur-md border border-white/10 rounded-2xl p-5 sm:p-6 md:p-8 lg:p-10 hover:border-brand-gold/20 hover:shadow-[0_0_24px_rgba(197,153,58,0.08)] transition-all duration-300">
                 {/* Gold quotation mark */}
-                <span className="font-playfair text-3xl sm:text-4xl md:text-[48px] text-brand-gold/80 leading-none block mb-2">
+                <span
+                  className="font-playfair text-3xl sm:text-4xl md:text-[48px] text-brand-gold/80 leading-none block mb-2"
+                  style={{ animation: 'quote-fade-in 0.6s ease-out both' }}
+                >
                   &ldquo;
                 </span>
 

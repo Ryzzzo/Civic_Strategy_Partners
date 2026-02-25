@@ -59,7 +59,7 @@ export default function Insights() {
           {articles.map((article, i) => (
             <ScrollReveal key={i} delay={i * 200} direction="right" distance="60px">
               <div
-                className="p-5 sm:p-6 md:p-8 lg:p-10 border-l-[3px] border-l-brand-gold/40 hover:border-l-brand-gold transition-all duration-300 cursor-pointer group bg-white/5 backdrop-blur-md border border-white/10 rounded-xl"
+                className="p-5 sm:p-6 md:p-8 lg:p-10 border-l-[3px] border-l-brand-gold/40 hover:border-l-brand-gold hover:shadow-[0_0_24px_rgba(197,153,58,0.08)] transition-all duration-300 cursor-pointer group bg-white/5 backdrop-blur-md border border-white/10 rounded-xl"
               >
                 {/* Tag */}
                 <p className="font-playfair font-bold text-brand-gold/90 text-xs sm:text-sm md:text-base lg:text-lg tracking-[0.12em] uppercase mb-3">

@@ -77,11 +77,13 @@ export default function FAQ() {
                     {faq.q}
                   </h3>
                   <span
-                    className={`text-brand-gold text-2xl font-light flex-shrink-0 transition-transform duration-300 ${
-                      openIndex === i ? 'rotate-45' : 'rotate-0'
+                    className={`text-brand-gold flex-shrink-0 transition-transform duration-300 ${
+                      openIndex === i ? 'rotate-180' : 'rotate-0'
                     }`}
                   >
-                    +
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
                   </span>
                 </div>
 
