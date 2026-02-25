@@ -87,7 +87,10 @@ export default function CredentialTimeline() {
           </h4>
 
           {/* Description */}
-          <p className="font-sans text-white/65 text-[15px] leading-relaxed max-w-xl">
+          <p
+            className="font-sans text-[15px] leading-relaxed max-w-xl"
+            style={{ color: 'rgba(255, 255, 255, 0.65)' }}
+          >
             {milestone.description}
           </p>
         </div>

@@ -42,7 +42,7 @@ export default function Insights() {
       id="insights"
       className="relative py-12 sm:py-16 md:py-24 lg:py-32 px-4 sm:px-6"
     >
-      <div className="max-w-[1000px] mx-auto">
+      <div className="max-w-4xl mx-auto">
 
         {/* ── Header ── */}
         <ScrollReveal>
@@ -81,7 +81,7 @@ export default function Insights() {
                 {featured.byline}
               </p>
             )}
-            <p className="font-sans text-white/60 text-[15px] leading-relaxed mb-6 max-w-3xl">
+            <p className="font-sans text-[15px] leading-relaxed mb-6 max-w-3xl" style={{ color: 'rgba(255, 255, 255, 0.6)' }}>
               {featured.synopsis}
             </p>
             <div className="flex items-center justify-between">
@@ -109,7 +109,7 @@ export default function Insights() {
                 >
                   {article.title}
                 </h3>
-                <p className="flex-1 font-sans text-white/55 text-[14px] leading-relaxed mb-5">
+                <p className="flex-1 font-sans text-[14px] leading-relaxed mb-5" style={{ color: 'rgba(255, 255, 255, 0.55)' }}>
                   {article.synopsis}
                 </p>
                 <div className="flex items-center justify-end pt-4 border-t border-white/[0.06]">

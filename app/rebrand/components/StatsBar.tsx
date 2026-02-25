@@ -25,7 +25,7 @@ export default function StatsBar() {
   }, []);
 
   return (
-    <div ref={ref} className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 py-10 md:py-14">
+    <div ref={ref} className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 py-10 md:py-14 max-w-3xl mx-auto">
       {stats.map((stat, i) => (
         <div
           key={i}
@@ -37,7 +37,7 @@ export default function StatsBar() {
           style={{ transitionDelay: `${i * 150}ms` }}
         >
           <p
-            className="font-playfair font-bold text-brand-gold text-3xl sm:text-4xl md:text-5xl mb-2"
+            className="font-playfair font-bold text-brand-gold text-2xl sm:text-3xl md:text-4xl mb-2"
             style={{ lineHeight: 1.35 }}
           >
             {stat.value}

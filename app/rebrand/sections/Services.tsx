@@ -190,7 +190,7 @@ export default function Services() {
         </ScrollReveal>
 
         {/* ── Detailed Tier Cards ── */}
-        <div className="space-y-8 sm:space-y-12 mb-16 sm:mb-24">
+        <div className="space-y-8 sm:space-y-12 mb-16 sm:mb-24 max-w-4xl mx-auto">
 
           {/* Tier 1 */}
           <ScrollReveal direction="left" distance="80px">
@@ -236,7 +236,7 @@ export default function Services() {
         <TierComparison />
 
         {/* ── Additional Strategic Capabilities ── */}
-        <ScrollReveal className="mb-16 sm:mb-24">
+        <ScrollReveal className="mb-16 sm:mb-24 max-w-4xl mx-auto">
           <div className="p-5 sm:p-6 md:p-8 lg:p-10 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl">
             <p className="font-playfair font-bold text-brand-gold text-sm sm:text-base md:text-lg tracking-[0.12em] uppercase mb-6">
               Additional Strategic Capabilities
