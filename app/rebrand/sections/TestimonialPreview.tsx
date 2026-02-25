@@ -14,7 +14,7 @@ export default function TestimonialPreview() {
             <p className="font-playfair font-bold text-brand-gold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl tracking-[0.15em] uppercase mb-4">
               Client Testimonials
             </p>
-            <h2 className="font-playfair font-bold text-white text-xl sm:text-2xl md:text-3xl lg:text-[40px] leading-[1.3]">
+            <h2 className="font-playfair font-bold text-white text-xl sm:text-2xl md:text-3xl lg:text-[40px] leading-normal">
               Results That Speak
             </h2>
             <div className="flex justify-center">

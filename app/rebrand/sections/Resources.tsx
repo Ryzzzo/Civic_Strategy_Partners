@@ -44,7 +44,7 @@ export default function Resources() {
             <p className="font-playfair font-bold text-brand-gold text-xl md:text-2xl tracking-[0.15em] uppercase mb-4">
               Resource Library
             </p>
-            <h2 className="font-playfair font-bold text-white text-3xl md:text-[38px] leading-[1.3] mb-2">
+            <h2 className="font-playfair font-bold text-white text-3xl md:text-[38px] leading-normal mb-2">
               Tools for Federal Contractors.
               <br />
               Built from the Inside.
@@ -108,7 +108,7 @@ export default function Resources() {
                   <p className="font-playfair font-bold text-brand-gold text-base md:text-lg tracking-[0.12em] uppercase mb-2">
                     {resource.tag}
                   </p>
-                  <h4 className="font-playfair font-bold text-white text-[16px] md:text-[17px] leading-[1.3] mb-2">
+                  <h4 className="font-playfair font-bold text-white text-[16px] md:text-[17px] leading-normal mb-2">
                     {resource.title}
                   </h4>
                   <p className="font-sans text-white/70 text-[14px] leading-relaxed">
