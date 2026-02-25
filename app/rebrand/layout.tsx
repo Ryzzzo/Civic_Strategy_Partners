@@ -7,7 +7,7 @@ import LoadingScreen from './components/LoadingScreen';
 
 export default function RebrandLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="relative min-h-screen overflow-x-hidden">
+    <div className="relative min-h-screen overflow-x-hidden text-white/80">
       <LoadingScreen />
       <ScrollProgress />
 
@@ -23,12 +23,8 @@ export default function RebrandLayout({ children }: { children: ReactNode }) {
         <img
           src="/fy26_update/new_logo_2026_clear.png"
           alt=""
-          className="opacity-[0.10]"
-          style={{
-            width: 'min(110vmin, 1000px)',
-            height: 'min(110vmin, 1000px)',
-            objectFit: 'contain',
-          }}
+          className="opacity-[0.10] watermark-seal"
+          style={{ objectFit: 'contain' }}
         />
       </div>
 

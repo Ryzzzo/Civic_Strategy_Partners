@@ -71,7 +71,7 @@ export default function About() {
         </ScrollReveal>
 
         {/* ── Firm Philosophy ── */}
-        <ScrollReveal delay={300} scale={true}>
+        <ScrollReveal delay={300} scale={true} preserveBackdrop>
           <div
             className="p-5 sm:p-6 md:p-8 lg:p-10 mb-20 border-l-[3px] border-l-brand-gold bg-white/5 backdrop-blur-md border border-white/10 rounded-xl"
           >

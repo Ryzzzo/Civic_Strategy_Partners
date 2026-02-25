@@ -49,7 +49,7 @@ export default function TierComparison() {
         </div>
       </ScrollReveal>
 
-      <ScrollReveal delay={150}>
+      <ScrollReveal delay={150} preserveBackdrop>
         <div className="overflow-x-auto rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-md">
           <table className="w-full min-w-[600px]">
             <thead>

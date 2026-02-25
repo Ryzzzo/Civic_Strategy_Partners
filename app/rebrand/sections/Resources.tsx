@@ -104,7 +104,7 @@ export default function Resources() {
         {/* Resource Cards */}
         <div className="space-y-4">
           {resources.map((resource, i) => (
-            <StaggeredReveal key={i} index={i} direction="up" delay={100}>
+            <StaggeredReveal key={i} index={i} direction="up" delay={100} preserveBackdrop>
               <div
                 className="p-6 md:p-8 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl hover:border-brand-gold/20 hover:shadow-[0_0_24px_rgba(197,153,58,0.08)] transition-all duration-300 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
               >

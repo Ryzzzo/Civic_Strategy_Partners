@@ -100,7 +100,7 @@ export default function Contact() {
           </ScrollReveal>
 
           {/* ── Contact Info (2 cols) ── */}
-          <ScrollReveal delay={300} direction="right" distance="100px" className="md:col-span-2">
+          <ScrollReveal delay={300} direction="right" distance="100px" className="md:col-span-2" preserveBackdrop>
             <div className="space-y-8">
               {/* CTA Block */}
               <div className="p-6 border-l-[3px] border-l-brand-gold bg-white/5 backdrop-blur-md border border-white/10 rounded-xl">

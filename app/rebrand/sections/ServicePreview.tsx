@@ -48,7 +48,7 @@ export default function ServicePreview() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-12">
           {tiers.map((tier, i) => (
-            <StaggeredReveal key={i} index={i} direction="up" delay={150} className="flex">
+            <StaggeredReveal key={i} index={i} direction="up" delay={150} className="flex" preserveBackdrop>
               <div className="flex flex-col h-full p-6 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl hover:border-brand-gold/20 hover:shadow-[0_0_24px_rgba(197,153,58,0.08)] transition-all duration-300">
                 <p className="font-playfair font-bold text-brand-gold text-base md:text-lg tracking-[0.12em] uppercase mb-3">
                   {tier.label}

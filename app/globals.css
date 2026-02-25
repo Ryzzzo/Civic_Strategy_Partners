@@ -419,6 +419,48 @@ html {
   box-shadow: 0 0 0 3px rgba(197, 153, 58, 0.12), 0 0 16px rgba(197, 153, 58, 0.08);
 }
 
+/* ── Watermark Responsive Sizing ── */
+.watermark-seal {
+  width: clamp(500px, 85vmin, 1400px);
+  height: clamp(500px, 85vmin, 1400px);
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .watermark-seal {
+    width: clamp(500px, 90vmin, 800px);
+    height: clamp(500px, 90vmin, 800px);
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .watermark-seal {
+    width: clamp(600px, 90vmin, 1000px);
+    height: clamp(600px, 90vmin, 1000px);
+  }
+}
+
+@media (min-width: 1440px) and (max-width: 1919px) {
+  .watermark-seal {
+    width: clamp(800px, 95vmin, 1200px);
+    height: clamp(800px, 95vmin, 1200px);
+  }
+}
+
+@media (min-width: 1920px) {
+  .watermark-seal {
+    width: clamp(1000px, 85vmin, 1600px);
+    height: clamp(1000px, 85vmin, 1600px);
+    opacity: 0.12 !important;
+  }
+}
+
+@media (min-width: 3840px) {
+  .watermark-seal {
+    width: clamp(1400px, 80vmin, 2000px);
+    height: clamp(1400px, 80vmin, 2000px);
+  }
+}
+
 /* Desktop HubSpot form fix */
 @media (min-width: 769px) {
   .hs-form-frame,

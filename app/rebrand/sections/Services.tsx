@@ -193,7 +193,7 @@ export default function Services() {
         <div className="space-y-8 sm:space-y-12 mb-16 sm:mb-24 max-w-3xl mx-auto">
 
           {/* Tier 1 */}
-          <ScrollReveal direction="left" distance="80px">
+          <ScrollReveal direction="left" distance="80px" preserveBackdrop>
             <TierCard
               tierLabel="Tier 1 — Fractional Authorized Negotiator"
               title="Embedded Executive Advisory"
@@ -206,7 +206,7 @@ export default function Services() {
           </ScrollReveal>
 
           {/* Tier 2 */}
-          <ScrollReveal direction="right" distance="80px">
+          <ScrollReveal direction="right" distance="80px" preserveBackdrop>
             <TierCard
               tierLabel="Tier 2 — Strategic Retainer Advisory"
               title="Executive Coaching & Oversight"
@@ -220,7 +220,7 @@ export default function Services() {
           </ScrollReveal>
 
           {/* Tier 3 */}
-          <ScrollReveal direction="left" distance="80px">
+          <ScrollReveal direction="left" distance="80px" preserveBackdrop>
             <TierCard
               tierLabel="Tier 3 — Project-Based Support"
               title="Defined Scope. Clear Outcome."
@@ -236,7 +236,7 @@ export default function Services() {
         <TierComparison />
 
         {/* ── Additional Strategic Capabilities ── */}
-        <ScrollReveal className="mb-16 sm:mb-24 max-w-3xl mx-auto">
+        <ScrollReveal className="mb-16 sm:mb-24 max-w-3xl mx-auto" preserveBackdrop>
           <div className="p-5 sm:p-6 md:p-8 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl">
             <p className="font-playfair font-bold text-brand-gold text-xs sm:text-sm tracking-widest uppercase mb-4">
               Additional Strategic Capabilities
@@ -280,7 +280,7 @@ export default function Services() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {/* LEFT — This IS For */}
-          <ScrollReveal direction="left" distance="60px">
+          <ScrollReveal direction="left" distance="60px" preserveBackdrop>
             <div className="h-full bg-white/[0.06] backdrop-blur-md border border-brand-gold/20 rounded-2xl p-6 sm:p-8">
               <h4 className="font-playfair font-bold text-brand-gold text-lg sm:text-xl mb-6" style={{ lineHeight: 1.35 }}>
                 This Firm IS For
@@ -297,7 +297,7 @@ export default function Services() {
           </ScrollReveal>
 
           {/* RIGHT — This Is NOT For */}
-          <ScrollReveal direction="right" distance="60px">
+          <ScrollReveal direction="right" distance="60px" preserveBackdrop>
             <div className="h-full bg-white/[0.03] backdrop-blur-md border border-white/10 rounded-2xl p-6 sm:p-8">
               <h4 className="font-playfair font-bold text-white/50 text-lg sm:text-xl mb-6" style={{ lineHeight: 1.35 }}>
                 This Firm Is NOT For

@@ -8,6 +8,7 @@ interface StaggeredRevealProps {
   direction?: 'up' | 'left' | 'right' | 'alternate';
   delay?: number;
   className?: string;
+  preserveBackdrop?: boolean;
 }
 
 export default function StaggeredReveal({
@@ -16,6 +17,7 @@ export default function StaggeredReveal({
   direction = 'up',
   delay = 100,
   className = '',
+  preserveBackdrop = false,
 }: StaggeredRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
@@ -58,9 +60,11 @@ export default function StaggeredReveal({
       ref={ref}
       className={className}
       style={{
-        opacity: visible ? 1 : 0,
+        opacity: preserveBackdrop ? 1 : (visible ? 1 : 0),
         transform: getTransform(),
-        transition: 'opacity 0.6s ease-out, transform 0.6s ease-out',
+        transition: preserveBackdrop
+          ? 'transform 0.6s ease-out'
+          : 'opacity 0.6s ease-out, transform 0.6s ease-out',
         transitionDelay: `${index * delay}ms`,
       }}
     >

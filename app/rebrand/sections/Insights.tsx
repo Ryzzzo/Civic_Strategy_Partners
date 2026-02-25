@@ -63,7 +63,7 @@ export default function Insights() {
         </ScrollReveal>
 
         {/* ── Featured Briefing ── */}
-        <ScrollReveal delay={150}>
+        <ScrollReveal delay={150} preserveBackdrop>
           <article className="bg-white/[0.06] backdrop-blur-md border border-brand-gold/15 rounded-2xl p-6 sm:p-8 md:p-10 mb-8 group cursor-pointer transition-all duration-300 hover:shadow-[0_0_30px_rgba(197,153,58,0.06)] hover:border-brand-gold/25">
             <div className="flex items-center gap-3 mb-4">
               <span className="text-brand-gold/70 text-xs font-sans uppercase tracking-widest">Featured Briefing</span>
@@ -96,7 +96,7 @@ export default function Insights() {
         {/* ── Remaining Briefings — 2 column grid ── */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {remaining.map((article, i) => (
-            <StaggeredReveal key={i} index={i} direction="up" delay={120} className="flex">
+            <StaggeredReveal key={i} index={i} direction="up" delay={120} className="flex" preserveBackdrop>
               <article className="flex flex-col h-full bg-white/[0.04] backdrop-blur-md border border-white/10 rounded-2xl p-6 group cursor-pointer transition-all duration-300 hover:shadow-[0_0_30px_rgba(197,153,58,0.06)] hover:border-brand-gold/20">
                 <div className="flex items-center gap-3 mb-4">
                   <span className="text-brand-gold/60 text-xs font-sans uppercase tracking-widest">{article.tag}</span>

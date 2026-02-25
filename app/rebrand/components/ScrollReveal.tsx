@@ -11,6 +11,7 @@ interface ScrollRevealProps {
   duration?: number
   threshold?: number
   scale?: boolean
+  preserveBackdrop?: boolean
 }
 
 export function ScrollReveal({
@@ -22,6 +23,7 @@ export function ScrollReveal({
   duration = 800,
   threshold = 0.1,
   scale = false,
+  preserveBackdrop = false,
 }: ScrollRevealProps) {
   const { ref, isVisible } = useScrollReveal({ threshold })
 
@@ -42,9 +44,11 @@ export function ScrollReveal({
       ref={ref}
       className={className}
       style={{
-        opacity: isVisible ? 1 : 0,
+        opacity: preserveBackdrop ? 1 : (isVisible ? 1 : 0),
         transform: isVisible ? 'translate(0, 0) scale(1)' : getTransform(),
-        transition: `opacity ${duration}ms cubic-bezier(0.25, 0.46, 0.45, 0.94) ${delay}ms, transform ${duration}ms cubic-bezier(0.25, 0.46, 0.45, 0.94) ${delay}ms`,
+        transition: preserveBackdrop
+          ? `transform ${duration}ms cubic-bezier(0.25, 0.46, 0.45, 0.94) ${delay}ms`
+          : `opacity ${duration}ms cubic-bezier(0.25, 0.46, 0.45, 0.94) ${delay}ms, transform ${duration}ms cubic-bezier(0.25, 0.46, 0.45, 0.94) ${delay}ms`,
       }}
     >
       {children}
