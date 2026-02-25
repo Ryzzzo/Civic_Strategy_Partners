@@ -5,7 +5,7 @@ import { useEffect, useRef, useState, ReactNode } from 'react';
 interface StaggeredRevealProps {
   children: ReactNode;
   index: number;
-  direction?: 'up' | 'left' | 'right' | 'alternate';
+  direction?: 'up' | 'down' | 'left' | 'right' | 'alternate';
   delay?: number;
   className?: string;
   preserveBackdrop?: boolean;
@@ -47,6 +47,8 @@ export default function StaggeredReveal({
           return 'translateX(-30px)';
         case 'right':
           return 'translateX(30px)';
+        case 'down':
+          return 'translateY(-20px)';
         case 'up':
         default:
           return 'translateY(20px)';

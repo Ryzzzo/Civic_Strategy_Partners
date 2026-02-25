@@ -57,11 +57,13 @@ export default function About() {
               I assessed compliance posture. I saw exactly where companies strengthened their
               position — and where they quietly lost leverage.
             </p>
-            <p className="font-playfair font-bold text-white text-lg sm:text-xl md:text-2xl mt-8 mb-8" style={{ lineHeight: 1.35 }}>
-              I&rsquo;ve sat in the contracting officer&rsquo;s chair.
-              <br />
-              <span className="text-brand-gold">Now I sit in yours.</span>
-            </p>
+            <div className="text-center my-8">
+              <p className="font-playfair font-bold text-white text-lg sm:text-xl md:text-2xl" style={{ lineHeight: 1.35 }}>
+                I&rsquo;ve sat in the contracting officer&rsquo;s chair.
+                <br />
+                <span className="text-brand-gold">Now I sit in yours.</span>
+              </p>
+            </div>
             <p className="font-sans text-white/70 text-[15px] sm:text-[16px] md:text-[18px] leading-relaxed">
               Civic Strategy Partners was built around a simple premise: if you understand how
               government evaluators think, how negotiations unfold, and where scrutiny actually
