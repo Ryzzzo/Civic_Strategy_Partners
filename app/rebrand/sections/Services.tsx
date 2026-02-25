@@ -2,6 +2,24 @@
 
 import GoldDivider from '../components/GoldDivider';
 import { ScrollReveal } from '../components/ScrollReveal';
+import TierComparison from '../components/TierComparison';
+
+/* ───── Who This Is For / Not For ───── */
+const isForItems = [
+  'Companies that treat MAS as a revenue channel',
+  'Companies that care about pricing posture and margin protection',
+  'Companies with internal execution resources',
+  'Companies that want insider-level strategic oversight',
+  'Companies prepared to operate on retainer',
+];
+
+const notForItems = [
+  'Low-cost filing seekers',
+  'One-time upload support buyers',
+  'Firms treating MAS as a credential',
+  'Companies unwilling to adjust pricing posture',
+  'Organizations seeking volume-based consulting models',
+];
 
 /* ───── Tier 1 Scope Items ───── */
 const tier1Scope = [
@@ -214,6 +232,9 @@ export default function Services() {
           </ScrollReveal>
         </div>
 
+        {/* ── Tier Comparison Table ── */}
+        <TierComparison />
+
         {/* ── Additional Strategic Capabilities ── */}
         <ScrollReveal className="mb-16 sm:mb-24">
           <div className="p-5 sm:p-6 md:p-8 lg:p-10 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl">
@@ -241,18 +262,54 @@ export default function Services() {
 
         {/* ── Who This Is For / Not For ── */}
         <ScrollReveal delay={150}>
-          <div className="p-5 sm:p-6 md:p-8 lg:p-12 text-center border-t border-b border-brand-gold/20">
-            <h3 className="font-playfair font-bold text-white text-lg sm:text-xl md:text-2xl lg:text-[30px] mb-4 sm:mb-6" style={{ lineHeight: 1.35 }}>
+          <div className="text-center mb-8 sm:mb-10">
+            <h3 className="font-playfair font-bold text-white text-lg sm:text-xl md:text-2xl lg:text-[30px] mb-4" style={{ lineHeight: 1.35 }}>
               Not Every Company Needs This Level
               <br />
               of Contract Leadership.
             </h3>
-            <p className="font-sans text-white/80 text-[15px] sm:text-[16px] md:text-[17px] lg:text-[18px] leading-relaxed max-w-[600px] mx-auto">
+            <p className="font-sans text-white/80 text-[15px] sm:text-[16px] md:text-[17px] leading-relaxed max-w-[600px] mx-auto">
               If your goal is simply to &ldquo;get on schedule&rdquo; as cheaply as possible, there are
               providers built for that. That is not this firm.
             </p>
           </div>
         </ScrollReveal>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+          {/* LEFT — This IS For */}
+          <ScrollReveal direction="left" distance="60px">
+            <div className="h-full bg-white/[0.06] backdrop-blur-md border border-brand-gold/20 rounded-2xl p-6 sm:p-8">
+              <h4 className="font-playfair font-bold text-brand-gold text-lg sm:text-xl mb-6" style={{ lineHeight: 1.35 }}>
+                This Firm IS For
+              </h4>
+              <ul className="space-y-4">
+                {isForItems.map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="text-brand-gold mt-0.5 flex-shrink-0 font-bold">&#10003;</span>
+                    <span className="font-sans text-white/85 text-[15px] leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </ScrollReveal>
+
+          {/* RIGHT — This Is NOT For */}
+          <ScrollReveal direction="right" distance="60px">
+            <div className="h-full bg-white/[0.03] backdrop-blur-md border border-white/10 rounded-2xl p-6 sm:p-8">
+              <h4 className="font-playfair font-bold text-white/50 text-lg sm:text-xl mb-6" style={{ lineHeight: 1.35 }}>
+                This Firm Is NOT For
+              </h4>
+              <ul className="space-y-4">
+                {notForItems.map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="text-white/30 mt-0.5 flex-shrink-0 font-bold">&#10005;</span>
+                    <span className="font-sans text-white/45 text-[15px] leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </ScrollReveal>
+        </div>
 
       </div>
     </section>

@@ -1,10 +1,13 @@
 import { ReactNode } from 'react';
 import Navbar from './sections/Navbar';
 import Footer from './sections/Footer';
+import ScrollProgress from './components/ScrollProgress';
 
 export default function RebrandLayout({ children }: { children: ReactNode }) {
   return (
     <div className="relative min-h-screen overflow-x-hidden">
+      <ScrollProgress />
+
       {/* Layer 1: Solid navy base */}
       <div className="fixed inset-0 bg-[#0a1628]" style={{ zIndex: 0 }} />
 

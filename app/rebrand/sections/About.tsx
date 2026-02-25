@@ -2,6 +2,7 @@
 
 import GoldDivider from '../components/GoldDivider';
 import { ScrollReveal } from '../components/ScrollReveal';
+import StatsBar from '../components/StatsBar';
 
 const credentials = [
   'Former GSA Contract Specialist (GS-1102) — MAS program',
@@ -84,6 +85,9 @@ export default function About() {
             </p>
           </div>
         </ScrollReveal>
+
+        {/* ── Stats Bar ── */}
+        <StatsBar />
 
         {/* ── Background & Credentials ── */}
         <ScrollReveal delay={200}>
