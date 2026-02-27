@@ -61,6 +61,12 @@ export async function GET() {
 
       console.log(`Post "${post.name}" canonical URL:`, linkedInUrl);
 
+      // Preserve the raw canonical URL from HubSpot for "Read Briefing" links
+      const canonicalUrl = post.linkRelCanonicalUrl ||
+                           extractCanonicalUrl(post.htmlHead) ||
+                           extractCanonicalUrl(post.headHtml) ||
+                           null;
+
       return {
         title: post.name || post.htmlTitle || 'Untitled',
         publishDate: new Date(post.publishDate).toLocaleDateString('en-US', {
@@ -68,9 +74,11 @@ export async function GET() {
           month: 'long',
           day: 'numeric'
         }),
+        rawPublishDate: post.publishDate,
         excerpt: post.metaDescription || post.postSummary || '',
         fullContent: post.postBody || post.post_body || '',
         featuredImage: post.featuredImage || 'https://placehold.co/1200x627/1e3a5f/ffffff?text=Civic+Strategy+Briefing',
+        canonicalUrl,
         linkedInUrl,
         authorName: 'Kevin Martin, MBA',
         authorAvatar: '/1743701547902.jpeg'

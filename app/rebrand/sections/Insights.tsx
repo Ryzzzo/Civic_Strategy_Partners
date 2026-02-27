@@ -1,41 +1,47 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import GoldDivider from '../components/GoldDivider';
 import { ScrollReveal } from '../components/ScrollReveal';
 import StaggeredReveal from '../components/StaggeredReveal';
 
-const articles = [
-  {
-    tag: 'GSA MAS Strategy',
-    title: 'The Top 10 Reasons Why the GSA Multiple Award Schedule (MAS) Program Is a Structural Advantage in 2026',
-    byline: 'From a Former GS-1102',
-    synopsis:
-      'A data- and experience-driven breakdown of why GSA MAS remains one of the strongest federal contract vehicles available — covering procurement efficiency, contract ceiling advantages, agency preference, competitive positioning, and more.',
-  },
-  {
-    tag: 'GSA MAS Strategy · Market Readiness',
-    title: 'The "Golden Ticket" Myth: When GSA MAS Is a Bad Bet',
-    byline: '',
-    synopsis:
-      'A counterbalance to the hype — direct analysis of when GSA MAS is the wrong vehicle, common mistakes companies make by pursuing a Schedule before they\'re ready, and what the real prerequisites for a productive MAS contract look like.',
-  },
-  {
-    tag: 'GSA MAS · Compliance · Policy',
-    title: 'The MAS Program Is Being Rebuilt Under Your Feet: OLMs, TDR, EPA Clauses, and What the RFO Means for Your Contract',
-    byline: '',
-    synopsis:
-      'A practitioner\'s breakdown of the structural changes inside the MAS program — OLMs, Transactional Data Reporting, EPA clause evolution, and what the latest Refresh/RFO updates mean for contract holders.',
-  },
-];
+interface Briefing {
+  title: string;
+  publishDate: string;
+  rawPublishDate: string;
+  excerpt: string;
+  fullContent: string;
+  canonicalUrl: string | null;
+  linkedInUrl: string;
+  authorName: string;
+  authorAvatar: string;
+}
 
-function readingTime(text: string) {
-  const words = text.split(/\s+/).length;
-  const minutes = Math.max(1, Math.ceil(words / 200));
-  return `${minutes} min read`;
+function readingTime(content: string) {
+  const text = content?.replace(/<[^>]*>/g, '') || '';
+  const words = text.split(/\s+/).filter(Boolean).length;
+  return `${Math.max(1, Math.ceil(words / 200))} min read`;
 }
 
 export default function Insights() {
-  const [featured, ...remaining] = articles;
+  const [briefings, setBriefings] = useState<Briefing[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    fetch('/api/briefings')
+      .then((res) => res.json())
+      .then((data) => {
+        setBriefings(data.briefings || []);
+        setLoading(false);
+      })
+      .catch(() => {
+        setError(true);
+        setLoading(false);
+      });
+  }, []);
+
+  const [featured, ...remaining] = briefings;
 
   return (
     <section
@@ -62,69 +68,94 @@ export default function Insights() {
           </div>
         </ScrollReveal>
 
-        {/* ── Featured Briefing ── */}
-        <ScrollReveal delay={150} preserveBackdrop>
-          <article className="bg-white/[0.06] backdrop-blur-md border border-brand-gold/15 rounded-2xl p-6 sm:p-8 md:p-10 mb-8 group cursor-pointer transition-all duration-300 hover:shadow-[0_0_30px_rgba(197,153,58,0.06)] hover:border-brand-gold/25">
-            <div className="flex items-center gap-3 mb-4">
-              <span className="text-brand-gold/70 text-xs font-sans uppercase tracking-widest">Featured Briefing</span>
-              <span className="h-px flex-1 bg-brand-gold/20" />
-              <span className="text-white/40 text-xs font-sans">{readingTime(featured.synopsis)}</span>
-            </div>
-            <h3
-              className="font-playfair font-bold text-white text-xl sm:text-2xl md:text-3xl mb-4 group-hover:text-brand-gold/90 transition-colors duration-300"
-              style={{ lineHeight: 1.35 }}
-            >
-              {featured.title}
-            </h3>
-            {featured.byline && (
-              <p className="font-playfair text-white/50 text-[14px] italic mb-4">
-                {featured.byline}
-              </p>
-            )}
-            <p className="font-sans text-[15px] leading-relaxed mb-6 max-w-3xl" style={{ color: 'rgba(255, 255, 255, 0.6)' }}>
-              {featured.synopsis}
-            </p>
-            <div className="flex items-center justify-between">
-              <span className="text-brand-gold/60 text-xs font-sans uppercase tracking-widest">{featured.tag}</span>
-              <span className="text-brand-gold text-sm font-sans group-hover:translate-x-1 transition-transform duration-300 inline-flex items-center gap-1">
-                Read Briefing <span aria-hidden="true">&rarr;</span>
-              </span>
-            </div>
-          </article>
-        </ScrollReveal>
+        {/* ── Loading State ── */}
+        {loading && (
+          <div className="text-center py-16">
+            <div className="inline-block h-8 w-8 border-2 border-brand-gold/30 border-t-brand-gold rounded-full animate-spin" />
+            <p className="text-white/50 text-sm font-sans mt-4">Loading briefings&hellip;</p>
+          </div>
+        )}
 
-        {/* ── Remaining Briefings — 2 column grid ── */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {remaining.map((article, i) => (
-            <StaggeredReveal key={i} index={i} direction="down" delay={150} className="flex" preserveBackdrop>
-              <article className="flex flex-col h-full bg-white/[0.04] backdrop-blur-md border border-white/10 rounded-2xl p-6 group cursor-pointer transition-all duration-300 hover:shadow-[0_0_30px_rgba(197,153,58,0.06)] hover:border-brand-gold/20">
+        {/* ── Empty / Error State ── */}
+        {!loading && (error || briefings.length === 0) && (
+          <div className="text-center py-16">
+            <p className="text-white/60 text-sm font-sans">
+              No briefings available at this time. Please check back soon.
+            </p>
+          </div>
+        )}
+
+        {/* ── Featured Briefing ── */}
+        {!loading && featured && (
+          <ScrollReveal delay={150} preserveBackdrop>
+            <a
+              href={featured.canonicalUrl || featured.linkedInUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <article className="bg-white/[0.06] backdrop-blur-md border border-brand-gold/15 rounded-2xl p-6 sm:p-8 md:p-10 mb-8 group cursor-pointer transition-all duration-300 hover:shadow-[0_0_30px_rgba(197,153,58,0.06)] hover:border-brand-gold/25">
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="text-brand-gold/60 text-xs font-sans uppercase tracking-widest">{article.tag}</span>
-                  <span className="h-px flex-1 bg-white/10" />
-                  <span className="text-white/30 text-xs font-sans">{readingTime(article.synopsis)}</span>
+                  <span className="text-brand-gold/70 text-xs font-sans uppercase tracking-widest">Featured Briefing</span>
+                  <span className="h-px flex-1 bg-brand-gold/20" />
+                  <span className="text-white/40 text-xs font-sans">{readingTime(featured.fullContent || featured.excerpt)}</span>
                 </div>
                 <h3
-                  className="font-playfair font-bold text-white text-lg sm:text-xl mb-3 group-hover:text-brand-gold/90 transition-colors duration-300"
+                  className="font-playfair font-bold text-white text-xl sm:text-2xl md:text-3xl mb-4 group-hover:text-brand-gold/90 transition-colors duration-300"
                   style={{ lineHeight: 1.35 }}
                 >
-                  {article.title}
+                  {featured.title}
                 </h3>
-                <p className="flex-1 font-sans text-[14px] leading-relaxed mb-5" style={{ color: 'rgba(255, 255, 255, 0.55)' }}>
-                  {article.synopsis}
+                <p className="font-sans text-[15px] leading-relaxed mb-6 max-w-3xl" style={{ color: 'rgba(255, 255, 255, 0.6)' }}>
+                  {featured.excerpt}
                 </p>
-                <div className="flex items-center justify-end pt-4 border-t border-white/[0.06]">
+                <div className="flex items-center justify-between">
+                  <span className="text-white/40 text-xs font-sans">{featured.publishDate}</span>
                   <span className="text-brand-gold text-sm font-sans group-hover:translate-x-1 transition-transform duration-300 inline-flex items-center gap-1">
                     Read Briefing <span aria-hidden="true">&rarr;</span>
                   </span>
                 </div>
               </article>
-            </StaggeredReveal>
-          ))}
-        </div>
+            </a>
+          </ScrollReveal>
+        )}
 
-        {/* DEV NOTE: These are static placeholders. Kevin will supply final article body copy.
-           Article 4 ("The GovCon LinkedIn Problem") is flagged as DO NOT PUBLISH.
-           Eventually these will pull from HubSpot API via /api/briefings endpoint. */}
+        {/* ── Remaining Briefings — 2 column grid ── */}
+        {!loading && remaining.length > 0 && (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {remaining.map((briefing, i) => (
+              <StaggeredReveal key={briefing.rawPublishDate || i} index={i} direction="down" delay={150} className="flex" preserveBackdrop>
+                <a
+                  href={briefing.canonicalUrl || briefing.linkedInUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex w-full"
+                >
+                  <article className="flex flex-col h-full w-full bg-white/[0.04] backdrop-blur-md border border-white/10 rounded-2xl p-6 group cursor-pointer transition-all duration-300 hover:shadow-[0_0_30px_rgba(197,153,58,0.06)] hover:border-brand-gold/20">
+                    <div className="flex items-center gap-3 mb-4">
+                      <span className="text-white/40 text-xs font-sans">{briefing.publishDate}</span>
+                      <span className="h-px flex-1 bg-white/10" />
+                      <span className="text-white/30 text-xs font-sans">{readingTime(briefing.fullContent || briefing.excerpt)}</span>
+                    </div>
+                    <h3
+                      className="font-playfair font-bold text-white text-lg sm:text-xl mb-3 group-hover:text-brand-gold/90 transition-colors duration-300"
+                      style={{ lineHeight: 1.35 }}
+                    >
+                      {briefing.title}
+                    </h3>
+                    <p className="flex-1 font-sans text-[14px] leading-relaxed mb-5" style={{ color: 'rgba(255, 255, 255, 0.55)' }}>
+                      {briefing.excerpt}
+                    </p>
+                    <div className="flex items-center justify-end pt-4 border-t border-white/[0.06]">
+                      <span className="text-brand-gold text-sm font-sans group-hover:translate-x-1 transition-transform duration-300 inline-flex items-center gap-1">
+                        Read Briefing <span aria-hidden="true">&rarr;</span>
+                      </span>
+                    </div>
+                  </article>
+                </a>
+              </StaggeredReveal>
+            ))}
+          </div>
+        )}
 
       </div>
     </section>
