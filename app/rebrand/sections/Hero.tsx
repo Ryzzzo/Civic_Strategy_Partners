@@ -103,7 +103,7 @@ export default function Hero() {
             Book a Strategy Call
           </Link>
           <Link
-            href="/rebrand/services"
+            href="/rebrand/about"
             className="w-full sm:w-auto text-center px-9 py-4 font-playfair font-semibold text-[14px] sm:text-[15px] tracking-[0.18em] uppercase text-white/80 border border-white/15 hover:border-brand-gold/40 hover:text-brand-gold hover:-translate-y-[2px] active:translate-y-0 transition-all duration-300 no-underline"
           >
             How I Work &rarr;

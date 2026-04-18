@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import GoldDivider from '../components/GoldDivider';
 import { ScrollReveal } from '../components/ScrollReveal';
 import StaggeredReveal from '../components/StaggeredReveal';
@@ -64,16 +63,6 @@ export default function ServicePreview() {
           ))}
         </div>
 
-        <ScrollReveal delay={600}>
-          <div className="text-center">
-            <Link
-              href="/rebrand/services"
-              className="inline-block px-9 py-4 font-playfair font-semibold text-[15px] tracking-[0.18em] uppercase text-white/80 border border-white/15 hover:border-brand-gold/40 hover:text-brand-gold hover:-translate-y-[2px] active:translate-y-0 transition-all duration-300 no-underline"
-            >
-              Compare All Services →
-            </Link>
-          </div>
-        </ScrollReveal>
       </div>
     </section>
   );
