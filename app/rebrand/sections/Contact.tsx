@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, FormEvent } from 'react';
+import { useEffect, useRef, useState, FormEvent } from 'react';
 import GoldDivider from '../components/GoldDivider';
 import { ScrollReveal } from '../components/ScrollReveal';
 
@@ -58,6 +58,14 @@ export default function Contact() {
   const [status, setStatus] = useState<Status>('idle');
   const [errors, setErrors] = useState<{ email?: string; phone?: string }>({});
 
+  const bannerRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (status === 'success' || status === 'error') {
+      bannerRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }, [status]);
+
   const validate = () => {
     const next: { email?: string; phone?: string } = {};
     if (!email.trim()) next.email = 'Email is required.';
@@ -104,6 +112,8 @@ export default function Contact() {
     }
   };
 
+  const resetToIdle = () => setStatus('idle');
+
   const submitting = status === 'submitting';
 
   return (
@@ -128,148 +138,205 @@ export default function Contact() {
           </div>
         </ScrollReveal>
 
-        {/* ── Form ── */}
-        <ScrollReveal delay={150}>
-          <form className="space-y-5" onSubmit={handleSubmit} noValidate>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-              <input
-                type="text"
-                placeholder="First Name"
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
-                disabled={submitting}
-                className={inputClasses}
-              />
-              <input
-                type="text"
-                placeholder="Last Name"
-                value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
-                disabled={submitting}
-                className={inputClasses}
-              />
-            </div>
-
-            <input
-              type="text"
-              placeholder="Company Name"
-              value={company}
-              onChange={(e) => setCompany(e.target.value)}
-              disabled={submitting}
-              className={inputClasses}
-            />
-
-            <div>
-              <input
-                type="email"
-                placeholder="Email Address *"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                disabled={submitting}
-                required
-                aria-invalid={Boolean(errors.email)}
-                className={inputClasses}
-              />
-              {errors.email && (
-                <p className="mt-1.5 text-xs text-red-300/90 font-sans">{errors.email}</p>
-              )}
-            </div>
-
-            <div>
-              <input
-                type="tel"
-                placeholder="Phone *"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                disabled={submitting}
-                required
-                aria-invalid={Boolean(errors.phone)}
-                className={inputClasses}
-              />
-              {errors.phone && (
-                <p className="mt-1.5 text-xs text-red-300/90 font-sans">{errors.phone}</p>
-              )}
-            </div>
-
-            <select
-              value={helpTopic}
-              onChange={(e) => setHelpTopic(e.target.value)}
-              disabled={submitting}
-              className={`${inputClasses} appearance-none ${helpTopic ? '' : 'text-white/60'}`}
-            >
-              {helpOptions.map((opt) => (
-                <option
-                  key={opt.label}
-                  value={opt.value}
-                  disabled={opt.value === ''}
-                  className="text-[#0C1B2E]"
-                >
-                  {opt.label}
-                </option>
-              ))}
-            </select>
-
-            <textarea
-              placeholder="Brief description of your situation"
-              rows={4}
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              disabled={submitting}
-              className={`${inputClasses} resize-none`}
-            />
-
-            <div className="flex flex-col items-center gap-3 pt-2">
-              <button
-                type="submit"
-                disabled={submitting}
-                className="w-full sm:w-auto px-10 py-4 min-h-[44px] font-playfair font-bold text-[14px] tracking-[0.2em] uppercase text-[#0C1B2E] transition-all duration-300 hover:-translate-y-[2px] active:translate-y-0 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0"
-                style={{
-                  background: 'linear-gradient(135deg, #C5993A, #D4AA4F)',
-                  boxShadow: '0 4px 24px rgba(197,153,58,0.2)',
-                }}
-                onMouseEnter={(e) => { if (!submitting) e.currentTarget.style.boxShadow = '0 8px 32px rgba(197,153,58,0.35)'; }}
-                onMouseLeave={(e) => { e.currentTarget.style.boxShadow = '0 4px 24px rgba(197,153,58,0.2)'; }}
+        {/* ── Status banner (above form) ── */}
+        {(status === 'success' || status === 'error') && (
+          <div ref={bannerRef} className="mb-8 scroll-mt-32">
+            {status === 'success' ? (
+              <div
+                role="status"
+                className="flex items-start gap-4 px-5 py-4 rounded-lg bg-brand-gold/10 border border-brand-gold/30 backdrop-blur-sm"
               >
-                {submitting ? 'Sending…' : 'Request a Consultation'}
-              </button>
+                <span
+                  aria-hidden="true"
+                  className="flex-shrink-0 mt-0.5 inline-flex items-center justify-center w-6 h-6 rounded-full border border-brand-gold/60 text-brand-gold"
+                >
+                  <svg className="w-3.5 h-3.5" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 10.5L8 14.5L16 5.5" stroke="currentColor" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
+                <div className="flex-1">
+                  <p className="font-playfair font-semibold text-brand-gold text-base sm:text-lg">
+                    Thanks — I&rsquo;ll be in touch shortly.
+                  </p>
+                  <p className="mt-1 font-sans text-white/70 text-sm">
+                    Your message is on its way. Expect a reply within one business day.
+                  </p>
+                  <button
+                    type="button"
+                    onClick={resetToIdle}
+                    className="mt-3 font-playfair font-semibold text-brand-gold/90 hover:text-brand-gold text-xs tracking-[0.15em] uppercase transition-colors duration-300"
+                  >
+                    Send another message &rarr;
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <div
+                role="alert"
+                className="flex items-start gap-4 px-5 py-4 rounded-lg bg-red-500/10 border border-red-400/30 backdrop-blur-sm"
+              >
+                <span
+                  aria-hidden="true"
+                  className="flex-shrink-0 mt-0.5 inline-flex items-center justify-center w-6 h-6 rounded-full border border-red-300/60 text-red-300"
+                >
+                  <svg className="w-3.5 h-3.5" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 6V11" stroke="currentColor" strokeWidth="2.25" strokeLinecap="round" />
+                    <circle cx="10" cy="14" r="1" fill="currentColor" />
+                  </svg>
+                </span>
+                <div className="flex-1">
+                  <p className="font-playfair font-semibold text-red-200 text-base sm:text-lg">
+                    Something went wrong.
+                  </p>
+                  <p className="mt-1 font-sans text-white/75 text-sm">
+                    Please email{' '}
+                    <a href="mailto:info@civicstrategypartners.com" className="underline hover:text-brand-gold">
+                      info@civicstrategypartners.com
+                    </a>{' '}
+                    directly, or try again.
+                  </p>
+                  <button
+                    type="button"
+                    onClick={resetToIdle}
+                    className="mt-3 font-playfair font-semibold text-red-200/90 hover:text-red-100 text-xs tracking-[0.15em] uppercase transition-colors duration-300"
+                  >
+                    Try again &rarr;
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+        )}
 
-              {status === 'success' && (
-                <p className="text-sm font-sans text-brand-gold/90 text-center" role="status">
-                  Thanks — I&rsquo;ll be in touch shortly.
-                </p>
-              )}
-              {status === 'error' && (
-                <p className="text-sm font-sans text-red-300/90 text-center" role="alert">
-                  Something went wrong. Please email{' '}
-                  <a href="mailto:info@civicstrategypartners.com" className="underline hover:text-brand-gold">
-                    info@civicstrategypartners.com
-                  </a>{' '}
-                  directly.
-                </p>
-              )}
-            </div>
-          </form>
-        </ScrollReveal>
+        {/* ── Form ── */}
+        {status !== 'success' && (
+          <ScrollReveal delay={150}>
+            <form className="space-y-5" onSubmit={handleSubmit} noValidate>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <input
+                  type="text"
+                  placeholder="First Name"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                  disabled={submitting}
+                  className={inputClasses}
+                />
+                <input
+                  type="text"
+                  placeholder="Last Name"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                  disabled={submitting}
+                  className={inputClasses}
+                />
+              </div>
+
+              <input
+                type="text"
+                placeholder="Company Name"
+                value={company}
+                onChange={(e) => setCompany(e.target.value)}
+                disabled={submitting}
+                className={inputClasses}
+              />
+
+              <div>
+                <input
+                  type="email"
+                  placeholder="Email Address *"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  disabled={submitting}
+                  required
+                  aria-invalid={Boolean(errors.email)}
+                  className={inputClasses}
+                />
+                {errors.email && (
+                  <p className="mt-1.5 text-xs text-red-300/90 font-sans">{errors.email}</p>
+                )}
+              </div>
+
+              <div>
+                <input
+                  type="tel"
+                  placeholder="Phone *"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  disabled={submitting}
+                  required
+                  aria-invalid={Boolean(errors.phone)}
+                  className={inputClasses}
+                />
+                {errors.phone && (
+                  <p className="mt-1.5 text-xs text-red-300/90 font-sans">{errors.phone}</p>
+                )}
+              </div>
+
+              <select
+                value={helpTopic}
+                onChange={(e) => setHelpTopic(e.target.value)}
+                disabled={submitting}
+                className={`${inputClasses} appearance-none ${helpTopic ? '' : 'text-white/60'}`}
+              >
+                {helpOptions.map((opt) => (
+                  <option
+                    key={opt.label}
+                    value={opt.value}
+                    disabled={opt.value === ''}
+                    className="text-[#0C1B2E]"
+                  >
+                    {opt.label}
+                  </option>
+                ))}
+              </select>
+
+              <textarea
+                placeholder="Brief description of your situation"
+                rows={4}
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                disabled={submitting}
+                className={`${inputClasses} resize-none`}
+              />
+
+              <div className="flex flex-col items-center gap-3 pt-2">
+                <button
+                  type="submit"
+                  disabled={submitting}
+                  className="w-full sm:w-auto px-10 py-4 min-h-[44px] font-playfair font-bold text-[14px] tracking-[0.2em] uppercase text-[#0C1B2E] transition-all duration-300 hover:-translate-y-[2px] active:translate-y-0 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0"
+                  style={{
+                    background: 'linear-gradient(135deg, #C5993A, #D4AA4F)',
+                    boxShadow: '0 4px 24px rgba(197,153,58,0.2)',
+                  }}
+                  onMouseEnter={(e) => { if (!submitting) e.currentTarget.style.boxShadow = '0 8px 32px rgba(197,153,58,0.35)'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.boxShadow = '0 4px 24px rgba(197,153,58,0.2)'; }}
+                >
+                  {submitting ? 'Sending…' : 'Request a Consultation'}
+                </button>
+              </div>
+            </form>
+          </ScrollReveal>
+        )}
 
         {/* ── Divider ── */}
         <div className="mt-14 sm:mt-16 mb-10 sm:mb-12">
           <div className="h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent" />
         </div>
 
-        {/* ── Contact strip ── */}
+        {/* ── Contact strip — 2x2 grid ── */}
         <ScrollReveal delay={150}>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 text-center">
+          <div className="max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-y-6 md:gap-x-12 md:gap-y-8">
             {contactLinks.map((item) => {
               const labelEl = (
                 <p className="font-playfair font-bold text-brand-gold text-xs sm:text-sm tracking-[0.15em] uppercase mb-1.5">
                   {item.label}
                 </p>
               );
-              const valueClass = 'font-sans text-white/80 text-sm xl:text-base whitespace-normal sm:whitespace-nowrap';
+              const valueClass = 'font-sans text-white/80 text-sm xl:text-base break-words';
 
               if (!item.href) {
                 return (
-                  <div key={item.label}>
+                  <div key={item.label} className="text-center md:text-left">
                     {labelEl}
                     <p className={valueClass}>{item.display}</p>
                   </div>
@@ -277,7 +344,7 @@ export default function Contact() {
               }
 
               return (
-                <div key={item.label}>
+                <div key={item.label} className="text-center md:text-left">
                   {labelEl}
                   <a
                     href={item.href}
@@ -292,15 +359,29 @@ export default function Contact() {
           </div>
         </ScrollReveal>
 
+        {/* ── Gold diamond divider ── */}
+        <div className="mt-16 flex justify-center">
+          <GoldDivider width={40} />
+        </div>
+
         {/* ── Secondary scheduler link ── */}
-        <div className="mt-10 sm:mt-12 text-center">
+        <div className="mt-6 text-center max-w-md mx-auto">
+          <p className="font-sans italic text-white/60 text-sm mb-1.5">
+            Prefer to schedule directly?
+          </p>
           <a
             href="https://meetings-na2.hubspot.com/kmartin"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block font-sans text-white/55 hover:text-brand-gold text-sm italic transition-colors duration-300 no-underline"
+            className="group inline-flex items-center gap-1.5 font-playfair font-medium text-brand-gold text-base tracking-wider uppercase no-underline hover:tracking-widest transition-all duration-300"
           >
-            Prefer to schedule directly? Book a call &rarr;
+            Book a call
+            <span
+              aria-hidden="true"
+              className="inline-block transition-transform duration-300 group-hover:translate-x-1"
+            >
+              &rarr;
+            </span>
           </a>
         </div>
 
