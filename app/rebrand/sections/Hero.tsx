@@ -97,7 +97,7 @@ export default function Hero() {
           }`}
         >
           <p className="font-sans italic text-white/60 text-sm sm:text-base mb-10">
-            Limited availability &mdash; currently accepting one to two engagements.
+            Limited engagement model. Select clientele.
           </p>
         </div>
 

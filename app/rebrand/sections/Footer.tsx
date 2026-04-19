@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 
 const navLinks = [
@@ -17,7 +18,7 @@ export default function Footer() {
 
       <div className="max-w-6xl mx-auto px-6 pt-6">
         {/* Row 1: Logo + Nav Links */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-4">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-5">
           <Link href="/rebrand" className="no-underline">
             <img
               src="/fy26_update/new_logo_2026_clear.png"
@@ -36,6 +37,22 @@ export default function Footer() {
               </Link>
             ))}
           </nav>
+        </div>
+
+        {/* Credentials row: UEI/CAGE + SDVOSB badge */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-5">
+          <div className="flex flex-wrap justify-center md:justify-start items-center gap-x-5 gap-y-1 text-white/50 text-[11px] tracking-widest uppercase font-playfair">
+            <span>UEI: NBDDCG8WGB75</span>
+            <span className="text-white/20">|</span>
+            <span>CAGE: 168R1</span>
+          </div>
+          <Image
+            src="/sdvosb.png"
+            alt="SBA Certified Service-Disabled Veteran-Owned Small Business"
+            width={90}
+            height={90}
+            className="h-auto w-[70px] sm:w-[80px] md:w-[90px] object-contain opacity-90"
+          />
         </div>
 
         {/* Thin separator */}
