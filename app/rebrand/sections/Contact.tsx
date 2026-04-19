@@ -125,24 +125,26 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative py-10 sm:py-14 md:py-20 lg:py-20 xl:py-32 px-4 sm:px-6"
+      className="relative pb-12 sm:pb-16 md:pb-20 lg:pb-24 xl:pb-32 px-4 sm:px-6"
     >
       <div className="max-w-[720px] mx-auto">
 
-        {/* ── Header ── */}
-        <ScrollReveal>
-          <div className="text-center mb-10 sm:mb-14">
-            <p className="font-playfair font-bold text-brand-gold text-sm sm:text-base md:text-lg lg:text-xl tracking-[0.15em] uppercase mb-4">
-              Get in Touch
-            </p>
-            <h2 className="font-playfair font-bold text-white text-xl sm:text-2xl md:text-3xl lg:text-[36px] xl:text-[40px]" style={{ lineHeight: 1.3 }}>
-              Let&rsquo;s Talk About Your Contract.
-            </h2>
-            <div className="flex justify-center">
-              <GoldDivider width={60} />
+        {/* ── Header (hidden after successful submit) ── */}
+        {status !== 'success' && (
+          <ScrollReveal>
+            <div className="text-center mb-10 sm:mb-14">
+              <p className="font-playfair font-bold text-brand-gold text-sm sm:text-base md:text-lg lg:text-xl tracking-[0.15em] uppercase mb-4">
+                Get in Touch
+              </p>
+              <h2 className="font-playfair font-bold text-white text-xl sm:text-2xl md:text-3xl lg:text-[36px] xl:text-[40px]" style={{ lineHeight: 1.3 }}>
+                Let&rsquo;s Talk About Your Contract.
+              </h2>
+              <div className="flex justify-center">
+                <GoldDivider width={60} />
+              </div>
             </div>
-          </div>
-        </ScrollReveal>
+          </ScrollReveal>
+        )}
 
         {/* ── Status banner (above form) ── */}
         {(status === 'success' || status === 'error') && (
