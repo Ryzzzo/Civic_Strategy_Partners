@@ -26,17 +26,17 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative py-12 sm:py-16 md:py-24 lg:py-32 px-4 sm:px-6"
+      className="relative py-10 sm:py-14 md:py-20 lg:py-20 xl:py-32 px-4 sm:px-6"
     >
-      <div className="max-w-[900px] mx-auto">
+      <div className="max-w-[900px] xl:max-w-[1080px] mx-auto">
 
         {/* ── Section 1: Hero/Intro ── */}
         <ScrollReveal>
-          <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-8 md:gap-12 items-center mb-10 md:mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] xl:grid-cols-[1fr_260px] gap-8 md:gap-10 xl:gap-14 items-center mb-8 md:mb-10 xl:mb-12">
             <div className="order-2 md:order-1">
               <h1
-                className="font-playfair font-bold text-white text-3xl sm:text-4xl md:text-[44px] lg:text-[52px] mb-6"
-                style={{ lineHeight: 1.2 }}
+                className="font-playfair font-bold text-white text-3xl sm:text-4xl md:text-[40px] lg:text-[40px] xl:text-[54px] mb-5 lg:mb-5 xl:mb-6"
+                style={{ lineHeight: 1.15 }}
               >
                 Built from the government side of the table.
               </h1>
@@ -112,13 +112,13 @@ export default function About() {
             </p>
 
             {/* Military photo anchor */}
-            <div className="mb-8 md:mb-10 rounded-xl overflow-hidden border border-white/10">
+            <div className="mb-8 md:mb-10 max-w-2xl mx-auto rounded-xl overflow-hidden border border-white/10">
               <Image
                 src="/kevin_marine_group.JPG"
                 alt="Operation Iraqi Freedom 2003, Force Protection 1st Squad, Camp Viper"
                 width={1600}
                 height={1067}
-                sizes="(max-width: 768px) 100vw, 900px"
+                sizes="(max-width: 768px) 100vw, (max-width: 1280px) 640px, 672px"
                 className="w-full h-auto object-cover"
               />
             </div>

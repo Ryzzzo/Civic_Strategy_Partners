@@ -7,6 +7,8 @@ interface StaggeredRevealProps {
   index: number;
   direction?: 'up' | 'down' | 'left' | 'right' | 'alternate';
   delay?: number;
+  baseDelay?: number;
+  threshold?: number;
   className?: string;
   preserveBackdrop?: boolean;
 }
@@ -16,6 +18,8 @@ export default function StaggeredReveal({
   index,
   direction = 'up',
   delay = 100,
+  baseDelay = 0,
+  threshold = 0.15,
   className = '',
   preserveBackdrop = false,
 }: StaggeredRevealProps) {
@@ -27,11 +31,11 @@ export default function StaggeredReveal({
       ([entry]) => {
         if (entry.isIntersecting) setVisible(true);
       },
-      { threshold: 0.15 }
+      { threshold }
     );
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
-  }, []);
+  }, [threshold]);
 
   const getTransform = () => {
     if (!visible) {
@@ -67,7 +71,7 @@ export default function StaggeredReveal({
         transition: preserveBackdrop
           ? 'transform 0.6s ease-out'
           : 'opacity 0.6s ease-out, transform 0.6s ease-out',
-        transitionDelay: `${index * delay}ms`,
+        transitionDelay: `${index * delay + baseDelay}ms`,
       }}
     >
       {children}

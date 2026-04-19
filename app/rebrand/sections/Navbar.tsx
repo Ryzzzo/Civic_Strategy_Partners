@@ -45,12 +45,12 @@ export default function Navbar() {
           scrolled ? 'h-16 lg:h-20' : 'h-16 lg:h-28 xl:h-32'
         }`}
       >
-        {/* Logo — hidden on mobile and tablet, shown on desktop (lg+) */}
-        <Link href="/rebrand" className="hidden lg:flex items-center gap-3 no-underline">
+        {/* Logo — visible on all breakpoints; sized up at lg+ */}
+        <Link href="/rebrand" className="flex items-center gap-3 no-underline">
           <img
             src="/fy26_update/new_logo_2026_clear.png"
             alt="Civic Strategy Partners"
-            className={`transition-all duration-400 ${scrolled ? 'h-12 lg:h-16' : 'h-16 lg:h-20 xl:h-24'}`}
+            className={`transition-all duration-400 ${scrolled ? 'h-10 lg:h-16' : 'h-11 sm:h-12 lg:h-20 xl:h-24'}`}
           />
         </Link>
 
