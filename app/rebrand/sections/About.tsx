@@ -40,7 +40,7 @@ export default function About() {
               >
                 Built from the government side of the table.
               </h1>
-              <div className="flex md:justify-start justify-center">
+              <div className="w-fit mx-auto md:mx-0">
                 <GoldDivider width={60} />
               </div>
             </div>
