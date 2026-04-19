@@ -265,7 +265,7 @@ export default function Contact() {
                   {item.label}
                 </p>
               );
-              const valueClass = 'font-sans text-white/80 text-[14px] sm:text-[15px] break-words';
+              const valueClass = 'font-sans text-white/80 text-sm xl:text-base whitespace-normal sm:whitespace-nowrap';
 
               if (!item.href) {
                 return (
