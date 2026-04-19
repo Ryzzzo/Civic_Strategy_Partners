@@ -161,7 +161,7 @@ export default function About() {
         <ScrollReveal delay={200}>
           <div className="pt-10 border-t border-white/[0.08] text-center">
             <a
-              href="https://www.linkedin.com/in/kevinmartincsp/"
+              href="https://www.linkedin.com/in/kevinmartinmba/"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 font-playfair font-semibold text-brand-gold/90 hover:text-brand-gold text-sm sm:text-base tracking-[0.15em] uppercase transition-colors duration-300 no-underline"
