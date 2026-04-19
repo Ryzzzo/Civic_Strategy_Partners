@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
+  // output: 'export' removed — API routes (e.g. /api/contact) require a
+  // server runtime. Static export strips them, which was causing 404s in prod.
   eslint: {
     ignoreDuringBuilds: true,
   },
