@@ -17,7 +17,7 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      <div className="relative z-10 flex flex-col items-center text-center max-w-[820px] px-6 sm:px-8 md:px-12 lg:px-16 pt-28 sm:pt-32 md:pt-36 lg:pt-24 xl:pt-44 pb-12 sm:pb-16 md:pb-20 lg:pb-12 xl:pb-24">
+      <div className="relative z-10 flex flex-col items-center text-center max-w-[820px] px-6 sm:px-8 md:px-12 lg:px-16 pt-28 sm:pt-32 md:pt-36 lg:pt-20 xl:pt-44 pb-12 sm:pb-16 md:pb-20 lg:pb-12 xl:pb-24">
 
         {/* CSP Seal — mobile only (replaces watermark which is hidden on mobile) */}
         <div
@@ -39,7 +39,7 @@ export default function Hero() {
           }`}
         >
           <h1
-            className="font-playfair font-bold text-white text-3xl sm:text-4xl md:text-5xl lg:text-[38px] xl:text-[58px] mb-3 lg:mb-3 xl:mb-6"
+            className="font-playfair font-bold text-white text-3xl sm:text-4xl md:text-5xl lg:text-[36px] xl:text-[58px] mb-3 lg:mb-3 xl:mb-6"
             style={{ lineHeight: 1.15 }}
           >
             Fractional <span className="text-brand-gold">GSA MAS Advisor</span>
