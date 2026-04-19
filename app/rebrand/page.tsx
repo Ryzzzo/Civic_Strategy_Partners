@@ -2,7 +2,6 @@ import { Metadata } from 'next';
 import Hero from './sections/Hero';
 import ValueStrip from './sections/ValueStrip';
 import CorePositioning from './sections/CorePositioning';
-import ServicePreview from './sections/ServicePreview';
 import TestimonialPreview from './sections/TestimonialPreview';
 import HomeCTA from './sections/HomeCTA';
 
@@ -17,7 +16,6 @@ export default function RebrandPage() {
       <Hero />
       <ValueStrip />
       <CorePositioning />
-      <ServicePreview />
       <TestimonialPreview />
       <HomeCTA />
     </>
