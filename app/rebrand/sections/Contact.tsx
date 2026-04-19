@@ -61,9 +61,15 @@ export default function Contact() {
   const bannerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    if (status === 'success' || status === 'error') {
-      bannerRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
+    if (status !== 'success' && status !== 'error') return;
+    const id = requestAnimationFrame(() => {
+      const el = bannerRef.current;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      const top = rect.top + window.scrollY - 120; // clear fixed navbar
+      window.scrollTo({ top, behavior: 'smooth' });
+    });
+    return () => cancelAnimationFrame(id);
   }, [status]);
 
   const validate = () => {
@@ -336,7 +342,7 @@ export default function Contact() {
 
               if (!item.href) {
                 return (
-                  <div key={item.label} className="text-center md:text-left">
+                  <div key={item.label} className="text-center">
                     {labelEl}
                     <p className={valueClass}>{item.display}</p>
                   </div>
@@ -344,7 +350,7 @@ export default function Contact() {
               }
 
               return (
-                <div key={item.label} className="text-center md:text-left">
+                <div key={item.label} className="text-center">
                   {labelEl}
                   <a
                     href={item.href}
