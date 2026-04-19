@@ -17,7 +17,7 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      <div className="relative z-10 flex flex-col items-center text-center max-w-[820px] px-6 sm:px-8 md:px-12 lg:px-16 pt-28 sm:pt-32 md:pt-36 lg:pt-36 xl:pt-44 pb-12 sm:pb-16 md:pb-20 lg:pb-16 xl:pb-24">
+      <div className="relative z-10 flex flex-col items-center text-center max-w-[820px] px-6 sm:px-8 md:px-12 lg:px-16 pt-28 sm:pt-32 md:pt-36 lg:pt-24 xl:pt-44 pb-12 sm:pb-16 md:pb-20 lg:pb-12 xl:pb-24">
 
         {/* CSP Seal — mobile only (replaces watermark which is hidden on mobile) */}
         <div
@@ -39,8 +39,8 @@ export default function Hero() {
           }`}
         >
           <h1
-            className="font-playfair font-bold text-white text-3xl sm:text-4xl md:text-5xl lg:text-[44px] xl:text-[58px] mb-4 lg:mb-5 xl:mb-6"
-            style={{ lineHeight: 1.2 }}
+            className="font-playfair font-bold text-white text-3xl sm:text-4xl md:text-5xl lg:text-[38px] xl:text-[58px] mb-3 lg:mb-3 xl:mb-6"
+            style={{ lineHeight: 1.15 }}
           >
             Fractional <span className="text-brand-gold">GSA MAS Advisor</span>
           </h1>
@@ -52,7 +52,7 @@ export default function Hero() {
             loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
           }`}
         >
-          <div className="flex justify-center mb-6 lg:mb-6 xl:mb-8">
+          <div className="flex justify-center mb-4 lg:mb-3 xl:mb-8">
             <GoldDivider width={80} />
           </div>
         </div>
@@ -63,7 +63,7 @@ export default function Hero() {
             loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
           }`}
         >
-          <p className="font-sans text-white/85 text-base sm:text-lg md:text-xl lg:text-lg xl:text-[22px] leading-relaxed lg:leading-snug xl:leading-relaxed max-w-[640px] mx-auto mb-4 lg:mb-4 xl:mb-6">
+          <p className="font-sans text-white/85 text-base sm:text-lg md:text-xl lg:text-base xl:text-[22px] leading-relaxed lg:leading-snug xl:leading-relaxed max-w-[640px] mx-auto mb-3 lg:mb-3 xl:mb-6">
             A former GS-1102 contract specialist guiding offers, modifications, and pricing strategy &mdash; at a fraction of the cost of a full-time contracts hire.
           </p>
         </div>
@@ -74,7 +74,7 @@ export default function Hero() {
             loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
           }`}
         >
-          <p className="font-sans text-white/75 text-sm sm:text-base md:text-lg lg:text-base xl:text-lg leading-relaxed lg:leading-snug xl:leading-relaxed max-w-[620px] mx-auto mb-4 lg:mb-4 xl:mb-6">
+          <p className="font-sans text-white/75 text-sm sm:text-base md:text-lg lg:text-sm xl:text-lg leading-relaxed lg:leading-snug xl:leading-relaxed max-w-[620px] mx-auto mb-3 lg:mb-3 xl:mb-6">
             Advisory or white-glove engagements. Retainers from $3,500/month. Flat fees on a per project basis &mdash; contact for scoping and pricing.
           </p>
         </div>
@@ -85,7 +85,7 @@ export default function Hero() {
             loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
           }`}
         >
-          <p className="font-playfair font-semibold text-brand-gold/90 text-base sm:text-lg md:text-xl lg:text-lg xl:text-[22px] leading-relaxed lg:leading-snug xl:leading-relaxed max-w-[620px] mx-auto mb-5 lg:mb-5 xl:mb-8">
+          <p className="font-playfair font-semibold text-brand-gold/90 text-base sm:text-lg md:text-xl lg:text-base xl:text-[22px] leading-relaxed lg:leading-snug xl:leading-relaxed max-w-[620px] mx-auto mb-4 lg:mb-3 xl:mb-8">
             I don&rsquo;t bill hours. I own outcomes &mdash; offers awarded, mods approved, pricing that holds up under scrutiny.
           </p>
         </div>
@@ -96,7 +96,7 @@ export default function Hero() {
             loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
           }`}
         >
-          <p className="font-sans italic text-white/60 text-sm sm:text-base mb-6 lg:mb-7 xl:mb-10">
+          <p className="font-sans italic text-white/60 text-sm sm:text-base mb-5 lg:mb-5 xl:mb-10">
             Limited engagement model. Select clientele.
           </p>
         </div>
