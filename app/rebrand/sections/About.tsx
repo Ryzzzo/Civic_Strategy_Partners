@@ -40,9 +40,6 @@ export default function About() {
               >
                 Built from the government side of the table.
               </h1>
-              <div className="w-fit mx-auto">
-                <GoldDivider width={60} />
-              </div>
             </div>
             <div className="order-1 md:order-2 flex justify-center md:justify-end">
               <div className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full overflow-hidden border border-brand-gold/30 shadow-[0_0_30px_rgba(197,153,58,0.12)]">
