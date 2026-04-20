@@ -117,7 +117,7 @@ export default function Hero() {
             onMouseEnter={(e) => { e.currentTarget.style.boxShadow = '0 8px 32px rgba(197,153,58,0.35)'; }}
             onMouseLeave={(e) => { e.currentTarget.style.boxShadow = '0 4px 24px rgba(197,153,58,0.2)'; }}
           >
-            Book a Call
+            Request a Consultation
           </Link>
         </div>
       </div>
