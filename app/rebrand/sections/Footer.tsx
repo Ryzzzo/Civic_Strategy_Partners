@@ -19,7 +19,7 @@ export default function Footer() {
             <img
               src="/fy26_update/new_logo_2026_clear.png"
               alt="Civic Strategy Partners"
-              className="h-14 sm:h-16 lg:h-16 w-auto opacity-90 object-contain"
+              className="h-20 sm:h-24 lg:h-28 w-auto opacity-90 object-contain"
             />
           </Link>
 
@@ -47,9 +47,9 @@ export default function Footer() {
           <Image
             src="/sdvosb.png"
             alt="SBA Certified Service-Disabled Veteran-Owned Small Business"
-            width={130}
-            height={130}
-            className="h-auto w-[110px] lg:w-[130px] object-contain opacity-95 shrink-0"
+            width={160}
+            height={160}
+            className="h-auto w-32 lg:w-40 object-contain opacity-95 shrink-0"
           />
         </div>
 
