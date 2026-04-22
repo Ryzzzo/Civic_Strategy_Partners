@@ -19,7 +19,7 @@ export default function Footer() {
             <img
               src="/fy26_update/new_logo_2026_clear.png"
               alt="Civic Strategy Partners"
-              className="h-20 sm:h-24 lg:h-28 w-auto opacity-90 object-contain"
+              className="h-32 lg:h-40 w-auto opacity-90 object-contain"
             />
           </Link>
 
