@@ -15,7 +15,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8 py-8 lg:py-10">
 
           {/* Left: seal */}
-          <Link href="/rebrand" className="no-underline shrink-0 flex items-center">
+          <Link href="/" className="no-underline shrink-0 flex items-center">
             <img
               src="/fy26_update/new_logo_2026_clear.png"
               alt="Civic Strategy Partners"

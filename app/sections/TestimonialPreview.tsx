@@ -32,7 +32,7 @@ export default function TestimonialPreview() {
         <ScrollReveal delay={300}>
           <div className="text-center">
             <Link
-              href="/rebrand/testimonials"
+              href="/testimonials"
               className="inline-block px-9 py-4 font-playfair font-semibold text-[15px] tracking-[0.18em] uppercase text-white/80 border border-white/15 hover:border-brand-gold/40 hover:text-brand-gold hover:-translate-y-[2px] active:translate-y-0 transition-all duration-300 no-underline"
             >
               Read All Testimonials &rarr;

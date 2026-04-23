@@ -5,10 +5,10 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 const navLinks = [
-  { label: 'Home', href: '/rebrand' },
-  { label: 'About', href: '/rebrand/about' },
-  { label: 'Testimonials', href: '/rebrand/testimonials' },
-  { label: 'Contact', href: '/rebrand/contact' },
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/about' },
+  { label: 'Testimonials', href: '/testimonials' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 export default function Navbar() {
@@ -28,7 +28,7 @@ export default function Navbar() {
   }, [pathname]);
 
   const isActive = (href: string) => {
-    if (href === '/rebrand') return pathname === '/rebrand';
+    if (href === '/') return pathname === '/';
     return pathname.startsWith(href);
   };
 
@@ -46,7 +46,7 @@ export default function Navbar() {
         }`}
       >
         {/* Logo — visible on all breakpoints; sized up at lg+ */}
-        <Link href="/rebrand" className="flex items-center gap-3 no-underline">
+        <Link href="/" className="flex items-center gap-3 no-underline">
           <img
             src="/fy26_update/new_logo_2026_clear.png"
             alt="Civic Strategy Partners"

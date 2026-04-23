@@ -48,7 +48,7 @@ async function submitToHubSpot(payload: ContactPayload) {
   const body = {
     fields,
     context: {
-      pageUri: 'civicstrategypartners.com/rebrand/contact',
+      pageUri: 'civicstrategypartners.com/contact',
       pageName: 'Contact — Civic Strategy Partners',
     },
   };

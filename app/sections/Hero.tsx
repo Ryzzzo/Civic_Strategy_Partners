@@ -108,7 +108,7 @@ export default function Hero() {
           }`}
         >
           <Link
-            href="/rebrand/contact"
+            href="/contact"
             className="inline-flex items-center justify-center w-full sm:w-auto text-center px-9 py-4 min-h-[44px] font-playfair font-bold text-[14px] sm:text-[15px] tracking-[0.18em] uppercase text-brand-navy-deep no-underline transition-all duration-300 hover:-translate-y-[2px] active:translate-y-0"
             style={{
               background: 'linear-gradient(135deg, #C5993A, #D4AA4F)',

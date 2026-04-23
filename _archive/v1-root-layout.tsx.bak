@@ -1,12 +1,6 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Inter, Playfair_Display } from 'next/font/google';
-import { ReactNode } from 'react';
-import Navbar from './sections/Navbar';
-import Footer from './sections/Footer';
-import ScrollProgress from './components/ScrollProgress';
-import PageTransition from './components/PageTransition';
-import LoadingScreen from './components/LoadingScreen';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -71,7 +65,11 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
@@ -103,40 +101,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
       </head>
       <body className={`${inter.variable} ${playfair.variable} font-sans`}>
-        <div className="relative min-h-screen overflow-x-hidden text-white/80">
-            <LoadingScreen />
-            <ScrollProgress />
-
-            {/* Layer 1: Solid navy base */}
-            <div className="fixed inset-0 bg-[#0a1628]" style={{ zIndex: 0 }} />
-
-            {/* Layer 2: Static CSP Seal Watermark — desktop only */}
-            <div
-              className="fixed inset-0 hidden md:flex items-center justify-center pointer-events-none"
-              style={{ zIndex: 1 }}
-              aria-hidden="true"
-            >
-              <img
-                src="/fy26_update/new_logo_2026_clear.png"
-                alt=""
-                className="opacity-[0.10] watermark-seal"
-                style={{ objectFit: 'contain' }}
-              />
-            </div>
-
-            {/* Layer 4: Site content — above everything */}
-            <div className="relative" style={{ zIndex: 10 }}>
-              <Navbar />
-
-              <main>
-                <PageTransition>
-                  {children}
-                </PageTransition>
-              </main>
-
-              <Footer />
-            </div>
-          </div>
+        {children}
         <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/244293135.js"></script>
       </body>
     </html>
