@@ -3,6 +3,11 @@
 import { useEffect, useRef, useState, FormEvent } from 'react';
 import GoldDivider from '../components/GoldDivider';
 import { ScrollReveal } from '../components/ScrollReveal';
+import TurnstileWidget, { TurnstileHandle } from '../components/TurnstileWidget';
+
+// Inlined at build time by Next. Empty when unset, which degrades the form to
+// honeypot + server-side rate limiting rather than blocking every enquiry.
+const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? '';
 
 const helpOptions = [
   { value: '', label: 'What are you looking for help with?' },
@@ -55,10 +60,15 @@ export default function Contact() {
   const [phone, setPhone] = useState('');
   const [helpTopic, setHelpTopic] = useState('');
   const [description, setDescription] = useState('');
+  const [website, setWebsite] = useState(''); // honeypot — always empty for humans
+  const [turnstileToken, setTurnstileToken] = useState('');
+  const [turnstileError, setTurnstileError] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
   const [status, setStatus] = useState<Status>('idle');
   const [errors, setErrors] = useState<{ email?: string; phone?: string }>({});
 
   const bannerRef = useRef<HTMLDivElement | null>(null);
+  const turnstileRef = useRef<TurnstileHandle | null>(null);
 
   useEffect(() => {
     if (status !== 'success' && status !== 'error') return;
@@ -67,7 +77,8 @@ export default function Contact() {
       if (!el) return;
       const rect = el.getBoundingClientRect();
       const top = rect.top + window.scrollY - 120; // clear fixed navbar
-      window.scrollTo({ top, behavior: 'smooth' });
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top, behavior: reduceMotion ? 'auto' : 'smooth' });
     });
     return () => cancelAnimationFrame(id);
   }, [status]);
@@ -83,7 +94,22 @@ export default function Contact() {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setErrorMessage('');
+
+    // Honeypot. A real visitor can neither see nor tab to this field, so any
+    // value means an automated fill — refuse without touching the network.
+    if (website.trim() !== '') {
+      setErrorMessage('This submission could not be processed.');
+      setStatus('error');
+      return;
+    }
+
     if (!validate()) return;
+
+    if (TURNSTILE_SITE_KEY && !turnstileToken) {
+      setTurnstileError('Please complete the verification below.');
+      return;
+    }
 
     setStatus('submitting');
     try {
@@ -98,11 +124,15 @@ export default function Contact() {
           phone: phone.trim(),
           helpTopic,
           description,
+          website,
+          turnstileToken,
         }),
       });
 
-      const data = await res.json().catch(() => ({ ok: false }));
-      if (!res.ok || !data.ok) throw new Error('submission failed');
+      const data = await res.json().catch(() => ({ ok: false, error: '' }));
+      if (!res.ok || !data.ok) {
+        throw new Error(typeof data.error === 'string' ? data.error : '');
+      }
 
       setStatus('success');
       setFirstName('');
@@ -113,12 +143,20 @@ export default function Contact() {
       setHelpTopic('');
       setDescription('');
       setErrors({});
-    } catch {
+    } catch (err) {
+      setErrorMessage(err instanceof Error ? err.message : '');
       setStatus('error');
+    } finally {
+      // Turnstile tokens are single-use — clear and re-arm for the next attempt.
+      turnstileRef.current?.reset();
+      setTurnstileToken('');
     }
   };
 
-  const resetToIdle = () => setStatus('idle');
+  const resetToIdle = () => {
+    setStatus('idle');
+    setErrorMessage('');
+  };
 
   const submitting = status === 'submitting';
 
@@ -172,7 +210,7 @@ export default function Contact() {
                   <button
                     type="button"
                     onClick={resetToIdle}
-                    className="mt-3 font-playfair font-semibold text-brand-gold/90 hover:text-brand-gold text-xs tracking-[0.15em] uppercase transition-colors duration-300"
+                    className="mt-3 font-playfair font-semibold text-brand-gold/90 hover:text-brand-gold text-xs tracking-[0.15em] uppercase transition-colors duration-300 csp-focus-ring"
                   >
                     Send another message &rarr;
                   </button>
@@ -197,16 +235,19 @@ export default function Contact() {
                     Something went wrong.
                   </p>
                   <p className="mt-1 font-sans text-white/75 text-sm">
-                    Please email{' '}
-                    <a href="mailto:info@civicstrategypartners.com" className="underline hover:text-brand-gold">
+                    {errorMessage || 'Your message could not be sent.'}
+                  </p>
+                  <p className="mt-1 font-sans text-white/75 text-sm">
+                    You can always email{' '}
+                    <a href="mailto:info@civicstrategypartners.com" className="underline hover:text-brand-gold csp-focus-ring">
                       info@civicstrategypartners.com
                     </a>{' '}
-                    directly, or try again.
+                    directly.
                   </p>
                   <button
                     type="button"
                     onClick={resetToIdle}
-                    className="mt-3 font-playfair font-semibold text-red-200/90 hover:text-red-100 text-xs tracking-[0.15em] uppercase transition-colors duration-300"
+                    className="mt-3 font-playfair font-semibold text-red-200/90 hover:text-red-100 text-xs tracking-[0.15em] uppercase transition-colors duration-300 csp-focus-ring"
                   >
                     Try again &rarr;
                   </button>
@@ -224,6 +265,8 @@ export default function Contact() {
                 <input
                   type="text"
                   placeholder="First Name"
+                  aria-label="First name"
+                  autoComplete="given-name"
                   value={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
                   disabled={submitting}
@@ -232,6 +275,8 @@ export default function Contact() {
                 <input
                   type="text"
                   placeholder="Last Name"
+                  aria-label="Last name"
+                  autoComplete="family-name"
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
                   disabled={submitting}
@@ -242,25 +287,49 @@ export default function Contact() {
               <input
                 type="text"
                 placeholder="Company Name"
+                aria-label="Company name"
+                autoComplete="organization"
                 value={company}
                 onChange={(e) => setCompany(e.target.value)}
                 disabled={submitting}
                 className={inputClasses}
               />
 
+              {/*
+                Honeypot. Hidden from sight, from the accessibility tree and from
+                the tab order, so only an automated filler ever populates it.
+              */}
+              <div aria-hidden="true" style={{ display: 'none' }}>
+                <label htmlFor="website">Website</label>
+                <input
+                  type="text"
+                  id="website"
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={website}
+                  onChange={(e) => setWebsite(e.target.value)}
+                />
+              </div>
+
               <div>
                 <input
                   type="email"
                   placeholder="Email Address *"
+                  aria-label="Email address (required)"
+                  autoComplete="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   disabled={submitting}
                   required
                   aria-invalid={Boolean(errors.email)}
+                  aria-describedby={errors.email ? 'contact-email-error' : undefined}
                   className={inputClasses}
                 />
                 {errors.email && (
-                  <p className="mt-1.5 text-xs text-red-300/90 font-sans">{errors.email}</p>
+                  <p id="contact-email-error" className="mt-1.5 text-xs text-red-300 font-sans">
+                    {errors.email}
+                  </p>
                 )}
               </div>
 
@@ -268,20 +337,26 @@ export default function Contact() {
                 <input
                   type="tel"
                   placeholder="Phone *"
+                  aria-label="Phone number (required)"
+                  autoComplete="tel"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   disabled={submitting}
                   required
                   aria-invalid={Boolean(errors.phone)}
+                  aria-describedby={errors.phone ? 'contact-phone-error' : undefined}
                   className={inputClasses}
                 />
                 {errors.phone && (
-                  <p className="mt-1.5 text-xs text-red-300/90 font-sans">{errors.phone}</p>
+                  <p id="contact-phone-error" className="mt-1.5 text-xs text-red-300 font-sans">
+                    {errors.phone}
+                  </p>
                 )}
               </div>
 
               <select
                 value={helpTopic}
+                aria-label="What are you looking for help with?"
                 onChange={(e) => setHelpTopic(e.target.value)}
                 disabled={submitting}
                 className={`${inputClasses} appearance-none ${helpTopic ? '' : 'text-white/60'}`}
@@ -300,6 +375,7 @@ export default function Contact() {
 
               <textarea
                 placeholder="Brief description of your situation"
+                aria-label="Brief description of your situation"
                 rows={4}
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
@@ -307,11 +383,39 @@ export default function Contact() {
                 className={`${inputClasses} resize-none`}
               />
 
+              {/* ── Bot verification ── */}
+              {TURNSTILE_SITE_KEY && (
+                <div>
+                  <TurnstileWidget
+                    ref={turnstileRef}
+                    siteKey={TURNSTILE_SITE_KEY}
+                    theme="dark"
+                    className="csp-turnstile"
+                    onVerify={(token) => {
+                      setTurnstileToken(token);
+                      setTurnstileError('');
+                    }}
+                    onExpire={() => setTurnstileToken('')}
+                    onError={() => {
+                      setTurnstileToken('');
+                      setTurnstileError(
+                        'Verification could not load. Please refresh the page, or email us directly.',
+                      );
+                    }}
+                  />
+                  {turnstileError && (
+                    <p role="alert" className="mt-2 text-xs text-red-300 font-sans">
+                      {turnstileError}
+                    </p>
+                  )}
+                </div>
+              )}
+
               <div className="flex flex-col items-center gap-3 pt-2">
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="w-full sm:w-auto px-10 py-4 min-h-[44px] font-playfair font-bold text-[14px] tracking-[0.2em] uppercase text-[#0C1B2E] transition-all duration-300 hover:-translate-y-[2px] active:translate-y-0 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0"
+                  className="csp-submit csp-focus-ring w-full sm:w-auto px-10 py-4 min-h-[44px] font-playfair font-bold text-[14px] tracking-[0.2em] uppercase text-[#0C1B2E] transition-all duration-300 hover:-translate-y-[2px] active:translate-y-0 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0"
                   style={{
                     background: 'linear-gradient(135deg, #C5993A, #D4AA4F)',
                     boxShadow: '0 4px 24px rgba(197,153,58,0.2)',
@@ -357,7 +461,7 @@ export default function Contact() {
                   <a
                     href={item.href}
                     {...(item.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                    className={`${valueClass} hover:text-brand-gold transition-colors duration-300 no-underline`}
+                    className={`${valueClass} hover:text-brand-gold transition-colors duration-300 no-underline csp-focus-ring`}
                   >
                     {item.display}
                   </a>
@@ -381,7 +485,7 @@ export default function Contact() {
             href="https://meetings-na2.hubspot.com/kmartin"
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-1.5 font-playfair font-medium text-brand-gold text-base tracking-wider uppercase no-underline hover:tracking-widest transition-all duration-300"
+            className="group inline-flex items-center gap-1.5 font-playfair font-medium text-brand-gold text-base tracking-wider uppercase no-underline hover:tracking-widest transition-all duration-300 csp-focus-ring"
           >
             Book a call
             <span

@@ -414,9 +414,53 @@ html {
 }
 
 /* ── Phase 1: Contact Form Focus Glow ── */
+/*
+ * Ring alpha raised from 0.12 to 0.85 and the border from 0.5 to 0.95.
+ * The old values composited to roughly 1.2:1 and 2.6:1 against the navy
+ * surface — both below the 3:1 WCAG 1.4.11 floor for a focus indicator.
+ * These land at ~5:1, so keyboard focus is unmistakable.
+ */
 .csp-input-glow:focus {
-  border-color: rgba(197, 153, 58, 0.5) !important;
-  box-shadow: 0 0 0 3px rgba(197, 153, 58, 0.12), 0 0 16px rgba(197, 153, 58, 0.08);
+  border-color: rgba(197, 153, 58, 0.95) !important;
+  box-shadow: 0 0 0 2px rgba(197, 153, 58, 0.85), 0 0 18px rgba(197, 153, 58, 0.18);
+}
+
+/* Buttons and links: keyboard-only ring, so mouse use stays visually quiet. */
+.csp-focus-ring:focus-visible {
+  outline: 2px solid rgba(197, 153, 58, 0.95);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/*
+ * Turnstile renders inside a cross-origin iframe we cannot style, so the
+ * wrapper carries the focus indicator on the widget's behalf.
+ */
+.csp-turnstile:focus-within {
+  outline: 2px solid rgba(197, 153, 58, 0.95);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/*
+ * Reduced motion, scoped to the contact form. The submit button already shows
+ * a static "Sending…" rather than a spinner; this removes the remaining
+ * transitions and the hover lift so nothing animates for those who opt out.
+ */
+@media (prefers-reduced-motion: reduce) {
+  #contact input,
+  #contact select,
+  #contact textarea,
+  #contact a,
+  #contact button,
+  #contact .csp-submit {
+    transition: none !important;
+  }
+
+  #contact .csp-submit:hover,
+  #contact .csp-submit:active {
+    transform: none !important;
+  }
 }
 
 /* ── Watermark Responsive Sizing ── */
