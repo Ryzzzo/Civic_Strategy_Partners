@@ -385,7 +385,7 @@ export default function Contact() {
 
               {/* ── Bot verification ── */}
               {TURNSTILE_SITE_KEY && (
-                <div>
+                <div className="flex flex-col items-center">
                   <TurnstileWidget
                     ref={turnstileRef}
                     siteKey={TURNSTILE_SITE_KEY}
